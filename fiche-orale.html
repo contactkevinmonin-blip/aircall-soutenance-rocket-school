@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Fiche Orale Anti-Sèche (A4) — Script Mot-à-Mot des 7 Slides Aircall</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  @media print {
+    body { background: #fff !important; padding: 0 !important; display: block !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .no-print { display: none !important; }
+    .a4 { margin: 0 !important; box-shadow: none !important; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  body { background: #001713; display: flex; flex-direction: column; align-items: center; padding: 20px 0; }
+  .top-btn { position: fixed; top: 14px; right: 20px; z-index: 999; background: #00BD82; color: #002620; border: none; padding: 10px 16px; border-radius: 999px; font-weight: 800; cursor: pointer; }
+  .a4 {
+    width: 210mm;
+    height: 297mm;
+    background: #FFFEFA;
+    padding: 11mm 13mm;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hdr { background: #002620; color: #FFFEFA; padding: 11px 16px; border-radius: 8px; border-left: 5px solid #00BD82; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .hdr h1 { font-size: 12.5pt; font-weight: 800; }
+  .hdr span { font-size: 8.5pt; color: #00BD82; font-weight: 700; }
+  .slide-box { border: 1px solid #DCE6E2; border-left: 4.5px solid #008F6D; border-radius: 6px; padding: 8px 11px; margin-bottom: 8px; background: #FFFFFF; }
+  .slide-box.cyan { border-left-color: #56B0C4; }
+  .slide-box.orange { border-left-color: #F18424; }
+  .stitle { font-size: 9pt; font-weight: 800; color: #002620; display: flex; justify-content: space-between; margin-bottom: 3px; }
+  .stitle span { color: #008F6D; font-size: 8pt; }
+  .stext { font-size: 8.5pt; line-height: 1.42; color: #253D38; }
+  .ftr { border-top: 1px solid #DCE6E2; padding-top: 6px; font-size: 8pt; color: #5A736D; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<button class="top-btn no-print" onclick="window.print()"> Imprimer / Enregistrer la Fiche Orale en PDF A4</button>
+<div class="a4">
+  <div>
+    <div class="hdr">
+      <h1> Fiche Orale Anti-Sèche — Script Mot-à-Mot de vos 7 Slides (10 min)</h1>
+      <span>AIRCALL × ROCKET SCHOOL · GRILLE 100/100 PTS</span>
+    </div>
+
+    <div class="slide-box">
+      <div class="stitle"><strong>SLIDE 1 — Présentation d'Aircall &amp; Chiffres Clés Officiels</strong><span>⏱ 0:00 – 1:15</span></div>
+      <div class="stext">« Bonjour à tous. Fondée à Paris en 2014, <strong>Aircall</strong> est la solution de téléphonie cloud et d'IA conversationnelle des équipes commerciales et support (<em>BlaBlaCar, ManoMano, Too Good To Go</em>). Ses chiffres officiels vérifiés témoignent d'une trajectoire exemplaire : après une Série A de 8 M$ (2016), B de 29 M$ et C de 65 M$ (2020), Aircall est devenue <strong>licorne valorisée 1 Md$</strong> en 2021 (Série D de 120 M$ avec Goldman Sachs), a franchi les 100 M$ d'ARR en 2022, atteint la <strong>rentabilité dès 2024</strong> et dépasse désormais les <strong>199 à 250 M$ d'ARR</strong> avec <strong>19 000 à 24 000+ entreprises clientes</strong> dans 100+ pays et <strong>700 à 800 collaborateurs</strong>. »</div>
+    </div>
+
+    <div class="slide-box cyan">
+      <div class="stitle"><strong>SLIDE 2 — Benchmark Concurrentiel : Aircall vs Ringover vs Allo</strong><span>⏱ 1:15 – 2:30</span></div>
+      <div class="stext">« Face à ses concurrents, Aircall domine largement en volume d'ARR (250 M$ contre <strong>50 M$ pour Ringover</strong> en février 2026 et <strong>1 à 3 M$ pour Allo ex-Withallo</strong>). Mais notre benchmark révèle un angle mort stratégique : là où Allo inclut les résumés IA et l'analytique dès 35 €/mois sans minimum de licences, Aircall impose <strong>3 licences minimum</strong> (30 $ sur <em>Essentials</em>, 50 $ sur <em>Pro</em>), bride l'historique de données à <strong>6 mois</strong> sur <em>Essentials</em> et facture l'option <strong>Analytics+ à +15 $/user/mois</strong>. C'est ce qui explique sa note G2 de 4,3/5 contre 4,6 pour Ringover et 4,7 pour Allo. D'où l'intérêt majeur de brancher un export Google Sheets + Looker Studio sans surcoût. »</div>
+    </div>
+
+    <div class="slide-box">
+      <div class="stitle"><strong>SLIDE 3 — Cadrage Projet Data &amp; Processus d'Analyse (30 pts)</strong><span>⏱ 2:30 – 4:00</span></div>
+      <div class="stext">« Pour sortir du piège <em>"Trop de KPI tue le KPI"</em>, nous avons cadré la mission sur 6 demi-journées (4 jalons) pour nos sponsors — la Direction Commerciale (VP Sales) et le CEO Olivier Pailhès — avec une règle de <strong>sobriété numérique limitée à 12 KPI</strong>. Notre processus d'analyse suit 4 étapes : (1) partir du besoin décisionnel, (2) collecter <strong>100 % de données vraies et sourcées</strong> avec URL vérifiable sur chaque ligne, (3) normaliser la feuille Google Sheets (1 ligne = 1 observation, dates ISO, <strong>Dimensions en vert</strong> et <strong>Métriques en bleu</strong>), et (4) écrire les formules sans commentaire en partageant en mode <strong>Lecteur</strong>. »</div>
+    </div>
+
+    <div class="slide-box cyan">
+      <div class="stitle"><strong>SLIDE 4 — Diagnostic du Funnel B2B &amp; Référentiel des 12 KPI (15 pts)</strong><span>⏱ 4:00 – 5:30</span></div>
+      <div class="stext">« Pourquoi ne jamais regarder uniquement le ratio global <em>Appels → Contrats signés</em> ? Parce qu'il masque la cause réelle des contre-performances ! Sur une base de <strong>10 000 appels</strong> (études Gong Labs sur 300M+ d'appels et Cognism), un <strong>Scénario Alerte Spam</strong> plafonne à 5 % de décroché et 5 signatures (0,05 %), le <strong>standard européen</strong> est à 14 % de décroché, 7,8 % de RDV et 22 signatures (0,22 %), tandis que le <strong>Top Performer</strong> atteint 22 % de décroché et <strong>82 signatures (0,82 %)</strong>. Et en <strong>Inbound rappelé en moins de 5 minutes</strong>, le décroché dépasse 45 % pour 1 000 signatures (10 %). Nos 12 KPI couvrent donc les 4 familles : Activité, Funnel, Finance (ARR, ACV, CAC) et Qualité (NPS/FCR). »</div>
+    </div>
+
+    <div class="slide-box orange">
+      <div class="stitle"><strong>SLIDE 5 — Notre Dashboard Opérationnel dans Google Data Studio (15 pts)</strong><span>⏱ 5:30 – 7:00</span></div>
+      <div class="stext">« Voici la capture de notre rapport réel construit dans Google Data Studio. Il respecte les 3 niveaux hiérarchiques : (1) <strong>En haut</strong>, le sélecteur <code>Scenario_Etude</code> et nos 3 Cartes de score (<strong>18,48 % de décroché moyen</strong>, <strong>4 494 RDV</strong> et <strong>1 115 contrats signés</strong>), (2) <strong>Au centre</strong>, le graphique en barres horizontales triées comparant les 5 scénarios sans camembert illisible, et (3) <strong>En bas</strong>, le tableau détaillé permettant de filtrer toute la page en un clic. Surtout, nous avons corrigé le piège classique de Data Studio en remplaçant <code>SUM</code> par <strong>Moyenne (<code>AVG</code>)</strong> sur les taux et le NPS. »</div>
+    </div>
+
+    <div class="slide-box">
+      <div class="stitle"><strong>SLIDE 6 — Faire Parler la Data : Insights &amp; 3 Recommandations Chiffrées (10 pts)</strong><span>⏱ 7:00 – 8:45</span></div>
+      <div class="stext">« La lecture du dashboard éclaire 3 décisions immédiates pour la direction d'Aircall : <strong>(1) Instaurer une revue hebdomadaire du Connect Rate par pays</strong> pour renouveler immédiatement les numéros DID signalés en spam (&lt;10 %, comme aux US à 6,4 %) et passer de 5 à 22 closings / 10k appels (+177 k$ d'ARR) ; <strong>(2) Former sur les 30 premières secondes d'accroche</strong> les SDR ayant un décroché &gt; 15 % mais un taux de RDV &lt; 5 %, ce qui permet de viser les 82 closings du Top Performer (+625 k$ d'ARR / 10k appels) ; <strong>(3) Aligner le variable des AE sur l'ACV/marge</strong> (10 417 $) et fournir ce template Looker Studio aux clients PME bridés à 6 mois. »</div>
+    </div>
+
+    <div class="slide-box cyan">
+      <div class="stitle"><strong>SLIDE 7 — Usage Critique de l'IA, Sobriété Numérique &amp; Conclusion (15 pts)</strong><span>⏱ 8:45 – 10:00</span></div>
+      <div class="stext">« Enfin, sur l'usage critique de l'IA : l'IA accélère la préparation des schémas et des formules, mais exige une <strong>vérification humaine systématique</strong> : zéro donnée inventée (case vide si non publiée), interdiction d'additionner des pourcentages ou des scores NPS (usage strict de <code>AVG</code>), respect de la confidentialité CRM et sobriété numérique à 12 KPI. Je vous remercie et je suis prêt pour vos questions ! »</div>
+    </div>
+  </div>
+
+  <div class="ftr">
+    <span>Fiche Orale Anti-Sèche A4 (7 Slides) — Kévin Monin · Soutenance Aircall × Rocket School</span>
+    <span>1 Page A4 Prête à Imprimer</span>
+  </div>
+</div>
+</body>
+</html>

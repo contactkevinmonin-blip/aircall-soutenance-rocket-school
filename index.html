@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Aircall — Performance Commerciale (7 Slides)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  @media print {
+    body { background: #FFFFFF !important; padding: 0 !important; gap: 0 !important; display: block !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .no-print { display: none !important; }
+    .slide { margin: 0 !important; box-shadow: none !important; border-radius: 0 !important; page-break-after: always; break-after: page; display: flex !important; }
+  }
+  :root {
+    --forest: #06241C;
+    --teal: #0B6B53;
+    --emerald: #00B388;
+    --mint: #EAF8F3;
+    --mint-border: #C5E8DC;
+    --white: #FFFFFF;
+    --offwhite: #F8FCFA;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
+  body {
+    background: #03140F;
+    color: var(--forest);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0 64px;
+    gap: 36px;
+  }
+
+  .floating-bar {
+    position: fixed;
+    bottom: 22px;
+    right: 26px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--forest);
+    border: 1.5px solid var(--emerald);
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+  .btn-nav { background: rgba(255,255,255,0.1); color: var(--white); border: none; padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: 12px; cursor: pointer; }
+  .btn-nav:hover { background: var(--emerald); color: var(--forest); }
+  .btn-pdf { background: var(--emerald); color: var(--forest); border: none; padding: 8px 16px; border-radius: 999px; font-weight: 800; font-size: 12.5px; cursor: pointer; }
+
+  .slide {
+    width: 1280px;
+    height: 720px;
+    background: var(--white);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 52px 68px 46px;
+  }
+  .slide.dark-green {
+    background: var(--teal);
+    color: var(--white);
+  }
+
+  .z-layer { position: relative; z-index: 2; width: 100%; }
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .brand-lockup { display: flex; align-items: center; gap: 18px; }
+  .divider-v { width: 1.5px; height: 24px; background: var(--mint-border); }
+  .dark-green .divider-v { background: rgba(255,255,255,0.28); }
+
+  .step-tag {
+    font-size: 12.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--mint);
+    color: var(--teal);
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--mint-border);
+  }
+  .dark-green .step-tag {
+    background: rgba(6, 36, 28, 0.45);
+    color: var(--white);
+    border-color: rgba(255,255,255,0.22);
+  }
+  .slide-num {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--teal);
+    background: var(--mint);
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+  .dark-green .slide-num {
+    background: rgba(6, 36, 28, 0.45);
+    color: var(--white);
+  }
+
+  h1 { font-size: 52px; font-weight: 800; line-height: 1.08; letter-spacing: -1.8px; color: var(--white); }
+  h2 { font-size: 40px; font-weight: 800; color: var(--forest); letter-spacing: -1.3px; line-height: 1.12; }
+  .accent { color: var(--emerald); }
+  .dark-green .accent { color: #7FF5D3; }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  /* Editorial Left-Aligned Cards */
+  .card {
+    background: var(--offwhite);
+    border: 1.5px solid var(--mint-border);
+    border-radius: 18px;
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .card.featured {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: var(--white);
+  }
+  .dark-green .card {
+    background: var(--forest);
+    border: 1.5px solid rgba(255,255,255,0.16);
+    color: var(--white);
+  }
+  .dark-green .card.featured {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--forest);
+  }
+
+  .card-index {
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--mint-border);
+  }
+  .card.featured .card-index,
+  .dark-green .card .card-index {
+    color: var(--emerald);
+    border-bottom-color: rgba(255,255,255,0.14);
+  }
+  .dark-green .card.featured .card-index {
+    color: var(--teal);
+    border-bottom-color: var(--mint-border);
+  }
+
+  .num-xl {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1.6px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    color: var(--forest);
+  }
+  .card.featured .num-xl,
+  .dark-green .card .num-xl { color: var(--white); }
+  .dark-green .card.featured .num-xl { color: var(--forest); }
+
+  .lbl-lg { font-size: 18px; font-weight: 800; line-height: 1.25; }
+  .lbl-sm { font-size: 14px; font-weight: 600; opacity: 0.78; margin-top: 6px; line-height: 1.35; }
+
+  /* Clean Monochrome Green & White Table */
+  table.clean-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--white);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1.5px solid var(--mint-border);
+    font-size: 18px;
+  }
+  table.clean-table th {
+    background: var(--forest);
+    color: var(--white);
+    padding: 18px 24px;
+    text-align: left;
+    font-size: 13.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    vertical-align: middle;
+  }
+  table.clean-table td {
+    padding: 18px 24px;
+    border-bottom: 1px solid #E4F2EC;
+    font-weight: 700;
+    color: var(--forest);
+    vertical-align: middle;
+  }
+  table.clean-table tr:nth-child(even) td { background: var(--offwhite); }
+  table.clean-table tr:last-child td { border-bottom: none; }
+
+  /* Strictly Green & White Badges */
+  .badge-solid {
+    background: var(--emerald);
+    color: var(--forest);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 14.5px;
+    display: inline-block;
+  }
+  .badge-dark {
+    background: var(--forest);
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 14.5px;
+    display: inline-block;
+  }
+  .badge-mint {
+    background: var(--mint);
+    color: var(--forest);
+    border: 1px solid var(--mint-border);
+    padding: 5px 13px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 14.5px;
+    display: inline-block;
+  }
+  .badge-outline {
+    background: transparent;
+    color: var(--teal);
+    border: 1.5px solid var(--mint-border);
+    padding: 5px 13px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  .step-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .step-pill {
+    background: var(--forest);
+    color: var(--white);
+    padding: 16px 20px;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .step-pill .s-num {
+    background: var(--emerald);
+    color: var(--forest);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="floating-bar no-print">
+  <button class="btn-nav" onclick="prevSlide()">Préc.</button>
+  <span id="slide-indicator" style="color:#FFFFFF; font-size:12px; font-weight:700; padding:0 8px;">1 / 7</span>
+  <button class="btn-nav" onclick="nextSlide()">Suiv.</button>
+  <button class="btn-pdf" onclick="window.print()">Exporter PDF</button>
+</div>
+
+<!-- =========================================================
+     SLIDE 1 : PRÉSENTATION D'AIRCALL & CHIFFRES CLÉS
+     ========================================================= -->
+<div class="slide dark-green">
+  
+<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0H280L140 315C122 355 82 380 38 380H0V0Z" fill="#041A14"/>
+  <path d="M1280 360H1195C1150 360 1110 386 1092 427L960 720H1280V360Z" fill="#00B388"/>
+</svg>
+
+  <div class="top-row">
+    <div class="brand-lockup">
+      <svg width="136" height="38" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg>
+      <div class="divider-v"></div>
+      <span class="step-tag">01 · PRÉSENTATION</span>
+    </div>
+    <span class="slide-num">01 / 07</span>
+  </div>
+
+  <div class="content">
+    <h1>La Téléphonie Cloud <span class="accent">des Commerciaux.</span></h1>
+
+    <div class="grid-5">
+      <div class="card featured">
+        <div class="card-index">01 · ARR 2023 ➔ 2026</div>
+        <div>
+          <div class="num-xl">250 M$</div>
+          <div class="lbl-lg">140 M$ ➔ 250 M$</div>
+          <div class="lbl-sm">+78 % de croissance</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">02 · BASE CLIENTS</div>
+        <div>
+          <div class="num-xl">24 000+</div>
+          <div class="lbl-lg">16k ➔ 24k Clients</div>
+          <div class="lbl-sm">Dans plus de 100 pays</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">03 · VALORISATION</div>
+        <div>
+          <div class="num-xl">~1 Md$</div>
+          <div class="lbl-lg">Licorne Française</div>
+          <div class="lbl-sm">Série D (120 M$)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">04 · PRODUCTIVITÉ</div>
+        <div>
+          <div class="num-xl">312 k$</div>
+          <div class="lbl-lg">ARR / Salarié</div>
+          <div class="lbl-sm">175k$ ➔ 312k$ (×1,8)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">05 · MODÈLE RENTABLE</div>
+        <div>
+          <div class="num-xl" style="color:var(--emerald);">2024</div>
+          <div class="lbl-lg">Rentable (EBITDA+)</div>
+          <div class="lbl-sm">ARPA : 10 417 $ / an</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="z-layer"></div>
+</div>
+
+<!-- =========================================================
+     SLIDE 2 : BENCHMARK CONCURRENTS (LOGOS MONOCHROMES VERT & BLANC)
+     ========================================================= -->
+<div class="slide">
+  
+<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1280 0H1080L1190 245C1205 278 1238 300 1275 300H1280V0Z" fill="#EDF8F4"/>
+  <path d="M0 540H75C112 540 145 562 160 595L215 720H0V540Z" fill="#EDF8F4"/>
+</svg>
+
+  <div class="top-row">
+    <div class="brand-lockup">
+      <svg width="124" height="35" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#00B388"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#FFFFFF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#06241C"/></svg>
+      <div class="divider-v"></div>
+      <span class="step-tag">02 · BENCHMARK</span>
+    </div>
+    <span class="slide-num">02 / 07</span>
+  </div>
+
+  <div class="content">
+    <h2>Positionnement : <span class="accent">Aircall vs Ringover vs Allo</span></h2>
+
+    <table class="clean-table">
+      <thead>
+        <tr>
+          <th style="width:22%;">Critère</th>
+          <th style="width:26%;"><svg width="96" height="27" style="vertical-align:middle;display:inline-block;" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></th>
+          <th style="width:26%;"><svg width="105px" height="24px" style="vertical-align:middle;display:inline-block;" id="logo-ringover_i1" viewBox="0 0 115 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="10.642537%" y1="10.7823457%" x2="96.4712916%" y2="100%" id="linearGradient-1_i1">
+            <stop stop-color="#00B388" offset="0%"></stop>
+            <stop stop-color="#00B388" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="logo_i1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard_i1" transform="translate(-134.000000, -280.000000)">
+            <g id="logo-line-color_i1" transform="translate(134.000000, 280.000000)">
+                <g id="Group-13_i1" transform="translate(0.000000, 0.000000)">
+                    <g id="Group_i1" transform="translate(32.000000, 3.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M2.784,17.616 L2.784,12.048 C2.784,9.864 3.768,8.616 5.928,8.616 C6.216,8.616 6.528,8.64 6.84,8.688 L6.84,5.856 C6.72,5.832 6.432,5.784 6.096,5.784 C4.56,5.784 3.264,6.528 2.712,7.8 L2.712,5.928 L0,5.928 L0,17.616 L2.784,17.616 Z M9.536,3.624 C10.544,3.624 11.36,2.832 11.36,1.824 C11.36,0.816 10.544,0 9.536,0 C8.552,0 7.736,0.816 7.736,1.824 C7.736,2.832 8.552,3.624 9.536,3.624 Z M10.928,17.616 L10.928,5.928 L8.168,5.928 L8.168,17.616 L10.928,17.616 Z M16.312,17.616 L16.312,10.872 C16.312,9.336 17.152,8.112 18.736,8.112 C20.488,8.112 21.136,9.264 21.136,10.704 L21.136,17.616 L23.92,17.616 L23.92,10.224 C23.92,7.656 22.552,5.592 19.696,5.592 C18.4,5.592 17.008,6.144 16.24,7.488 L16.24,5.928 L13.528,5.928 L13.528,17.616 L16.312,17.616 Z M31.032,22.536 C35.424,22.536 37.032,19.632 37.032,16.512 L37.032,5.928 L34.344,5.928 L34.344,7.416 C33.84,6.456 32.712,5.712 30.888,5.712 C27.672,5.712 25.488,8.28 25.488,11.4 C25.488,14.688 27.768,17.088 30.888,17.088 C32.592,17.088 33.768,16.296 34.272,15.384 L34.272,16.608 C34.272,18.984 33.168,20.112 30.96,20.112 C29.352,20.112 28.224,19.032 28.032,17.592 L25.464,18.264 C25.776,20.616 27.936,22.536 31.032,22.536 Z M31.344,14.712 C29.52,14.712 28.296,13.44 28.296,11.4 C28.296,9.408 29.568,8.112 31.344,8.112 C33.072,8.112 34.344,9.408 34.344,11.4 C34.344,13.416 33.12,14.712 31.344,14.712 Z M44.576,17.976 C48.08,17.976 50.648,15.36 50.648,11.76 C50.648,8.184 48.08,5.568 44.576,5.568 C41.096,5.568 38.528,8.184 38.528,11.76 C38.528,15.36 41.096,17.976 44.576,17.976 Z M44.576,15.48 C42.872,15.48 41.312,14.184 41.312,11.76 C41.312,9.336 42.872,8.088 44.576,8.088 C46.304,8.088 47.84,9.336 47.84,11.76 C47.84,14.208 46.304,15.48 44.576,15.48 Z M57.952,17.616 L62.536,5.928 L59.608,5.928 L56.584,14.28 L53.488,5.928 L50.416,5.928 L55.168,17.616 L57.952,17.616 Z M68.28,17.976 C71.088,17.976 72.936,16.32 73.56,14.28 L71.208,13.536 C70.824,14.688 69.96,15.576 68.28,15.576 C66.552,15.576 65.16,14.304 65.088,12.528 L73.632,12.528 C73.656,12.48 73.704,12.096 73.704,11.64 C73.704,7.944 71.592,5.568 67.992,5.568 C65.04,5.568 62.304,8.016 62.304,11.712 C62.304,15.672 65.112,17.976 68.28,17.976 Z M70.896,10.488 L65.16,10.488 C65.256,9.24 66.264,7.896 68.016,7.896 C69.936,7.896 70.848,9.12 70.896,10.488 Z M78.152,17.616 L78.152,12.048 C78.152,9.864 79.136,8.616 81.296,8.616 C81.584,8.616 81.896,8.64 82.208,8.688 L82.208,5.856 C82.088,5.832 81.8,5.784 81.464,5.784 C79.928,5.784 78.632,6.528 78.08,7.8 L78.08,5.928 L75.368,5.928 L75.368,17.616 L78.152,17.616 Z" id="ringover_i1"></path>
+                    </g>
+                    <g id="logo_i1" transform="translate(0.000000, 0.000000)" fill="url(#linearGradient-1_i1)">
+                        <g id="Group-Copy-3_i1">
+                            <g id="Group-2_i1" transform="translate(0.245620, 0.000000)">
+                                <path d="M12.7487636,26.0357143 C6.44286601,26.0357143 1.49207336,21.8112333 0.373650926,15.6875264 C0.359732676,15.6113197 0.34019606,15.4963529 0.315041079,15.342626 L6.56344993,15.3427385 C6.5908412,15.4348227 6.61183136,15.5034988 6.62642038,15.5487668 C7.55282415,18.4232847 10.0690497,19.9096639 12.7487636,19.9096639 C15.432939,19.9096639 17.9530813,18.4494006 18.8757208,15.5535215 C18.8904769,15.5072066 18.9116851,15.4369081 18.9393453,15.342626 L25.1824861,15.342626 C25.1615897,15.4711433 25.1454487,15.5673025 25.1340631,15.6311037 C24.0358226,21.7852691 19.0740099,26.0357143 12.7487636,26.0357143 Z M12.7487636,0 C19.3444301,0 24.4575906,4.57963363 25.2535401,11.1938247 C25.264946,11.2886056 25.2800508,11.4317085 25.2988544,11.6231335 L19.142136,11.6231335 C19.1243944,11.5144466 19.1105316,11.4333869 19.1005476,11.3799545 C18.4481121,7.88825231 15.697413,6.12605042 12.7487636,6.12605042 C9.83383355,6.12605042 7.11235238,7.84817927 6.42018275,11.2608445 C6.40413025,11.3399896 6.38253305,11.4607526 6.35539115,11.6231335 L0.198672699,11.6231335 C0.225874504,11.3543914 0.2482484,11.153762 0.265794389,11.0212454 C1.12923201,4.50010485 6.21061717,0 12.7487636,0 Z" id="Shape_i1"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg></th>
+          <th style="width:26%;"><svg viewBox="0 0 155 50" width="96" height="31" style="vertical-align:middle;display:inline-block;" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="5" width="40" height="40" rx="11" fill="#00B388"/>
+  <path d="M15.5 16.5C14.7 16.5 14 17.2 14 18C14 25.7 20.3 32 28 32C28.8 32 29.5 31.3 29.5 30.5V27.2C29.5 26.5 29 25.9 28.3 25.8L25.4 25.2C24.8 25.1 24.2 25.3 23.8 25.7L22.6 26.9C20.3 25.7 18.3 23.7 17.1 21.4L18.3 20.2C18.7 19.8 18.9 19.2 18.8 18.6L18.2 15.7C18.1 15 17.5 14.5 16.8 14.5H15.5Z" fill="#06241C"/>
+  <path d="M28 13L29.1 15.9L32 17L29.1 18.1L28 21L26.9 18.1L24 17L26.9 15.9L28 13Z" fill="#FFFFFF"/>
+  <path fill="#FFFFFF" d="M69.42 17.03q5.11 0 7.85 2.19 2.79 2.18 2.79 6.65v15.8h-6.03v-3.5q-2.65 3.5-7.44 3.5-2.56 0-4.53-.91a7.4 7.4 0 0 1-3.01-2.5A6.6 6.6 0 0 1 58 34.6q0-3.06 2.01-4.96 2.05-1.97 6.49-2.37l6.85-.69v-1.18q0-1.77-1.05-2.69a4 4 0 0 0-2.84-.95q-1.82 0-2.87.77a3.7 3.7 0 0 0-1.37 2.28h-6.8a8 8 0 0 1 3.28-5.78q2.83-2 7.72-2m-1 20.31q2.37 0 3.6-1.46a6 6 0 0 0 1.23-3.91v-1.55l-5.11.68q-1.65.23-2.51 1.1a2.8 2.8 0 0 0-.87 2.09q0 1.31 1 2.19 1.01.86 2.65.86M90.83 41.67h-6.8V8.33h6.8zM101.85 41.67h-6.8V8.33h6.8zM117.11 41.67q-3.47 0-6.25-1.5a11 11 0 0 1-4.39-4.29 13 13 0 0 1-1.6-6.5q0-3.75 1.6-6.52a11 11 0 0 1 4.39-4.33q2.78-1.5 6.25-1.5t6.26 1.5q2.79 1.5 4.39 4.33a13 13 0 0 1 1.6 6.51q0 3.74-1.6 6.51a11 11 0 0 1-4.39 4.28q-2.78 1.5-6.26 1.5m0-5.38q2.38 0 3.89-1.86 1.5-1.87 1.5-5.06 0-3.23-1.5-5.1a4.8 4.8 0 0 0-3.93-1.87q-2.42 0-3.93 1.87-1.5 1.87-1.5 5.1 0 3.19 1.5 5.06a5 5 0 0 0 3.97 1.86"/>
+</svg></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ARR &amp; Envergure</strong></td>
+          <td><span class="badge-dark">250 M$ ARR</span> · 24k clients (Leader Mid-Market)</td>
+          <td><span class="badge-mint">50 M$ ARR</span> · 14k clients (Challenger ETI)</td>
+          <td><span class="badge-outline">3 M$ ARR</span> · 5k clients (Pure Player TPE)</td>
+        </tr>
+        <tr>
+          <td><strong>Ticket d'entrée annuel</strong></td>
+          <td><span class="badge-dark">1 080 $ / an min.</span> (Min. 3 licences · 30 $/m)</td>
+          <td><span class="badge-mint">252 $ / an</span> (Dès 1 licence · 21 $/m · ×4 moins cher)</td>
+          <td><span class="badge-solid">420 € / an</span> (Dès 1 licence · 35 €/m · Sans minimum)</td>
+        </tr>
+        <tr>
+          <td><strong>Option Data &amp; Historique</strong></td>
+          <td><span class="badge-dark">Bridé 6 mois · +15 $/m</span> (+1 800 $/an pour 10 users)</td>
+          <td>Option <strong>+6 $/m</strong> (+720 $/an pour 10 users)</td>
+          <td><span class="badge-solid">100 % Inclus (0 €)</span> (Historique 12 mois illimité)</td>
+        </tr>
+        <tr>
+          <td><strong>Pack Complet / User (Data + IA)</strong></td>
+          <td><strong>94 $ / mois</strong> (Essentials 30$ + Data 15$ + IA 49$)</td>
+          <td><strong>66 $ / mois</strong> (Smart 21$ + Data 6$ + IA 39$)</td>
+          <td><span class="badge-solid">35 € / mois</span> (Téléphonie + IA + Data tout-inclus)</td>
+        </tr>
+        <tr>
+          <td><strong>Satisfaction G2 Crowd</strong></td>
+          <td><strong>4,3 / 5</strong> (1 267 avis · Décrochage sur le segment PME)</td>
+          <td><span class="badge-mint">4,6 / 5</span> (Forte adoption européenne)</td>
+          <td><span class="badge-mint">4,7 / 5</span> (Plébiscité par les équipes agiles)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background:var(--mint); border-left:4px solid var(--emerald); border-radius:12px; padding:12px 20px; margin-top:16px; font-size:13.5px; color:var(--forest); font-weight:600; line-height:1.4;">
+      <strong style="color:var(--teal);">Angle mort stratégique Aircall :</strong> Une « taxe data » de +1 800 $/an pour 10 commerciaux (Analytics+) et un historique bridé à 6 mois qui provoquent l'attrition PME vers Ringover &amp; Allo. Notre Dashboard Looker Studio gratuit résout cette friction à coût zéro pour protéger la rétention client.
+    </div>
+  </div>
+
+  <div class="z-layer"></div>
+</div>
+
+<!-- =========================================================
+     SLIDE 3 : CADRAGE PROJET & MÉTHODE DATA
+     ========================================================= -->
+<div class="slide">
+  
+<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1280 0H1080L1190 245C1205 278 1238 300 1275 300H1280V0Z" fill="#EDF8F4"/>
+  <path d="M0 540H75C112 540 145 562 160 595L215 720H0V540Z" fill="#EDF8F4"/>
+</svg>
+
+  <div class="top-row">
+    <div class="brand-lockup">
+      <svg width="124" height="35" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#00B388"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#FFFFFF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#06241C"/></svg>
+      <div class="divider-v"></div>
+      <span class="step-tag">03 · CADRAGE PROJET</span>
+    </div>
+    <span class="slide-num">03 / 07</span>
+  </div>
+
+  <div class="content">
+    <h2>Cadrage RevOps : <span class="accent">« Trop de KPI tue le KPI »</span></h2>
+
+    <div class="grid-4">
+      <div class="card featured">
+        <div class="card-index">01 · OBJECTIF</div>
+        <div>
+          <div class="lbl-lg" style="font-size:24px; margin-bottom:8px;">Relier le Funnel</div>
+          <div class="lbl-sm" style="color:#C5E8DC;">Appels SDR ➔ RDV AE ➔ ARR</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">02 · SPONSORS</div>
+        <div>
+          <div class="lbl-lg" style="font-size:24px; margin-bottom:8px;">Direction</div>
+          <div class="lbl-sm">CEO · VP Sales · CFO</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">03 · SOBRIÉTÉ</div>
+        <div>
+          <div class="lbl-lg" style="font-size:24px; margin-bottom:8px;">12 KPI Clés</div>
+          <div class="lbl-sm">Zéro surcharge cognitive</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">04 · ARCHITECTURE</div>
+        <div>
+          <div class="lbl-lg" style="font-size:24px; margin-bottom:8px;">Data Studio</div>
+          <div class="lbl-sm">Alternative gratuite à Analytics+</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-strip">
+      <div class="step-pill"><span class="s-num">1</span> Besoin Métier</div>
+      <div class="step-pill"><span class="s-num">2</span> Données 100 % Vraies</div>
+      <div class="step-pill"><span class="s-num">3</span> Dimensions &amp; Métriques</div>
+      <div class="step-pill"><span class="s-num">4</span> Décisions (Mode Lecteur)</div>
+    </div>
+  </div>
+
+  <div class="z-layer"></div>
+</div>
+
+<!-- =========================================================
+     SLIDE 4 : FUNNEL B2B & LES 12 KPI CHOISIS
+     ========================================================= -->
+<div class="slide">
+  
+<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1280 0H1080L1190 245C1205 278 1238 300 1275 300H1280V0Z" fill="#EDF8F4"/>
+  <path d="M0 540H75C112 540 145 562 160 595L215 720H0V540Z" fill="#EDF8F4"/>
+</svg>
+
+  <div class="top-row">
+    <div class="brand-lockup">
+      <svg width="124" height="35" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#00B388"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#FFFFFF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#06241C"/></svg>
+      <div class="divider-v"></div>
+      <span class="step-tag">04 · FUNNEL B2B &amp; 12 KPI</span>
+    </div>
+    <span class="slide-num">04 / 07</span>
+  </div>
+
+  <div class="content">
+    <h2>Sur 10 000 Appels : <span class="accent">Combien de Contrats Signés ?</span></h2>
+
+    <div class="grid-5">
+      <div class="card">
+        <div class="card-index">01 · NUMÉROS SPAM</div>
+        <div>
+          <div class="num-xl">5</div>
+          <div class="lbl-lg">Contrats Signés</div>
+          <div class="lbl-sm">5 % Décroché · 25 RDV</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">02 · ÉTATS-UNIS</div>
+        <div>
+          <div class="num-xl">6</div>
+          <div class="lbl-lg">Contrats Signés</div>
+          <div class="lbl-sm">6,4 % Décr. · 29 RDV</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">03 · MÉDIANE EUROPE</div>
+        <div>
+          <div class="num-xl">22</div>
+          <div class="lbl-lg">Contrats Signés</div>
+          <div class="lbl-sm">14 % Décr. · 110 RDV</div>
+        </div>
+      </div>
+
+      <div class="card featured">
+        <div class="card-index">04 · TOP PERFORMER</div>
+        <div>
+          <div class="num-xl" style="color:var(--emerald);">82</div>
+          <div class="lbl-lg">Signés (×3,7)</div>
+          <div class="lbl-sm" style="color:#C5E8DC;">22 % Décr. · 330 RDV</div>
+        </div>
+      </div>
+
+      <div class="card featured" style="background:var(--teal); border-color:var(--teal);">
+        <div class="card-index" style="color:#FFFFFF;">05 · INBOUND &lt; 5 MIN</div>
+        <div>
+          <div class="num-xl">1 000</div>
+          <div class="lbl-lg">Contrats Signés</div>
+          <div class="lbl-sm" style="color:#EAF8F3;">45 % Décr. · 4 000 RDV</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-strip">
+      <div class="step-pill"><span class="s-num">A</span> Activité : Volume &amp; Durée</div>
+      <div class="step-pill"><span class="s-num">B</span> Funnel : Décroché ➔ RDV ➔ Closing</div>
+      <div class="step-pill"><span class="s-num">C</span> Finance : ARR · ACV (10,4k$) · CAC</div>
+      <div class="step-pill"><span class="s-num">D</span> Qualité : NPS (AVG) &amp; FCR</div>
+    </div>
+  </div>
+
+  <div class="z-layer"></div>
+</div>
+
+<!-- =========================================================
+     SLIDE 5 : DASHBOARD GOOGLE DATA STUDIO (PLEIN ÉCRAN)
+     ========================================================= -->
+<div class="slide">
+  
+<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1280 0H1080L1190 245C1205 278 1238 300 1275 300H1280V0Z" fill="#EDF8F4"/>
+  <path d="M0 540H75C112 540 145 562 160 595L215 720H0V540Z" fill="#EDF8F4"/>
+</svg>
+
+  <div class="top-row">
+    <div class="brand-lockup">
+      <svg width="124" height="35" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#00B388"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#FFFFFF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#06241C"/></svg>
+      <div class="divider-v"></div>
+      <span class="step-tag">05 · DASHBOARD DATA STUDIO</span>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <span class="badge-solid">18,48 % Décroché (AVG)</span>
+      <span class="badge-mint">4 494 RDV</span>
+      <span class="badge-dark">1 115 Signés</span>
+      <span class="slide-num" style="margin-left:8px;">05 / 07</span>
+    </div>
+  </div>
+
+  <div class="content" style="justify-content:center; align-items:center;">
+    <div style="width:100%; height:540px; border:2px solid var(--forest); border-radius:16px; overflow:hidden; background:#FFFFFF; box-shadow:0 16px 40px rgba(6,36,28,0.10); display:flex; align-items:center; justify-content:center;">
+      <img src="capture_vrai_datastudio_kevin.jpg" alt="Dashboard Data Studio" style="width:98%; height:96%; object-fit:contain; display:block;">
+    </div>
+  </div>
+
+  <div class="z-layer"></div>
+</div>
+
+<!-- =========================================================
+     SLIDE 6 : LES 3 GRANDS INSIGHTS (DIAGNOSTIC DATA)
+     ========================================================= -->
+<div class="slide">
+  
+<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1280 0H1080L1190 245C1205 278 1238 300 1275 300H1280V0Z" fill="#EDF8F4"/>
+  <path d="M0 540H75C112 540 145 562 160 595L215 720H0V540Z" fill="#EDF8F4"/>
+</svg>
+
+  <div class="top-row">
+    <div class="brand-lockup">
+      <svg width="124" height="35" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#00B388"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#FFFFFF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#06241C"/></svg>
+      <div class="divider-v"></div>
+      <span class="step-tag">06 · INSIGHTS DATA</span>
+    </div>
+    <span class="slide-num">06 / 07</span>
+  </div>
+
+  <div class="content">
+    <h2>Faire Parler la Data : <span class="accent">3 Constats Majeurs</span></h2>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-index">GOULOT N°1 · L'HÉMORRAGIE TÉLÉCOM (ARCEP / FCC)</div>
+        <div>
+          <div class="num-xl" style="font-size:44px;">-64 % Décroché</div>
+          <div class="lbl-lg">400 Appels pour 1 seul RDV</div>
+          <div class="lbl-sm" style="margin-top:10px; font-size:13.5px; line-height:1.4;">Dès qu'un numéro est étiqueté <em>Spam</em>, le décroché s'effondre de 14 % à 5 %. Sans monitoring data quotidien, une équipe de SDR brûle 92 % de son temps dans le vide sans le savoir.</div>
+          <div style="margin-top:18px;"><span class="badge-mint">Loi Naegelen &amp; Filtres Opérateurs</span></div>
+        </div>
+      </div>
+
+      <div class="card featured">
+        <div class="card-index">GOULOT N°2 · LE LEVIER MANAGÉRIAL (PITCH 30s)</div>
+        <div>
+          <div class="num-xl" style="font-size:44px; color:var(--emerald);">× 3,7 Signés</div>
+          <div class="lbl-lg">De 22 à 82 Contrats Signés</div>
+          <div class="lbl-sm" style="color:#C5E8DC; margin-top:10px; font-size:13.5px; line-height:1.4;">À volume d'appels strictement égal (10 000), le Top Performer transforme 30 % de ses décrochés en RDV (vs 20 % pour la médiane). Le coaching de l'accroche surpasse l'injonction de volume.</div>
+          <div style="margin-top:18px;"><span class="badge-solid">+625 k$ ARR à effectif constant</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-index">GOULOT N°3 · LA RÈGLE D'OR INBOUND (&lt; 5 MIN)</div>
+        <div>
+          <div class="num-xl" style="font-size:44px;">× 45 Efficacité</div>
+          <div class="lbl-lg">1 000 Signés vs 22 en Outbound</div>
+          <div class="lbl-sm" style="margin-top:10px; font-size:13.5px; line-height:1.4;">Rappeler un prospect en &lt; 5 min génère 35-45 % de décroché et 10 % de closing global. Selon la Harvard Business Review, la joignabilité chute de 80 % après 30 minutes.</div>
+          <div style="margin-top:18px;"><span class="badge-dark">Routage instantané RevOps</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="z-layer"></div>
+</div>
+
+<!-- =========================================================
+     SLIDE 7 : RECOMMANDATIONS STRATÉGIQUES GRÂCE AUX KPI CHOISIS
+     ========================================================= -->
+<div class="slide dark-green">
+  
+<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0H280L140 315C122 355 82 380 38 380H0V0Z" fill="#041A14"/>
+  <path d="M1280 360H1195C1150 360 1110 386 1092 427L960 720H1280V360Z" fill="#00B388"/>
+</svg>
+
+  <div class="top-row">
+    <div class="brand-lockup">
+      <svg width="136" height="38" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg>
+      <div class="divider-v"></div>
+      <span class="step-tag">07 · RECOMMANDATIONS STRATÉGIQUES</span>
+    </div>
+    <span class="slide-num">07 / 07</span>
+  </div>
+
+  <div class="content">
+    <h1 style="font-size:43px;">Corriger &amp; Améliorer la Stratégie <span class="accent">grâce aux KPI Choisis.</span></h1>
+
+    <div class="grid-3">
+      <!-- Reco 1 -->
+      <div class="card">
+        <div class="card-index">TÉLÉCOM · CONNECT RATE &lt; 10 % (ALERTE SPAM)</div>
+        <div>
+          <div class="lbl-lg" style="font-size:22px; margin-bottom:8px;">1. Protocole Anti-Spam</div>
+          <div class="lbl-sm" style="color:#C5E8DC; line-height:1.45;">• Remplacement systématique des numéros flagués<br>• Bascule vers numéros mobiles directs vérifiés<br>• Alerting automatisé sur Looker Studio</div>
+          <div class="num-xl" style="color:var(--emerald); font-size:36px; margin-top:16px;">+177 k$ ARR</div>
+          <div class="lbl-sm" style="color:#FFFFFF; font-weight:700;">+17 signés / 10k appels (ACV 10,4 k$)</div>
+        </div>
+      </div>
+
+      <!-- Reco 2 -->
+      <div class="card featured">
+        <div class="card-index" style="color:var(--forest);">VENTE · RATIO RDV / DÉCROCHÉ &lt; 15 %</div>
+        <div>
+          <div class="lbl-lg" style="font-size:22px; margin-bottom:8px;">2. Coaching Entonnoir SDR</div>
+          <div class="lbl-sm" style="line-height:1.45;">• Isoler les SDR qui décrochent mais ne convertissent pas<br>• Entraînement double-écoute &amp; passage standard<br>• Traitement des 3 premières objections en 30s</div>
+          <div class="num-xl" style="color:var(--teal); font-size:36px; margin-top:16px;">+625 k$ ARR</div>
+          <div class="lbl-sm" style="font-weight:800;">De 22 à 82 signés (×3,7) sans recruter</div>
+        </div>
+      </div>
+
+      <!-- Reco 3 -->
+      <div class="card">
+        <div class="card-index">REVOPS · VITESSE INBOUND &amp; TCO DATA</div>
+        <div>
+          <div class="lbl-lg" style="font-size:22px; margin-bottom:8px;">3. Routage &amp; Template Offert</div>
+          <div class="lbl-sm" style="color:#C5E8DC; line-height:1.45;">• Routage instantané des démos Inbound (&lt; 5 min)<br>• Template Looker Studio gratuit offert aux PME<br>• Neutraliser l'argument d'Allo sur Analytics+ (+15$)</div>
+          <div class="num-xl" style="color:var(--emerald); font-size:36px; margin-top:16px;">+3,4 M$ ARR</div>
+          <div class="lbl-sm" style="color:#FFFFFF; font-weight:700;">Capture Inbound &amp; Baisse churn PME</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; background:var(--forest); border:1.5px solid rgba(255,255,255,0.2); padding:15px 28px; border-radius:999px; font-size:14.5px; font-weight:700; color:#FFFFFF;">
+      <span><strong style="color:var(--emerald);">Rigueur Data &amp; IA :</strong> 0 % Donnée Fictive (100 % Sourcé)</span>
+      <span><strong style="color:var(--emerald);">Contrôle Humain :</strong> Moyenne (AVG) ≠ Somme (SUM)</span>
+      <span><strong style="color:var(--emerald);">Sobriété :</strong> 12 KPI Décisionnels</span>
+    </div>
+  </div>
+
+  <div class="z-layer"></div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+  function updateIndicator() {
+    document.getElementById('slide-indicator').textContent = (current + 1) + ' / ' + slides.length;
+  }
+  function goToSlide(idx) {
+    if (idx < 0) idx = 0;
+    if (idx >= slides.length) idx = slides.length - 1;
+    current = idx;
+    slides[current].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    updateIndicator();
+  }
+  function nextSlide() { goToSlide(current + 1); }
+  function prevSlide() { goToSlide(current - 1); }
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prevSlide(); }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Aircall — Livrables des 6 Demi-Journées (A4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: 210mm 297mm;
+    margin: 0;
+  }
+  @media print {
+    body {
+      background: #FFFFFF !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .no-print { display: none !important; }
+    .a4-page {
+      width: 210mm !important;
+      height: 297mm !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      page-break-after: always !important;
+      break-after: page !important;
+      margin: 0 !important;
+      padding: 10mm 13mm 9mm !important;
+    }
+  }
+
+  :root {
+    --forest: #06241C;
+    --teal: #084032;
+    --emerald: #00BD82;
+    --mint: #EAF8F3;
+    --mint-border: #C5E8DC;
+    --white: #FFFFFF;
+    --offwhite: #F8FCFA;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  }
+
+  body {
+    background: #03140F;
+    color: var(--forest);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0 60px;
+    gap: 24px;
+  }
+
+  .top-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 24px;
+    z-index: 9999;
+  }
+  .btn-print {
+    background: var(--emerald);
+    color: var(--forest);
+    border: none;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 12.5px;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+  }
+
+  .a4-page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    padding: 10mm 13mm 9mm;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Sleek Dark Forest Header Banner */
+  .banner {
+    background: var(--forest);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 11px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 80px;
+    background: var(--emerald);
+    clip-path: polygon(0 0, 100% 0, 45% 100%, 0 100%);
+    opacity: 0.18;
+  }
+  .banner-left { position: relative; z-index: 2; }
+  .banner-right { position: relative; z-index: 2; }
+
+  .step-tag {
+    display: inline-block;
+    font-size: 7.5pt;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.12);
+    color: var(--emerald);
+    padding: 2.5px 9px;
+    border-radius: 999px;
+    margin-bottom: 3px;
+  }
+  .banner h1 {
+    font-size: 13pt;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    color: var(--white);
+    line-height: 1.15;
+  }
+  .banner h1 span { color: var(--emerald); }
+
+  .sec-title {
+    font-size: 8.6pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--teal);
+    margin: 7px 0 5px;
+    padding-left: 8px;
+    border-left: 3px solid var(--emerald);
+    line-height: 1.2;
+  }
+
+  /* Clean Left-Aligned Bento Cards */
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 7px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 7px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 7px; }
+
+  .card {
+    background: var(--offwhite);
+    border: 1px solid var(--mint-border);
+    border-radius: 8px;
+    padding: 8px 11px;
+    text-align: left;
+  }
+  .card.featured {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: var(--white);
+  }
+  .card-index {
+    font-size: 6.8pt;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--mint-border);
+  }
+  .card.featured .card-index {
+    color: var(--emerald);
+    border-bottom-color: rgba(255,255,255,0.18);
+  }
+  .big-num {
+    font-size: 15pt;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    color: var(--forest);
+    line-height: 1.05;
+    margin-bottom: 2px;
+  }
+  .card.featured .big-num { color: var(--emerald); }
+  .card h3 {
+    font-size: 8.5pt;
+    font-weight: 800;
+    margin-bottom: 2px;
+    color: var(--forest);
+  }
+  .card.featured h3 { color: var(--white); }
+  .card p {
+    font-size: 7.4pt;
+    line-height: 1.3;
+    color: #264A3E;
+    font-weight: 500;
+  }
+  .card.featured p { color: #D0E8DF; }
+
+  .callout {
+    background: var(--mint);
+    border: 1px solid var(--mint-border);
+    border-left: 4px solid var(--emerald);
+    border-radius: 8px;
+    padding: 7px 11px;
+    font-size: 7.9pt;
+    line-height: 1.35;
+    color: var(--forest);
+    margin-bottom: 7px;
+    font-weight: 600;
+  }
+
+  /* Ultra-Clean Monochrome Green & White Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--mint-border);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 7.5pt;
+    margin-bottom: 6px;
+    background: var(--white);
+  }
+  th {
+    background: var(--forest);
+    color: var(--white);
+    text-align: left;
+    padding: 5px 8px;
+    font-weight: 800;
+    font-size: 7.2pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+  td {
+    padding: 4.5px 8px;
+    border-bottom: 1px solid #EBF5F0;
+    vertical-align: middle;
+    line-height: 1.25;
+    color: var(--forest);
+    font-weight: 500;
+  }
+  tr:nth-child(even) td { background: var(--offwhite); }
+  tr:last-child td { border-bottom: none; }
+
+  /* Strictly Green & White Badges */
+  .b-solid { background: var(--emerald); color: var(--forest); font-weight: 800; padding: 1.5px 6.5px; border-radius: 999px; font-size: 7pt; display: inline-block; }
+  .b-dark { background: var(--forest); color: var(--white); font-weight: 800; padding: 1.5px 6.5px; border-radius: 999px; font-size: 7pt; display: inline-block; }
+  .b-mint { background: var(--mint); color: var(--forest); border: 1px solid var(--mint-border); font-weight: 800; padding: 1.5px 6.5px; border-radius: 999px; font-size: 7pt; display: inline-block; }
+  code { background: var(--mint); padding: 1px 4px; border-radius: 3px; font-family: monospace; font-size: 7pt; color: var(--forest); font-weight: 700; }
+
+  .page-footer {
+    border-top: 1px solid var(--mint-border);
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.2pt;
+    color: var(--teal);
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar no-print">
+  <button class="btn-print" onclick="window.print()">Exporter en PDF (6 Pages A4)</button>
+</div>
+
+<!-- =====================================================================
+     PAGE A4 N°1 : JOUR 1 MATIN — NOTE DE CADRAGE DU PROJET DATA
+     ===================================================================== -->
+<div class="a4-page">
+  
+<svg style="position:absolute; top:0; right:0; width:160px; height:160px; z-index:0; pointer-events:none;" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M180 0H50L135 140C148 160 162 172 180 175V0Z" fill="#EAF8F3"/>
+</svg>
+
+  <div class="page-content">
+    <div class="banner">
+      <div class="banner-left">
+        <div class="step-tag">LIVRABLE 01 · JOUR 1 MATIN</div>
+        <h1>Note de Cadrage du Projet Data — <span>Aircall</span></h1>
+      </div>
+      <div class="banner-right"><svg width="108" height="30" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00BD82"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></div>
+    </div>
+
+    <div class="callout">
+      <strong>Problématique directrice :</strong> Comment piloter, en mode projet, la mesure de la performance commerciale d'Aircall en sélectionnant les KPI BizDev pertinents et en concevant un dashboard Looker Studio (Data Studio) qui éclaire réellement les décisions de la direction ?
+    </div>
+
+    <div class="sec-title">1. Chiffres Clés Officiels d'Aircall (Contexte Vérifié 2024–2026)</div>
+    <div class="grid-4">
+      <div class="card featured">
+        <div class="card-index">01 · ARR 2023 ➔ 2026</div>
+        <div class="big-num">250 M$</div>
+        <h3>Revenu Récurrent</h3>
+        <p>140 M$ (2023) ➔ 175 M$ (2024) ➔ 204 M$ (2025) ➔ 250 M$ (2026).</p>
+      </div>
+      <div class="card">
+        <div class="card-index">02 · CLIENTS &amp; ARPA</div>
+        <div class="big-num">24 000+</div>
+        <h3>16k ➔ 24k Entreprises</h3>
+        <p>ARPA en hausse à 10 417 $/an (+19 % vs 8 750 $ en 2023).</p>
+      </div>
+      <div class="card">
+        <div class="card-index">03 · VALORISATION</div>
+        <div class="big-num">~1 Md$</div>
+        <h3>Licorne Française</h3>
+        <p>Série D de 120 M$ menée par Goldman Sachs AM (Paris · NY).</p>
+      </div>
+      <div class="card">
+        <div class="card-index">04 · RENTABILITÉ</div>
+        <div class="big-num">312 k$</div>
+        <h3>ARR / Salarié (Rentable)</h3>
+        <p>Rentable dès 2024 · Productivité doublée (175k$ ➔ 312k$).</p>
+      </div>
+    </div>
+
+    <div class="sec-title">2. Les 5 Dimensions du Cadrage Projet RevOps</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:23%;">Dimension</th>
+          <th>Spécification Opérationnelle Retenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>01 · Objectif stratégique</strong></td>
+          <td>Sortir du piège « <em>Trop de KPI tue le KPI</em> » en reliant l'<strong>activité SDR</strong> (appels, décroché), la <strong>conversion AE</strong> (RDV, closing) et la <strong>rentabilité récurrente</strong> (ARR, ACV, CAC).</td>
+        </tr>
+        <tr>
+          <td><strong>02 · Périmètre couvert</strong></td>
+          <td>Équipes commerciales sortantes (<em>Outbound Cold Calling</em>) et entrantes (<em>Inbound</em>), suivies par pays (Europe vs US) et par scénario de performance.</td>
+        </tr>
+        <tr>
+          <td><strong>03 · Parties prenantes</strong></td>
+          <td><strong>Sponsors :</strong> Direction Commerciale (VP Sales) &amp; CEO (Olivier Pailhès) · <strong>Pilotage :</strong> Équipe RevOps / Data · <strong>Utilisateurs :</strong> Managers Sales &amp; Finance (CFO).</td>
+        </tr>
+        <tr>
+          <td><strong>04 · Architecture</strong></td>
+          <td>Base structurée <strong>Google Sheets / Excel</strong> (1 ligne = 1 observation vérifiée, zéro cellule fusionnée) branchée gratuitement sur <strong>Google Data Studio (Looker Studio)</strong> pour contourner le surcoût d'<em>Analytics+</em> (+15 $/mois).</td>
+        </tr>
+        <tr>
+          <td><strong>05 · Sobriété numérique</strong></td>
+          <td>Limitation volontaire à <strong>12 KPI prioritaires</strong> sur une vue synthétique unique afin d'éviter la surcharge cognitive et les requêtes serveur inutiles.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sec-title">3. Jalonnement du Projet sur les 6 Demi-Journées</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:14%;">Jalon</th>
+          <th style="width:22%;">Demi-Journées</th>
+          <th style="width:40%;">Activités Clés</th>
+          <th style="width:24%;">Livrable Validé</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="b-dark">Jalon 1</span></td>
+          <td><strong>Jour 1 (Matin &amp; AM)</strong></td>
+          <td>Cadrage projet + processus d'analyse et audit des sources vérifiées.</td>
+          <td>Note de cadrage + 4 tables sourcées.</td>
+        </tr>
+        <tr>
+          <td><span class="b-mint">Jalon 2</span></td>
+          <td><strong>Jour 2 (Matin)</strong></td>
+          <td>Benchmark sectoriel B2B et sélection des 12 KPI prioritaires.</td>
+          <td>Référentiel des 12 KPI &amp; formules.</td>
+        </tr>
+        <tr>
+          <td><span class="b-mint">Jalon 3</span></td>
+          <td><strong>Jour 2 (Après-midi)</strong></td>
+          <td>Construction du Dashboard opérationnel sur Google Data Studio.</td>
+          <td>Dashboard Data Studio (Lecteur).</td>
+        </tr>
+        <tr>
+          <td><span class="b-solid">Jalon 4</span></td>
+          <td><strong>Jour 3 (Matin &amp; AM)</strong></td>
+          <td>Dégagement des insights, recommandations chiffrées et soutenance.</td>
+          <td>Plan d'action ROI &amp; Support oral.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Aircall × Rocket School — Livrable 01 (Jour 1 Matin) : Note de cadrage du projet data</span>
+    <span>Page 1 / 6</span>
+  </div>
+</div>
+
+<!-- =====================================================================
+     PAGE A4 N°2 : JOUR 1 APRÈS-MIDI — PROCESSUS D'ANALYSE & SOURCES
+     ===================================================================== -->
+<div class="a4-page">
+  
+<svg style="position:absolute; top:0; right:0; width:160px; height:160px; z-index:0; pointer-events:none;" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M180 0H50L135 140C148 160 162 172 180 175V0Z" fill="#EAF8F3"/>
+</svg>
+
+  <div class="page-content">
+    <div class="banner">
+      <div class="banner-left">
+        <div class="step-tag">LIVRABLE 02 · JOUR 1 APRÈS-MIDI</div>
+        <h1>Processus d'Analyse &amp; <span>Sources de Données Vérifiées</span></h1>
+      </div>
+      <div class="banner-right"><svg width="108" height="30" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00BD82"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></div>
+    </div>
+
+    <div class="sec-title">1. Le Cheminement Méthodologique (De la Donnée à la Décision)</div>
+    <div class="grid-2">
+      <div class="card featured">
+        <div class="card-index">ÉTAPE 01 · QUALIFICATION DU BESOIN MÉTIER</div>
+        <h3>Partir des Questions Décisionnelles</h3>
+        <p>Identifier où l'on perd les prospects dans l'entonnoir d'appels, quels numéros sont bloqués en spam, et mesurer l'impact tarifaire d'Analytics+ face à Ringover et Allo.</p>
+      </div>
+      <div class="card">
+        <div class="card-index">ÉTAPE 02 · COLLECTE 100 % VÉRIFIÉE (ZÉRO FICTIF)</div>
+        <h3>Traçabilité Totale des Sources</h3>
+        <p>Refus total des données inventées : chaque ligne provient d'une publication officielle vérifiable (<code>URL_Source_Verifiable</code>). Tout chiffre non publié reste vide (<code>NULL</code>).</p>
+      </div>
+      <div class="card">
+        <div class="card-index">ÉTAPE 03 · NORMALISATION GOOGLE SHEETS / EXCEL</div>
+        <h3>Préparation Propre pour Looker Studio</h3>
+        <p>Respect strict : <strong>1 ligne = 1 observation</strong>, <strong>1<sup>re</sup> ligne = en-têtes sans accents</strong>, dates ISO (<code>YYYY-MM-DD</code>), zéro cellule fusionnée. Distinction Dimensions / Métriques.</p>
+      </div>
+      <div class="card">
+        <div class="card-index">ÉTAPE 04 · CHAMPS CALCULÉS &amp; AGRÉGATION</div>
+        <h3>Contrôle Humain des Formules</h3>
+        <p>Formules sans commentaire, type <em>Pourcentage</em>, et fusion des tables en forçant l'agrégation des taux et du NPS/G2 en <strong>Moyenne (<code>AVG</code>)</strong> et jamais en Somme (<code>SUM</code>).</p>
+      </div>
+    </div>
+
+    <div class="sec-title">2. Inventaire &amp; Audit de Fiabilité des 4 Sources de Données</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:20%;">Onglet du Classeur</th>
+          <th style="width:24%;">Dimensions</th>
+          <th style="width:27%;">Métriques</th>
+          <th style="width:29%;">Sources Officielles (Fiabilité 5/5)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1_Funnel_B2B_Pret_Emploi</strong></td>
+          <td><code>Scenario_Etude</code>, <code>Zone</code></td>
+          <td><code>Appels_Decroches</code>, <code>RDV</code>, <code>Closings</code></td>
+          <td><span class="b-solid">5/5</span> Gong Labs (300M+ appels) &amp; Cognism 2026.</td>
+        </tr>
+        <tr>
+          <td><strong>2_Concurrents_Fusion_G2</strong></td>
+          <td><code>Entreprise</code>, <code>Plan</code>, <code>Cible</code></td>
+          <td><code>ARR_Publie_M_USD</code>, <code>Tarif_User</code>, <code>Note_G2</code></td>
+          <td><span class="b-solid">5/5</span> Grilles tarifaires 2026 &amp; G2 Crowd.</td>
+        </tr>
+        <tr>
+          <td><strong>3_Historique_Aircall_KPI</strong></td>
+          <td><code>Annee</code>, <code>Date_ISO</code>, <code>Tour</code></td>
+          <td><code>ARR_M_USD</code>, <code>Clients</code>, <code>Salaries</code></td>
+          <td><span class="b-solid">5/5</span> BusinessWire, Balderton, Goldman Sachs.</td>
+        </tr>
+        <tr>
+          <td><strong>4_Satisfaction_G2_Capterra</strong></td>
+          <td><code>Entreprise</code>, <code>Point_Fort</code></td>
+          <td><code>Note_G2_Sur_5</code>, <code>Note_Capterra</code></td>
+          <td><span class="b-solid">5/5</span> Avis certifiés G2 Crowd &amp; Capterra.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sec-title">3. Benchmark Concurrentiel Synthétique (Issu de la Source N°2)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:19%;">Critère</th>
+          <th style="width:27%;"><svg width="72" height="20" style="vertical-align:middle;display:inline-block;" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00BD82"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></th>
+          <th style="width:27%;"><svg width="74px" height="17px" style="vertical-align:middle;display:inline-block;" viewBox="0 0 115 27" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="ro_g" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#00BD82" offset="0%"/><stop stop-color="#00BD82" offset="100%"/></linearGradient></defs>
+  <g fill="none"><g transform="translate(32, 3)" fill="#FFFFFF">
+    <path d="M2.78 17.6V12c0-2.18.98-3.43 3.14-3.43.29 0 .6.02.91.07V5.8c-.12-.02-.4-.07-.74-.07-1.54 0-2.83.74-3.38 2.01V5.93H0v11.69h2.78zM9.54 3.62c1.01 0 1.82-.79 1.82-1.8 0-1-.81-1.82-1.82-1.82a1.8 1.8 0 0 0-1.8 1.82c0 1.01.8 1.8 1.8 1.8zM10.93 17.62V5.93H8.17v11.69h2.76zm5.38 0v-6.75c0-1.53.84-2.76 2.42-2.76 1.76 0 2.4 1.15 2.4 2.59v6.92h2.79v-7.4c0-2.56-1.37-4.63-4.23-4.63-1.3 0-2.69.55-3.45 1.9V5.93h-2.71v11.69h2.78zm14.72 4.92c4.4 0 6-2.9 6-6.02V5.93h-2.68v1.49c-.5-.96-1.63-1.7-3.45-1.7-3.22 0-5.4 2.57-5.4 5.69 0 3.29 2.28 5.69 5.4 5.69 1.7 0 2.88-.79 3.38-1.7v1.22c0 2.38-1.1 3.5-3.31 3.5-1.6 0-2.73-1.08-2.92-2.52l-2.57.67c.31 2.35 2.47 4.27 5.56 4.27zm.31-7.82c-1.82 0-3.05-1.27-3.05-3.31 0-2 1.27-3.29 3.05-3.29 1.72 0 3 1.3 3 3.29s-1.23 3.31-3 3.31zm13.23 3.26c3.5 0 6.07-2.62 6.07-6.22 0-3.57-2.57-6.19-6.07-6.19-3.48 0-6.05 2.62-6.05 6.19 0 3.6 2.57 6.22 6.05 6.22zm0-2.5c-1.7 0-3.26-1.3-3.26-3.72 0-2.42 1.56-3.67 3.26-3.67 1.73 0 3.26 1.25 3.26 3.67 0 2.45-1.53 3.72-3.26 3.72zm13.38 2.14l4.58-11.69h-2.92l-3.03 8.35-3.09-8.35h-3.07l4.75 11.69h2.78zm10.33.36c2.8 0 4.65-1.66 5.28-3.7l-2.35-.74c-.39 1.15-1.25 2.04-2.93 2.04-1.73 0-3.12-1.27-3.19-3.05h8.54c.03-.05.08-.43.08-.89 0-3.7-2.11-6.07-5.71-6.07-2.95 0-5.69 2.45-5.69 6.14 0 3.96 2.81 6.27 5.97 6.27zm2.61-7.49h-5.73c.1-1.25 1.1-2.59 2.86-2.59 1.92 0 2.83 1.22 2.87 2.59zm7.26 7.13V12c0-2.18.98-3.43 3.14-3.43.29 0 .6.02.91.07V5.8c-.12-.02-.4-.07-.74-.07-1.54 0-2.83.74-3.38 2.01V5.93h-2.71v11.69h2.78z"/>
+  </g>
+  <g fill="url(#ro_g)">
+    <path d="M12.75 26.04C6.44 26.04 1.49 21.81.37 15.69l6.19.03c.93 2.87 3.44 4.36 6.19 4.36s5.2-1.46 6.13-4.36h6.24c-1.1 6.15-6.06 10.32-12.37 10.32zM12.75 0c6.6 0 11.71 4.58 12.5 11.19l-6.11.02c-.65-3.49-3.4-5.25-6.39-5.25-2.92 0-5.64 1.72-6.33 5.13L.2 11.02C1.06 4.5 6.14 0 12.75 0z"/>
+  </g></g>
+</svg></th>
+          <th style="width:27%;"><svg viewBox="0 0 155 50" width="68" height="20" style="vertical-align:middle;display:inline-block;" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="5" width="40" height="40" rx="11" fill="#00BD82"/>
+  <path d="M15.5 16.5C14.7 16.5 14 17.2 14 18C14 25.7 20.3 32 28 32C28.8 32 29.5 31.3 29.5 30.5V27.2C29.5 26.5 29 25.9 28.3 25.8L25.4 25.2C24.8 25.1 24.2 25.3 23.8 25.7L22.6 26.9C20.3 25.7 18.3 23.7 17.1 21.4L18.3 20.2C18.7 19.8 18.9 19.2 18.8 18.6L18.2 15.7C18.1 15 17.5 14.5 16.8 14.5H15.5Z" fill="#06241C"/>
+  <path d="M28 13L29.1 15.9L32 17L29.1 18.1L28 21L26.9 18.1L24 17L26.9 15.9L28 13Z" fill="#FFFFFF"/>
+  <path fill="#FFFFFF" d="M69.42 17.03q5.11 0 7.85 2.19 2.79 2.18 2.79 6.65v15.8h-6.03v-3.5q-2.65 3.5-7.44 3.5-2.56 0-4.53-.91a7.4 7.4 0 0 1-3.01-2.5A6.6 6.6 0 0 1 58 34.6q0-3.06 2.01-4.96 2.05-1.97 6.49-2.37l6.85-.69v-1.18q0-1.77-1.05-2.69a4 4 0 0 0-2.84-.95q-1.82 0-2.87.77a3.7 3.7 0 0 0-1.37 2.28h-6.8a8 8 0 0 1 3.28-5.78q2.83-2 7.72-2m-1 20.31q2.37 0 3.6-1.46a6 6 0 0 0 1.23-3.91v-1.55l-5.11.68q-1.65.23-2.51 1.1a2.8 2.8 0 0 0-.87 2.09q0 1.31 1 2.19 1.01.86 2.65.86M90.83 41.67h-6.8V8.33h6.8zM101.85 41.67h-6.8V8.33h6.8zM117.11 41.67q-3.47 0-6.25-1.5a11 11 0 0 1-4.39-4.29 13 13 0 0 1-1.6-6.5q0-3.75 1.6-6.52a11 11 0 0 1 4.39-4.33q2.78-1.5 6.25-1.5t6.26 1.5q2.79 1.5 4.39 4.33a13 13 0 0 1 1.6 6.51q0 3.74-1.6 6.51a11 11 0 0 1-4.39 4.28q-2.78 1.5-6.26 1.5m0-5.38q2.38 0 3.89-1.86 1.5-1.87 1.5-5.06 0-3.23-1.5-5.1a4.8 4.8 0 0 0-3.93-1.87q-2.42 0-3.93 1.87-1.5 1.87-1.5 5.1 0 3.19 1.5 5.06a5 5 0 0 0 3.97 1.86"/>
+</svg></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ARR &amp; Envergure</strong></td>
+          <td><span class="b-dark">250 M$ ARR</span> · 24k clients</td>
+          <td><span class="b-mint">50 M$ ARR</span> · 14k clients</td>
+          <td><span class="b-mint">3 M$ ARR</span> · 5k clients</td>
+        </tr>
+        <tr>
+          <td><strong>Ticket d'entrée annuel</strong></td>
+          <td><span class="b-dark">1 080 $ / an</span> (Min. 3 licences · 30 $/m)</td>
+          <td><span class="b-mint">252 $ / an</span> (Dès 1 licence · 21 $/m)</td>
+          <td><span class="b-solid">420 € / an</span> (Dès 1 licence · 35 €/m)</td>
+        </tr>
+        <tr>
+          <td><strong>Option Data (10 users)</strong></td>
+          <td><span class="b-dark">+1 800 $ / an</span> (Bridé 6 mois · +15 $/m)</td>
+          <td>+720 $ / an (Option +6 $/m)</td>
+          <td><span class="b-solid">0 € / an</span> (Inclus 12 mois illimité)</td>
+        </tr>
+        <tr>
+          <td><strong>Pack Data + IA / User</strong></td>
+          <td><strong>94 $ / mois</strong> (Base 30$ + Data 15$ + IA 49$)</td>
+          <td><strong>66 $ / mois</strong> (Smart 21$ + Data 6$ + IA 39$)</td>
+          <td><span class="b-solid">35 € / mois</span> (Tout-inclus sans surcoût)</td>
+        </tr>
+        <tr>
+          <td><strong>Satisfaction G2 Crowd</strong></td>
+          <td><strong>4,3 / 5</strong> (1 267 avis · Décrochage PME)</td>
+          <td><span class="b-mint">4,6 / 5</span> (Forte satisfaction)</td>
+          <td><span class="b-mint">4,7 / 5</span> (Top adoption PME)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Aircall × Rocket School — Livrable 02 (Jour 1 Après-midi) : Processus d'analyse &amp; sources vérifiées</span>
+    <span>Page 2 / 6</span>
+  </div>
+</div>
+
+<!-- =====================================================================
+     PAGE A4 N°3 : JOUR 2 MATIN — LISTE DES 12 KPI BIZDEV & LEUR LOGIQUE
+     ===================================================================== -->
+<div class="a4-page">
+  
+<svg style="position:absolute; top:0; right:0; width:160px; height:160px; z-index:0; pointer-events:none;" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M180 0H50L135 140C148 160 162 172 180 175V0Z" fill="#EAF8F3"/>
+</svg>
+
+  <div class="page-content">
+    <div class="banner">
+      <div class="banner-left">
+        <div class="step-tag">LIVRABLE 03 · JOUR 2 MATIN</div>
+        <h1>Liste des 12 KPI BizDev Prioritaires &amp; <span>Leur Logique</span></h1>
+      </div>
+      <div class="banner-right"><svg width="108" height="30" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00BD82"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></div>
+    </div>
+
+    <div class="callout">
+      <strong>Logique de décomposition du Funnel :</strong> Mesurer directement « Appels passés ➔ Contrats signés » masque la cause réelle des contre-performances. Nos <strong>12 indicateurs prioritaires</strong> (répartis en 4 familles) isolent chaque goulot d'étranglement pour déclencher la bonne décision managériale.
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:11%;">Famille</th>
+          <th style="width:24%;">KPI Retenu</th>
+          <th style="width:31%;">Formule Looker Studio</th>
+          <th style="width:34%;">Décision Managériale Éclairée</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="b-mint">Activité</span></td>
+          <td><strong>1. Volume d'appels &amp; Durée</strong></td>
+          <td><code>COUNT(ID_Appel)</code> · <code>AVG(Duree_sec)</code></td>
+          <td>Vérifier la capacité de production quotidienne des SDR et l'adoption réelle.</td>
+        </tr>
+        <tr>
+          <td><span class="b-mint">Activité</span></td>
+          <td><strong>2. Taux d'adoption Aircall</strong></td>
+          <td><code>COUNT_DISTINCT(Actifs) / Licences</code></td>
+          <td>Identifier les licences sous-utilisées pour optimiser les coûts d'abonnement.</td>
+        </tr>
+        <tr>
+          <td><span class="b-dark">Funnel</span></td>
+          <td><strong>3. Taux de décroché (Connect Rate)</strong></td>
+          <td><code>SUM(Appels_Decroches) / COUNT(ID_Appel)</code></td>
+          <td>Détecter l'usure des fichiers prospects ou le blocage anti-spam des numéros (&lt; 10 %).</td>
+        </tr>
+        <tr>
+          <td><span class="b-dark">Funnel</span></td>
+          <td><strong>4. Taux de prise de RDV (Meeting Rate)</strong></td>
+          <td><code>SUM(RDV_Qualifies) / SUM(Appels_Decroches)</code></td>
+          <td>Évaluer la pertinence des 30 premières secondes d'accroche et cibler le coaching SDR.</td>
+        </tr>
+        <tr>
+          <td><span class="b-dark">Funnel</span></td>
+          <td><strong>5. Taux de No-Show</strong></td>
+          <td><code>SUM(RDV_Absents) / SUM(RDV_Planifies)</code></td>
+          <td>Mesurer la qualité de la qualification en amont et l'efficacité des rappels.</td>
+        </tr>
+        <tr>
+          <td><span class="b-dark">Funnel</span></td>
+          <td><strong>6. Taux de closing (Win Rate volume)</strong></td>
+          <td><code>SUM(Deals_Gagnes) / SUM(RDV_Effectues)</code></td>
+          <td>Mesurer la capacité de négociation des Account Executives sur les RDV qualifiés.</td>
+        </tr>
+        <tr>
+          <td><span class="b-dark">Funnel</span></td>
+          <td><strong>7. Durée du cycle de vente</strong></td>
+          <td><code>AVG(Jours_cycle)</code></td>
+          <td>Anticiper les décalages de trésorerie et repérer les étapes qui ralentissent le closing.</td>
+        </tr>
+        <tr>
+          <td><span class="b-solid">Finance</span></td>
+          <td><strong>8. ARR additionnel généré</strong></td>
+          <td><code>SUM(Montant_gagne_ARR)</code></td>
+          <td>Suivre l'atteinte des objectifs de croissance récurrente (250 M$ en 2026).</td>
+        </tr>
+        <tr>
+          <td><span class="b-solid">Finance</span></td>
+          <td><strong>9. Panier moyen (ACV / ARPA)</strong></td>
+          <td><code>SUM(Montant_ARR) / SUM(Deals_Gagnes)</code></td>
+          <td>Vérifier la montée en gamme vers le segment Mid-Market et le plan Professional (10 417 $).</td>
+        </tr>
+        <tr>
+          <td><span class="b-solid">Finance</span></td>
+          <td><strong>10. Win Rate en valeur (€/$)</strong></td>
+          <td><code>SUM(Montant_gagne) / SUM(Montant_devis)</code></td>
+          <td>Mesurer la solidité du pipeline financier et la maîtrise des remises accordées.</td>
+        </tr>
+        <tr>
+          <td><span class="b-solid">Finance</span></td>
+          <td><strong>11. Coût d'Acquisition (CAC) &amp; LTV/CAC</strong></td>
+          <td><code>SUM(Cout_Sales_Mkt) / SUM(Deals_Gagnes)</code></td>
+          <td>Piloter la rentabilité nette de l'acquisition (seuil sain : ratio LTV / CAC ≥ 3).</td>
+        </tr>
+        <tr>
+          <td><span class="b-mint">Qualité</span></td>
+          <td><strong>12. NPS / G2 &amp; Résolution 1<sup>er</sup> appel</strong></td>
+          <td><code>AVG(NPS)</code> <em>(jamais SUM)</em> · <code>SUM(FCR)/SUM(Appels)</code></td>
+          <td>Croiser la rétention post-vente avec la satisfaction client (4,3/5 G2) pour réduire le churn.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Aircall × Rocket School — Livrable 03 (Jour 2 Matin) : Liste des 12 KPI prioritaires et leur logique</span>
+    <span>Page 3 / 6</span>
+  </div>
+</div>
+
+<!-- =====================================================================
+     PAGE A4 N°4 : JOUR 2 APRÈS-MIDI — DASHBOARD OPÉRATIONNEL DATA STUDIO
+     ===================================================================== -->
+<div class="a4-page">
+  
+<svg style="position:absolute; top:0; right:0; width:160px; height:160px; z-index:0; pointer-events:none;" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M180 0H50L135 140C148 160 162 172 180 175V0Z" fill="#EAF8F3"/>
+</svg>
+
+  <div class="page-content">
+    <div class="banner">
+      <div class="banner-left">
+        <div class="step-tag">LIVRABLE 04 · JOUR 2 APRÈS-MIDI</div>
+        <h1>Dashboard Opérationnel — <span>Google Data Studio / Looker Studio</span></h1>
+      </div>
+      <div class="banner-right"><svg width="108" height="30" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00BD82"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></div>
+    </div>
+
+    <div class="sec-title">1. Capture Officielle de notre Rapport Réel sous Google Data Studio</div>
+    <div style="border: 1.5px solid var(--forest); border-radius: 8px; padding: 6px; background: #FFFFFF; margin-bottom: 9px; text-align: center;">
+      <img src="/Users/kevinmonin/Downloads/Aircall_Data_Verifiee_LookerStudio/capture_vrai_datastudio_kevin.jpg" alt="Dashboard Google Data Studio" style="width: 100%; max-height: 98mm; object-fit: contain; display: block; margin: 0 auto;">
+    </div>
+
+    <div class="sec-title">2. Architecture en 3 Niveaux Hiérarchiques &amp; Règles d'Ergonomie</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:23%;">Zone du Dashboard</th>
+          <th style="width:39%;">Composants Visuels Intégrés</th>
+          <th style="width:38%;">Règles Techniques &amp; Ergonomie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>01 · Bandeau Supérieur</strong><br>(Pilotage &amp; Filtres)</td>
+          <td>Liste déroulante <code>Scenario_Etude</code> + <strong>3 Cartes de score</strong> : Connect Rate moyen (<strong>18,48 %</strong>), RDV qualifiés (<strong>4 494</strong>) et Contrats signés (<strong>1 115</strong>).</td>
+          <td>Filtre global synchronisé sur toute la page ; agrégation du taux forcée sur <strong>Moyenne (<code>AVG</code>)</strong> et non Somme (<code>SUM</code>).</td>
+        </tr>
+        <tr>
+          <td><strong>02 · Zone Centrale</strong><br>(Tableau Détaillé)</td>
+          <td>Tableau croisé par scénario et zone géographique affichant les appels décrochés, RDV pris, contrats signés et la source officielle.</td>
+          <td>Filtrage croisé interactif : cliquer sur une ligne du tableau filtre automatiquement les cartes de score et le graphique à barres.</td>
+        </tr>
+        <tr>
+          <td><strong>03 · Zone Inférieure</strong><br>(Comparaison Funnel)</td>
+          <td><strong>Graphique en barres horizontales triées</strong> comparant <code>Taux_Decroche</code>, <code>Taux_RDV_Sur_Decroches</code> et <code>Taux_RDV_Global</code>.</td>
+          <td>Respect des bonnes pratiques : aucun camembert à plus de 5 parts ni graphique 3D ; partage sécurisé en mode <strong>Lecteur</strong>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Aircall × Rocket School — Livrable 04 (Jour 2 Après-midi) : Dashboard Google Data Studio réel</span>
+    <span>Page 4 / 6</span>
+  </div>
+</div>
+
+<!-- =====================================================================
+     PAGE A4 N°5 : JOUR 3 MATIN — FAIRE PARLER LA DATA : INSIGHTS & RECOS
+     ===================================================================== -->
+<div class="a4-page">
+  
+<svg style="position:absolute; top:0; right:0; width:160px; height:160px; z-index:0; pointer-events:none;" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M180 0H50L135 140C148 160 162 172 180 175V0Z" fill="#EAF8F3"/>
+</svg>
+
+  <div class="page-content">
+    <div class="banner">
+      <div class="banner-left">
+        <div class="step-tag">LIVRABLE 05 · JOUR 3 MATIN</div>
+        <h1>Faire Parler la Data : <span>Insights &amp; Recommandations</span></h1>
+      </div>
+      <div class="banner-right"><svg width="108" height="30" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00BD82"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></div>
+    </div>
+
+    <div class="sec-title">1. Diagnostic du Funnel sur 10 000 Appels (Études Gong Labs &amp; Cognism)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:19%;">Étape du Funnel</th>
+          <th style="width:16%;">01 · Spam</th>
+          <th style="width:16%;">02 · États-Unis</th>
+          <th style="width:16%;">03 · Médiane EU</th>
+          <th style="width:17%;">04 · Top Performer</th>
+          <th style="width:16%;">05 · Inbound &lt; 5m</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Appels passés</strong></td>
+          <td>10 000</td>
+          <td>10 000</td>
+          <td>10 000</td>
+          <td>10 000</td>
+          <td>10 000</td>
+        </tr>
+        <tr>
+          <td><strong>2. Décrochés</strong></td>
+          <td>500 (5,0 %)</td>
+          <td>640 (6,4 %)</td>
+          <td><strong>1 400 (14,0 %)</strong></td>
+          <td><span class="b-mint">2 200 (22,0 %)</span></td>
+          <td><span class="b-solid">4 500 (&gt; 45 %)</span></td>
+        </tr>
+        <tr>
+          <td><strong>3. Conv. utiles</strong></td>
+          <td>200 (40 % décr.)</td>
+          <td>420 (65,6 % décr.)</td>
+          <td>700 (50 % décr.)</td>
+          <td>1 320 (60 % décr.)</td>
+          <td>3 600 (80 % décr.)</td>
+        </tr>
+        <tr>
+          <td><strong>4. RDV qualifiés</strong></td>
+          <td>25 (0,25 %)</td>
+          <td>29 (0,29 %)</td>
+          <td><strong>110 (7,8 % décr.)</strong></td>
+          <td><span class="b-mint">330 (15 % décr.)</span></td>
+          <td><strong>4 000 RDV</strong></td>
+        </tr>
+        <tr>
+          <td><strong>5. Contrats signés</strong></td>
+          <td><span class="b-mint">5 (0,05 %)</span></td>
+          <td><span class="b-mint">6 (0,06 %)</span></td>
+          <td><span class="b-mint">22 (0,22 %)</span></td>
+          <td><span class="b-dark">82 (0,82 % · ×3,7)</span></td>
+          <td><span class="b-solid">1 000 (10,0 %)</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sec-title">2. Les 3 Insights Majeurs Dégagés par la Lecture du Dashboard</div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-index">GOULOT N°1 · NUMÉROS GRILLÉS</div>
+        <div class="big-num">400 Appels</div>
+        <h3>Pour 1 RDV (Lois Anti-Spam)</h3>
+        <p>Décroché divisé par 2 depuis 2023 (14% ➔ 5%) suite aux filtres Arcep/FCC : 400 appels pour 1 RDV en Spam vs 91 en Europe.</p>
+      </div>
+      <div class="card featured">
+        <div class="card-index">GOULOT N°2 · ACCROCHE 30S SDR</div>
+        <div class="big-num">× 3,7 Signés</div>
+        <h3>Levier Top Performer</h3>
+        <p>Passer de la médiane (22 signés) au Top Performer (82 signés) génère <strong>+60 clients (+625 k$ d'ARR)</strong> à appels constants.</p>
+      </div>
+      <div class="card">
+        <div class="card-index">GOULOT N°3 · VITESSE DE RAPPEL</div>
+        <div class="big-num">× 45 Efficace</div>
+        <h3>Règle Inbound &lt; 5 min</h3>
+        <p>Un lead démo rappelé en moins de 5 minutes décroche à &gt; 45 % et signe à 10 % (1 000 closings / 10k appels).</p>
+      </div>
+    </div>
+
+    <div class="sec-title">3. Recommandations Stratégiques Chiffrées (Basées sur les KPI Choisis)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:21%;">KPI Déclencheur</th>
+          <th style="width:24%;">Action Stratégique</th>
+          <th style="width:33%;">Mise en Œuvre Opérationnelle</th>
+          <th style="width:22%;">Impact Commercial (ROI)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="b-dark">Connect Rate &lt; 10 %</span></td>
+          <td><strong>1. Rotation Anti-Spam &amp; Mobiles Directs</strong></td>
+          <td>Revue chaque lundi du Connect Rate par pays : remplacement immédiat des numéros DID grillés + ciblage mobile direct.</td>
+          <td><strong>5 ➔ 22 signés / 10k appels</strong><br>(+177 k$ d'ARR)</td>
+        </tr>
+        <tr>
+          <td><span class="b-mint">Décroché &gt; 15 %</span><br>mais <span class="b-dark">RDV &lt; 5 %</span></td>
+          <td><strong>2. Coaching 30s SDR sur l'Accroche</strong></td>
+          <td>Formation ciblée sur les 30 premières secondes d'appel et le passage du barrage secrétaire pour doubler la prise de RDV.</td>
+          <td><strong>22 ➔ 82 signés / 10k appels</strong><br>(+625 k$ d'ARR · ×3,7)</td>
+        </tr>
+        <tr>
+          <td><span class="b-solid">ACV (10,4 k$)</span> &amp;<br><span class="b-mint">Note G2 (4,3/5)</span></td>
+          <td><strong>3. Variable ACV, SLA &lt; 5 min &amp; Template Data</strong></td>
+          <td>Smart Routing Inbound &lt; 5 min + aligner le variable AE sur l'ACV + offrir ce Looker Studio aux clients PME bridés à 6 mois.</td>
+          <td><strong>45 % Décroché Inbound</strong>,<br>hausse ARPA &amp; baisse churn</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Aircall × Rocket School — Livrable 05 (Jour 3 Matin) : Restitution des insights &amp; recommandations</span>
+    <span>Page 5 / 6</span>
+  </div>
+</div>
+
+<!-- =====================================================================
+     PAGE A4 N°6 : JOUR 3 APRÈS-MIDI — NOTE DE SYNTHÈSE & SOUTENANCE
+     ===================================================================== -->
+<div class="a4-page">
+  
+<svg style="position:absolute; top:0; right:0; width:160px; height:160px; z-index:0; pointer-events:none;" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M180 0H50L135 140C148 160 162 172 180 175V0Z" fill="#EAF8F3"/>
+</svg>
+
+  <div class="page-content">
+    <div class="banner">
+      <div class="banner-left">
+        <div class="step-tag">LIVRABLE 06 · JOUR 3 APRÈS-MIDI</div>
+        <h1>Note de Synthèse Direction &amp; <span>Usage Critique de l'IA</span></h1>
+      </div>
+      <div class="banner-right"><svg width="108" height="30" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00BD82"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></div>
+    </div>
+
+    <div class="sec-title">1. Note de Synthèse Exécutive à la Direction d'Aircall</div>
+    <div class="callout">
+      <strong>À l'attention de la Direction Commerciale (VP Sales) &amp; de la Direction Générale (Olivier Pailhès) :</strong><br>
+      Avec <strong>250 M$ d'ARR</strong>, <strong>24 000 entreprises clientes</strong> et une rentabilité atteinte dès 2024, Aircall a doublé la productivité de ses équipes (<strong>312 500 $ d'ARR/salarié</strong> en 2026 vs 142 857 $ en 2022) grâce à la montée en gamme Mid-Market (ARPA de <strong>10 417 $/an</strong>).<br><br>
+      Notre nouveau <strong>Dashboard Google Data Studio à 12 KPI</strong> permet désormais d'agir immédiatement sur 3 leviers : <strong>(1) Purger chaque lundi les numéros DID sous 10 % de décroché</strong> (+177 k$ d'ARR / 10k appels), <strong>(2) Coacher les 30 premières secondes d'accroche des SDR</strong> pour passer de 22 à 82 signatures par tranche de 10 000 appels (+625 k$ d'ARR), et <strong>(3) Aligner le variable des AE sur l'ACV</strong> tout en offrant ce modèle Looker Studio aux PME pour réduire le churn face à Ringover et Allo.
+    </div>
+
+    <div class="sec-title">2. Usage Critique de l'IA &amp; Sobriété Numérique (Évalué sur /15 pts)</div>
+    <div class="grid-3">
+      <div class="card featured">
+        <div class="card-index">01 · ZÉRO DONNÉE FICTIVE</div>
+        <h3>100 % Sourcé &amp; Vérifié</h3>
+        <p>Une IA non contrôlée invente des chiffres manquants. Nous avons imposé <strong>100 % de données vraies et sourcées</strong> avec URL vérifiable par ligne (case vide <code>NULL</code> si non publié).</p>
+      </div>
+      <div class="card">
+        <div class="card-index">02 · AUDIT HUMAIN DES CALCULS</div>
+        <h3>Moyenne (AVG) ≠ Somme (SUM)</h3>
+        <p>Par défaut, Data Studio additionne (<code>SUM</code>) les pourcentages et les notes G2/NPS. Notre vérification humaine a forcé l'agrégation en <strong>Moyenne (<code>AVG</code>)</strong> (<code>18,48 %</code>).</p>
+      </div>
+      <div class="card">
+        <div class="card-index">03 · SOBRIÉTÉ NUMÉRIQUE</div>
+        <h3>12 KPI sur 1 Vue Unique</h3>
+        <p>Plafond strict de <strong>12 KPI utiles à la décision</strong> sur une seule page légère, avec pré-jointure dans Google Sheets pour éviter les requêtes serveur inutiles.</p>
+      </div>
+    </div>
+
+    <div class="sec-title">3. Plan de Soutenance Orale (7 Slides · 10 Minutes)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:16%;">Slide</th>
+          <th style="width:16%;">Chrono</th>
+          <th style="width:68%;">Message Clé à Délivrer au Jury</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="b-dark">Slides 1 &amp; 2</span></td>
+          <td><strong>0:00 – 2:30</strong></td>
+          <td>Présentation d'Aircall (250 M$ ARR, Licorne rentable) &amp; Benchmark face à Ringover (50 M$) et Allo (angle mort tarifaire d'Analytics+ à +15 $/mois).</td>
+        </tr>
+        <tr>
+          <td><span class="b-mint">Slides 3 &amp; 4</span></td>
+          <td><strong>2:30 – 5:30</strong></td>
+          <td>Cadrage projet, processus Top-Down (100 % données vraies) et décomposition du Funnel B2B sur 10 000 appels à travers nos 12 KPI prioritaires.</td>
+        </tr>
+        <tr>
+          <td><span class="b-mint">Slide 5</span></td>
+          <td><strong>5:30 – 7:00</strong></td>
+          <td>Démonstration de notre vrai Dashboard Google Data Studio (sélecteur, 3 compteurs dont <code>18,48 %</code> en <code>AVG</code>, tableau et barres horizontales triées).</td>
+        </tr>
+        <tr>
+          <td><span class="b-solid">Slides 6 &amp; 7</span></td>
+          <td><strong>7:00 – 10:00</strong></td>
+          <td>Diagnostic des 3 goulots (Spam, Accroche 30s, Inbound &lt; 5 min), recommandations chiffrées (+625 k$ d'ARR) et posture critique face à l'IA.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Aircall × Rocket School — Livrable 06 (Jour 3 Après-midi) : Note de synthèse &amp; support de soutenance</span>
+    <span>Page 6 / 6</span>
+  </div>
+</div>
+
+</body>
+</html>
