@@ -68,26 +68,6 @@
     color: var(--white);
   }
 
-  /* FLOATING CONTROL BAR */
-  .floating-bar {
-    position: fixed;
-    bottom: 22px;
-    right: 26px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(6, 36, 28, 0.94);
-    backdrop-filter: blur(10px);
-    border: 1.5px solid var(--emerald);
-    padding: 7px 14px;
-    border-radius: 999px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  }
-  .btn-nav { background: rgba(255,255,255,0.12); color: var(--white); border: none; padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: 12.5px; cursor: pointer; transition: all 0.15s; }
-  .btn-nav:hover { background: var(--emerald); color: var(--forest); }
-  .btn-pdf { background: var(--emerald); color: var(--forest); border: none; padding: 7px 15px; border-radius: 999px; font-weight: 800; font-size: 12.5px; cursor: pointer; }
-
   /* PRINT MODE */
   @page { size: landscape; margin: 0; }
   @media print {
@@ -327,12 +307,7 @@
 </head>
 <body>
 
-<div class="floating-bar no-print">
-  <button class="btn-nav" onclick="prevSlide()" title="Précédent (Flèche gauche)">◀ Préc.</button>
-  <span id="slide-indicator" style="color:#FFFFFF; font-size:13px; font-weight:800; padding:0 8px;">1 / 6</span>
-  <button class="btn-nav" onclick="nextSlide()" title="Suivant (Flèche droite ou Espace)">Suiv. ▶</button>
-  <div style="width:1px; height:18px; background:rgba(255,255,255,0.25); margin:0 4px;"></div>
-  <button class="btn-nav" id="btn-fullscreen" onclick="toggleFullscreen()" title="Plein écran (Touche F)">⛶ Plein écran</button>
+<button class="btn-nav" id="btn-fullscreen" onclick="toggleFullscreen()" title="Plein écran (Touche F)">⛶ Plein écran</button>
   <button class="btn-pdf" onclick="window.print()">Exporter PDF</button>
 </div>
 
@@ -766,11 +741,6 @@
         s.classList.remove('active');
       }
     });
-    
-    const indicator = document.getElementById('slide-indicator');
-    if (indicator) {
-      indicator.textContent = (current + 1) + ' / ' + slides.length;
-    }
   }
 
   function nextSlide() { updateSlide(current + 1); }
@@ -785,16 +755,27 @@
   }
 
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
       nextSlide();
     }
-    if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
       e.preventDefault();
       prevSlide();
     }
     if (e.key.toLowerCase() === 'f') {
       toggleFullscreen();
+    }
+  });
+
+  // Click on screen: left 20% = prev, remaining 80% = next
+  window.addEventListener('click', (e) => {
+    if (e.target.closest('a, button, input, select, textarea')) return;
+    const w = window.innerWidth;
+    if (e.clientX < w * 0.2) {
+      prevSlide();
+    } else {
+      nextSlide();
     }
   });
 
