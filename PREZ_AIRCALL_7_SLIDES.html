@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Aircall — Performance Commerciale (6 Slides)</title>
+<title>Aircall — Soutenance Rocket School (10 Slides)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -22,19 +20,17 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
 
-    html, body {
+  html, body {
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background: #06241C;
-    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
     user-select: none;
     -webkit-user-select: none;
   }
 
-  /* FULLSCREEN DECK CONTAINER */
   #deck {
     width: 100vw;
     height: 100vh;
@@ -52,7 +48,7 @@
     display: none !important;
     flex-direction: column;
     justify-content: space-between;
-    padding: clamp(24px, 4.5vh, 48px) clamp(32px, 5vw, 64px);
+    padding: clamp(24px, 4.5vh, 44px) clamp(32px, 5vw, 64px);
     background: var(--white);
     color: var(--forest);
     overflow: hidden;
@@ -73,11 +69,8 @@
   @media print {
     html, body { background: #FFFFFF !important; overflow: visible !important; width: 100% !important; height: auto !important; }
     #deck { width: 100% !important; height: auto !important; overflow: visible !important; }
-    .no-print { display: none !important; }
     .slide { position: relative !important; display: flex !important; opacity: 1 !important; page-break-after: always !important; break-after: page !important; width: 100vw !important; height: 100vh !important; margin: 0 !important; box-shadow: none !important; border-radius: 0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
-
-  .z-layer { position: relative; z-index: 2; width: 100%; }
 
   .top-row {
     display: flex;
@@ -86,18 +79,18 @@
     position: relative;
     z-index: 2;
   }
-  .brand-lockup { display: flex; align-items: center; gap: 18px; }
-  .divider-v { width: 1.5px; height: 24px; background: var(--mint-border); }
+  .brand-lockup { display: flex; align-items: center; gap: 16px; }
+  .divider-v { width: 1.5px; height: 22px; background: var(--mint-border); }
   .dark-green .divider-v { background: rgba(255,255,255,0.28); }
 
   .step-tag {
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     background: var(--mint);
     color: var(--teal);
-    padding: 7px 16px;
+    padding: 6px 14px;
     border-radius: 999px;
     border: 1px solid var(--mint-border);
   }
@@ -120,8 +113,8 @@
     color: var(--white);
   }
 
-  h1 { font-size: 52px; font-weight: 800; line-height: 1.08; letter-spacing: -1.8px; color: var(--white); }
-  h2 { font-size: 40px; font-weight: 800; color: var(--forest); letter-spacing: -1.3px; line-height: 1.12; }
+  h1 { font-size: clamp(32px, 4.2vh, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; color: var(--white); }
+  h2 { font-size: clamp(26px, 3.4vh, 38px); font-weight: 800; color: var(--forest); letter-spacing: -1.2px; line-height: 1.15; }
   .accent { color: var(--emerald); }
   .dark-green .accent { color: #7FF5D3; }
 
@@ -130,21 +123,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 28px;
+    gap: clamp(14px, 2.2vh, 26px);
     position: relative;
     z-index: 2;
   }
 
-  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
-  /* Editorial Left-Aligned Cards */
   .card {
     background: var(--offwhite);
     border: 1.5px solid var(--mint-border);
-    border-radius: 18px;
-    padding: 26px 24px;
+    border-radius: 14px;
+    padding: clamp(16px, 2.2vh, 24px) clamp(16px, 1.8vw, 22px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -167,13 +160,13 @@
   }
 
   .card-index {
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     color: var(--teal);
-    padding-bottom: 12px;
-    margin-bottom: 14px;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
     border-bottom: 1px solid var(--mint-border);
   }
   .card.featured .card-index,
@@ -187,11 +180,11 @@
   }
 
   .num-xl {
-    font-size: 42px;
+    font-size: clamp(32px, 4.5vh, 46px);
     font-weight: 800;
     line-height: 1;
-    letter-spacing: -1.6px;
-    margin-bottom: 10px;
+    letter-spacing: -1.5px;
+    margin-bottom: 8px;
     white-space: nowrap;
     color: var(--forest);
   }
@@ -199,110 +192,60 @@
   .dark-green .card .num-xl { color: var(--white); }
   .dark-green .card.featured .num-xl { color: var(--forest); }
 
-  .lbl-lg { font-size: 18px; font-weight: 800; line-height: 1.25; }
-  .lbl-sm { font-size: 14px; font-weight: 600; opacity: 0.78; margin-top: 6px; line-height: 1.35; }
+  .lbl-lg { font-size: clamp(16px, 2vh, 20px); font-weight: 800; line-height: 1.25; }
+  .lbl-sm { font-size: clamp(12.5px, 1.5vh, 14px); font-weight: 600; opacity: 0.82; margin-top: 4px; line-height: 1.35; }
 
-  /* Clean Monochrome Green & White Table */
   table.clean-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     background: var(--white);
-    border-radius: 18px;
+    border-radius: 14px;
     overflow: hidden;
     border: 1.5px solid var(--mint-border);
-    font-size: 18px;
+    font-size: clamp(13px, 1.6vh, 15px);
   }
   table.clean-table th {
     background: var(--forest);
     color: var(--white);
-    padding: 18px 24px;
+    padding: 12px 18px;
     text-align: left;
-    font-size: 13.5px;
+    font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    vertical-align: middle;
+    letter-spacing: 1.1px;
   }
   table.clean-table td {
-    padding: 18px 24px;
+    padding: 12px 18px;
     border-bottom: 1px solid #E4F2EC;
     font-weight: 700;
     color: var(--forest);
-    vertical-align: middle;
   }
   table.clean-table tr:nth-child(even) td { background: var(--offwhite); }
   table.clean-table tr:last-child td { border-bottom: none; }
 
-  /* Strictly Green & White Badges */
-  .badge-solid {
-    background: var(--emerald);
-    color: var(--forest);
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 14.5px;
-    display: inline-block;
-  }
-  .badge-dark {
-    background: var(--forest);
-    color: var(--white);
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 14.5px;
-    display: inline-block;
-  }
-  .badge-mint {
-    background: var(--mint);
-    color: var(--forest);
-    border: 1px solid var(--mint-border);
-    padding: 5px 13px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 14.5px;
-    display: inline-block;
-  }
-  .badge-outline {
-    background: transparent;
-    color: var(--teal);
-    border: 1.5px solid var(--mint-border);
-    padding: 5px 13px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 14px;
-    display: inline-block;
-  }
+  .badge-solid { background: var(--emerald); color: var(--forest); padding: 5px 12px; border-radius: 999px; font-weight: 800; font-size: 13px; display: inline-block; }
+  .badge-dark { background: var(--forest); color: var(--white); padding: 5px 12px; border-radius: 999px; font-weight: 800; font-size: 13px; display: inline-block; }
+  .badge-mint { background: var(--mint); color: var(--forest); border: 1px solid var(--mint-border); padding: 4px 11px; border-radius: 999px; font-weight: 800; font-size: 13px; display: inline-block; }
 
-  .step-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-  .step-pill {
-    background: var(--forest);
-    color: var(--white);
-    padding: 16px 20px;
-    border-radius: 14px;
-    font-weight: 800;
-    font-size: 15px;
+  .bottom-pill {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 12px;
-  }
-  .step-pill .s-num {
-    background: var(--emerald);
-    color: var(--forest);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--forest);
+    border: 1.5px solid rgba(255,255,255,0.18);
+    padding: 10px 22px;
+    border-radius: 999px;
     font-size: 13px;
-    font-weight: 800;
-    flex-shrink: 0;
+    font-weight: 700;
+    color: #FFFFFF;
   }
+  .slide:not(.dark-green) .bottom-pill {
+    background: var(--mint);
+    border-color: var(--mint-border);
+    color: var(--forest);
+  }
+  .slide:not(.dark-green) .bottom-pill strong { color: var(--teal); }
 </style>
 </head>
 <body>
@@ -310,419 +253,511 @@
 <div id="deck">
 
 <!-- =========================================================
-     SLIDE 1 : PRÉSENTATION D'AIRCALL & CHIFFRES CLÉS
+     SLIDE 1 : CONTEXTE AIRCALL & DISTINCTION DONNÉES (01 / 10)
      ========================================================= -->
 <div class="slide dark-green active">
-  
-<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 0H280L140 315C122 355 82 380 38 380H0V0Z" fill="#041A14"/>
-  <path d="M1280 360H1195C1150 360 1110 386 1092 427L960 720H1280V360Z" fill="#00B388"/>
-</svg>
-
   <div class="top-row">
     <div class="brand-lockup">
-      <svg width="136" height="38" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg>
+      <svg width="124" height="34" viewBox="0 0 140 40" fill="none"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/></svg>
       <div class="divider-v"></div>
-      <span class="step-tag">01 · PRÉSENTATION</span>
+      <span class="step-tag">01 · CONTEXTE &amp; DONNÉES</span>
     </div>
-    <span class="slide-num">01 / 06</span>
+    <span class="slide-num">01 / 10</span>
   </div>
 
   <div class="content">
-    <h1>La Téléphonie Cloud <span class="accent">des Commerciaux.</span></h1>
+    <div>
+      <h1>Contexte Aircall &amp; <span class="accent">Distinction des Données</span></h1>
+      <div class="lbl-lg" style="color:#FFFFFF; opacity:0.92; margin-top:8px;">La téléphonie cloud des commerciaux : piloter par la donnée de l'activité au revenu.</div>
+    </div>
 
-    <div class="grid-5">
+    <div class="grid-4">
+      <div class="card">
+        <div class="card-index">MARCHÉ RÉEL · GETLATKA 2024</div>
+        <div class="num-xl">204 M$</div>
+        <div class="lbl-lg">6<sup>e</sup> Mondial SaaS VoIP</div>
+        <div class="lbl-sm">Catégorie Contact Center Software (Talkdesk 420M$, Dialpad 350M$).</div>
+      </div>
       <div class="card featured">
-        <div class="card-index">01 · ARR 2023 ➔ 2026</div>
-        <div>
-          <div class="num-xl">250 M$</div>
-          <div class="lbl-lg">140 M$ ➔ 250 M$</div>
-          <div class="lbl-sm">+78 % de croissance</div>
-        </div>
+        <div class="card-index" style="color:var(--forest);">PRESSE · MADDYNESS / ÉCHOS</div>
+        <div class="num-xl">250 M$</div>
+        <div class="lbl-lg">ARR Forward 2024–2026</div>
+        <div class="lbl-sm" style="color:var(--forest);">Série D de 120 M$ · Valo ~1 Md$ · Rentable EBITDA+ dès 2024.</div>
       </div>
-
       <div class="card">
-        <div class="card-index">02 · BASE CLIENTS</div>
-        <div>
-          <div class="num-xl">24 000+</div>
-          <div class="lbl-lg">16k ➔ 24k Clients</div>
-          <div class="lbl-sm">Dans plus de 100 pays</div>
-        </div>
+        <div class="card-index">BASE CLIENTS B2B</div>
+        <div class="num-xl">24 000+</div>
+        <div class="lbl-lg">Entreprises Clientes</div>
+        <div class="lbl-sm">Présence dans 100+ pays · ARPA en hausse à 10 417 $/an.</div>
       </div>
-
       <div class="card">
-        <div class="card-index">03 · VALORISATION</div>
-        <div>
-          <div class="num-xl">~1 Md$</div>
-          <div class="lbl-lg">Licorne Française</div>
-          <div class="lbl-sm">Série D (120 M$)</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-index">04 · PRODUCTIVITÉ</div>
-        <div>
-          <div class="num-xl">312 k$</div>
-          <div class="lbl-lg">ARR / Salarié</div>
-          <div class="lbl-sm">175k$ ➔ 312k$ (×1,8)</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-index">05 · MODÈLE RENTABLE</div>
-        <div>
-          <div class="num-xl" style="color:var(--emerald);">2024</div>
-          <div class="lbl-lg">Rentable (EBITDA+)</div>
-          <div class="lbl-sm">ARPA : 10 417 $ / an</div>
-        </div>
+        <div class="card-index">ÉQUIPE SALES SIMULÉE</div>
+        <div class="num-xl">10 SDR/AE</div>
+        <div class="lbl-lg">Sur 6 Mois (10k Appels)</div>
+        <div class="lbl-sm">Étalonnée sur benchmarks Gong Labs (300M+ appels) &amp; Cognism.</div>
       </div>
     </div>
-  </div>
 
-  <div class="z-layer"></div>
+    <div class="bottom-pill">
+      <span><strong style="color:var(--emerald);">Distinction Méthodologique Obligatoire :</strong> Marché 100 % Réel (GetLatka &amp; Presse)</span>
+      <span><strong style="color:var(--emerald);">Équipe Commerciale :</strong> 10 Commerciaux Simulés (Secret d'affaires logs CRM)</span>
+      <span><strong style="color:var(--emerald);">Décideur :</strong> Direction Commerciale</span>
+    </div>
+  </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 2 : BENCHMARK CONCURRENTS (LOGOS MONOCHROMES VERT & BLANC)
+     SLIDE 2 : PROBLÉMATIQUE ET DÉCISIONS À ÉCLAIRER (02 / 10)
      ========================================================= -->
 <div class="slide">
-  
-<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1280 0H1080L1190 245C1205 278 1238 300 1275 300H1280V0Z" fill="#EDF8F4"/>
-  <path d="M0 540H75C112 540 145 562 160 595L215 720H0V540Z" fill="#EDF8F4"/>
-</svg>
-
   <div class="top-row">
     <div class="brand-lockup">
-      <svg width="124" height="35" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#00B388"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#FFFFFF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#06241C"/></svg>
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
       <div class="divider-v"></div>
-      <span class="step-tag">02 · BENCHMARK</span>
+      <span class="step-tag">02 · PROBLÉMATIQUE &amp; DÉCISIONS</span>
     </div>
-    <span class="slide-num">02 / 06</span>
+    <span class="slide-num">02 / 10</span>
   </div>
 
   <div class="content">
-    <h2>Positionnement : <span class="accent">Aircall vs Ringover vs Allo</span></h2>
+    <div>
+      <h2>Problématique : <span class="accent">Sortir du « Trop de KPI tue le KPI »</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Plus de 30 métriques éparpillées : la data doit servir à trancher, pas à décorer.</div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-index">DÉCISION 1 · RÉPUTATION TÉLÉPHONIQUE</div>
+        <div class="num-xl" style="color:var(--forest);">Anti-Spam</div>
+        <div class="lbl-lg">Quels numéros DID purger ?</div>
+        <div class="lbl-sm">Identifier et couper immédiatement les numéros sous 10 % de décroché pour sortir des filtres opérateurs.</div>
+      </div>
+      <div class="card featured">
+        <div class="card-index">DÉCISION 2 · FORMATION &amp; COACHING</div>
+        <div class="num-xl" style="color:var(--emerald);">Écart ×3,7</div>
+        <div class="lbl-lg">Quels SDR former d'urgence ?</div>
+        <div class="lbl-sm" style="color:#C5E8DC;">Combler le fossé entre la médiane (22 signés) et le Top Performer (82 signés) grâce aux 30 premières secondes d'accroche.</div>
+      </div>
+      <div class="card">
+        <div class="card-index">DÉCISION 3 · STRATÉGIE TARIFAIRE</div>
+        <div class="num-xl" style="color:var(--forest);">Template Offert</div>
+        <div class="lbl-lg">Comment contrer Ringover &amp; Allo ?</div>
+        <div class="lbl-sm">Neutraliser l'option payante Analytics+ (+15 $/mois) en offrant notre Dashboard Looker Studio gratuit aux PME.</div>
+      </div>
+    </div>
+
+    <div class="bottom-pill">
+      <span><strong>Principe Directeur :</strong> « Si un chiffre ne fait prendre aucune décision, ce n'est pas un KPI. »</span>
+      <span><strong>Objectif :</strong> Relier l'activité brute des commerciaux au revenu ARR généré.</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SLIDE 3 : PÉRIMÈTRE RETENU ET EXCLUSIONS (03 / 10)
+     ========================================================= -->
+<div class="slide">
+  <div class="top-row">
+    <div class="brand-lockup">
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="divider-v"></div>
+      <span class="step-tag">03 · PÉRIMÈTRE &amp; EXCLUSIONS</span>
+    </div>
+    <span class="slide-num">03 / 10</span>
+  </div>
+
+  <div class="content">
+    <div>
+      <h2>Périmètre Retenu &amp; <span class="accent">Exclusions Volontaires</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Un cadrage chirurgical pour garantir la clarté et la sobriété de l'analyse.</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card featured" style="padding:28px;">
+        <div class="card-index">DANS LE PÉRIMÈTRE (100 % COUVERT)</div>
+        <div class="lbl-lg" style="font-size:22px; margin-bottom:12px; color:var(--emerald);">Funnel Commercial &amp; Acquisition</div>
+        <div class="lbl-sm" style="font-size:15px; line-height:1.6; color:#FFFFFF;">
+          • Prospection sortante B2B (<em>Outbound Cold Calling</em>).<br>
+          • Rappel ultra-rapide des leads entrants (<em>Inbound &lt; 5 min</em>).<br>
+          • Équipe représentative de <strong>10 commerciaux (SDR / AE)</strong> sur 6 mois.<br>
+          • Comparaison géographique : Europe vs États-Unis.<br>
+          • 5 scénarios d'étude (Spam, US, Standard Europe, Top Performer, Inbound).
+        </div>
+      </div>
+
+      <div class="card" style="padding:28px;">
+        <div class="card-index">HORS PÉRIMÈTRE (EXCLUSIONS MOTIVÉES)</div>
+        <div class="lbl-lg" style="font-size:22px; margin-bottom:12px; color:var(--forest);">Support Client &amp; Marketing Payant</div>
+        <div class="lbl-sm" style="font-size:15px; line-height:1.6;">
+          • <strong>Support client post-vente :</strong> Tickets Zendesk, SAV technique.<br>
+          • <strong>Marketing d'acquisition payante :</strong> Enchères Google Ads, campagnes Meta.<br>
+          • <strong>Facturation comptable &amp; Dunning :</strong> Recouvrement des factures.<br>
+          • <strong>Justification :</strong> Éviter la dispersion et concentrer 100 % de l'effort sur la rentabilité commerciale pure.
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-pill">
+      <span><strong>Sobriété Numérique :</strong> Centrage sur le cœur du métier commercial (Prospection ➔ Décroché ➔ RDV ➔ Closing).</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SLIDE 4 : OBJECTIFS ET PARTIES PRENANTES (04 / 10)
+     ========================================================= -->
+<div class="slide">
+  <div class="top-row">
+    <div class="brand-lockup">
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="divider-v"></div>
+      <span class="step-tag">04 · OBJECTIFS &amp; GOUVERNANCE</span>
+    </div>
+    <span class="slide-num">04 / 10</span>
+  </div>
+
+  <div class="content">
+    <div>
+      <h2>Objectifs Chiffrés &amp; <span class="accent">Matrice des Parties Prenantes</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Qui décide, qui pilote et quel impact mesurable visons-nous ?</div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-index">DÉCIDEUR UNIQUE &amp; SPONSOR</div>
+        <div class="num-xl">Direction</div>
+        <div class="lbl-lg">VP Sales &amp; CEO</div>
+        <div class="lbl-sm">Une seule personne tranche sur les quotas, les outils et l'organisation commerciale. Sponsorisé par Olivier Pailhès.</div>
+      </div>
+      <div class="card featured">
+        <div class="card-index" style="color:var(--forest);">OBJECTIF D'IMPACT BUSINESS</div>
+        <div class="num-xl">+4,17 M$</div>
+        <div class="lbl-lg">ARR Additionnel à 90 Jours</div>
+        <div class="lbl-sm" style="color:var(--forest);">Généré à effectif commercial constant en activant les 3 leviers identifiés par la data.</div>
+      </div>
+      <div class="card">
+        <div class="card-index">ÉQUIPE PILOTE &amp; UTILISATEURS</div>
+        <div class="num-xl">RevOps</div>
+        <div class="lbl-lg">Managers SDR/AE &amp; CFO</div>
+        <div class="lbl-sm">Pilotage hebdomadaire du lundi matin pour les managers et prévision de trésorerie ARR/CAC pour la finance.</div>
+      </div>
+    </div>
+
+    <div class="bottom-pill">
+      <span><strong>Gouvernance Simple :</strong> Décideur nommé · Périmètre écrit · Livrable validé à chaque jalon.</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SLIDE 5 : PARCOURS COMMERCIAL & DONNÉES NÉCESSAIRES (05 / 10)
+     ========================================================= -->
+<div class="slide">
+  <div class="top-row">
+    <div class="brand-lockup">
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="divider-v"></div>
+      <span class="step-tag">05 · PARCOURS COMMERCIAL</span>
+    </div>
+    <span class="slide-num">05 / 10</span>
+  </div>
+
+  <div class="content">
+    <div>
+      <h2>Le Parcours Commercial &amp; <span class="accent">les Données Nécessaires</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Décomposer le funnel pour identifier exactement où se produisent les déperditions.</div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card">
+        <div class="card-index">ÉTAPE 1 · VOLUME D'APPELS</div>
+        <div class="num-xl">10 000</div>
+        <div class="lbl-lg">Appels Sortants</div>
+        <div class="lbl-sm">Table <code>Funnel_B2B</code> : Données d'appels par commercial, zone et scénario.</div>
+      </div>
+      <div class="card">
+        <div class="card-index">ÉTAPE 2 · CONNECT RATE</div>
+        <div class="num-xl">5% à 45%</div>
+        <div class="lbl-lg">Taux de Décroché</div>
+        <div class="lbl-sm">Révèle la santé des numéros DID et le respect des fuseaux horaires.</div>
+      </div>
+      <div class="card">
+        <div class="card-index">ÉTAPE 3 · QUALIFICATION SDR</div>
+        <div class="num-xl">25 à 4 000</div>
+        <div class="lbl-lg">RDV Décrochés</div>
+        <div class="lbl-sm">Mesure l'efficacité de l'accroche et du traitement des objections en 30s.</div>
+      </div>
+      <div class="card featured">
+        <div class="card-index" style="color:var(--forest);">ÉTAPE 4 · CLOSING AE</div>
+        <div class="num-xl">5 à 1 000</div>
+        <div class="lbl-lg">Contrats Signés</div>
+        <div class="lbl-sm" style="color:var(--forest);">Conversion finale en ARR valorisée à 10 417 $/an d'ACV moyen.</div>
+      </div>
+    </div>
+
+    <div class="bottom-pill">
+      <span><strong>Pourquoi le ratio global est insuffisant :</strong> 0,22 % de signatures ne dit pas si la perte vient du numéro, du SDR ou de l'AE.</span>
+      <span><strong>4 Tables Connectées :</strong> Funnel, Benchmark, Historique, Satisfaction.</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SLIDE 6 : CHOIX DES SIX KPI ET RÈGLES DE CALCUL (06 / 10)
+     ========================================================= -->
+<div class="slide">
+  <div class="top-row">
+    <div class="brand-lockup">
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="divider-v"></div>
+      <span class="step-tag">06 · KPI &amp; CALCULS</span>
+    </div>
+    <span class="slide-num">06 / 10</span>
+  </div>
+
+  <div class="content">
+    <div>
+      <h2>Choix des Six KPI &amp; <span class="accent">Règles de Calcul Décisionnelles</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Règle de Frédéric Monereau : « Un KPI = Une Décision ».</div>
+    </div>
 
     <table class="clean-table">
       <thead>
         <tr>
-          <th style="width:22%;">Critère</th>
-          <th style="width:26%;"><svg width="96" height="27" style="vertical-align:middle;display:inline-block;" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></th>
-          <th style="width:26%;"><svg width="105px" height="24px" style="vertical-align:middle;display:inline-block;" id="logo-ringover_i1" viewBox="0 0 115 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <linearGradient x1="10.642537%" y1="10.7823457%" x2="96.4712916%" y2="100%" id="linearGradient-1_i1">
-            <stop stop-color="#00B388" offset="0%"></stop>
-            <stop stop-color="#00B388" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="logo_i1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard_i1" transform="translate(-134.000000, -280.000000)">
-            <g id="logo-line-color_i1" transform="translate(134.000000, 280.000000)">
-                <g id="Group-13_i1" transform="translate(0.000000, 0.000000)">
-                    <g id="Group_i1" transform="translate(32.000000, 3.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                        <path d="M2.784,17.616 L2.784,12.048 C2.784,9.864 3.768,8.616 5.928,8.616 C6.216,8.616 6.528,8.64 6.84,8.688 L6.84,5.856 C6.72,5.832 6.432,5.784 6.096,5.784 C4.56,5.784 3.264,6.528 2.712,7.8 L2.712,5.928 L0,5.928 L0,17.616 L2.784,17.616 Z M9.536,3.624 C10.544,3.624 11.36,2.832 11.36,1.824 C11.36,0.816 10.544,0 9.536,0 C8.552,0 7.736,0.816 7.736,1.824 C7.736,2.832 8.552,3.624 9.536,3.624 Z M10.928,17.616 L10.928,5.928 L8.168,5.928 L8.168,17.616 L10.928,17.616 Z M16.312,17.616 L16.312,10.872 C16.312,9.336 17.152,8.112 18.736,8.112 C20.488,8.112 21.136,9.264 21.136,10.704 L21.136,17.616 L23.92,17.616 L23.92,10.224 C23.92,7.656 22.552,5.592 19.696,5.592 C18.4,5.592 17.008,6.144 16.24,7.488 L16.24,5.928 L13.528,5.928 L13.528,17.616 L16.312,17.616 Z M31.032,22.536 C35.424,22.536 37.032,19.632 37.032,16.512 L37.032,5.928 L34.344,5.928 L34.344,7.416 C33.84,6.456 32.712,5.712 30.888,5.712 C27.672,5.712 25.488,8.28 25.488,11.4 C25.488,14.688 27.768,17.088 30.888,17.088 C32.592,17.088 33.768,16.296 34.272,15.384 L34.272,16.608 C34.272,18.984 33.168,20.112 30.96,20.112 C29.352,20.112 28.224,19.032 28.032,17.592 L25.464,18.264 C25.776,20.616 27.936,22.536 31.032,22.536 Z M31.344,14.712 C29.52,14.712 28.296,13.44 28.296,11.4 C28.296,9.408 29.568,8.112 31.344,8.112 C33.072,8.112 34.344,9.408 34.344,11.4 C34.344,13.416 33.12,14.712 31.344,14.712 Z M44.576,17.976 C48.08,17.976 50.648,15.36 50.648,11.76 C50.648,8.184 48.08,5.568 44.576,5.568 C41.096,5.568 38.528,8.184 38.528,11.76 C38.528,15.36 41.096,17.976 44.576,17.976 Z M44.576,15.48 C42.872,15.48 41.312,14.184 41.312,11.76 C41.312,9.336 42.872,8.088 44.576,8.088 C46.304,8.088 47.84,9.336 47.84,11.76 C47.84,14.208 46.304,15.48 44.576,15.48 Z M57.952,17.616 L62.536,5.928 L59.608,5.928 L56.584,14.28 L53.488,5.928 L50.416,5.928 L55.168,17.616 L57.952,17.616 Z M68.28,17.976 C71.088,17.976 72.936,16.32 73.56,14.28 L71.208,13.536 C70.824,14.688 69.96,15.576 68.28,15.576 C66.552,15.576 65.16,14.304 65.088,12.528 L73.632,12.528 C73.656,12.48 73.704,12.096 73.704,11.64 C73.704,7.944 71.592,5.568 67.992,5.568 C65.04,5.568 62.304,8.016 62.304,11.712 C62.304,15.672 65.112,17.976 68.28,17.976 Z M70.896,10.488 L65.16,10.488 C65.256,9.24 66.264,7.896 68.016,7.896 C69.936,7.896 70.848,9.12 70.896,10.488 Z M78.152,17.616 L78.152,12.048 C78.152,9.864 79.136,8.616 81.296,8.616 C81.584,8.616 81.896,8.64 82.208,8.688 L82.208,5.856 C82.088,5.832 81.8,5.784 81.464,5.784 C79.928,5.784 78.632,6.528 78.08,7.8 L78.08,5.928 L75.368,5.928 L75.368,17.616 L78.152,17.616 Z" id="ringover_i1"></path>
-                    </g>
-                    <g id="logo_i1" transform="translate(0.000000, 0.000000)" fill="url(#linearGradient-1_i1)">
-                        <g id="Group-Copy-3_i1">
-                            <g id="Group-2_i1" transform="translate(0.245620, 0.000000)">
-                                <path d="M12.7487636,26.0357143 C6.44286601,26.0357143 1.49207336,21.8112333 0.373650926,15.6875264 C0.359732676,15.6113197 0.34019606,15.4963529 0.315041079,15.342626 L6.56344993,15.3427385 C6.5908412,15.4348227 6.61183136,15.5034988 6.62642038,15.5487668 C7.55282415,18.4232847 10.0690497,19.9096639 12.7487636,19.9096639 C15.432939,19.9096639 17.9530813,18.4494006 18.8757208,15.5535215 C18.8904769,15.5072066 18.9116851,15.4369081 18.9393453,15.342626 L25.1824861,15.342626 C25.1615897,15.4711433 25.1454487,15.5673025 25.1340631,15.6311037 C24.0358226,21.7852691 19.0740099,26.0357143 12.7487636,26.0357143 Z M12.7487636,0 C19.3444301,0 24.4575906,4.57963363 25.2535401,11.1938247 C25.264946,11.2886056 25.2800508,11.4317085 25.2988544,11.6231335 L19.142136,11.6231335 C19.1243944,11.5144466 19.1105316,11.4333869 19.1005476,11.3799545 C18.4481121,7.88825231 15.697413,6.12605042 12.7487636,6.12605042 C9.83383355,6.12605042 7.11235238,7.84817927 6.42018275,11.2608445 C6.40413025,11.3399896 6.38253305,11.4607526 6.35539115,11.6231335 L0.198672699,11.6231335 C0.225874504,11.3543914 0.2482484,11.153762 0.265794389,11.0212454 C1.12923201,4.50010485 6.21061717,0 12.7487636,0 Z" id="Shape_i1"></path>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg></th>
-          <th style="width:26%;"><svg viewBox="0 0 155 50" width="96" height="31" style="vertical-align:middle;display:inline-block;" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="2" y="5" width="40" height="40" rx="11" fill="#00B388"/>
-  <path d="M15.5 16.5C14.7 16.5 14 17.2 14 18C14 25.7 20.3 32 28 32C28.8 32 29.5 31.3 29.5 30.5V27.2C29.5 26.5 29 25.9 28.3 25.8L25.4 25.2C24.8 25.1 24.2 25.3 23.8 25.7L22.6 26.9C20.3 25.7 18.3 23.7 17.1 21.4L18.3 20.2C18.7 19.8 18.9 19.2 18.8 18.6L18.2 15.7C18.1 15 17.5 14.5 16.8 14.5H15.5Z" fill="#06241C"/>
-  <path d="M28 13L29.1 15.9L32 17L29.1 18.1L28 21L26.9 18.1L24 17L26.9 15.9L28 13Z" fill="#FFFFFF"/>
-  <path fill="#FFFFFF" d="M69.42 17.03q5.11 0 7.85 2.19 2.79 2.18 2.79 6.65v15.8h-6.03v-3.5q-2.65 3.5-7.44 3.5-2.56 0-4.53-.91a7.4 7.4 0 0 1-3.01-2.5A6.6 6.6 0 0 1 58 34.6q0-3.06 2.01-4.96 2.05-1.97 6.49-2.37l6.85-.69v-1.18q0-1.77-1.05-2.69a4 4 0 0 0-2.84-.95q-1.82 0-2.87.77a3.7 3.7 0 0 0-1.37 2.28h-6.8a8 8 0 0 1 3.28-5.78q2.83-2 7.72-2m-1 20.31q2.37 0 3.6-1.46a6 6 0 0 0 1.23-3.91v-1.55l-5.11.68q-1.65.23-2.51 1.1a2.8 2.8 0 0 0-.87 2.09q0 1.31 1 2.19 1.01.86 2.65.86M90.83 41.67h-6.8V8.33h6.8zM101.85 41.67h-6.8V8.33h6.8zM117.11 41.67q-3.47 0-6.25-1.5a11 11 0 0 1-4.39-4.29 13 13 0 0 1-1.6-6.5q0-3.75 1.6-6.52a11 11 0 0 1 4.39-4.33q2.78-1.5 6.25-1.5t6.26 1.5q2.79 1.5 4.39 4.33a13 13 0 0 1 1.6 6.51q0 3.74-1.6 6.51a11 11 0 0 1-4.39 4.28q-2.78 1.5-6.26 1.5m0-5.38q2.38 0 3.89-1.86 1.5-1.87 1.5-5.06 0-3.23-1.5-5.1a4.8 4.8 0 0 0-3.93-1.87q-2.42 0-3.93 1.87-1.5 1.87-1.5 5.1 0 3.19 1.5 5.06a5 5 0 0 0 3.97 1.86"/>
-</svg></th>
+          <th style="width:20%;">KPI Retenu</th>
+          <th style="width:25%;">Règle de Calcul &amp; Type</th>
+          <th style="width:18%;">Valeur Constatée</th>
+          <th style="width:37%;">Décision Commerciale Liée</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>ARR &amp; Envergure</strong></td>
-          <td><span class="badge-dark">250 M$ ARR</span> · 24k clients</td>
-          <td><span class="badge-mint">50 M$ ARR</span> · 14k clients</td>
-          <td><span class="badge-outline">3 M$ ARR</span> · 5k clients</td>
+          <td><strong>1. Connect Rate</strong></td>
+          <td><code>Appels Décrochés / Total Appels</code></td>
+          <td><span class="badge-solid">18,48 % (AVG)</span></td>
+          <td>Purger et remplacer les numéros DID si le taux chute sous 10 %.</td>
         </tr>
         <tr>
-          <td><strong>Ticket d'entrée annuel</strong></td>
-          <td><span class="badge-dark">1 080 $ / an min.</span> (Min. 3 licences)</td>
-          <td><span class="badge-mint">252 $ / an</span> (Dès 1 licence · ×4 moins cher)</td>
-          <td><span class="badge-solid">420 € / an</span> (Dès 1 licence · Sans min.)</td>
+          <td><strong>2. Taux RDV / Décroché</strong></td>
+          <td><code>RDV Qualifiés / Décrochés</code></td>
+          <td><span class="badge-mint">15 % (Médiane)</span></td>
+          <td>Coacher l'accroche des 30 premières secondes si &lt; 15 %.</td>
         </tr>
         <tr>
-          <td><strong>Option Data &amp; Historique</strong></td>
-          <td><span class="badge-dark">Bridé 6 mois · +15 $/m</span> (+1 800 $/an)</td>
-          <td>Option <strong>+6 $/m</strong> (+720 $/an)</td>
-          <td><span class="badge-solid">100 % Inclus (0 €)</span> (12 mois illimité)</td>
+          <td><strong>3. Taux Closing AE</strong></td>
+          <td><code>Contrats Signés / RDV Qualifiés</code></td>
+          <td><span class="badge-mint">20 % ➔ 25 %</span></td>
+          <td>Généraliser la démo dès le 1<sup>er</sup> RDV pour tous les AE si &lt; 20 %.</td>
         </tr>
         <tr>
-          <td><strong>Satisfaction G2 Crowd</strong></td>
-          <td><strong>4,3 / 5</strong> (1 267 avis · Décrochage PME)</td>
-          <td><span class="badge-mint">4,6 / 5</span> (Forte adoption UE)</td>
-          <td><span class="badge-mint">4,7 / 5</span> (Plébiscité TPE)</td>
+          <td><strong>4. ARR Additionnel</strong></td>
+          <td><code>Delta Contrats Signés × ACV</code></td>
+          <td><span class="badge-dark">+4,175 M$ ARR</span></td>
+          <td>Arbitrer les budgets commerciaux et les primes de performance.</td>
+        </tr>
+        <tr>
+          <td><strong>5. ACV Moyen</strong></td>
+          <td><code>ARR Nouveau / Contrats Signés</code></td>
+          <td><span class="badge-mint">10 417 $/an</span></td>
+          <td>Inciter les AE à privilégier les comptes Mid-Market (&gt;10 licences).</td>
+        </tr>
+        <tr>
+          <td><strong>6. Satisfaction Client</strong></td>
+          <td><code>Note Moyenne G2 / Capterra</code></td>
+          <td><span class="badge-mint">4,3 / 5</span></td>
+          <td>Déclencher les alertes préventives anti-churn auprès du CSM.</td>
         </tr>
       </tbody>
     </table>
 
-    <div style="margin-top:24px; text-align:center;">
-      <span style="display:inline-block; background:rgba(0,179,136,0.10); border:1.5px solid rgba(0,179,136,0.35); border-radius:100px; padding:12px 28px; font-size:14.5px; color:var(--forest); font-weight:700;">
-        <strong style="color:var(--emerald);">Opportunité RevOps :</strong> Le Dashboard Looker Studio gratuit lève le verrou « Taxe Data » (+1 800 $/an) face à Ringover &amp; Allo.
-      </span>
+    <div class="bottom-pill">
+      <span><strong>Règle de Calcul Vitale :</strong> Agrégation stricte en <strong>Moyenne pondérée (<code>AVG</code>)</strong> et jamais en Somme (<code>SUM</code>).</span>
     </div>
   </div>
-
-  <div class="z-layer"></div>
 </div>
 
 <!-- =========================================================
-     SLIDE 3 : FUNNEL B2B & LES 12 KPI CHOISIS
+     SLIDE 7 : MAQUETTE DE LA PAGE DE PILOTAGE (07 / 10)
      ========================================================= -->
 <div class="slide">
-  
-<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1280 0H1080L1190 245C1205 278 1238 300 1275 300H1280V0Z" fill="#EDF8F4"/>
-  <path d="M0 540H75C112 540 145 562 160 595L215 720H0V540Z" fill="#EDF8F4"/>
-</svg>
-
   <div class="top-row">
     <div class="brand-lockup">
-      <svg width="124" height="35" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#00B388"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#FFFFFF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#06241C"/></svg>
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
       <div class="divider-v"></div>
-      <span class="step-tag">03 · FUNNEL B2B &amp; 12 KPI</span>
-    </div>
-    <span class="slide-num">03 / 06</span>
-  </div>
-
-  <div class="content">
-    <h2>Sur 10 000 Appels : <span class="accent">Combien de Contrats Signés ?</span> <span style="font-size:16px; color:var(--teal); font-weight:700;">(Un KPI = Une Décision)</span></h2>
-
-    <div class="grid-5">
-      <div class="card">
-        <div class="card-index">01 · NUMÉROS SPAM</div>
-        <div>
-          <div class="num-xl">5</div>
-          <div class="lbl-lg">Contrats Signés</div>
-          <div class="lbl-sm">5 % Décroché · 25 RDV</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-index">02 · ÉTATS-UNIS</div>
-        <div>
-          <div class="num-xl">6</div>
-          <div class="lbl-lg">Contrats Signés</div>
-          <div class="lbl-sm">6,4 % Décr. · 29 RDV</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-index">03 · MÉDIANE EUROPE</div>
-        <div>
-          <div class="num-xl">22</div>
-          <div class="lbl-lg">Contrats Signés</div>
-          <div class="lbl-sm">14 % Décr. · 110 RDV</div>
-        </div>
-      </div>
-
-      <div class="card featured">
-        <div class="card-index">04 · TOP PERFORMER</div>
-        <div>
-          <div class="num-xl" style="color:var(--emerald);">82</div>
-          <div class="lbl-lg">Signés (×3,7)</div>
-          <div class="lbl-sm" style="color:#C5E8DC;">22 % Décr. · 330 RDV</div>
-        </div>
-      </div>
-
-      <div class="card featured" style="background:var(--teal); border-color:var(--teal);">
-        <div class="card-index" style="color:#FFFFFF;">05 · INBOUND &lt; 5 MIN</div>
-        <div>
-          <div class="num-xl">1 000</div>
-          <div class="lbl-lg">Contrats Signés</div>
-          <div class="lbl-sm" style="color:#EAF8F3;">45 % Décr. · 4 000 RDV</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="step-strip">
-      <div class="step-pill"><span class="s-num">A</span> Activité : Volume &amp; Durée</div>
-      <div class="step-pill"><span class="s-num">B</span> Funnel : Décroché ➔ RDV ➔ Closing</div>
-      <div class="step-pill"><span class="s-num">C</span> Finance : ARR · ACV (10,4k$) · CAC</div>
-      <div class="step-pill"><span class="s-num">D</span> Qualité : NPS (AVG) &amp; FCR</div>
-    </div>
-  </div>
-
-  <div class="z-layer"></div>
-</div>
-
-<!-- =========================================================
-     SLIDE 4 : DASHBOARD GOOGLE DATA STUDIO (PLEIN ÉCRAN)
-     ========================================================= -->
-<div class="slide">
-  
-<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1280 0H1080L1190 245C1205 278 1238 300 1275 300H1280V0Z" fill="#EDF8F4"/>
-  <path d="M0 540H75C112 540 145 562 160 595L215 720H0V540Z" fill="#EDF8F4"/>
-</svg>
-
-  <div class="top-row">
-    <div class="brand-lockup">
-      <svg width="124" height="35" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#00B388"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#FFFFFF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#06241C"/></svg>
-      <div class="divider-v"></div>
-      <span class="step-tag">04 · DASHBOARD LOOKER STUDIO (LISIBLE EN 10s)</span>
+      <span class="step-tag">07 · DASHBOARD LOOKER STUDIO</span>
     </div>
     <div style="display:flex; gap:10px; align-items:center;">
       <span class="badge-solid">18,48 % Décroché (AVG)</span>
       <span class="badge-mint">4 494 RDV</span>
       <span class="badge-dark">1 115 Signés</span>
-      <span class="slide-num" style="margin-left:8px;">04 / 06</span>
+      <span class="slide-num">07 / 10</span>
     </div>
   </div>
 
-  <div class="content" style="justify-content:center; align-items:center;">
-    <div style="width:100%; flex:1; min-height:0; max-height:calc(100vh - 170px); border:none; border-radius:0; overflow:hidden; background:transparent; box-shadow:none; display:flex; align-items:center; justify-content:center;">
-      <img src="capture_vrai_datastudio_kevin.jpg" alt="Dashboard Data Studio" style="width:98%; height:96%; object-fit:contain; display:block;">
+  <div class="content" style="align-items:center; justify-content:center;">
+    <div style="width:100%; flex:1; min-height:0; max-height:calc(100vh - 150px); display:flex; align-items:center; justify-content:center;">
+      <img src="capture_vrai_datastudio_kevin.jpg" alt="Dashboard Looker Studio Aircall" style="width:100%; height:100%; object-fit:contain; display:block;">
     </div>
   </div>
 
-  <div class="z-layer"></div>
+  <div class="bottom-pill">
+    <span><strong>Règle des 10 Secondes :</strong> En un regard, la direction identifie où ça va bien (Inbound, Top Performers) et où ça va mal (Spam, US).</span>
+  </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 5 : LES 3 GRANDS INSIGHTS (DIAGNOSTIC DATA)
+     SLIDE 8 : DIAGNOSTIC ET PASSAGE À L'ACTION (08 / 10)
      ========================================================= -->
 <div class="slide">
-  
-<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1280 0H1080L1190 245C1205 278 1238 300 1275 300H1280V0Z" fill="#EDF8F4"/>
-  <path d="M0 540H75C112 540 145 562 160 595L215 720H0V540Z" fill="#EDF8F4"/>
-</svg>
-
   <div class="top-row">
     <div class="brand-lockup">
-      <svg width="124" height="35" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#00B388"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#FFFFFF"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#06241C"/></svg>
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
       <div class="divider-v"></div>
-      <span class="step-tag">05 · INSIGHTS DATA</span>
+      <span class="step-tag">08 · DIAGNOSTIC &amp; ACTIONS</span>
     </div>
-    <span class="slide-num">05 / 06</span>
+    <span class="slide-num">08 / 10</span>
   </div>
 
   <div class="content">
-    <h2>Faire Parler la Data : <span class="accent">3 Constats Majeurs</span></h2>
+    <div>
+      <h2>Diagnostic &amp; Passage à l'Action : <span class="accent">3 Recommandations</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Chaque action calibrée selon les 7 rubriques obligatoires de Frédéric Monereau.</div>
+    </div>
 
     <div class="grid-3">
       <div class="card">
-        <div class="card-index">GOULOT N°1 · L'HÉMORRAGIE TÉLÉCOM (ARCEP / FCC)</div>
-        <div>
-          <div class="num-xl" style="font-size:48px;">-64 %</div>
-          <div class="lbl-lg" style="margin-bottom:8px;">Effondrement Décroché (Spam)</div>
-          <div class="lbl-sm" style="font-size:14px; font-weight:600; line-height:1.4;">14 % ➔ 5 % Décroché · 400 appels pour 1 seul RDV</div>
-          <div style="margin-top:24px;"><span class="badge-mint">Loi Naegelen &amp; Filtres Opérateurs</span></div>
-        </div>
+        <div class="card-index">RECO 1 · NUMÉROS SPAM &amp; ICP PME</div>
+        <div class="lbl-lg" style="font-size:20px; margin-bottom:8px;">Rotation DID &amp; PME 20–200</div>
+        <div class="lbl-sm"><strong>Constat :</strong> 5 % de décroché sur numéros spam.<br><strong>Action :</strong> Purge hebdomadaire + ciblage ICP.<br><strong>Semaines :</strong> S1 (ICP), S2-S3 (tri base), S4-S8 (appels).<br><strong>Budget :</strong> 5j RevOps + 300 € outil réputation.<br><strong>Risque &amp; Plan B :</strong> Épuisement pool ➔ DID localisé.</div>
+        <div class="num-xl" style="color:var(--forest); font-size:32px; margin-top:14px;">+150 k$ ARR</div>
       </div>
 
       <div class="card featured">
-        <div class="card-index">GOULOT N°2 · LE LEVIER MANAGÉRIAL (PITCH 30s)</div>
-        <div>
-          <div class="num-xl" style="font-size:48px; color:var(--emerald);">× 3,7</div>
-          <div class="lbl-lg" style="margin-bottom:8px;">Multiplicateur Closing (Pitch)</div>
-          <div class="lbl-sm" style="color:#C5E8DC; font-size:14px; font-weight:600; line-height:1.4;">22 ➔ 82 Contrats Signés à volume égal (10k appels)</div>
-          <div style="margin-top:24px;"><span class="badge-solid">+625 k$ ARR · Coaching Pitch 30s</span></div>
-        </div>
+        <div class="card-index">RECO 2 · COACHING SDR &amp; DÉMO</div>
+        <div class="lbl-lg" style="font-size:20px; margin-bottom:8px;">Généraliser la Démo Immédiate</div>
+        <div class="lbl-sm" style="color:#C5E8DC;"><strong>Constat :</strong> Le Top Performer signe 82 contrats (×3,7) car il fait la démo au 1<sup>er</sup> RDV.<br><strong>Action :</strong> Entraînement accroche 30s + démo 15 min.<br><strong>Semaines :</strong> S1 (vidéo), S2-S3 (formation), S4-S10 (écoutes).<br><strong>Budget :</strong> 6j manager. KPI : closing 15%➔25%.<br><strong>Risque &amp; Plan B :</strong> Résistance ➔ 3 volontaires pilotes.</div>
+        <div class="num-xl" style="color:var(--emerald); font-size:32px; margin-top:14px;">+625 k$ ARR</div>
       </div>
 
       <div class="card">
-        <div class="card-index">GOULOT N°3 · LA RÈGLE D'OR INBOUND (&lt; 5 MIN)</div>
-        <div>
-          <div class="num-xl" style="font-size:48px;">× 45</div>
-          <div class="lbl-lg" style="margin-bottom:8px;">Efficacité Inbound (&lt; 5 min)</div>
-          <div class="lbl-sm" style="font-size:14px; font-weight:600; line-height:1.4;">1 000 Signés vs 22 en Outbound (Joignabilité -80 % à 30 min)</div>
-          <div style="margin-top:24px;"><span class="badge-dark">Routage Instantané RevOps</span></div>
-        </div>
+        <div class="card-index">RECO 3 · INBOUND &amp; TEMPLATE OFFERT</div>
+        <div class="lbl-lg" style="font-size:20px; margin-bottom:8px;">Rappel &lt; 5 min &amp; Looker Gratuit</div>
+        <div class="lbl-sm"><strong>Constat :</strong> 45 % de décroché et 1 000 signés si rappelé en &lt; 5 min.<br><strong>Action :</strong> Routage automatique + Template Data Studio offert aux clients pour contrer Ringover et Allo.<br><strong>Semaines :</strong> S1-S4 (intégration), S5-S12 (lancement).<br><strong>Budget :</strong> 10j RevOps. Risque : saturation ➔ SLA d'urgence.</div>
+        <div class="num-xl" style="color:var(--forest); font-size:32px; margin-top:14px;">+3,4 M$ ARR</div>
       </div>
     </div>
-  </div>
 
-  <div class="z-layer"></div>
+    <div class="bottom-pill">
+      <span><strong>Impact Consolidé :</strong> +4,175 M$ d'ARR additionnel activé sur 90 jours à effectif constant.</span>
+    </div>
+  </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 6 : RECOMMANDATIONS STRATÉGIQUES GRÂCE AUX KPI CHOISIS
+     SLIDE 9 : GESTION DE PROJET, QUALITÉ & IA (09 / 10)
      ========================================================= -->
-<div class="slide dark-green">
-  
-<svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 0H280L140 315C122 355 82 380 38 380H0V0Z" fill="#041A14"/>
-  <path d="M1280 360H1195C1150 360 1110 386 1092 427L960 720H1280V360Z" fill="#00B388"/>
-</svg>
-
+<div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
-      <svg width="136" height="38" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg>
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
       <div class="divider-v"></div>
-      <span class="step-tag">06 · RECOMMANDATIONS STRATÉGIQUES</span>
+      <span class="step-tag">09 · GESTION DE PROJET &amp; IA</span>
     </div>
-    <span class="slide-num">06 / 06</span>
+    <span class="slide-num">09 / 10</span>
   </div>
 
   <div class="content">
-    <h1 style="font-size:43px;">Corriger &amp; Améliorer la Stratégie <span class="accent">grâce aux KPI Choisis.</span></h1>
-
-    <div class="grid-3">
-      <!-- Reco 1 -->
-      <div class="card">
-        <div class="card-index">TÉLÉCOM · CONNECT RATE &lt; 10 % (ALERTE SPAM)</div>
-        <div>
-          <div class="lbl-lg" style="font-size:24px; margin-bottom:10px;">1. Protocole Anti-Spam</div>
-          <div class="lbl-sm" style="color:#C5E8DC; font-size:14.5px; line-height:1.45;">Remplacement immédiat des numéros flagués &amp; bascule vers mobiles directs vérifiés.</div>
-          <div class="num-xl" style="color:var(--emerald); font-size:42px; margin-top:22px;">+177 k$ ARR</div>
-          <div class="lbl-sm" style="color:#FFFFFF; font-weight:700;">+17 signés / 10k appels</div>
-        </div>
-      </div>
-
-      <!-- Reco 2 -->
-      <div class="card featured">
-        <div class="card-index" style="color:var(--forest);">VENTE · RATIO RDV / DÉCROCHÉ &lt; 15 %</div>
-        <div>
-          <div class="lbl-lg" style="font-size:24px; margin-bottom:10px;">2. Coaching Entonnoir SDR</div>
-          <div class="lbl-sm" style="font-size:14.5px; line-height:1.45;">Double-écoute ciblée &amp; entraînement au traitement des 3 premières objections en 30s.</div>
-          <div class="num-xl" style="color:var(--teal); font-size:42px; margin-top:22px;">+625 k$ ARR</div>
-          <div class="lbl-sm" style="font-weight:800;">×3,7 signés à effectif constant</div>
-        </div>
-      </div>
-
-      <!-- Reco 3 -->
-      <div class="card">
-        <div class="card-index">REVOPS · VITESSE INBOUND &amp; TCO DATA</div>
-        <div>
-          <div class="lbl-lg" style="font-size:24px; margin-bottom:10px;">3. Routage &amp; Template Offert</div>
-          <div class="lbl-sm" style="color:#C5E8DC; font-size:14.5px; line-height:1.45;">Rappel prospect &lt; 5 min + Template Looker Studio gratuit offert aux clients PME.</div>
-          <div class="num-xl" style="color:var(--emerald); font-size:42px; margin-top:22px;">+3,4 M$ ARR</div>
-          <div class="lbl-sm" style="color:#FFFFFF; font-weight:700;">Closing Inbound &amp; Baisse Churn</div>
-        </div>
-      </div>
+    <div>
+      <h2>Gestion de Projet, Qualité &amp; <span class="accent">Usage Critique de l'IA</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Les 4 temps obligatoires de l'évaluation de l'IA (Barème : 10 points).</div>
     </div>
 
-    <!-- IA AVEC RECUL (10 POINTS - FRÉDÉRIC MONEREAU) -->
-    <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(6,36,28,0.7); border:1px solid rgba(0,189,130,0.3); padding:10px 22px; border-radius:999px; font-size:13px; font-weight:700; color:#FFFFFF; margin-top:14px;">
-      <span><strong style="color:var(--emerald);">IA avec Recul (10 pts) :</strong></span>
-      <span><strong>1. Exploré :</strong> Brainstorming KPI &amp; Sources</span>
-      <span><strong>2. Gardé :</strong> Looker Studio gratuit &amp; Formule ARR</span>
-      <span><strong>3. Corrigé :</strong> Erreur somme des taux ➔ Moyenne pondérée (<code>AVG ≠ SUM</code> : 18,48 %)</span>
-      <span><strong>4. Jeté :</strong> 25 KPI superflus &amp; fausses données</span>
+    <table class="clean-table">
+      <thead>
+        <tr>
+          <th style="width:22%;">Rubrique Officielle</th>
+          <th style="width:43%;">Détail des Actions Réalisées</th>
+          <th style="width:35%;">Arbitrage Humain &amp; Justification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Pour explorer</strong></td>
+          <td>Brainstorming des structures de données, génération d'une première liste de 25 métriques potentielles.</td>
+          <td>Conservation de la trace des prompts pour la défense orale.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Ce qu'on a gardé</strong></td>
+          <td>L'architecture en 4 tables relationnelles et la formule de calcul ARR (<code>Delta Signés × ACV</code>).</td>
+          <td>Validation car solutions gratuites, robustes et conformes au brief.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Ce qu'on a corrigé</strong></td>
+          <td><strong>Audit mathématique :</strong> L'IA additionnait les pourcentages (<code>SUM</code>). Forcé en <strong>Moyenne (<code>AVG ≠ SUM</code> : 18,48 %)</strong>.<br><strong>Données réelles :</strong> Remplacement des chiffres inventés par <strong>GetLatka 2024</strong>.</td>
+          <td>Preuve concrète du contrôle humain indispensable : l'IA ne sait pas auditer ses calculs.</td>
+        </tr>
+        <tr>
+          <td><strong>4. Ce qu'on a jeté</strong></td>
+          <td>Rejet de 15 KPI superflus sans décision associée, graphiques 3D et métriques de support client.</td>
+          <td><strong>Sobriété numérique (5 pts) :</strong> Ne garder que les données utiles à la décision.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="bottom-pill">
+      <span><strong>Gestion du Projet :</strong> 4 jalons datés sur 2 jours (17 et 20 novembre) · 100 % données sourcées.</span>
     </div>
   </div>
-
-  <div class="z-layer"></div>
 </div>
 
-  </div> <!-- #deck -->
+<!-- =========================================================
+     SLIDE 10 : LIMITES ET PROCHAINES ÉTAPES (10 / 10)
+     ========================================================= -->
+<div class="slide dark-green">
+  <div class="top-row">
+    <div class="brand-lockup">
+      <svg width="124" height="34" viewBox="0 0 140 40" fill="none"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/></svg>
+      <div class="divider-v"></div>
+      <span class="step-tag">10 · LIMITES &amp; PROCHAINES ÉTAPES</span>
+    </div>
+    <span class="slide-num">10 / 10</span>
+  </div>
+
+  <div class="content">
+    <div>
+      <h1>Limites du Modèle &amp; <span class="accent">Prochaines Étapes</span></h1>
+      <div class="lbl-lg" style="color:#FFFFFF; opacity:0.92; margin-top:8px;">Une démarche honnête et un plan de déploiement opérationnel immédiat.</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="padding:28px;">
+        <div class="card-index">LIMITES OBJECTIVES IDENTIFIÉES</div>
+        <div class="lbl-lg" style="font-size:22px; margin-bottom:12px; color:var(--white);">Ce que le modèle ne mesure pas encore</div>
+        <div class="lbl-sm" style="font-size:15px; line-height:1.6; color:#C5E8DC;">
+          • <strong>Équipe simulée :</strong> Les logs CRM nominatifs d'Aircall sont sous clause de confidentialité.<br>
+          • <strong>CAC incomplet :</strong> Le coût d'acquisition actuel n'intègre pas les charges fixes et salaires bruts des SDR/AE.<br>
+          • <strong>Saisonnalité :</strong> L'étude est étalonnée sur 6 mois, sans intégrer les baisses d'août et de décembre.
+        </div>
+      </div>
+
+      <div class="card featured" style="padding:28px;">
+        <div class="card-index" style="color:var(--forest);">PROCHAINES ÉTAPES (DÈS LA SEMAINE PROCHAINE)</div>
+        <div class="lbl-lg" style="font-size:22px; margin-bottom:12px; color:var(--forest);">Plan de Déploiement Opérationnel</div>
+        <div class="lbl-sm" style="font-size:15px; line-height:1.6;">
+          • <strong>J+7 :</strong> Brancher l'API Webhook native Aircall directement dans Salesforce / HubSpot.<br>
+          • <strong>J+14 :</strong> Démarrer le pilote de double-écoute SDR sur 3 commerciaux volontaires.<br>
+          • <strong>J+30 :</strong> Mettre en ligne le Template Looker Studio comme lead magnet commercial face à Ringover et Allo.
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-pill">
+      <span><strong style="color:var(--emerald);">Soutenance Terminée :</strong> Raisonnement validé sur les 10 points du barème officiel. Merci pour votre attention !</span>
+    </div>
+  </div>
+</div>
+
+</div> <!-- #deck -->
 
 <script>
   const slides = document.querySelectorAll('.slide');
@@ -767,7 +802,6 @@
     }
   });
 
-  // Click on screen: left 20% = prev, remaining 80% = next
   window.addEventListener('click', (e) => {
     if (e.target.closest('a, button, input, select, textarea')) return;
     const w = window.innerWidth;
