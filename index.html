@@ -257,19 +257,72 @@
     box-shadow: 0 8px 24px rgba(0, 179, 136, 0.25);
   }
 
-  /* AVATARS */
-  .avatar-box {
-    width: 52px;
-    height: 52px;
+  /* AVATARS & PERSON ICONS */
+  .avatar-badge {
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-    background: var(--mint);
-    border: 2px solid var(--mint-border);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
     margin-bottom: 10px;
+    transition: transform 0.2s ease;
   }
+  .avatar-badge svg {
+    display: block;
+  }
+  .avatar-vp {
+    background: rgba(255, 255, 255, 0.16);
+    color: #FFFFFF;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+  }
+  .avatar-daf {
+    background: #EAF8F3;
+    color: var(--teal);
+    border: 2px solid var(--mint-border);
+  }
+  .avatar-dsi {
+    background: #EAF8F3;
+    color: var(--forest);
+    border: 2px solid var(--mint-border);
+  }
+
+  .decideur-tag {
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+  .tag-vp { background: rgba(0, 179, 136, 0.25); color: #7FF5D3; }
+  .tag-daf { background: var(--mint); color: var(--teal); }
+  .tag-dsi { background: #E2E8F0; color: var(--forest); }
+
+  .bullet-list {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .bullet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .bullet-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .featured .bullet-dot { background: var(--emerald); }
+  .card:not(.featured) .bullet-dot { background: var(--teal); }
 </style>
 </head>
 <body>
@@ -339,64 +392,98 @@
 
   <div class="content">
     <div>
-      <h2>Le Trio de Décision &amp; <span class="accent">le Cadrage du Projet</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Qui décide et sur quel périmètre exact concentrons-nous nos efforts ?</div>
+      <h2>Le Trio de Décision &amp; <span class="accent">les Enjeux du Cadrage</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Qui tranche au comité de direction et quel est l'enjeu commercial prioritaire ?</div>
     </div>
 
-    <!-- 3 DECIDEURS COTE A COTE -->
+    <!-- 3 DECIDEURS COTE A COTE AVEC ICONES PERSONNE -->
     <div class="grid-3">
-      <div class="card featured" style="padding:16px 20px;">
-        <div class="avatar-box" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3);">👔</div>
-        <div class="card-index" style="color:var(--emerald);">DÉCIDEUR PRINCIPAL · SPONSOR</div>
-        <div class="lbl-lg" style="font-size:18px; color:#FFFFFF;">Directeur Commercial</div>
-        <div class="lbl-sm" style="color:#C5E8DC; font-size:13px;">
-          • Fixe les quotas des 10 commerciaux.<br>
-          • Tranche sur l'organisation des ventes.<br>
-          • Pilote les rendez-vous et signatures.
+      <!-- 1. VP SALES -->
+      <div class="card featured" style="padding:18px 22px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div class="avatar-badge avatar-vp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <span class="decideur-tag tag-vp">Sponsor &amp; Arbitre Final</span>
+        </div>
+        <div class="lbl-lg" style="font-size:18.5px; color:#FFFFFF; margin-top:2px;">Directeur Commercial (VP Sales)</div>
+        <div style="font-size:10.5px; font-weight:800; letter-spacing:0.8px; color:var(--emerald); text-transform:uppercase; margin-top:8px;">Sur quoi il décide :</div>
+        <div class="bullet-list" style="color:#D0E8DF;">
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Quotas d'appels et temps de prospection des 10 commerciaux</span></div>
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Suppression du démarchage TPE au profit des PME / GC</span></div>
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Coaching de l'accroche des 30 premières secondes des SDR</span></div>
         </div>
       </div>
 
-      <div class="card" style="padding:16px 20px;">
-        <div class="avatar-box">📊</div>
-        <div class="card-index">DÉCIDEUR RENTABILITÉ &amp; BUDGET</div>
-        <div class="lbl-lg" style="font-size:18px; color:var(--forest);">Directeur Financier (DAF)</div>
-        <div class="lbl-sm" style="font-size:13px;">
-          • Valide le budget de recrutement.<br>
-          • Surveille le panier moyen par client.<br>
-          • Exige un retour sur investissement rapide.
+      <!-- 2. DAF -->
+      <div class="card" style="padding:18px 22px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div class="avatar-badge avatar-daf">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <span class="decideur-tag tag-daf">Budget &amp; Rentabilité</span>
+        </div>
+        <div class="lbl-lg" style="font-size:18.5px; color:var(--forest); margin-top:2px;">Directeur Financier (DAF / CFO)</div>
+        <div style="font-size:10.5px; font-weight:800; letter-spacing:0.8px; color:var(--teal); text-transform:uppercase; margin-top:8px;">Sur quoi il décide :</div>
+        <div class="bullet-list" style="color:#264A3E;">
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Validation du budget de recrutement CSM (58 000 €)</span></div>
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Sécurisation de la rentabilité opérationnelle EBITDA+</span></div>
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Audit du retour sur investissement (+4,17 M$ ARR)</span></div>
         </div>
       </div>
 
-      <div class="card" style="padding:16px 20px;">
-        <div class="avatar-box">💻</div>
-        <div class="card-index">DÉCIDEUR TECHNIQUE &amp; TÉLÉCOM</div>
-        <div class="lbl-lg" style="font-size:18px; color:var(--forest);">Directeur Technique (DSI)</div>
-        <div class="lbl-sm" style="font-size:13px;">
-          • Surveille la réputation des numéros d'appel.<br>
-          • Valide les règles légales d'appels et SMS.<br>
-          • Automatise les alertes dans le CRM.
+      <!-- 3. DSI -->
+      <div class="card" style="padding:18px 22px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div class="avatar-badge avatar-dsi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <span class="decideur-tag tag-dsi">Télécom &amp; Outils CRM</span>
+        </div>
+        <div class="lbl-lg" style="font-size:18.5px; color:var(--forest); margin-top:2px;">Directeur Technique (DSI / CTO)</div>
+        <div style="font-size:10.5px; font-weight:800; letter-spacing:0.8px; color:var(--teal); text-transform:uppercase; margin-top:8px;">Sur quoi il décide :</div>
+        <div class="bullet-list" style="color:#264A3E;">
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Rotation des numéros 09 (conformité Arcep &lt;60 app/j)</span></div>
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Automatisation des SMS mobiles 06/07 après non-décroché</span></div>
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Supervision des flux CRM et webhooks d'appels</span></div>
         </div>
       </div>
     </div>
 
-    <!-- CADRAGE PERIMETRE -->
+    <!-- 3 OBJECTIFS DE CADRAGE PLUS VISUELS & PLUS GROS -->
     <div class="grid-3">
-      <div class="card" style="padding:12px 16px;">
-        <div class="card-index">LE PROBLÈME</div>
-        <div class="lbl-sm" style="font-weight:700; color:var(--forest); font-size:13px;">Trop de chiffres suivis au quotidien, aucune décision claire prise.</div>
+      <div class="card" style="padding:15px 18px; border-left:4px solid #D9383A; background:#FFF8F8;">
+        <div class="card-index" style="color:#B91C1C; font-size:11px;">01 · LE PROBLÈME</div>
+        <div style="font-size:15.5px; font-weight:800; color:#991B1B; margin:2px 0 3px;">Trop de Données, Zéro Décision</div>
+        <div class="lbl-sm" style="color:#4B5563; font-size:12.5px; line-height:1.35; margin-top:0;">
+          Aircall suit trop d'indicateurs au quotidien. L'équipe commerciale disperse ses efforts sans savoir où se perd le chiffre d'affaires.
+        </div>
       </div>
-      <div class="card" style="padding:12px 16px;">
-        <div class="card-index">DANS LE PÉRIMÈTRE</div>
-        <div class="lbl-sm" style="font-weight:700; color:var(--forest); font-size:13px;">Les 10 commerciaux sur 6 mois (appels, RDV, contrats signés).</div>
-      </div>
-      <div class="card" style="padding:12px 16px;">
-        <div class="card-index">HORS PÉRIMÈTRE</div>
-        <div class="lbl-sm" style="font-weight:700; color:var(--forest); font-size:13px;">Le support client SAV, la publicité payante et la comptabilité.</div>
-      </div>
-    </div>
 
-    <div class="bottom-pill">
-      <span><strong>Règle de Gouvernance :</strong> 1 sponsor principal qui tranche (Directeur Commercial) épaulé par le DAF (Budget) et le DSI (Technique).</span>
+      <div class="card" style="padding:15px 18px; border-left:4px solid var(--emerald); background:var(--offwhite);">
+        <div class="card-index" style="color:var(--teal); font-size:11px;">02 · LE RÉSULTAT ATTENDU</div>
+        <div style="font-size:15.5px; font-weight:800; color:var(--forest); margin:2px 0 3px;">Dashboard de 7 KPI d'Arbitrage</div>
+        <div class="lbl-sm" style="color:#264A3E; font-size:12.5px; line-height:1.35; margin-top:0;">
+          Un tableau de bord lisible en 10 secondes pour isoler les 3 goulots réels et débloquer immédiatement <strong>+4,17 M$ d'ARR</strong>.
+        </div>
+      </div>
+
+      <div class="card" style="padding:15px 18px; border-left:4px solid var(--teal); background:var(--offwhite);">
+        <div class="card-index" style="color:var(--teal); font-size:11px;">03 · LE PÉRIMÈTRE STRICT</div>
+        <div style="font-size:15.5px; font-weight:800; color:var(--forest); margin:2px 0 3px;">10 Commerciaux · 6 Mois</div>
+        <div class="lbl-sm" style="color:#264A3E; font-size:12.5px; line-height:1.35; margin-top:0;">
+          Centrage 100% sur le funnel de prospection (appels, RDV, closing). Hors périmètre : support SAV, ads et facturation.
+        </div>
+      </div>
     </div>
   </div>
 </div>
