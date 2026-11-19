@@ -315,6 +315,65 @@
   .row-5 .pyr-step-main { color: #00B388; }
   .row-5 .pyr-tag-count { background: #00B388; color: #06241C; }
 
+  /* CHEMIN FLÉCHÉ SLIDE 2 */
+  .cadrage-flow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+  .cadrage-step {
+    flex: 1;
+    border-radius: 12px;
+    padding: 14px 18px;
+    background: var(--offwhite);
+    border: 1.5px solid var(--mint-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+  }
+  .flow-arrow-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal);
+    flex-shrink: 0;
+    opacity: 0.75;
+  }
+
+  /* PROBLÉMATIQUE HERO SLIDE 3 */
+  .problematique-hero {
+    background: var(--mint);
+    border: 1.5px solid var(--mint-border);
+    border-left: 5px solid var(--emerald);
+    border-radius: 10px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .prob-tag {
+    background: var(--forest);
+    color: var(--emerald);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .prob-text {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--forest);
+    line-height: 1.3;
+  }
+
   /* AVATARS & PERSON ICONS */
   .avatar-badge {
     width: 46px;
@@ -517,27 +576,55 @@
       </div>
     </div>
 
-    <!-- 3 OBJECTIFS DE CADRAGE PLUS VISUELS & PLUS GROS -->
-    <div class="grid-3">
-      <div class="card" style="padding:15px 18px; border-left:4px solid #D9383A; background:#FFF8F8;">
-        <div class="card-index" style="color:#B91C1C; font-size:11px;">01 · LE PROBLÈME</div>
-        <div style="font-size:15.5px; font-weight:800; color:#991B1B; margin:2px 0 3px;">Trop de Données, Zéro Décision</div>
+    <!-- CADRAGE EN CHEMIN FLÉCHÉ PROGRESSIF -->
+    <div class="cadrage-flow">
+      <!-- 1. LE PROBLÈME -->
+      <div class="cadrage-step" style="border-left:4px solid #D9383A; background:#FFF8F8;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <span style="font-size:11px; font-weight:800; color:#B91C1C; letter-spacing:0.8px;">01 · LE PROBLÈME</span>
+          <span style="font-size:10px; font-weight:800; background:#FEE2E2; color:#991B1B; padding:2px 7px; border-radius:999px;">POINT DE DÉPART</span>
+        </div>
+        <div style="font-size:15px; font-weight:800; color:#991B1B; margin-bottom:3px;">Trop de Données, Zéro Décision</div>
         <div class="lbl-sm" style="color:#4B5563; font-size:12.5px; line-height:1.35; margin-top:0;">
-          Aircall suit trop d'indicateurs au quotidien. L'équipe commerciale disperse ses efforts sans savoir où se perd le chiffre d'affaires.
+          Aircall suit trop de chiffres au quotidien. L'équipe disperse son énergie sans savoir où fuient les prospects et le CA.
         </div>
       </div>
 
-      <div class="card" style="padding:15px 18px; border-left:4px solid var(--emerald); background:var(--offwhite);">
-        <div class="card-index" style="color:var(--teal); font-size:11px;">02 · LE RÉSULTAT ATTENDU</div>
-        <div style="font-size:15.5px; font-weight:800; color:var(--forest); margin:2px 0 3px;">Dashboard de 7 KPI d'Arbitrage</div>
+      <!-- FLÈCHE 1 -->
+      <div class="flow-arrow-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <polyline points="14 6 20 12 14 18"></polyline>
+        </svg>
+      </div>
+
+      <!-- 2. LE RÉSULTAT ATTENDU -->
+      <div class="cadrage-step" style="border-left:4px solid var(--emerald); background:var(--offwhite);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <span style="font-size:11px; font-weight:800; color:var(--teal); letter-spacing:0.8px;">02 · LE RÉSULTAT ATTENDU</span>
+          <span style="font-size:10px; font-weight:800; background:var(--mint); color:var(--teal); padding:2px 7px; border-radius:999px;">NOTRE LIVRABLE</span>
+        </div>
+        <div style="font-size:15px; font-weight:800; color:var(--forest); margin-bottom:3px;">Dashboard de 7 KPI d'Arbitrage</div>
         <div class="lbl-sm" style="color:#264A3E; font-size:12.5px; line-height:1.35; margin-top:0;">
-          Un tableau de bord lisible en 10 secondes pour isoler les 3 goulots réels et débloquer immédiatement <strong>+4,17 M$ d'ARR</strong>.
+          Un tableau de bord Looker Studio lisible en 10 secondes pour isoler les 3 goulots réels et débloquer <strong>+4,17 M$ d'ARR</strong>.
         </div>
       </div>
 
-      <div class="card" style="padding:15px 18px; border-left:4px solid var(--teal); background:var(--offwhite);">
-        <div class="card-index" style="color:var(--teal); font-size:11px;">03 · LE PÉRIMÈTRE STRICT</div>
-        <div style="font-size:15.5px; font-weight:800; color:var(--forest); margin:2px 0 3px;">10 Commerciaux · 6 Mois</div>
+      <!-- FLÈCHE 2 -->
+      <div class="flow-arrow-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <polyline points="14 6 20 12 14 18"></polyline>
+        </svg>
+      </div>
+
+      <!-- 3. LE PÉRIMÈTRE STRICT -->
+      <div class="cadrage-step" style="border-left:4px solid var(--teal); background:var(--offwhite);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <span style="font-size:11px; font-weight:800; color:var(--teal); letter-spacing:0.8px;">03 · LE PÉRIMÈTRE STRICT</span>
+          <span style="font-size:10px; font-weight:800; background:#E2E8F0; color:var(--forest); padding:2px 7px; border-radius:999px;">FOCUS SALES</span>
+        </div>
+        <div style="font-size:15px; font-weight:800; color:var(--forest); margin-bottom:3px;">10 Commerciaux · 6 Mois</div>
         <div class="lbl-sm" style="color:#264A3E; font-size:12.5px; line-height:1.35; margin-top:0;">
           Centrage 100% sur le funnel de prospection (appels, RDV, closing). Hors périmètre : support SAV, ads et facturation.
         </div>
@@ -562,7 +649,13 @@
   <div class="content">
     <div>
       <h2>La Pyramide Inversée de <span class="accent">Sélection des Indicateurs</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:3px;">Comment nous avons filtré 25 données brutes en entonnoir pour ne retenir que les 7 KPI qui font décider la direction.</div>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:3px;">Filtrage en entonnoir : passer de 25 données brutes aux 7 KPI d'arbitrage directionnel.</div>
+    </div>
+
+    <!-- PROBLÉMATIQUE VISIBLE EN GROS ET EN HAUT -->
+    <div class="problematique-hero">
+      <div class="prob-tag">PROBLÉMATIQUE DIRECTRICE</div>
+      <div class="prob-text">« Comment passer de 25 données brutes inexploitées à un tableau de bord de 7 KPI d'arbitrage qui fait réellement décider la direction ? »</div>
     </div>
 
     <div class="clean-pyramid">
@@ -739,8 +832,8 @@
 
   <div class="content">
     <div>
-      <h2>Fidélisation Client : <span class="accent">Recruter 1 Responsable Dédié</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Stopper les résiliations vers Ringover et Allo grâce à un accompagnement humain.</div>
+      <h2>Fidélisation Client : <span class="accent">Dédier 1 CSM au Segment PME</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Stopper les résiliations vers Ringover et Allo en apportant un accompagnement humain aux PME.</div>
     </div>
 
     <div class="grid-3">
@@ -751,19 +844,19 @@
         <div class="lbl-sm">
           • Perte de <strong>10 000 € à 15 000 €</strong> par client qui part.<br>
           • Concurrence agressive de Ringover et Allo.<br>
-          • Aucun suivi humain pour les PME après la vente.
+          • <strong>Aucun CSM dédié aux PME</strong> (réservés aux grands comptes Enterprise).
         </div>
       </div>
 
       <div class="card" style="padding:20px;">
         <div class="card-index">L'ACTION CONCRÈTE</div>
-        <div class="lbl-lg" style="font-size:20px; color:var(--forest); margin-bottom:8px;">Recruter 1 Responsable CSM</div>
+        <div class="lbl-lg" style="font-size:20px; color:var(--forest); margin-bottom:8px;">Dédier 1 CSM aux Clients PME</div>
         <div class="lbl-sm">
-          • Appel de suivi personnalisé à 30 et 90 jours.<br>
-          • Offrir notre modèle de tableau de bord sans surcoût.<br>
+          • Sortir les PME du "self-serve" : suivi proactif à 30 et 90 jours.<br>
+          • Offrir notre modèle de tableau de bord Looker Studio sans surcoût.<br>
           • Verrouiller le réengagement 60 jours avant l'échéance.
         </div>
-        <div style="margin-top:10px; font-size:12.5px; font-weight:700; color:var(--teal);">Coût : 58 000 € / an (salaire chargé du CSM).</div>
+        <div style="margin-top:10px; font-size:12.5px; font-weight:700; color:var(--teal);">Coût : 58 000 € / an (salaire chargé du CSM dédié).</div>
       </div>
 
       <div class="card featured" style="padding:20px;">
@@ -777,10 +870,6 @@
         </div>
         <div class="badge-roi">ROI de l'Embauche : ×24</div>
       </div>
-    </div>
-
-    <div class="bottom-pill">
-      <span><strong>Validation DAF :</strong> Investir 58 k€ dans un salarié dédié rapporte 1,45 M€ de chiffre d'affaires préservé.</span>
     </div>
   </div>
 </div>
