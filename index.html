@@ -10,13 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
+    --bg-white: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-subtle: #F8FAFC;
+    --mint-soft: #EAF8F3;
+    --mint-border: #CBEADF;
     --forest: #06241C;
     --teal: #0B6B53;
     --emerald: #00B388;
-    --mint: #EAF8F3;
-    --mint-border: #C5E8DC;
-    --white: #FFFFFF;
-    --offwhite: #F8FCFA;
+    --emerald-dark: #008F6B;
+    --text-black: #0F172A;
+    --text-muted: #475569;
+    --border-light: #E2E8F0;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
 
@@ -26,7 +31,8 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: #06241C;
+    background: #FFFFFF;
+    color: var(--text-black);
     user-select: none;
     -webkit-user-select: none;
   }
@@ -48,9 +54,9 @@
     display: none !important;
     flex-direction: column;
     justify-content: space-between;
-    padding: clamp(24px, 4vh, 40px) clamp(32px, 5vw, 64px);
-    background: var(--white);
-    color: var(--forest);
+    padding: clamp(20px, 3vh, 32px) clamp(36px, 5vw, 68px) clamp(55px, 7vh, 70px) clamp(36px, 5vw, 68px);
+    background: var(--bg-white);
+    color: var(--text-black);
     overflow: hidden;
   }
 
@@ -59,19 +65,16 @@
     z-index: 10;
   }
 
-  .slide.dark-green {
-    background: var(--teal);
-    color: var(--white);
-  }
-
   /* PRINT MODE */
   @page { size: landscape; margin: 0; }
   @media print {
     html, body { background: #FFFFFF !important; overflow: visible !important; width: 100% !important; height: auto !important; }
     #deck { width: 100% !important; height: auto !important; overflow: visible !important; }
     .slide { position: relative !important; display: flex !important; opacity: 1 !important; page-break-after: always !important; break-after: page !important; width: 100vw !important; height: 100vh !important; margin: 0 !important; box-shadow: none !important; border-radius: 0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-arrow, .bottom-nav-bar { display: none !important; }
   }
 
+  /* TOP ROW */
   .top-row {
     display: flex;
     justify-content: space-between;
@@ -79,129 +82,98 @@
     position: relative;
     z-index: 2;
   }
-  .brand-lockup { display: flex; align-items: center; gap: 16px; }
-  .divider-v { width: 1.5px; height: 22px; background: var(--mint-border); }
-  .dark-green .divider-v { background: rgba(255,255,255,0.28); }
+  .brand-lockup { display: flex; align-items: center; gap: 14px; }
+  .brand-logo-text { font-size: 22px; font-weight: 800; color: var(--forest); letter-spacing: -0.5px; }
+  .brand-logo-text span { color: var(--emerald); }
+  .divider-v { width: 1.5px; height: 20px; background: var(--border-light); }
 
   .step-tag {
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 800;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    background: var(--mint);
+    background: var(--mint-soft);
     color: var(--teal);
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 999px;
     border: 1px solid var(--mint-border);
   }
-  .dark-green .step-tag {
-    background: rgba(6, 36, 28, 0.45);
-    color: var(--white);
-    border-color: rgba(255,255,255,0.22);
-  }
   .slide-num {
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 800;
     letter-spacing: 1px;
-    color: var(--teal);
-    background: var(--mint);
-    padding: 6px 14px;
+    color: var(--forest);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    padding: 5px 12px;
     border-radius: 999px;
   }
-  .dark-green .slide-num {
-    background: rgba(6, 36, 28, 0.45);
-    color: var(--white);
-  }
 
-  h1 { font-size: clamp(32px, 4.2vh, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; color: var(--white); }
-  h2 { font-size: clamp(26px, 3.4vh, 38px); font-weight: 800; color: var(--forest); letter-spacing: -1.2px; line-height: 1.15; }
+  /* HEADINGS */
+  h1 { font-size: clamp(32px, 4.4vh, 48px); font-weight: 800; line-height: 1.12; letter-spacing: -1.2px; color: var(--forest); }
+  h2 { font-size: clamp(26px, 3.4vh, 38px); font-weight: 800; color: var(--forest); letter-spacing: -1px; line-height: 1.15; }
   .accent { color: var(--emerald); }
-  .dark-green .accent { color: #7FF5D3; }
 
   .content {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: clamp(14px, 2.2vh, 24px);
+    gap: clamp(14px, 2.2vh, 22px);
     position: relative;
     z-index: 2;
   }
 
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  /* GRIDS & CARDS */
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
   .card {
-    background: var(--offwhite);
-    border: 1.5px solid var(--mint-border);
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-light);
     border-radius: 14px;
-    padding: clamp(16px, 2.2vh, 22px) clamp(16px, 1.8vw, 22px);
+    padding: clamp(16px, 2.2vh, 22px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: left;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
   }
   .card.featured {
     background: var(--forest);
     border-color: var(--forest);
-    color: var(--white);
-  }
-  .dark-green .card {
-    background: var(--forest);
-    border: 1.5px solid rgba(255,255,255,0.16);
-    color: var(--white);
-  }
-  .dark-green .card.featured {
-    background: var(--white);
-    border-color: var(--white);
-    color: var(--forest);
+    color: #FFFFFF;
+    box-shadow: 0 10px 28px rgba(6, 36, 28, 0.15);
   }
 
   .card-index {
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: 1.1px;
+    letter-spacing: 1px;
     color: var(--teal);
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
-  .featured .card-index { color: var(--emerald); }
-  .dark-green .card-index { color: #7FF5D3; }
+  .card.featured .card-index { color: var(--emerald); }
 
   .num-xl {
-    font-size: clamp(34px, 4.8vh, 52px);
+    font-size: clamp(34px, 4.6vh, 52px);
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.05;
     letter-spacing: -1.5px;
     color: var(--forest);
   }
-  .featured .num-xl { color: var(--emerald); }
-  .dark-green .num-xl { color: var(--white); }
-  .dark-green .card.featured .num-xl { color: var(--forest); }
+  .card.featured .num-xl { color: var(--emerald); }
 
-  .lbl-lg { font-size: 17px; font-weight: 700; margin-top: 6px; }
-  .lbl-sm { font-size: 13.5px; color: #526661; margin-top: 6px; line-height: 1.45; }
-  .featured .lbl-sm { color: #C5E8DC; }
-  .dark-green .lbl-sm { color: rgba(255,255,255,0.85); }
-
-  .bottom-pill {
-    background: var(--mint);
-    border: 1px solid var(--mint-border);
-    border-radius: 10px;
-    padding: 10px 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--teal);
-  }
-  .dark-green .bottom-pill {
-    background: rgba(6, 36, 28, 0.45);
-    border-color: rgba(255,255,255,0.2);
-    color: var(--white);
-  }
+  .lbl-lg { font-size: 16.5px; font-weight: 700; margin-top: 4px; color: var(--forest); }
+  .card.featured .lbl-lg { color: #FFFFFF; }
+  .lbl-sm { font-size: 13px; color: var(--text-muted); margin-top: 6px; line-height: 1.45; }
+  .card.featured .lbl-sm { color: #D0E8DF; }
 
   .badge-roi {
     display: inline-flex;
@@ -209,111 +181,59 @@
     background: var(--emerald);
     color: var(--forest);
     font-weight: 800;
-    font-size: 16px;
+    font-size: 15px;
     padding: 6px 14px;
     border-radius: 8px;
     margin-top: 10px;
+    width: fit-content;
   }
 
-  /* CLEAN MINIMALIST INVERTED PYRAMID (5 NIVEAUX ÉPURÉS) */
-  .clean-pyramid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    margin-top: 10px;
-  }
-  .pyr-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 13px 24px;
-    border-radius: 12px;
-    box-sizing: border-box;
-    transition: all 0.2s ease;
-  }
-  .pyr-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .pyr-step-num {
-    width: 32px;
-    height: 32px;
+  /* PERSON ICONS SLIDE 2 */
+  .avatar-badge {
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
-    font-weight: 800;
-    flex-shrink: 0;
+    margin-bottom: 8px;
   }
-  .pyr-step-main {
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: -0.3px;
-  }
-  .pyr-step-sub {
-    font-size: 13px;
-    margin-top: 2px;
-    opacity: 0.85;
-  }
-  .pyr-tag-count {
-    font-size: 12.5px;
-    font-weight: 800;
-    padding: 5px 12px;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-
-  /* 5 Inverted Pyramid Tiers */
-  .row-1 {
-    width: 100%;
-    background: #F2FAF6;
-    border: 1.5px solid #C5E8DC;
-    color: var(--forest);
-  }
-  .row-1 .pyr-step-num { background: #C5E8DC; color: var(--forest); }
-  .row-1 .pyr-tag-count { background: #C5E8DC; color: var(--forest); }
-
-  .row-2 {
-    width: 86%;
-    background: #DDF5EB;
-    border: 1.5px solid #A4E6CD;
-    color: var(--forest);
-  }
-  .row-2 .pyr-step-num { background: #A4E6CD; color: var(--teal); }
-  .row-2 .pyr-tag-count { background: #A4E6CD; color: var(--teal); }
-
-  .row-3 {
-    width: 72%;
-    background: #BFEFDC;
-    border: 1.5px solid #78D6B4;
-    color: var(--forest);
-  }
-  .row-3 .pyr-step-num { background: #78D6B4; color: var(--forest); }
-  .row-3 .pyr-tag-count { background: #FFE4E6; color: #9F1239; }
-
-  .row-4 {
-    width: 58%;
-    background: #0B6B53;
-    border: 1.5px solid #084032;
+  .avatar-vp {
+    background: rgba(255, 255, 255, 0.18);
     color: #FFFFFF;
+    border: 2px solid rgba(255, 255, 255, 0.35);
   }
-  .row-4 .pyr-step-num { background: rgba(255,255,255,0.22); color: #FFFFFF; }
-  .row-4 .pyr-tag-count { background: rgba(255,255,255,0.22); color: #FFFFFF; }
+  .avatar-daf {
+    background: var(--mint-soft);
+    color: var(--teal);
+    border: 2px solid var(--mint-border);
+  }
 
-  .row-5 {
-    width: 46%;
-    background: #06241C;
-    border: 2px solid #00B388;
-    color: #FFFFFF;
-    box-shadow: 0 10px 28px rgba(0, 179, 136, 0.35);
+  .decideur-tag {
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 4px;
   }
-  .row-5 .pyr-step-num { background: #00B388; color: #06241C; }
-  .row-5 .pyr-step-main { color: #00B388; }
-  .row-5 .pyr-tag-count { background: #00B388; color: #06241C; }
+  .tag-vp { background: rgba(0, 179, 136, 0.25); color: #7FF5D3; }
+  .tag-daf { background: var(--mint-soft); color: var(--teal); border: 1px solid var(--mint-border); }
+
+  .bullet-list {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12.8px;
+    line-height: 1.35;
+  }
+  .bullet-item { display: flex; align-items: flex-start; gap: 6px; }
+  .bullet-dot { width: 5px; height: 5px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .card.featured .bullet-dot { background: var(--emerald); }
+  .card:not(.featured) .bullet-dot { background: var(--teal); }
 
   /* CHEMIN FLÉCHÉ SLIDE 2 */
   .cadrage-flow {
@@ -326,12 +246,13 @@
     flex: 1;
     border-radius: 12px;
     padding: 14px 18px;
-    background: var(--offwhite);
-    border: 1.5px solid var(--mint-border);
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-light);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 120px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.02);
   }
   .flow-arrow-icon {
     display: flex;
@@ -344,7 +265,7 @@
 
   /* PROBLÉMATIQUE HERO SLIDE 3 */
   .problematique-hero {
-    background: var(--mint);
+    background: var(--mint-soft);
     border: 1.5px solid var(--mint-border);
     border-left: 5px solid var(--emerald);
     border-radius: 10px;
@@ -352,13 +273,13 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-top: 4px;
+    margin-top: 2px;
     margin-bottom: 4px;
   }
   .prob-tag {
     background: var(--forest);
     color: var(--emerald);
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 800;
     letter-spacing: 0.8px;
     text-transform: uppercase;
@@ -368,78 +289,210 @@
     flex-shrink: 0;
   }
   .prob-text {
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 800;
     color: var(--forest);
     line-height: 1.3;
   }
 
-  /* AVATARS & PERSON ICONS */
-  .avatar-badge {
-    width: 46px;
-    height: 46px;
+  /* CLEAN INVERTED PYRAMID */
+  .clean-pyramid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 6px;
+  }
+  .pyr-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 22px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+  .pyr-left { display: flex; align-items: center; gap: 14px; }
+  .pyr-step-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .pyr-step-main { font-size: 15.5px; font-weight: 800; letter-spacing: -0.3px; }
+  .pyr-step-sub { font-size: 12.8px; margin-top: 2px; opacity: 0.85; }
+  .pyr-tag-count {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .row-1 {
+    width: 100%;
+    background: #F8FCFA;
+    border: 1.5px solid var(--border-light);
+    color: var(--forest);
+  }
+  .row-1 .pyr-step-num { background: var(--mint-soft); color: var(--forest); }
+  .row-1 .pyr-tag-count { background: var(--mint-soft); color: var(--forest); border: 1px solid var(--mint-border); }
+
+  .row-2 {
+    width: 86%;
+    background: #EAF8F3;
+    border: 1.5px solid var(--mint-border);
+    color: var(--forest);
+  }
+  .row-2 .pyr-step-num { background: var(--mint-border); color: var(--teal); }
+  .row-2 .pyr-tag-count { background: var(--mint-border); color: var(--teal); }
+
+  .row-3 {
+    width: 72%;
+    background: #D2F2E4;
+    border: 1.5px solid #9FDBC3;
+    color: var(--forest);
+  }
+  .row-3 .pyr-step-num { background: #9FDBC3; color: var(--forest); }
+  .row-3 .pyr-tag-count { background: #FEE2E2; color: #991B1B; border: 1px solid #FECACA; }
+
+  .row-4 {
+    width: 58%;
+    background: #0B6B53;
+    border: 1.5px solid #084032;
+    color: #FFFFFF;
+  }
+  .row-4 .pyr-step-num { background: rgba(255,255,255,0.22); color: #FFFFFF; }
+  .row-4 .pyr-tag-count { background: #FEE2E2; color: #991B1B; }
+
+  .row-5 {
+    width: 46%;
+    background: var(--forest);
+    border: 2px solid var(--emerald);
+    color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(0, 179, 136, 0.3);
+  }
+  .row-5 .pyr-step-num { background: var(--emerald); color: var(--forest); }
+  .row-5 .pyr-step-main { color: var(--emerald); }
+  .row-5 .pyr-tag-count { background: var(--emerald); color: var(--forest); font-weight: 800; }
+
+  /* NAVIGATION CONTROLS */
+  .nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-light);
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999999 !important;
+    pointer-events: auto !important;
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+  }
+  .nav-arrow svg {
+    pointer-events: none;
+  }
+  .nav-arrow:hover {
+    background: var(--mint-soft);
+    border-color: var(--emerald);
+    color: var(--emerald-dark);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 22px rgba(0, 179, 136, 0.28);
+  }
+  .nav-arrow:active {
+    transform: translateY(-50%) scale(0.94);
+  }
+  .nav-prev { left: 16px; }
+  .nav-next { right: 16px; }
+
+  /* FLOATING BOTTOM CONTROL BAR */
+  .bottom-nav-bar {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid var(--border-light);
+    border-radius: 999px;
+    padding: 6px 14px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
+    z-index: 999999 !important;
+    pointer-events: auto !important;
+  }
+  .bottom-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    color: var(--forest);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer !important;
+    transition: all 0.15s ease;
+    user-select: none;
+    outline: none;
+  }
+  .bottom-nav-btn:hover {
+    background: var(--mint-soft);
+    border-color: var(--emerald);
+    color: var(--emerald-dark);
+  }
+  .bottom-nav-btn:active {
+    transform: scale(0.95);
+  }
+  .nav-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-dot {
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
-    transition: transform 0.2s ease;
-  }
-  .avatar-badge svg {
-    display: block;
-  }
-  .avatar-vp {
-    background: rgba(255, 255, 255, 0.16);
-    color: #FFFFFF;
-    border: 2px solid rgba(255, 255, 255, 0.35);
-  }
-  .avatar-daf {
-    background: #EAF8F3;
-    color: var(--teal);
-    border: 2px solid var(--mint-border);
-  }
-  .avatar-dsi {
-    background: #EAF8F3;
-    color: var(--forest);
-    border: 2px solid var(--mint-border);
-  }
-
-  .decideur-tag {
-    font-size: 10.5px;
+    font-size: 11.5px;
     font-weight: 800;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 6px;
-    margin-bottom: 6px;
+    color: var(--text-muted);
+    background: transparent;
+    cursor: pointer !important;
+    transition: all 0.15s ease;
+    user-select: none;
+    border: 1px solid transparent;
   }
-  .tag-vp { background: rgba(0, 179, 136, 0.25); color: #7FF5D3; }
-  .tag-daf { background: var(--mint); color: var(--teal); }
-  .tag-dsi { background: #E2E8F0; color: var(--forest); }
-
-  .bullet-list {
-    margin-top: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-size: 13px;
-    line-height: 1.35;
+  .nav-dot:hover {
+    background: var(--bg-subtle);
+    color: var(--forest);
   }
-  .bullet-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
+  .nav-dot.active {
+    background: var(--forest);
+    color: #FFFFFF;
   }
-  .bullet-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    margin-top: 6px;
-    flex-shrink: 0;
-  }
-  .featured .bullet-dot { background: var(--emerald); }
-  .card:not(.featured) .bullet-dot { background: var(--teal); }
 </style>
 </head>
 <body>
@@ -447,36 +500,36 @@
 <div id="deck">
 
 <!-- =========================================================
-     SLIDE 1 : PRÉSENTATION D'AIRCALL & CHIFFRES CLÉS (01 / 09)
+     SLIDE 1 : PRÉSENTATION D'AIRCALL & CHIFFRES CLÉS (01 / 08)
      ========================================================= -->
-<div class="slide dark-green active">
+<div class="slide active">
   <div class="top-row">
     <div class="brand-lockup">
-      <svg width="124" height="34" viewBox="0 0 140 40" fill="none"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/></svg>
+      <div class="brand-logo-text">aircall<span>.</span></div>
       <div class="divider-v"></div>
       <span class="step-tag">01 · PRÉSENTATION</span>
     </div>
-    <span class="slide-num">01 / 09</span>
+    <span class="slide-num">01 / 08</span>
   </div>
 
   <div class="content">
     <div>
       <h1>Aircall en <span class="accent">4 Chiffres Clés</span></h1>
-      <div class="lbl-lg" style="color:#FFFFFF; opacity:0.92; margin-top:6px;">Le logiciel français de téléphonie des commerciaux devenu licorne mondiale.</div>
+      <div class="lbl-lg" style="color:var(--text-muted); margin-top:6px;">Le logiciel français de téléphonie des commerciaux devenu licorne mondiale rentable.</div>
     </div>
 
     <div class="grid-4">
-      <div class="card">
+      <div class="card featured">
         <div class="card-index">CHIFFRE D'AFFAIRES (ARR)</div>
         <div class="num-xl">250 M$</div>
         <div class="lbl-lg">6<sup>e</sup> Mondial</div>
         <div class="lbl-sm">Ventes d'abonnements annuels dans le monde (base GetLatka : 204 M$ clos).</div>
       </div>
-      <div class="card featured">
-        <div class="card-index" style="color:var(--forest);">CLIENTÈLE ENTREPRISE</div>
+      <div class="card">
+        <div class="card-index">CLIENTÈLE ENTREPRISE</div>
         <div class="num-xl">24 000+</div>
         <div class="lbl-lg">Entreprises Clientes</div>
-        <div class="lbl-sm" style="color:var(--forest);">Utilisé au quotidien par les équipes de vente dans plus de 100 pays.</div>
+        <div class="lbl-sm">Utilisé au quotidien par les équipes de vente dans plus de 100 pays.</div>
       </div>
       <div class="card">
         <div class="card-index">ÉQUIPE DANS LE MONDE</div>
@@ -486,37 +539,37 @@
       </div>
       <div class="card">
         <div class="card-index">MODÈLE ÉCONOMIQUE</div>
-        <div class="num-xl">Rentable</div>
+        <div class="num-xl" style="color:var(--teal);">Rentable</div>
         <div class="lbl-lg">Licorne Rentable</div>
-        <div class="lbl-sm">Passage en rentabilité opérationnelle (EBITDA positif) atteint en 2024.</div>
+        <div class="lbl-sm">Passage en rentabilité opérationnelle (EBITDA positif) atteint dès 2024.</div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 2 : LES DÉCIDEURS & LE CADRAGE (02 / 09)
+     SLIDE 2 : LES DÉCIDEURS & LE CADRAGE (02 / 08)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="brand-logo-text">aircall<span>.</span></div>
       <div class="divider-v"></div>
       <span class="step-tag">02 · GOUVERNANCE &amp; CADRAGE</span>
     </div>
-    <span class="slide-num">02 / 09</span>
+    <span class="slide-num">02 / 08</span>
   </div>
 
   <div class="content">
     <div>
-      <h2>Le Trio de Décision &amp; <span class="accent">les Enjeux du Cadrage</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Qui tranche au comité de direction et quel est l'enjeu commercial prioritaire ?</div>
+      <h2>Le Duo de Décision &amp; <span class="accent">les Enjeux du Cadrage</span></h2>
+      <div class="lbl-lg" style="color:var(--text-muted); margin-top:4px;">Qui tranche au comité de direction et quel est l'enjeu commercial prioritaire ?</div>
     </div>
 
-    <!-- 3 DECIDEURS COTE A COTE AVEC ICONES PERSONNE -->
-    <div class="grid-3">
+    <!-- 2 DECIDEURS COTE A COTE AVEC ICONES PERSONNE -->
+    <div class="grid-2">
       <!-- 1. VP SALES -->
-      <div class="card featured" style="padding:18px 22px;">
+      <div class="card featured" style="padding:20px 24px;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start;">
           <div class="avatar-badge avatar-vp">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -524,19 +577,19 @@
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </div>
-          <span class="decideur-tag tag-vp">Sponsor &amp; Arbitre Final</span>
+          <span class="decideur-tag tag-vp">Sponsor Principal · Décideur Final</span>
         </div>
-        <div class="lbl-lg" style="font-size:18.5px; color:#FFFFFF; margin-top:2px;">Directeur Commercial (VP Sales)</div>
-        <div style="font-size:10.5px; font-weight:800; letter-spacing:0.8px; color:var(--emerald); text-transform:uppercase; margin-top:8px;">Sur quoi il décide :</div>
+        <div class="lbl-lg" style="font-size:19px; color:#FFFFFF; margin-top:2px;">Directeur Commercial (VP Sales)</div>
+        <div style="font-size:11px; font-weight:800; letter-spacing:0.8px; color:var(--emerald); text-transform:uppercase; margin-top:8px;">Sur quoi il décide :</div>
         <div class="bullet-list" style="color:#D0E8DF;">
           <div class="bullet-item"><span class="bullet-dot"></span><span>Quotas d'appels et temps de prospection des 10 commerciaux</span></div>
-          <div class="bullet-item"><span class="bullet-dot"></span><span>Suppression du démarchage TPE au profit des PME / GC</span></div>
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Suppression du démarchage TPE au profit des PME et Grands Comptes</span></div>
           <div class="bullet-item"><span class="bullet-dot"></span><span>Coaching de l'accroche des 30 premières secondes des SDR</span></div>
         </div>
       </div>
 
       <!-- 2. DAF -->
-      <div class="card" style="padding:18px 22px;">
+      <div class="card" style="padding:20px 24px;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start;">
           <div class="avatar-badge avatar-daf">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -546,32 +599,12 @@
           </div>
           <span class="decideur-tag tag-daf">Budget &amp; Rentabilité</span>
         </div>
-        <div class="lbl-lg" style="font-size:18.5px; color:var(--forest); margin-top:2px;">Directeur Financier (DAF / CFO)</div>
-        <div style="font-size:10.5px; font-weight:800; letter-spacing:0.8px; color:var(--teal); text-transform:uppercase; margin-top:8px;">Sur quoi il décide :</div>
-        <div class="bullet-list" style="color:#264A3E;">
-          <div class="bullet-item"><span class="bullet-dot"></span><span>Validation du budget de recrutement CSM (58 000 €)</span></div>
+        <div class="lbl-lg" style="font-size:19px; color:var(--forest); margin-top:2px;">Directeur Financier (DAF / CFO)</div>
+        <div style="font-size:11px; font-weight:800; letter-spacing:0.8px; color:var(--teal); text-transform:uppercase; margin-top:8px;">Sur quoi il décide :</div>
+        <div class="bullet-list" style="color:var(--text-muted);">
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Validation du budget recrutement CSM PME (58 000 €)</span></div>
           <div class="bullet-item"><span class="bullet-dot"></span><span>Sécurisation de la rentabilité opérationnelle EBITDA+</span></div>
-          <div class="bullet-item"><span class="bullet-dot"></span><span>Audit du retour sur investissement (+4,17 M$ ARR)</span></div>
-        </div>
-      </div>
-
-      <!-- 3. DSI -->
-      <div class="card" style="padding:18px 22px;">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-          <div class="avatar-badge avatar-dsi">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </div>
-          <span class="decideur-tag tag-dsi">Télécom &amp; Outils CRM</span>
-        </div>
-        <div class="lbl-lg" style="font-size:18.5px; color:var(--forest); margin-top:2px;">Directeur Technique (DSI / CTO)</div>
-        <div style="font-size:10.5px; font-weight:800; letter-spacing:0.8px; color:var(--teal); text-transform:uppercase; margin-top:8px;">Sur quoi il décide :</div>
-        <div class="bullet-list" style="color:#264A3E;">
-          <div class="bullet-item"><span class="bullet-dot"></span><span>Rotation des numéros 09 (conformité Arcep &lt;60 app/j)</span></div>
-          <div class="bullet-item"><span class="bullet-dot"></span><span>Automatisation des SMS mobiles 06/07 après non-décroché</span></div>
-          <div class="bullet-item"><span class="bullet-dot"></span><span>Supervision des flux CRM et webhooks d'appels</span></div>
+          <div class="bullet-item"><span class="bullet-dot"></span><span>Audit du retour sur investissement net (+3,00 M$ ARR)</span></div>
         </div>
       </div>
     </div>
@@ -599,14 +632,14 @@
       </div>
 
       <!-- 2. LE RÉSULTAT ATTENDU -->
-      <div class="cadrage-step" style="border-left:4px solid var(--emerald); background:var(--offwhite);">
+      <div class="cadrage-step" style="border-left:4px solid var(--emerald); background:var(--bg-subtle);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
           <span style="font-size:11px; font-weight:800; color:var(--teal); letter-spacing:0.8px;">02 · LE RÉSULTAT ATTENDU</span>
-          <span style="font-size:10px; font-weight:800; background:var(--mint); color:var(--teal); padding:2px 7px; border-radius:999px;">NOTRE LIVRABLE</span>
+          <span style="font-size:10px; font-weight:800; background:var(--mint-soft); color:var(--teal); padding:2px 7px; border-radius:999px;">NOTRE LIVRABLE</span>
         </div>
         <div style="font-size:15px; font-weight:800; color:var(--forest); margin-bottom:3px;">Dashboard de 7 KPI d'Arbitrage</div>
-        <div class="lbl-sm" style="color:#264A3E; font-size:12.5px; line-height:1.35; margin-top:0;">
-          Un tableau de bord Looker Studio lisible en 10 secondes pour isoler les 3 goulots réels et débloquer <strong>+4,17 M$ d'ARR</strong>.
+        <div class="lbl-sm" style="color:var(--text-muted); font-size:12.5px; line-height:1.35; margin-top:0;">
+          Un tableau de bord Looker Studio lisible en 10 secondes pour isoler les 2 goulots majeurs et débloquer <strong>+3,00 M$ d'ARR</strong>.
         </div>
       </div>
 
@@ -619,13 +652,13 @@
       </div>
 
       <!-- 3. LE PÉRIMÈTRE STRICT -->
-      <div class="cadrage-step" style="border-left:4px solid var(--teal); background:var(--offwhite);">
+      <div class="cadrage-step" style="border-left:4px solid var(--teal); background:var(--bg-subtle);">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
           <span style="font-size:11px; font-weight:800; color:var(--teal); letter-spacing:0.8px;">03 · LE PÉRIMÈTRE STRICT</span>
           <span style="font-size:10px; font-weight:800; background:#E2E8F0; color:var(--forest); padding:2px 7px; border-radius:999px;">FOCUS SALES</span>
         </div>
         <div style="font-size:15px; font-weight:800; color:var(--forest); margin-bottom:3px;">10 Commerciaux · 6 Mois</div>
-        <div class="lbl-sm" style="color:#264A3E; font-size:12.5px; line-height:1.35; margin-top:0;">
+        <div class="lbl-sm" style="color:var(--text-muted); font-size:12.5px; line-height:1.35; margin-top:0;">
           Centrage 100% sur le funnel de prospection (appels, RDV, closing). Hors périmètre : support SAV, ads et facturation.
         </div>
       </div>
@@ -634,22 +667,22 @@
 </div>
 
 <!-- =========================================================
-     SLIDE 3 : LA PYRAMIDE INVERSÉE DES KPI (03 / 09)
+     SLIDE 3 : LA PYRAMIDE INVERSÉE DES KPI (03 / 08)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="brand-logo-text">aircall<span>.</span></div>
       <div class="divider-v"></div>
       <span class="step-tag">03 · SÉLECTION DES KPI</span>
     </div>
-    <span class="slide-num">03 / 09</span>
+    <span class="slide-num">03 / 08</span>
   </div>
 
   <div class="content">
     <div>
       <h2>La Pyramide Inversée de <span class="accent">Sélection des Indicateurs</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:3px;">Filtrage en entonnoir : passer de 25 données brutes aux 7 KPI d'arbitrage directionnel.</div>
+      <div class="lbl-lg" style="color:var(--text-muted); margin-top:3px;">Filtrage en entonnoir : passer de 25 données brutes aux 7 KPI d'arbitrage directionnel.</div>
     </div>
 
     <!-- PROBLÉMATIQUE VISIBLE EN GROS ET EN HAUT -->
@@ -723,149 +756,141 @@
 </div>
 
 <!-- =========================================================
-     SLIDE 4 : MAQUETTE DASHBOARD DATA STUDIO (04 / 09)
+     SLIDE 4 : MAQUETTE DASHBOARD DATA STUDIO (04 / 08)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="brand-logo-text">aircall<span>.</span></div>
       <div class="divider-v"></div>
       <span class="step-tag">04 · DASHBOARD DATA STUDIO</span>
     </div>
     <div style="display:flex; gap:10px; align-items:center;">
-      <span style="background:var(--mint); color:var(--teal); font-weight:800; font-size:12px; padding:6px 12px; border-radius:999px;">18,48 % Décroché</span>
-      <span style="background:var(--forest); color:#FFFFFF; font-weight:800; font-size:12px; padding:6px 12px; border-radius:999px;">4 494 Rendez-vous</span>
-      <span style="background:var(--emerald); color:var(--forest); font-weight:800; font-size:12px; padding:6px 12px; border-radius:999px;">1 115 Ventes</span>
-      <span class="slide-num">04 / 09</span>
+      <span style="background:var(--mint-soft); color:var(--teal); font-weight:800; font-size:12px; padding:6px 12px; border-radius:999px; border:1px solid var(--mint-border);">Connect Rate (AVG)</span>
+      <span style="background:var(--forest); color:#FFFFFF; font-weight:800; font-size:12px; padding:6px 12px; border-radius:999px;">Taux RDV &amp; Closing</span>
+      <span style="background:var(--emerald); color:var(--forest); font-weight:800; font-size:12px; padding:6px 12px; border-radius:999px;">ARR Total (SUM)</span>
+      <span class="slide-num">04 / 08</span>
     </div>
   </div>
 
   <div class="content" style="align-items:stretch; justify-content:flex-start;">
     <div>
       <h2>Le Tableau de Bord en <span class="accent">10 Secondes Chrono</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Une vision décisionnelle instantanée : où sont nos goulets d'étranglement et nos leviers de croissance ?</div>
+      <div class="lbl-lg" style="color:var(--text-muted); margin-top:4px;">Une vision décisionnelle instantanée : où sont nos goulets d'étranglement et nos leviers de croissance ?</div>
     </div>
 
     <div style="width:100%; flex:1; min-height:0; max-height:calc(100vh - 200px); display:flex; align-items:center; justify-content:center; margin-top:6px;">
-      <img src="capture_vrai_datastudio_kevin.jpg" alt="Dashboard Looker Studio Aircall" style="width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;">
+      <img src="capture_vrai_datastudio_kevin.jpg" alt="Dashboard Looker Studio Aircall" style="width:100%; height:100%; object-fit:contain; display:block; border-radius:8px; border:1px solid var(--border-light);">
     </div>
-  </div>
-
-  <div class="bottom-pill">
-    <span><strong>Règle des 10 Secondes :</strong> La direction identifie d'un coup d'œil où ça va bien (en haut) et où ça coince (en bas).</span>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 5 : PROBLÈME 1 · STOP TPE -> PME (05 / 09)
+     SLIDE 5 : PROBLÈME 1 · FOCUS PME & GRANDS COMPTES (05 / 08)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="brand-logo-text">aircall<span>.</span></div>
       <div class="divider-v"></div>
       <span class="step-tag">05 · PROBLÈME 1 &amp; ACTION</span>
     </div>
-    <span class="slide-num">05 / 09</span>
+    <span class="slide-num">05 / 08</span>
   </div>
 
   <div class="content">
     <div>
-      <h2>Arrêter les TPE : <span class="accent">Se Concentrer sur les PME</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Passer moins de coups de fil dans le vide et vendre des contrats 3 fois plus gros.</div>
+      <h2>Ciblage Commercial : <span class="accent">Arrêter les TPE, Viser les PME &amp; Grands Comptes</span></h2>
+      <div class="lbl-lg" style="color:var(--text-muted); margin-top:4px;">Concentrer 100 % de nos commerciaux là où la valeur et les taux de succès sont les plus élevés.</div>
     </div>
 
     <div class="grid-3">
-      <div class="card" style="padding:20px;">
+      <div class="card" style="padding:22px;">
         <div class="card-index">LE CONSTAT DANS LA DATA</div>
         <div class="num-xl" style="color:#D9534F;">45 %</div>
-        <div class="lbl-lg">Des appels partent sur des TPE</div>
+        <div class="lbl-lg">Des appels gaspillés sur la TPE</div>
         <div class="lbl-sm">
-          • Taux de RDV bloqué à seulement <strong>1,2 %</strong>.<br>
-          • Contrats trop petits : <strong>3 600 € / an</strong>.<br>
-          • Les commerciaux s'épuisent sans signer.
+          • Taux de RDV dérisoire de <strong>1,2 %</strong> sur les TPE.<br>
+          • Panier moyen trop faible (<strong>3 600 $ / an</strong>).<br>
+          • Temps commercial gaspillé sans rentabilité.
         </div>
       </div>
 
-      <div class="card" style="padding:20px;">
+      <div class="card" style="padding:22px;">
         <div class="card-index">L'ACTION CONCRÈTE</div>
-        <div class="lbl-lg" style="font-size:20px; color:var(--forest); margin-bottom:8px;">Verrouiller le Ciblage CRM</div>
+        <div class="lbl-lg" style="font-size:20px; color:var(--forest); margin-bottom:8px;">Focus 100% PME &amp; Grands Comptes</div>
         <div class="lbl-sm">
-          • Interdire la prospection sur les moins de 20 salariés.<br>
-          • Filtrer automatiquement les PME de 20 à 200 salariés.<br>
-          • Suivi chaque lundi matin en 15 minutes.
+          • Réallouer immédiatement les 10 SDR sur les 20 à 200+ salariés.<br>
+          • Taux de prise de RDV 4 fois plus élevé (<strong>4,8 %</strong>).<br>
+          • Paniers moyens de 12 000 $ à 36 000 $ / an.
         </div>
-        <div style="margin-top:10px; font-size:12.5px; font-weight:700; color:var(--teal);">Moyens : 5 jours RevOps + 500 € d'outil de tri.</div>
+        <div style="margin-top:12px; font-size:13px; font-weight:800; color:var(--teal);">Budget d'investissement : 0 € (Effectif constant).</div>
       </div>
 
-      <div class="card featured" style="padding:20px;">
-        <div class="card-index" style="color:var(--forest);">LE RETOUR SUR INVESTISSEMENT</div>
-        <div class="num-xl" style="color:var(--emerald);">+1,55 M$</div>
-        <div class="lbl-lg" style="color:#FFFFFF;">ARR Additionnel par An</div>
-        <div class="lbl-sm" style="color:#C5E8DC;">
+      <div class="card featured" style="padding:22px;">
+        <div class="card-index">LE RETOUR SUR INVESTISSEMENT</div>
+        <div class="num-xl">+1,55 M$</div>
+        <div class="lbl-lg">ARR Additionnel Net par An</div>
+        <div class="lbl-sm">
           • Panier moyen en hausse de <strong>+40 %</strong>.<br>
-          • Contrats PME <strong>3 fois plus faciles à signer</strong>.<br>
-          • 0 commercial recruté en plus.
+          • Contrats PME plus solides et durables.<br>
+          • 0 commercial recruté en plus (productivité pure).
         </div>
-        <div class="badge-roi">ROI Immédiat</div>
+        <div class="badge-roi">ROI Immédiat (Budget 0 €)</div>
       </div>
-    </div>
-
-    <div class="bottom-pill">
-      <span><strong>Arbitrage Directeur Co &amp; DAF :</strong> Même temps de travail, mais 100 % de l'énergie réorientée sur des entreprises qui ont du budget.</span>
     </div>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 6 : PROBLÈME 2 · FIDÉLISATION & CSM (06 / 09)
+     SLIDE 6 : PROBLÈME 2 · RÉTENTION CLIENT & CSM PME (06 / 08)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="brand-logo-text">aircall<span>.</span></div>
       <div class="divider-v"></div>
       <span class="step-tag">06 · PROBLÈME 2 &amp; ACTION</span>
     </div>
-    <span class="slide-num">06 / 09</span>
+    <span class="slide-num">06 / 08</span>
   </div>
 
   <div class="content">
     <div>
       <h2>Fidélisation Client : <span class="accent">Dédier 1 CSM au Segment PME</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Stopper les résiliations vers Ringover et Allo en apportant un accompagnement humain aux PME.</div>
+      <div class="lbl-lg" style="color:var(--text-muted); margin-top:4px;">Stopper l'hémorragie vers Ringover et Allo en apportant un accompagnement humain aux PME.</div>
     </div>
 
     <div class="grid-3">
-      <div class="card" style="padding:20px;">
+      <div class="card" style="padding:22px;">
         <div class="card-index">LE CONSTAT DANS LA DATA</div>
         <div class="num-xl" style="color:#D9534F;">18 %</div>
-        <div class="lbl-lg">De résiliations chez les PME</div>
+        <div class="lbl-lg">De churn annuel chez les PME</div>
         <div class="lbl-sm">
           • Perte de <strong>10 000 € à 15 000 €</strong> par client qui part.<br>
           • Concurrence agressive de Ringover et Allo.<br>
-          • <strong>Aucun CSM dédié aux PME</strong> (réservés aux grands comptes Enterprise).
+          • <strong>Aucun CSM dédié aux PME</strong> (laissées en simple SAV ticket).
         </div>
       </div>
 
-      <div class="card" style="padding:20px;">
+      <div class="card" style="padding:22px;">
         <div class="card-index">L'ACTION CONCRÈTE</div>
         <div class="lbl-lg" style="font-size:20px; color:var(--forest); margin-bottom:8px;">Dédier 1 CSM aux Clients PME</div>
         <div class="lbl-sm">
           • Sortir les PME du "self-serve" : suivi proactif à 30 et 90 jours.<br>
-          • Offrir notre modèle de tableau de bord Looker Studio sans surcoût.<br>
-          • Verrouiller le réengagement 60 jours avant l'échéance.
+          • Offrir notre modèle de dashboard Looker Studio sans surcoût.<br>
+          • Verrouiller le renouvellement 60 jours avant l'échéance.
         </div>
-        <div style="margin-top:10px; font-size:12.5px; font-weight:700; color:var(--teal);">Coût : 58 000 € / an (salaire chargé du CSM dédié).</div>
+        <div style="margin-top:12px; font-size:13px; font-weight:800; color:var(--teal);">Coût : 58 000 € / an (salaire chargé du CSM dédié).</div>
       </div>
 
-      <div class="card featured" style="padding:20px;">
-        <div class="card-index" style="color:var(--forest);">LE RETOUR SUR INVESTISSEMENT</div>
-        <div class="num-xl" style="color:var(--emerald);">+1,45 M$</div>
-        <div class="lbl-lg" style="color:#FFFFFF;">ARR Sauvé par An</div>
-        <div class="lbl-sm" style="color:#C5E8DC;">
-          • Résiliations divisées par deux (de 18 % à 7 %).<br>
-          • Rentabilisé dès le <strong>5<sup>e</sup> contrat sauvé</strong>.<br>
+      <div class="card featured" style="padding:22px;">
+        <div class="card-index">LE RETOUR SUR INVESTISSEMENT</div>
+        <div class="num-xl">+1,45 M$</div>
+        <div class="lbl-lg">ARR Sauvegardé par An</div>
+        <div class="lbl-sm">
+          • Churn divisé par deux (de 18 % à 9 %).<br>
+          • Investissement rentabilisé dès le <strong>5<sup>e</sup> compte sauvé</strong>.<br>
           • Bénéfice net : +1,39 M$ pour Aircall.
         </div>
         <div class="badge-roi">ROI de l'Embauche : ×24</div>
@@ -875,249 +900,250 @@
 </div>
 
 <!-- =========================================================
-     SLIDE 7 : PROBLÈME 3 · NUMÉROS & SMS (07 / 09)
+     SLIDE 7 : USAGE CRITIQUE DE L'IA (07 / 08)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="brand-logo-text">aircall<span>.</span></div>
       <div class="divider-v"></div>
-      <span class="step-tag">07 · PROBLÈME 3 &amp; ACTION</span>
+      <span class="step-tag">07 · MÉTHODOLOGIE IA</span>
     </div>
-    <span class="slide-num">07 / 09</span>
+    <span class="slide-num">07 / 08</span>
   </div>
 
   <div class="content">
     <div>
-      <h2>Télécom : <span class="accent">Changer les Numéros Spammés &amp; SMS</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Ne plus être bloqué par les opérateurs et doubler nos chances de contact.</div>
-    </div>
-
-    <div class="grid-3">
-      <div class="card" style="padding:20px;">
-        <div class="card-index">LE CONSTAT DANS LA DATA</div>
-        <div class="num-xl" style="color:#D9534F;">&lt; 5 %</div>
-        <div class="lbl-lg">De décroché sur numéros spammés</div>
-        <div class="lbl-sm">
-          • <strong>30 % des numéros</strong> sont tagués « Spam ».<br>
-          • Les prospects rejettent l'appel directement.<br>
-          • Les commerciaux perdent 3 heures par jour.
-        </div>
-      </div>
-
-      <div class="card" style="padding:20px;">
-        <div class="card-index">L'ACTION CONCRÈTE</div>
-        <div class="lbl-lg" style="font-size:20px; color:var(--forest); margin-bottom:8px;">Rotation 09 + Rebond SMS 07</div>
-        <div class="lbl-sm">
-          • Changer de numéro 09 chaque jour (max 60 appels).<br>
-          • En cas de non-réponse : <strong>SMS immédiat depuis un 07</strong>.<br>
-          • Conforme aux règles légales de l'Arcep.
-        </div>
-        <div style="margin-top:10px; font-size:12.5px; font-weight:700; color:var(--teal);">Budget : 240 € / mois (numéros et SMS).</div>
-      </div>
-
-      <div class="card featured" style="padding:20px;">
-        <div class="card-index" style="color:var(--forest);">LE RETOUR SUR INVESTISSEMENT</div>
-        <div class="num-xl" style="color:var(--emerald);">+1,17 M$</div>
-        <div class="lbl-lg" style="color:#FFFFFF;">ARR Débloqué par An</div>
-        <div class="lbl-sm" style="color:#C5E8DC;">
-          • Taux de décroché qui remonte de 5 % à 14 %.<br>
-          • <strong>35 % de réponses</strong> au SMS de relance.<br>
-          • Des milliers de prospects rattrapés.
-        </div>
-        <div class="badge-roi">ROI Télécom : ×40</div>
-      </div>
-    </div>
-
-    <div class="bottom-pill">
-      <span><strong>Validation DSI :</strong> Téléphonie propre et légale + relance moderne par SMS mobile pour démultiplier le contact.</span>
-    </div>
-  </div>
-</div>
-
-<!-- =========================================================
-     SLIDE 8 : USAGE CRITIQUE DE L'IA (08 / 09)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
-      <div class="divider-v"></div>
-      <span class="step-tag">08 · MÉTHODOLOGIE IA</span>
-    </div>
-    <span class="slide-num">08 / 09</span>
-  </div>
-
-  <div class="content">
-    <div>
-      <h2>L'Intelligence Artificielle <span class="accent">avec Recul</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Comment l'IA a accéléré notre travail et où le contrôle humain a été indispensable.</div>
+      <h2>L'IA avec Recul : <span class="accent">Ce qu'on a Gardé, Corrigé et Jeté</span></h2>
+      <div class="lbl-lg" style="color:var(--text-muted); margin-top:4px;">Notre valeur ajoutée humaine face aux hallucinations et aux erreurs mathématiques.</div>
     </div>
 
     <div class="grid-4">
-      <div class="card" style="padding:18px;">
-        <div class="card-index">1. POUR EXPLORER</div>
-        <div class="lbl-lg" style="font-size:17px; color:var(--forest); margin-bottom:6px;">Brainstorming</div>
+      <div class="card" style="padding:20px;">
+        <div class="card-index" style="color:var(--teal);">01 · POUR EXPLORER</div>
+        <div class="lbl-lg">Brainstorming</div>
         <div class="lbl-sm">
-          • Génération d'une liste de 25 métriques de vente.<br>
-          • Pistes d'organisation pour le fichier de données.
+          • Cartographie initiale des métriques SaaS VoIP.<br>
+          • Structure préliminaire des tables de données.<br>
+          • Requêtes documentées pour le jury.
         </div>
       </div>
 
-      <div class="card" style="padding:18px;">
-        <div class="card-index">2. CE QU'ON A GARDÉ</div>
-        <div class="lbl-lg" style="font-size:17px; color:var(--forest); margin-bottom:6px;">Structure Propre</div>
+      <div class="card" style="padding:20px;">
+        <div class="card-index" style="color:var(--teal);">02 · CE QU'ON A GARDÉ</div>
+        <div class="lbl-lg">Architecture</div>
         <div class="lbl-sm">
-          • Modèle de tableau à 13 colonnes.<br>
-          • Calcul du panier moyen par client (ACV).
+          • Organisation stricte Dimensions vs Métriques.<br>
+          • Formule de calcul d'ARR net prévisionnel.<br>
+          • Connexion directe CSV ➔ Looker Studio.
         </div>
       </div>
 
-      <div class="card featured" style="padding:18px;">
-        <div class="card-index" style="color:var(--emerald);">3. CE QU'ON A CORRIGÉ (PREUVE)</div>
-        <div class="lbl-lg" style="font-size:17px; color:#FFFFFF; margin-bottom:6px;">Contrôle Humain</div>
-        <div class="lbl-sm" style="color:#C5E8DC;">
-          • L'IA additionnait les pourcentages.<br>
-          • Forcé manuellement en <strong>Moyenne pondérée</strong>.<br>
-          • Remplacement des faux chiffres par <strong>GetLatka réel</strong>.
-        </div>
-      </div>
-
-      <div class="card" style="padding:18px;">
-        <div class="card-index">4. CE QU'ON A JETÉ</div>
-        <div class="lbl-lg" style="font-size:17px; color:var(--forest); margin-bottom:6px;">Sobriété Numérique</div>
+      <div class="card featured" style="padding:20px;">
+        <div class="card-index">03 · CE QU'ON A CORRIGÉ</div>
+        <div class="lbl-lg" style="font-size:18px;">Audit Mathématique</div>
         <div class="lbl-sm">
-          • Rejet de 15 métriques décoratives.<br>
-          • Aucun graphique 3D inutile.<br>
-          • Zéro donnée hors-sujet.
+          • <strong>Erreur IA détectée :</strong> L'IA additionnait les pourcentages (<code>SUM</code>).<br>
+          • <strong>Correction humaine :</strong> Calcul forcé en <strong>Moyenne (<code>AVG ≠ SUM</code>)</strong>.<br>
+          • Recoupement certifié GetLatka 2024.
         </div>
       </div>
-    </div>
 
-    <div class="bottom-pill">
-      <span><strong>Barème Monereau (10 points IA) :</strong> L'IA accélère la recherche, mais seul l'humain audite les calculs et garantit la vérité des chiffres.</span>
+      <div class="card" style="padding:20px;">
+        <div class="card-index" style="color:#D9534F;">04 · CE QU'ON A JETÉ</div>
+        <div class="lbl-lg">Sobriété Numérique</div>
+        <div class="lbl-sm">
+          • <strong>18 vanity metrics inutiles</strong> éliminées.<br>
+          • Suppression des graphiques 3D illisibles.<br>
+          • Exclusion totale du hors périmètre SAV.
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 9 : CONCLUSION & ROI TOTAL (09 / 09)
+     SLIDE 8 : CONCLUSION & ROI TOTAL (08 / 08)
      ========================================================= -->
-<div class="slide dark-green">
+<div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
-      <svg width="124" height="34" viewBox="0 0 140 40" fill="none"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/></svg>
+      <div class="brand-logo-text">aircall<span>.</span></div>
       <div class="divider-v"></div>
-      <span class="step-tag">09 · CONCLUSION &amp; ROI</span>
+      <span class="step-tag">08 · SYNTHÈSE &amp; ROI</span>
     </div>
-    <span class="slide-num">09 / 09</span>
+    <span class="slide-num">08 / 08</span>
   </div>
 
   <div class="content">
     <div>
-      <h1>Résultat Final : <span class="accent">+4,17 M$ d'ARR</span> Débloqué</h1>
-      <div class="lbl-lg" style="color:#FFFFFF; opacity:0.92; margin-top:6px;">Ce que rapporte concrètement le pilotage par la donnée à la direction d'Aircall.</div>
+      <h2>Conclusion : <span class="accent">+3,00 M$ d'ARR</span> Débloqués</h2>
+      <div class="lbl-lg" style="color:var(--text-muted); margin-top:4px;">Synthèse économique des 2 décisions stratégiques issues de l'analyse du dashboard.</div>
     </div>
 
-    <div class="grid-3">
-      <div class="card" style="padding:22px;">
-        <div class="card-index" style="color:#7FF5D3;">ACTION 1 · CIBLAGE PME</div>
-        <div class="num-xl" style="font-size:40px;">+1,55 M$</div>
-        <div class="lbl-lg" style="color:#FFFFFF;">ARR Additionnel</div>
-        <div class="lbl-sm">Vente de contrats 3x plus rentables en arrêtant les TPE.</div>
+    <div class="grid-2">
+      <!-- LEVIER 1 -->
+      <div class="card" style="padding:24px; border-left:4px solid var(--forest);">
+        <div class="card-index">LEVIER 1 · CIBLAGE COMMERCIAL PME &amp; GRANDS COMPTES</div>
+        <div class="num-xl" style="font-size:38px;">+1,55 M$ ARR</div>
+        <div class="lbl-lg" style="margin-top:4px;">Arrêt du démarchage TPE (< 20 salariés)</div>
+        <div class="lbl-sm" style="margin-top:8px;">
+          • Réorientation à 100% du temps des 10 commerciaux sur les PME et Grands Comptes.<br>
+          • Panier moyen boosté à 12k$ et 36k$ · 0 embauche commerciale supplémentaire.<br>
+          • <strong>Budget d'investissement : 0 € · ROI Immédiat</strong>.
+        </div>
       </div>
 
-      <div class="card" style="padding:22px;">
-        <div class="card-index" style="color:#7FF5D3;">ACTION 2 · RECRUTEMENT CSM</div>
-        <div class="num-xl" style="font-size:40px;">+1,45 M$</div>
-        <div class="lbl-lg" style="color:#FFFFFF;">ARR Sauvé</div>
-        <div class="lbl-sm">Résiliations divisées par deux grâce au suivi humain des PME.</div>
-      </div>
-
-      <div class="card" style="padding:22px;">
-        <div class="card-index" style="color:#7FF5D3;">ACTION 3 · NUMÉROS &amp; SMS</div>
-        <div class="num-xl" style="font-size:40px;">+1,17 M$</div>
-        <div class="lbl-lg" style="color:#FFFFFF;">ARR Débloqué</div>
-        <div class="lbl-sm">Conversations sauvées des spams grâce à la rotation 09 et SMS 07.</div>
+      <!-- LEVIER 2 -->
+      <div class="card" style="padding:24px; border-left:4px solid var(--emerald);">
+        <div class="card-index">LEVIER 2 · FIDÉLISATION &amp; 1 CSM DÉDIÉ PME</div>
+        <div class="num-xl" style="font-size:38px; color:var(--teal);">+1,45 M$ ARR</div>
+        <div class="lbl-lg" style="margin-top:4px;">Chute du churn annuel PME de 18% à 9%</div>
+        <div class="lbl-sm" style="margin-top:8px;">
+          • Recrutement d'un CSM dédié spécifiquement aux PME pour stopper les départs vers Ringover.<br>
+          • Onboarding à 30 jours + dashboard Looker Studio offert.<br>
+          • <strong>Budget : 58 000 € / an · ROI : ×24 dès l'an 1</strong>.
+        </div>
       </div>
     </div>
 
-    <!-- GRAND BLOC DE REUSSITE -->
-    <div style="background:var(--forest); border:2px solid var(--emerald); border-radius:14px; padding:18px 24px; display:flex; justify-content:space-between; align-items:center;">
+    <!-- CARTE TOTALE ROI CONSOLIDÉ -->
+    <div style="background:var(--forest); color:#FFFFFF; border-radius:14px; padding:20px 28px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 10px 30px rgba(6,36,28,0.2);">
       <div>
-        <div style="font-size:24px; font-weight:800; color:#FFFFFF;">TOTAL ARR DÉBLOQUÉ : <span style="color:var(--emerald);">+4,17 M$ / AN</span></div>
-        <div style="font-size:14px; color:#C5E8DC; margin-top:4px;">Généré à effectif commercial strictement constant (0 embauche de vendeur).</div>
+        <div style="font-size:12px; font-weight:800; letter-spacing:1px; color:var(--emerald); text-transform:uppercase;">IMPACT TOTAL CONSOLIDÉ SUR L'ARR D'AIRCALL</div>
+        <div style="font-size:22px; font-weight:800; margin-top:2px;">2 Décisions Stratégiques · Effectif Commercial Constant (10 SDR)</div>
+        <div style="font-size:13px; color:#D0E8DF; margin-top:4px;">Budget total engagé : 58 000 € (1 salaire CSM) ➔ <strong>+3,00 Millions $ de valeur nette créée</strong>.</div>
       </div>
-      <div style="text-align:right;">
-        <div style="font-size:13px; color:rgba(255,255,255,0.8);">Investissement : 58 k€ (CSM) + 3 k€ (outils)</div>
-        <div style="font-size:22px; font-weight:800; color:var(--emerald);">ROI Global : ×68</div>
+      <div style="text-align:right; flex-shrink:0;">
+        <div style="font-size:42px; font-weight:800; color:var(--emerald); line-height:1;">+3,00 M$</div>
+        <div style="font-size:14px; font-weight:800; background:rgba(0,179,136,0.25); color:#7FF5D3; padding:4px 14px; border-radius:999px; display:inline-block; margin-top:6px;">
+          ROI Global : ×52
+        </div>
       </div>
-    </div>
-
-    <div class="bottom-pill">
-      <span><strong>Conclusion du Comité :</strong> « Moins de chiffres éparpillés, 3 décisions chirurgicales, un impact financier massif. »</span>
     </div>
   </div>
 </div>
 
-</div> <!-- #deck -->
+</div>
+
+<!-- NAVIGATION ARROWS (SIDE) -->
+<button type="button" class="nav-arrow nav-prev" id="prevBtn" aria-label="Slide précédente">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+</button>
+<button type="button" class="nav-arrow nav-next" id="nextBtn" aria-label="Slide suivante">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</button>
+
+<!-- FLOATING BOTTOM NAVIGATION BAR -->
+<div class="bottom-nav-bar" id="bottomNavBar">
+  <button type="button" class="bottom-nav-btn" id="barPrevBtn" aria-label="Slide précédente">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    <span>Précédent</span>
+  </button>
+  <div class="nav-dots" id="navDots">
+    <button type="button" class="nav-dot active" data-slide="0" title="Slide 1">1</button>
+    <button type="button" class="nav-dot" data-slide="1" title="Slide 2">2</button>
+    <button type="button" class="nav-dot" data-slide="2" title="Slide 3">3</button>
+    <button type="button" class="nav-dot" data-slide="3" title="Slide 4">4</button>
+    <button type="button" class="nav-dot" data-slide="4" title="Slide 5">5</button>
+    <button type="button" class="nav-dot" data-slide="5" title="Slide 6">6</button>
+    <button type="button" class="nav-dot" data-slide="6" title="Slide 7">7</button>
+    <button type="button" class="nav-dot" data-slide="7" title="Slide 8">8</button>
+  </div>
+  <button type="button" class="bottom-nav-btn" id="barNextBtn" aria-label="Slide suivante">
+    <span>Suivant</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+</div>
 
 <script>
+  let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
-  let current = 0;
+  const dots = document.querySelectorAll('.nav-dot');
 
-  function updateSlide(idx) {
-    if (idx < 0) idx = 0;
-    if (idx >= slides.length) idx = slides.length - 1;
-    current = idx;
-    
-    slides.forEach((s, i) => {
-      if (i === current) {
-        s.classList.add('active');
+  function updateDots(index) {
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('active');
       } else {
-        s.classList.remove('active');
+        dot.classList.remove('active');
       }
     });
   }
 
-  function nextSlide() { updateSlide(current + 1); }
-  function prevSlide() { updateSlide(current - 1); }
+  function showSlide(index) {
+    const total = slides.length;
+    // Loop around seamlessly
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
 
-  function toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(() => {});
-    } else {
-      document.exitFullscreen().catch(() => {});
-    }
+    slides.forEach((s, i) => {
+      s.classList.remove('active');
+      if (i === index) s.classList.add('active');
+    });
+    currentSlide = index;
+    updateDots(index);
   }
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ' || e.key === 'Enter') {
+  function changeSlide(direction) {
+    showSlide(currentSlide + direction);
+  }
+
+  // Expose to window
+  window.showSlide = showSlide;
+  window.changeSlide = changeSlide;
+
+  // Direct Button Listeners
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const barPrevBtn = document.getElementById('barPrevBtn');
+  const barNextBtn = document.getElementById('barNextBtn');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); changeSlide(-1); });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); changeSlide(1); });
+  }
+  if (barPrevBtn) {
+    barPrevBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); changeSlide(-1); });
+  }
+  if (barNextBtn) {
+    barNextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); changeSlide(1); });
+  }
+
+  // Dot Click Listeners
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', (e) => {
       e.preventDefault();
-      nextSlide();
-    }
-    if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
-      e.preventDefault();
-      prevSlide();
-    }
-    if (e.key.toLowerCase() === 'f') {
-      toggleFullscreen();
+      e.stopPropagation();
+      showSlide(idx);
+    });
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'Enter') {
+      changeSlide(1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
+      changeSlide(-1);
     }
   });
 
-  window.addEventListener('click', (e) => {
-    if (e.target.closest('a, button, input, select, textarea')) return;
-    const w = window.innerWidth;
-    if (e.clientX < w * 0.2) {
-      prevSlide();
-    } else {
-      nextSlide();
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+      changeSlide(1);
+    } else if (touchEndX - touchStartX > 50) {
+      changeSlide(-1);
     }
-  });
-
-  window.addEventListener('DOMContentLoaded', () => {
-    updateSlide(0);
-  });
+  }, { passive: true });
 </script>
 </body>
 </html>
