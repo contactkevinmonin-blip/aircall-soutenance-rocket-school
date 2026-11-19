@@ -4,28 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Aircall — Soutenance Commerciale & Décisions</title>
+<title>Aircall — Soutenance Exécutive (8 Slides)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-page: #F9FBFA;
-    --bg-white: #FFFFFF;
-    --forest: #06241C;
-    --forest-subtle: #0B3328;
+    --bg-main: #060D0A;
+    --bg-card: rgba(13, 27, 21, 0.75);
+    --bg-card-hover: rgba(18, 38, 30, 0.9);
+    --border-card: rgba(0, 179, 136, 0.22);
+    --border-highlight: rgba(0, 179, 136, 0.6);
     --emerald: #00B388;
-    --emerald-dark: #008765;
-    --emerald-light: #EBF8F4;
-    --emerald-border: #C8EFE2;
-    --text-dark: #0F172A;
-    --text-muted: #64748B;
-    --border-subtle: #E2E8F0;
-    --card-shadow: 0 4px 20px -2px rgba(6, 36, 28, 0.05);
-    --card-shadow-hover: 0 10px 28px -4px rgba(6, 36, 28, 0.1);
-    --red-bg: #FEF2F2;
-    --red-text: #DC2626;
-    --red-border: #FCA5A5;
+    --emerald-glow: rgba(0, 179, 136, 0.35);
+    --text-white: #FFFFFF;
+    --text-muted: #94A3B8;
+    --text-dim: #64748B;
+    --red-alert: #EF4444;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
@@ -36,8 +31,8 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: var(--bg-page);
-    color: var(--text-dark);
+    background: var(--bg-main);
+    color: var(--text-white);
     user-select: none;
     -webkit-user-select: none;
   }
@@ -59,9 +54,11 @@
     display: none !important;
     flex-direction: column;
     justify-content: space-between;
-    padding: clamp(18px, 2.8vh, 28px) clamp(28px, 4vw, 56px) clamp(55px, 6.5vh, 65px) clamp(28px, 4vw, 56px);
-    background: var(--bg-page);
-    color: var(--text-dark);
+    padding: clamp(20px, 3vh, 32px) clamp(32px, 5vw, 64px) clamp(30px, 4vh, 40px) clamp(32px, 5vw, 64px);
+    background: radial-gradient(circle at 80% 20%, rgba(0, 179, 136, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(6, 36, 28, 0.4) 0%, transparent 60%),
+                var(--bg-main);
+    color: var(--text-white);
     overflow: hidden;
   }
 
@@ -70,21 +67,23 @@
     z-index: 10;
   }
 
-  /* PRINT MODE */
+  /* PRINT MODE (Landscape A4/16:9 PDF export) */
   @page { size: landscape; margin: 0; }
   @media print {
-    html, body { background: #FFFFFF !important; overflow: visible !important; width: 100% !important; height: auto !important; }
+    html, body { background: #060D0A !important; overflow: visible !important; width: 100% !important; height: auto !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     #deck { width: 100% !important; height: auto !important; overflow: visible !important; }
     .slide { position: relative !important; display: flex !important; opacity: 1 !important; page-break-after: always !important; break-after: page !important; width: 100vw !important; height: 100vh !important; margin: 0 !important; box-shadow: none !important; border-radius: 0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .nav-arrow, .bottom-nav-bar { display: none !important; }
+    .nav-arrow, .keyboard-hint { display: none !important; }
   }
 
-  /* TOP ROW */
-  .top-row {
+  /* HEADER */
+  .slide-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     z-index: 2;
   }
   .brand-lockup {
@@ -92,1114 +91,763 @@
     align-items: center;
     gap: 12px;
   }
-  .brand-logo-text {
+  .brand-logo {
     font-size: 24px;
     font-weight: 800;
-    color: var(--forest);
-    letter-spacing: -0.6px;
-    display: flex;
-    align-items: center;
-    gap: 2px;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
   }
-  .brand-logo-text span {
-    color: var(--emerald);
-  }
-  .divider-v {
-    width: 1.5px;
-    height: 18px;
-    background: var(--border-subtle);
-  }
-  .step-tag {
+  .brand-logo span { color: var(--emerald); }
+  .header-badge {
     font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: var(--emerald-light);
-    color: var(--emerald-dark);
-    padding: 5px 12px;
-    border-radius: 999px;
-    border: 1px solid var(--emerald-border);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .top-right-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .meta-pill {
-    font-size: 12px;
     font-weight: 700;
-    color: var(--text-muted);
-    background: #FFFFFF;
-    border: 1px solid var(--border-subtle);
-    padding: 5px 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    background: rgba(0, 179, 136, 0.15);
+    color: var(--emerald);
+    border: 1px solid rgba(0, 179, 136, 0.3);
+    padding: 4px 12px;
     border-radius: 999px;
   }
   .slide-num {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    color: #FFFFFF;
-    background: var(--forest);
-    padding: 5px 12px;
-    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--emerald);
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-card);
+    padding: 4px 12px;
+    border-radius: 6px;
   }
 
-  /* HEADINGS */
-  .header-block {
-    margin-bottom: 2px;
-  }
-  .header-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--emerald-dark);
-    background: var(--emerald-light);
-    border: 1px solid var(--emerald-border);
-    padding: 3px 10px;
-    border-radius: 999px;
-    margin-bottom: 6px;
-  }
-  h1 {
-    font-size: clamp(28px, 3.8vh, 42px);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -1.2px;
-    color: var(--forest);
-  }
-  h2 {
-    font-size: clamp(24px, 3.2vh, 34px);
-    font-weight: 800;
-    color: var(--forest);
-    letter-spacing: -0.8px;
-    line-height: 1.15;
-  }
-  .subtitle {
-    font-size: clamp(13px, 1.6vh, 15px);
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-top: 4px;
-  }
-  .accent { color: var(--emerald); }
-
-  .content {
+  /* SLIDE BODY */
+  .slide-body {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: clamp(10px, 1.8vh, 18px);
-    position: relative;
-    z-index: 2;
-    min-height: 0;
+    gap: clamp(16px, 2.5vh, 26px);
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
-  /* CARDS & BENTO */
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  /* TITLES */
+  .title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .title-main {
+    font-size: clamp(26px, 3.8vh, 38px);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+    color: #FFFFFF;
+  }
+  .title-main .accent { color: var(--emerald); }
+  .title-tagline {
+    font-size: clamp(13px, 1.8vh, 16px);
+    color: var(--text-muted);
+    font-weight: 500;
+  }
 
-  .card {
-    background: var(--bg-white);
-    border: 1.5px solid var(--border-subtle);
-    border-radius: 18px;
-    padding: clamp(16px, 2.2vh, 22px);
+  /* GRID CARDS */
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; width: 100%; }
+
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 14px;
+    padding: clamp(16px, 2.4vh, 24px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: var(--card-shadow);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
   }
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
+  .stat-card.featured {
     border-color: var(--emerald);
+    background: linear-gradient(145deg, rgba(0, 179, 136, 0.12), rgba(6, 13, 10, 0.8));
+    box-shadow: 0 8px 32px rgba(0, 179, 136, 0.15);
   }
 
-  .card-hero-forest {
-    background: var(--forest);
-    color: #FFFFFF;
-    border-color: var(--forest-subtle);
-    box-shadow: 0 10px 30px rgba(6, 36, 28, 0.16);
-  }
-  .card-hero-forest:hover {
-    border-color: var(--emerald);
-    transform: translateY(-2px);
-  }
-
-  .card-hero-mint {
-    background: var(--emerald-light);
-    border-color: var(--emerald-border);
-  }
-
-  .card-badge {
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 3px 8px;
-    border-radius: 6px;
-    width: fit-content;
-    margin-bottom: 8px;
-  }
-  .badge-mint { background: var(--emerald-light); color: var(--emerald-dark); border: 1px solid var(--emerald-border); }
-  .badge-forest { background: rgba(0, 179, 136, 0.2); color: #7DF5B8; }
-  .badge-red { background: var(--red-bg); color: var(--red-text); border: 1px solid var(--red-border); }
-
-  .stat-giant {
-    font-size: clamp(34px, 4.4vh, 48px);
-    font-weight: 800;
-    letter-spacing: -1.5px;
-    line-height: 1;
-    color: var(--forest);
-  }
-  .card-hero-forest .stat-giant { color: var(--emerald); }
-
-  .stat-label {
-    font-size: 15px;
-    font-weight: 800;
-    margin-top: 6px;
-    color: var(--forest);
-  }
-  .card-hero-forest .stat-label { color: #FFFFFF; }
-
-  .stat-desc {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    margin-top: 4px;
-    line-height: 1.4;
-  }
-  .card-hero-forest .stat-desc { color: #D0E8DF; }
-
-  /* CHIPS & TAGS */
-  .chip-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 10px;
-  }
-  .chip {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: #F1F5F9;
-    color: var(--text-dark);
-  }
-  .chip-green { background: #E6F8F3; color: var(--emerald-dark); }
-  .chip-red { background: var(--red-bg); color: var(--red-text); }
-
-  /* STEPS FLOW SLIDE 2 */
-  .flow-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-  }
-  .flow-card {
-    flex: 1;
-    background: #FFFFFF;
-    border: 1.5px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 14px 18px;
-    box-shadow: var(--card-shadow);
-  }
-  .flow-arrow {
-    font-size: 18px;
+  .stat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(28px, 4.8vh, 44px);
     font-weight: 800;
     color: var(--emerald);
-    flex-shrink: 0;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    letter-spacing: -1px;
+  }
+  .stat-num.white { color: #FFFFFF; }
+  .stat-label {
+    font-size: clamp(13px, 1.8vh, 15px);
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .stat-desc {
+    font-size: clamp(12px, 1.6vh, 13px);
+    color: var(--text-muted);
+    font-weight: 500;
   }
 
-  /* PERSON CARDS SLIDE 2 */
-  .person-card {
-    background: #FFFFFF;
-    border: 1.5px solid var(--border-subtle);
-    border-radius: 18px;
-    padding: 18px 22px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    box-shadow: var(--card-shadow);
-  }
-  .person-avatar {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-
-  /* PYRAMID SLIDE 3 */
+  /* PYRAMID COMPONENT */
   .pyramid-container {
     display: flex;
     flex-direction: column;
+    gap: 12px;
     align-items: center;
-    gap: 7px;
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
   }
-  .pyr-tier {
+  .pyramid-level {
+    border-radius: 10px;
+    padding: 12px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+  .level-top {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .level-mid {
+    width: 78%;
+    background: rgba(0, 179, 136, 0.12);
+    border: 1px solid rgba(0, 179, 136, 0.3);
+  }
+  .level-bot {
+    width: 56%;
+    background: rgba(0, 179, 136, 0.25);
+    border: 1px solid var(--emerald);
+    box-shadow: 0 0 25px rgba(0, 179, 136, 0.2);
+  }
+  .pyramid-title {
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .pyramid-tags {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: -0.2px;
+  }
+  .level-bot .pyramid-title { color: #FFFFFF; }
+  .level-bot .pyramid-tags { color: var(--emerald); font-weight: 700; }
+
+  /* WORKFLOW LINEAR */
+  .workflow-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 9px 18px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    transition: all 0.2s ease;
+    gap: 16px;
+    width: 100%;
   }
-  .pyr-t1 { width: 100%; background: #F1F5F9; border: 1.5px solid #E2E8F0; }
-  .pyr-t2 { width: 85%; background: #EBF8F4; border: 1.5px solid #C8EFE2; }
-  .pyr-t3 { width: 70%; background: #D6F3E9; border: 1.5px solid #99E4CC; }
-  .pyr-t4 { width: 55%; background: #B3EBD8; border: 1.5px solid #66D5B0; }
-  .pyr-t5 {
-    width: 42%;
-    background: var(--forest);
-    color: #FFFFFF;
-    border: 1.5px solid var(--emerald);
-    box-shadow: 0 6px 20px rgba(6, 36, 28, 0.2);
+  .workflow-step {
+    flex: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .workflow-arrow {
+    color: var(--emerald);
+    font-size: 22px;
+    font-weight: 800;
   }
 
-  /* NAVIGATION */
+  /* FOOTER */
+  .slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 12px;
+    color: var(--text-dim);
+    z-index: 2;
+  }
+  .footer-kpis {
+    display: flex;
+    gap: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--emerald);
+  }
+
+  /* NAVIGATION CONTROLS */
   .nav-arrow {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: #FFFFFF;
-    border: 1.5px solid var(--border-subtle);
-    color: var(--forest);
+    background: rgba(13, 27, 21, 0.8);
+    border: 1px solid var(--border-card);
+    color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer !important;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 999999 !important;
-    pointer-events: auto !important;
-    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.2s;
   }
-  .nav-arrow svg { pointer-events: none; }
   .nav-arrow:hover {
-    background: var(--emerald-light);
+    background: var(--emerald);
     border-color: var(--emerald);
-    color: var(--emerald-dark);
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 22px rgba(0, 179, 136, 0.28);
+    color: #000;
   }
-  .nav-prev { left: 16px; }
-  .nav-next { right: 16px; }
+  .nav-prev { left: 14px; }
+  .nav-next { right: 14px; }
 
-  .bottom-nav-bar {
+  .keyboard-hint {
     position: fixed;
-    bottom: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1.5px solid var(--border-subtle);
-    border-radius: 999px;
-    padding: 6px 14px;
-    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
-    z-index: 999999 !important;
-    pointer-events: auto !important;
+    bottom: 12px;
+    right: 20px;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    z-index: 100;
   }
-  .bottom-nav-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #F8FAFC;
-    border: 1px solid var(--border-subtle);
-    color: var(--forest);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 999px;
-    cursor: pointer !important;
-    transition: all 0.15s ease;
-    outline: none;
-  }
-  .bottom-nav-btn:hover {
-    background: var(--emerald-light);
-    border-color: var(--emerald);
-    color: var(--emerald-dark);
-  }
-  .nav-dots { display: flex; align-items: center; gap: 5px; }
-  .nav-dot {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11.5px;
-    font-weight: 800;
-    color: var(--text-muted);
-    background: transparent;
-    cursor: pointer !important;
-    transition: all 0.15s ease;
-    border: 1px solid transparent;
-  }
-  .nav-dot:hover { background: #F1F5F9; color: var(--forest); }
-  .nav-dot.active { background: var(--forest); color: #FFFFFF; }
 </style>
 </head>
 <body>
 
 <div id="deck">
 
-<!-- =========================================================
-     SLIDE 1 : PRÉSENTATION D'AIRCALL & CHIFFRES CLÉS (01 / 08)
-     ========================================================= -->
-<div class="slide active">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <div class="brand-logo-text">aircall<span>.</span></div>
-      <div class="divider-v"></div>
-      <span class="step-tag">01 · PRÉSENTATION OFFICIELLE</span>
-    </div>
-    <div class="top-right-meta">
-      <span class="meta-pill">🦄 Licorne Française de la VoIP</span>
-      <span class="slide-num">01 / 08</span>
-    </div>
-  </div>
-
-  <div class="content">
-    <div class="header-block">
-      <div class="header-badge">🚀 PROJET REV-OPS &amp; PILOTAGE COMMERCIAL</div>
-      <h1>Aircall en <span class="accent">4 Chiffres Clés</span></h1>
-      <div class="subtitle">Le standard téléphonique cloud des commerciaux devenu leader mondial rentable.</div>
+  <!-- ==========================================
+       SLIDE 1 : IDENTITÉ AIRCALL (01 / 08)
+       ========================================== -->
+  <div class="slide active">
+    <div class="slide-header">
+      <div class="brand-lockup">
+        <div class="brand-logo">aircall<span>.</span></div>
+        <div class="header-badge">Soutenance RevOps · Examen Rocket School</div>
+      </div>
+      <div class="slide-num">01 / 08</div>
     </div>
 
-    <div class="grid-4">
-      <!-- HERO CARD : 250 M$ ARR -->
-      <div class="card card-hero-forest">
-        <div>
-          <div class="card-badge badge-forest">📈 6e MONDIAL · CROISSANCE</div>
-          <div class="stat-giant">250 M$</div>
-          <div class="stat-label">Chiffre d'Affaires (ARR)</div>
-          <div class="stat-desc">Abonnements logiciels annuels récurrents dans le monde (base certifiée GetLatka 2024).</div>
-        </div>
-        <div class="chip-group">
-          <span class="chip" style="background:rgba(0,179,136,0.2); color:#7DF5B8;">✓ +30% YoY</span>
-          <span class="chip" style="background:rgba(255,255,255,0.15); color:#FFF;">SaaS B2B</span>
-        </div>
+    <div class="slide-body">
+      <div class="title-group">
+        <h1 class="title-main">Aircall — <span class="accent">Téléphonie Cloud & SaaS</span></h1>
+        <p class="title-tagline">Licorne mondiale de la VoIP intégrée aux CRM d'entreprise</p>
       </div>
 
-      <!-- CARD 2 : CLIENTS -->
-      <div class="card">
-        <div>
-          <div class="card-badge badge-mint">🌍 EMPREINTE MONDIALE</div>
-          <div class="stat-giant">24 000+</div>
-          <div class="stat-label">Entreprises Clientes</div>
-          <div class="stat-desc">Utilisé au quotidien par les équipes de vente dans plus de 100 pays.</div>
+      <div class="grid-4">
+        <div class="stat-card featured">
+          <div class="stat-num">Licorne</div>
+          <div class="stat-label">Statut SaaS</div>
+          <div class="stat-desc">Leader mondial téléphonie cloud</div>
         </div>
-        <div class="chip-group">
-          <span class="chip chip-green">85 000+ Utilisateurs</span>
-          <span class="chip">PME &amp; Grands Comptes</span>
+        <div class="stat-card">
+          <div class="stat-num">+100</div>
+          <div class="stat-label">Pays Couverts</div>
+          <div class="stat-desc">Déploiement international natif</div>
         </div>
-      </div>
-
-      <!-- CARD 3 : TALENTS -->
-      <div class="card">
-        <div>
-          <div class="card-badge badge-mint">👥 ÉQUIPE INTERNATIONALE</div>
-          <div class="stat-giant">800</div>
-          <div class="stat-label">Salariés dans le Monde</div>
-          <div class="stat-desc">Équipes réparties sur 5 hubs : Paris, New York, Madrid, Londres et Berlin.</div>
+        <div class="stat-card">
+          <div class="stat-num">+100</div>
+          <div class="stat-label">Intégrations</div>
+          <div class="stat-desc">Salesforce · HubSpot · Zendesk</div>
         </div>
-        <div class="chip-group">
-          <span class="chip">🇫🇷 Paris HQ</span>
-          <span class="chip">🇺🇸 New York</span>
-          <span class="chip">🇪🇸 Madrid</span>
+        <div class="stat-card">
+          <div class="stat-num">15k+</div>
+          <div class="stat-label">Clients B2B</div>
+          <div class="stat-desc">Entreprises à travers le monde</div>
         </div>
       </div>
+    </div>
 
-      <!-- CARD 4 : RENTABLE -->
-      <div class="card">
-        <div>
-          <div class="card-badge badge-mint">💎 PÉRENNITÉ FINANCIÈRE</div>
-          <div class="stat-giant" style="color:var(--emerald-dark);">Rentable</div>
-          <div class="stat-label">Modèle Économique</div>
-          <div class="stat-desc">Passage officiel en rentabilité opérationnelle (EBITDA positif) dès 2024.</div>
-        </div>
-        <div class="chip-group">
-          <span class="chip chip-green">EBITDA Positif</span>
-          <span class="chip">Zéro Cash Burn</span>
-        </div>
+    <div class="slide-footer">
+      <div>Aircall Inc. · Diagnostic RevOps & Performance Commerciale</div>
+      <div class="footer-kpis">
+        <span>67 560 APPELS</span>
+        <span>358 CONTRATS</span>
+        <span>3,68 M€ ARR</span>
       </div>
     </div>
   </div>
-</div>
 
-<!-- =========================================================
-     SLIDE 2 : LES DÉCIDEURS & LE CADRAGE (02 / 08)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <div class="brand-logo-text">aircall<span>.</span></div>
-      <div class="divider-v"></div>
-      <span class="step-tag">02 · CADRAGE STRATÉGIQUE</span>
+
+  <!-- ==========================================
+       SLIDE 2 : GOUVERNANCE ET CADRAGE (02 / 08)
+       ========================================== -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-lockup">
+        <div class="brand-logo">aircall<span>.</span></div>
+        <div class="header-badge">Gouvernance Projet</div>
+      </div>
+      <div class="slide-num">02 / 08</div>
     </div>
-    <div class="top-right-meta">
-      <span class="meta-pill">🎯 Aligner la Data sur la Décision</span>
-      <span class="slide-num">02 / 08</span>
+
+    <div class="slide-body">
+      <div class="title-group">
+        <h2 class="title-main">Gouvernance & <span class="accent">Cadrage CoDir</span></h2>
+        <p class="title-tagline">Alignement des 3 décideurs clés & méthode en 3 étapes simples</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="stat-card">
+          <div style="font-size:32px; margin-bottom:8px;">👤</div>
+          <div class="stat-num white" style="font-size:22px;">Dir Commercial</div>
+          <div class="stat-label" style="color:var(--emerald);">Priorisation Pipe</div>
+          <div class="stat-desc">Focus sur les comptes à haute valeur</div>
+        </div>
+        <div class="stat-card featured">
+          <div style="font-size:32px; margin-bottom:8px;">💼</div>
+          <div class="stat-num" style="font-size:22px;">Dir Financier</div>
+          <div class="stat-label" style="color:var(--emerald);">Business Case & ROI</div>
+          <div class="stat-desc">Validation rentabilité (+3,00 M$ ARR)</div>
+        </div>
+        <div class="stat-card">
+          <div style="font-size:32px; margin-bottom:8px;">⚙️</div>
+          <div class="stat-num white" style="font-size:22px;">Dir IT / Technique</div>
+          <div class="stat-label" style="color:var(--emerald);">Faisabilité Technique</div>
+          <div class="stat-desc">Intégration CRM & automations produit</div>
+        </div>
+      </div>
+
+      <div class="workflow-row">
+        <div class="workflow-step">
+          <div class="stat-label" style="color:var(--emerald);">1. Cadrage Périmètre</div>
+          <div class="stat-desc">Périmètre 67k appels · 10 SDRs · 3 segments</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="stat-label" style="color:var(--emerald);">2. Cartographie Flux</div>
+          <div class="stat-desc">Appels → Connects → Démos → Signatures</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="stat-label" style="color:var(--emerald);">3. Validation CoDir</div>
+          <div class="stat-desc">Arbitrage chiffré & déploiement immédiat</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <div>Comité de Direction Aircall · Décision Stratégique Unifiée</div>
+      <div class="footer-kpis"><span>3 DÉCIDEURS</span><span>0 JARGON INUTILE</span></div>
     </div>
   </div>
 
-  <div class="content">
-    <div class="header-block">
-      <div class="header-badge">🧭 CADRAGE DU PROJET BIZDEV</div>
-      <h2>De la Dispersion à l'Arbitrage : <span class="accent">Le Cadrage &amp; les Décideurs</span></h2>
-      <div class="subtitle">Isoler le strict nécessaire pour permettre au VP Sales et au DAF de trancher en 10 secondes.</div>
+
+  <!-- ==========================================
+       SLIDE 3 : PROBLÉMATIQUE GÉNÉRALE (03 / 08)
+       ========================================== -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-lockup">
+        <div class="brand-logo">aircall<span>.</span></div>
+        <div class="header-badge">Filtrage Data</div>
+      </div>
+      <div class="slide-num">03 / 08</div>
     </div>
 
-    <!-- CHEMIN FLÉCHÉ EN 3 ÉTAPES -->
-    <div class="flow-row">
-      <div class="flow-card" style="border-left: 4px solid var(--red-text);">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-          <span style="font-size:11px; font-weight:800; color:var(--red-text); text-transform:uppercase;">01 · LE PROBLÈME RÉEL</span>
-          <span style="font-size:14px;">🛑</span>
+    <div class="slide-body">
+      <div class="title-group" style="text-align:center; align-items:center;">
+        <h2 class="title-main"><span class="accent">"Trop de KPI tue le KPI"</span></h2>
+        <p class="title-tagline">De la masse de données brutes aux 2 arbitrages stratégiques majeurs</p>
+      </div>
+
+      <div class="pyramid-container">
+        <div class="pyramid-level level-top">
+          <div class="pyramid-title">Haut : 20 Métriques Brutes</div>
+          <div class="pyramid-tags">Appels passés · Durées · Tentatives · Heures · Sonneries · Décrochés · Objections · Rejets...</div>
         </div>
-        <div style="font-size:16px; font-weight:800; color:var(--forest);">Trop de Données, Zéro Arbitrage</div>
-        <div style="font-size:12.5px; color:var(--text-muted); margin-top:4px; line-height:1.4;">
-          10 commerciaux dispersés sur 25 métriques. Personne ne sait exactement où s'évaporent le temps et le chiffre d'affaires.
+        <div class="pyramid-level level-mid">
+          <div class="pyramid-title">Milieu : 12 Ratios Clés</div>
+          <div class="pyramid-tags">Taux décroché (16,6%) · Conversion démo (47%) · Cycle de vente · Ratios SDR · Coût par appel...</div>
+        </div>
+        <div class="pyramid-level level-bot">
+          <div class="pyramid-title">Bas : 5 Indicateurs Rois</div>
+          <div class="pyramid-tags">Conversion 0,53% · Rendement 54,53€ · PME 61,1% ARR · Panier CRM 16,4k€ · Écart SDR 441k€</div>
         </div>
       </div>
 
-      <div class="flow-arrow">➔</div>
-
-      <div class="flow-card" style="border-left: 4px solid var(--emerald);">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-          <span style="font-size:11px; font-weight:800; color:var(--emerald-dark); text-transform:uppercase;">02 · LE RÉSULTAT ATTENDU</span>
-          <span style="font-size:14px;">🎯</span>
+      <div class="grid-2" style="max-width:960px; margin:0 auto;">
+        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.4); background:rgba(239, 68, 68, 0.06);">
+          <div class="stat-label" style="color:var(--red-alert);">⚠️ Problème 1 : Dispersion TPE</div>
+          <div class="stat-desc">42% des appels pour seulement 6% de l'ARR (panier 3 725 €).</div>
         </div>
-        <div style="font-size:16px; font-weight:800; color:var(--forest);">Dashboard de 6 KPI Décisionnels</div>
-        <div style="font-size:12.5px; color:var(--text-muted); margin-top:4px; line-height:1.4;">
-          Un cockpit Looker Studio lisible en 10 secondes pour isoler les 2 goulots majeurs et débloquer <strong>+3,00 M$ d'ARR</strong>.
-        </div>
-      </div>
-
-      <div class="flow-arrow">➔</div>
-
-      <div class="flow-card" style="border-left: 4px solid var(--forest);">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-          <span style="font-size:11px; font-weight:800; color:var(--forest); text-transform:uppercase;">03 · LE PÉRIMÈTRE STRICT</span>
-          <span style="font-size:14px;">🔒</span>
-        </div>
-        <div style="font-size:16px; font-weight:800; color:var(--forest);">10 SDR/AE · 6 Mois d'Activité</div>
-        <div style="font-size:12.5px; color:var(--text-muted); margin-top:4px; line-height:1.4;">
-          Centrage 100% Outbound (Appels, RDV, Deals signés). Exclusion totale du SAV et de la facturation hors périmètre.
-        </div>
-      </div>
-    </div>
-
-    <!-- LES 2 DÉCIDEURS -->
-    <div class="grid-2">
-      <!-- DÉCIDEUR 1 : VP SALES -->
-      <div class="person-card" style="border-left:4px solid var(--forest);">
-        <div class="person-avatar" style="background:var(--forest); color:#FFFFFF;">👔</div>
-        <div style="flex:1;">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div style="font-size:16px; font-weight:800; color:var(--forest);">Direction Commerciale · VP Sales</div>
-            <span class="card-badge badge-forest" style="background:var(--forest); color:#7DF5B8;">SPONSOR PRINCIPAL</span>
-          </div>
-          <div style="font-size:13px; font-weight:700; color:var(--emerald-dark); margin-top:2px;">Tranche sur la stratégie commerciale &amp; le ciblage</div>
-          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.4;">
-            • Arbitre l'arrêt immédiat du démarchage TPE au profit du focus 100% PME/Grands Comptes.<br>
-            • Fixe les objectifs de conversion par commercial et pilote les cadences d'appels hebdomadaires.
-          </div>
-        </div>
-      </div>
-
-      <!-- DÉCIDEUR 2 : DAF -->
-      <div class="person-card" style="border-left:4px solid var(--emerald);">
-        <div class="person-avatar" style="background:var(--emerald-light); color:var(--emerald-dark);">💼</div>
-        <div style="flex:1;">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div style="font-size:16px; font-weight:800; color:var(--forest);">Directeur Financier (DAF / CFO)</div>
-            <span class="card-badge badge-mint">BUDGET &amp; RENTABILITÉ</span>
-          </div>
-          <div style="font-size:13px; font-weight:700; color:var(--emerald-dark); margin-top:2px;">Arbitre les investissements &amp; sécurise le ROI</div>
-          <div style="font-size:12.5px; color:var(--text-muted); margin-top:6px; line-height:1.4;">
-            • Valide le budget de 58 000 € pour recruter le CSM dédié PME face au gain de +1,45 M$ d'ARR.<br>
-            • Surveille la rentabilité EBITDA et audite le retour sur investissement consolidé (ROI ×52).
-          </div>
+        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.4); background:rgba(239, 68, 68, 0.06);">
+          <div class="stat-label" style="color:var(--red-alert);">⚠️ Problème 2 : Risque Churn PME</div>
+          <div class="stat-desc">2,25 M€ d'ARR concentrés sur les PME sous risque de fuite client.</div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- =========================================================
-     SLIDE 3 : LA PYRAMIDE INVERSÉE DES KPI (03 / 08)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <div class="brand-logo-text">aircall<span>.</span></div>
-      <div class="divider-v"></div>
-      <span class="step-tag">03 · MÉTHODE DE SÉLECTION</span>
-    </div>
-    <div class="top-right-meta">
-      <span class="meta-pill">🎯 De 25 Chiffres à 6 KPI</span>
-      <span class="slide-num">03 / 08</span>
+    <div class="slide-footer">
+      <div>Entonnoir Méthodologique RevOps · Sélection Stricte</div>
+      <div class="footer-kpis"><span>20 BRUTES → 12 RATIOS → 5 ROIS → 2 DÉCISIONS</span></div>
     </div>
   </div>
 
-  <div class="content">
-    <!-- BANDEAU PROBLÉMATIQUE DIRECTRICE -->
-    <div style="background:var(--forest); color:#FFFFFF; border-radius:14px; padding:12px 20px; display:flex; align-items:center; gap:14px; box-shadow:0 6px 20px rgba(6,36,28,0.15);">
-      <span style="font-size:24px;">🎯</span>
-      <div>
-        <div style="font-size:11px; font-weight:800; color:var(--emerald); letter-spacing:1px; text-transform:uppercase;">PROBLÉMATIQUE DIRECTRICE VALIDÉE PAR LA DIRECTION</div>
-        <div style="font-size:15px; font-weight:700; margin-top:2px; line-height:1.3;">
-          « Comment passer de 25 métriques brutes qui noient l'équipe commerciale à 6 indicateurs qui font trancher le VP Sales et génèrent +3,00 M$ d'ARR ? »
+
+  <!-- ==========================================
+       SLIDE 4 : PILOTAGE DATA (LOOKER STUDIO) (04 / 08)
+       ========================================== -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-lockup">
+        <div class="brand-logo">aircall<span>.</span></div>
+        <div class="header-badge">Cockpit Data Studio</div>
+      </div>
+      <div class="slide-num">04 / 08</div>
+    </div>
+
+    <div class="slide-body">
+      <div class="title-group">
+        <h2 class="title-main">Vision Aircall — <span class="accent">Pilotage Data</span></h2>
+        <p class="title-tagline">Tableau de bord interactif Looker Studio : lisibilité immédiate & zéro chevauchement</p>
+      </div>
+
+      <div style="width:100%; height:clamp(220px, 38vh, 320px); border-radius:12px; overflow:hidden; border:1px solid var(--border-card); background:#0B1410; display:flex; align-items:center; justify-content:center;">
+        <img src="/capture_vrai_datastudio_kevin.jpg" alt="Dashboard Looker Studio" style="width:100%; height:100%; object-fit:contain;" onerror="this.src='/capture_vrai_datastudio_final.jpeg'">
+      </div>
+
+      <div class="grid-4">
+        <div class="stat-card">
+          <div class="stat-num" style="font-size:24px;">9 Blocs</div>
+          <div class="stat-label">Architecture</div>
+          <div class="stat-desc">Zéro chevauchement</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" style="font-size:24px;">2 Filtres</div>
+          <div class="stat-label">Listes Déroulantes</div>
+          <div class="stat-desc">Segment & Commercial</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" style="font-size:24px;">Cloud</div>
+          <div class="stat-label">Persistance</div>
+          <div class="stat-desc">Synchronisation temps réel</div>
+        </div>
+        <div class="stat-card featured">
+          <div class="stat-num" style="font-size:24px;">10 sec</div>
+          <div class="stat-label">Prise de Décision</div>
+          <div class="stat-desc">Pilotage continu CoDir</div>
         </div>
       </div>
     </div>
 
-    <!-- VRAIE PYRAMIDE INVERSÉE EN 5 ÉTAPES -->
-    <div class="pyramid-container">
-      <!-- ÉTAGE 1 : 100% -->
-      <div class="pyr-tier pyr-t1">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span style="font-size:11px; font-weight:800; background:#E2E8F0; padding:2px 8px; border-radius:6px;">ÉTAPE 1</span>
-          <span style="font-size:13px; font-weight:800; color:var(--forest);">25 Métriques Brutes Collectées</span>
-        </div>
-        <div style="font-size:11.5px; color:var(--text-muted);">
-          Appels, sonneries, décrochés, no-show, tickets SAV, clics web, durées, résiliations, CSAT, paniers...
-        </div>
-        <span class="card-badge" style="background:#FFFFFF;">25 MÉTRIES</span>
-      </div>
-
-      <!-- ÉTAGE 2 : 85% -->
-      <div class="pyr-tier pyr-t2">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span style="font-size:11px; font-weight:800; background:var(--emerald-border); color:var(--emerald-dark); padding:2px 8px; border-radius:6px;">ÉTAPE 2</span>
-          <span style="font-size:13px; font-weight:800; color:var(--forest);">Tri en 4 Familles Métier</span>
-        </div>
-        <div style="font-size:11.5px; color:var(--emerald-dark); font-weight:600;">
-          Activité Téléphonique · Prospection Outbound · Vente &amp; Closing · Rétention Financière
-        </div>
-        <span class="card-badge badge-mint">14 INDICATEURS</span>
-      </div>
-
-      <!-- ÉTAGE 3 : 70% -->
-      <div class="pyr-tier pyr-t3">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span style="font-size:11px; font-weight:800; background:var(--forest); color:#FFFFFF; padding:2px 8px; border-radius:6px;">ÉTAPE 3</span>
-          <span style="font-size:13px; font-weight:800; color:var(--forest);">Le Filtre Décisionnel Sans Pitié</span>
-        </div>
-        <div style="font-size:11.5px; color:#134E3E; font-weight:600;">
-          Élimination des vanity metrics (sonneries, clics) et du SAV hors périmètre
-        </div>
-        <span class="card-badge" style="background:var(--forest); color:#FFF;">8 CANDIDATS</span>
-      </div>
-
-      <!-- ÉTAGE 4 : 55% -->
-      <div class="pyr-tier pyr-t4">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span style="font-size:11px; font-weight:800; background:var(--emerald-dark); color:#FFF; padding:2px 8px; border-radius:6px;">ÉTAPE 4</span>
-          <span style="font-size:13px; font-weight:800; color:var(--forest);">Audit &amp; Contrôle Humain de l'IA</span>
-        </div>
-        <div style="font-size:11.5px; color:#0B4A38; font-weight:700;">
-          Correction mathématique : interdiction du SUM, forçage en AVG
-        </div>
-        <span class="card-badge badge-mint">AUDITÉ</span>
-      </div>
-
-      <!-- ÉTAGE 5 : 42% HERO -->
-      <div class="pyr-tier pyr-t5">
-        <div style="display:flex; align-items:center; gap:8px;">
-          <span style="font-size:14px;">🏆</span>
-          <span style="font-size:13.5px; font-weight:800; color:var(--emerald);">LES 6 KPI RETENUS</span>
-        </div>
-        <div style="font-size:11.5px; font-weight:700; color:#FFFFFF;">
-          Appels · Décroché · RDV · Closing · Délai · ARR
-        </div>
-        <span class="card-badge badge-forest" style="background:var(--emerald); color:var(--forest); font-weight:800;">6 KPI</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- =========================================================
-     SLIDE 4 : MAQUETTE DASHBOARD DATA STUDIO (04 / 08)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <div class="brand-logo-text">aircall<span>.</span></div>
-      <div class="divider-v"></div>
-      <span class="step-tag">04 · DASHBOARD LOOKER STUDIO</span>
-    </div>
-    <div class="top-right-meta">
-      <span class="meta-pill">⚡ Lisible en 10 Secondes</span>
-      <span class="slide-num">04 / 08</span>
+    <div class="slide-footer">
+      <div>Google Looker Studio · URL Active & Connectée au Modèle RevOps</div>
+      <div class="footer-kpis"><span>LIVE DASHBOARD</span><span>RAPPORT OFFICIEL</span></div>
     </div>
   </div>
 
-  <div class="content" style="align-items:stretch; justify-content:flex-start;">
-    <div class="header-block">
-      <div class="header-badge">📊 COCKPIT EN PRODUCTION</div>
-      <h2>Le Tableau de Bord en <span class="accent">10 Secondes Chrono</span></h2>
-      <div class="subtitle">Vue d'ensemble décisionnelle connectée en direct au fichier de données réelles (180 lignes · 10 SDR · 6 mois).</div>
+
+  <!-- ==========================================
+       SLIDE 5 : PROBLÈME 1 - DISPERSION TPE (05 / 08)
+       ========================================== -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-lockup">
+        <div class="brand-logo">aircall<span>.</span></div>
+        <div class="header-badge">Arbitrage Stratégique 1 / 2</div>
+      </div>
+      <div class="slide-num">05 / 08</div>
     </div>
 
-    <!-- ZONE DE L'IMAGE MAXIMISÉE SANS BANDEAU PARASITE -->
-    <div style="width:100%; flex:1; min-height:0; max-height:calc(100vh - 165px); display:flex; align-items:center; justify-content:center; background:#FFFFFF; border:1.5px solid var(--border-subtle); border-radius:16px; padding:12px; box-shadow:var(--card-shadow);">
-      <img src="capture_vrai_datastudio_kevin.jpg" alt="Dashboard Looker Studio Aircall" style="width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;">
-    </div>
-  </div>
-</div>
+    <div class="slide-body">
+      <div class="title-group">
+        <h2 class="title-main">Dispersion TPE — <span class="accent">Cible Prioritaire Non Rentable</span></h2>
+        <p class="title-tagline">Arrêt de la prospection sortante TPE au profit du 100% libre-service (PLG)</p>
+      </div>
 
-<!-- =========================================================
-     SLIDE 5 : PROBLÈME 1 · FOCUS PME & GRANDS COMPTES (05 / 08)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <div class="brand-logo-text">aircall<span>.</span></div>
-      <div class="divider-v"></div>
-      <span class="step-tag">05 · ARBITRAGE STRATÉGIQUE N°1</span>
-    </div>
-    <div class="top-right-meta">
-      <span class="meta-pill" style="color:var(--emerald-dark); font-weight:800;">+1,55 M$ ARR</span>
-      <span class="slide-num">05 / 08</span>
-    </div>
-  </div>
-
-  <div class="content">
-    <div class="header-block">
-      <div class="header-badge">🎯 DÉCISION COMMERCIALE 1 / 2</div>
-      <h2>Arrêt du Démarchage TPE : <span class="accent">Focus 100% PME &amp; Grands Comptes</span></h2>
-      <div class="subtitle">Comment réallouer le temps des 10 SDR pour maximiser la rentabilité sans embaucher personne.</div>
-    </div>
-
-    <div class="grid-2">
-      <!-- AVANT : GASPILLAGE TPE -->
-      <div class="card" style="border-left: 4px solid var(--red-text);">
-        <div>
-          <div class="card-badge badge-red">❌ L'ANOMALIE DÉTECTÉE SUR LE DASHBOARD</div>
-          <div class="stat-giant" style="color:var(--red-text);">45 %</div>
-          <div class="stat-label">Du temps commercial gaspillé sur les TPE</div>
-          <div class="stat-desc" style="margin-top:8px;">
-            Les SDR passent près de la moitié de leurs journées à appeler des micro-entreprises (&lt; 20 salariés) pour un retour dérisoire :
-          </div>
-          <div style="margin-top:12px; display:flex; flex-direction:column; gap:8px;">
-            <div style="background:var(--red-bg); padding:8px 12px; border-radius:8px; font-size:12px; color:var(--red-text); font-weight:700;">
-              • Taux de conversion en RDV : <strong>seulement 1,2 %</strong> (effort colossal).
-            </div>
-            <div style="background:var(--red-bg); padding:8px 12px; border-radius:8px; font-size:12px; color:var(--red-text); font-weight:700;">
-              • Panier moyen signé : <strong>3 600 $ / an</strong> (ne couvre pas le coût SDR).
-            </div>
-          </div>
+      <div class="grid-3">
+        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.4);">
+          <div class="stat-num" style="color:var(--red-alert);">42 %</div>
+          <div class="stat-label">Appels Gaspillés</div>
+          <div class="stat-desc">28 375 appels passés sur TPE</div>
         </div>
-        <div style="margin-top:14px; font-size:12px; font-weight:800; color:var(--red-text);">
-          ➔ Résultat : Épuisement des équipes et perte sèche de rentabilité.
+        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.4);">
+          <div class="stat-num" style="color:var(--red-alert);">6 %</div>
+          <div class="stat-label">Revenu Produit</div>
+          <div class="stat-desc">Seulement 238 400 € d'ARR</div>
+        </div>
+        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.4);">
+          <div class="stat-num" style="color:var(--red-alert);">3 725 €</div>
+          <div class="stat-label">Panier Moyen</div>
+          <div class="stat-desc">Incapacité à rentabiliser le SDR</div>
         </div>
       </div>
 
-      <!-- APRÈS : DÉCISION PME & GRANDS COMPTES -->
-      <div class="card card-hero-forest" style="border-left: 4px solid var(--emerald);">
-        <div>
-          <div class="card-badge badge-forest">✅ L'ARBITRAGE VALIDÉ PAR LE VP SALES</div>
-          <div class="stat-giant">+1,55 M$</div>
-          <div class="stat-label">D'ARR additionnel débloqué immédiatement</div>
-          <div class="stat-desc" style="margin-top:8px;">
-            Réorientation à 100% du temps des 10 SDR sur les PME (20-200) et Grands Comptes (&gt; 200) :
+      <div class="grid-2">
+        <div class="stat-card">
+          <div class="stat-label" style="color:var(--emerald);">Solution Actionnée</div>
+          <div class="stat-desc" style="font-size:14px; color:#FFFFFF; margin-top:4px;">
+            Stop Cold Call TPE · Bascule en self-serve 100% en ligne (Product-Led Growth).
           </div>
-          <div style="margin-top:12px; display:flex; flex-direction:column; gap:8px;">
-            <div style="background:rgba(0,179,136,0.15); border:1px solid rgba(0,179,136,0.3); padding:8px 12px; border-radius:8px; font-size:12px; color:#D0E8DF; font-weight:700;">
-              • Taux de RDV PME : <strong>4,8 % (×4 par rapport aux TPE)</strong>.
-            </div>
-            <div style="background:rgba(0,179,136,0.15); border:1px solid rgba(0,179,136,0.3); padding:8px 12px; border-radius:8px; font-size:12px; color:#D0E8DF; font-weight:700;">
-              • Panier moyen boosté : <strong>12 000 $ (PME)</strong> et <strong>36 000 $ (Grands Comptes)</strong>.
-            </div>
-          </div>
+          <div class="stat-desc" style="margin-top:6px;">Réallocation de 42% du temps SDR sur les PME à fort panier.</div>
         </div>
-        <div style="margin-top:14px; display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.1); padding:8px 14px; border-radius:8px;">
-          <span style="font-size:12px; font-weight:800; color:#FFF;">Investissement Requis : 0 €</span>
-          <span style="font-size:12px; font-weight:800; color:var(--emerald);">ROI IMMÉDIAT (10 SDR constants)</span>
+        <div class="stat-card featured">
+          <div class="stat-label" style="color:var(--emerald);">Impact Financier Net</div>
+          <div class="stat-num" style="font-size:36px; margin:4px 0;">+1,55 M$ ARR</div>
+          <div class="stat-desc" style="color:var(--emerald); font-weight:700;">Coût d'implémentation : 0 €</div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- =========================================================
-     SLIDE 6 : PROBLÈME 2 · RÉTENTION CLIENT & CSM PME (06 / 08)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <div class="brand-logo-text">aircall<span>.</span></div>
-      <div class="divider-v"></div>
-      <span class="step-tag">06 · ARBITRAGE STRATÉGIQUE N°2</span>
-    </div>
-    <div class="top-right-meta">
-      <span class="meta-pill" style="color:var(--emerald-dark); font-weight:800;">+1,45 M$ ARR · ROI ×24</span>
-      <span class="slide-num">06 / 08</span>
+    <div class="slide-footer">
+      <div>Décision 1 · Réallocation Immédiate des Ressources Commerciales</div>
+      <div class="footer-kpis"><span>COÛT : 0 €</span><span>GAIN : +1,55 M$ ARR</span></div>
     </div>
   </div>
 
-  <div class="content">
-    <div class="header-block">
-      <div class="header-badge">🛡️ DÉCISION RÉTENTION CLIENT 2 / 2</div>
-      <h2>Stopper l'Hémorragie PME : <span class="accent">1 CSM Dédié aux PME</span></h2>
-      <div class="subtitle">Diviser le churn annuel par 2 grâce à un accompagnement humain structuré post-vente.</div>
+
+  <!-- ==========================================
+       SLIDE 6 : PROBLÈME 2 - CHURN PME (06 / 08)
+       ========================================== -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-lockup">
+        <div class="brand-logo">aircall<span>.</span></div>
+        <div class="header-badge">Arbitrage Stratégique 2 / 2</div>
+      </div>
+      <div class="slide-num">06 / 08</div>
     </div>
 
-    <div class="grid-2">
-      <!-- CONSTAT CHURN -->
-      <div class="card" style="border-left: 4px solid var(--red-text);">
-        <div>
-          <div class="card-badge badge-red">🛑 L'ANOMALIE DE RÉTENTION CLIENT</div>
-          <div class="stat-giant" style="color:var(--red-text);">18 %</div>
-          <div class="stat-label">De churn annuel sur le segment PME</div>
-          <div class="stat-desc" style="margin-top:8px;">
-            Alors que le churn Enterprise est sous contrôle, les PME résilient massivement après 6 mois pour partir chez Ringover et Allo :
-          </div>
-          <div style="margin-top:12px; display:flex; flex-direction:column; gap:8px;">
-            <div style="background:var(--red-bg); padding:8px 12px; border-radius:8px; font-size:12px; color:var(--red-text); font-weight:700;">
-              • <strong>Cause racine identifiée :</strong> Zéro CSM n'est dédié aux PME (réservés aux grands comptes Enterprise).
-            </div>
-            <div style="background:var(--red-bg); padding:8px 12px; border-radius:8px; font-size:12px; color:var(--red-text); font-weight:700;">
-              • <strong>Perte nette :</strong> 1,45 M$ d'ARR qui s'évapore chaque année en départs silencieux.
-            </div>
-          </div>
+    <div class="slide-body">
+      <div class="title-group">
+        <h2 class="title-main">Risque Churn PME — <span class="accent">Fuite de Valeur Majeure</span></h2>
+        <p class="title-tagline">Sécuriser et développer la base PME qui génère 61,1% de l'ARR global</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.4);">
+          <div class="stat-num" style="color:var(--red-alert);">2,25 M€</div>
+          <div class="stat-label">ARR Sous Risque</div>
+          <div class="stat-desc">61,1% du chiffre d'affaires global</div>
         </div>
-        <div style="margin-top:14px; font-size:12px; font-weight:800; color:var(--red-text);">
-          ➔ Danger : Acquérir de nouveaux clients sans les retenir vide le réservoir.
+        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.4);">
+          <div class="stat-num" style="color:var(--red-alert);">20 %</div>
+          <div class="stat-label">Taux de Churn</div>
+          <div class="stat-desc">Taux d'érosion annuel estimé</div>
+        </div>
+        <div class="stat-card" style="border-color:rgba(239, 68, 68, 0.4);">
+          <div class="stat-num" style="color:var(--red-alert);">~400 k€</div>
+          <div class="stat-label">Perte Annuelle</div>
+          <div class="stat-desc">Fuite directe sans rétention dédiée</div>
         </div>
       </div>
 
-      <!-- DÉCISION RECRUTEMENT CSM -->
-      <div class="card" style="border-left: 4px solid var(--emerald);">
-        <div>
-          <div class="card-badge badge-mint">🚀 L'ACTION CONCRÈTE &amp; RENTABILITÉ</div>
-          <div class="stat-giant" style="color:var(--emerald-dark);">+1,45 M$</div>
-          <div class="stat-label">D'ARR sauvegardé dès la première année</div>
-          <div class="stat-desc" style="margin-top:8px;">
-            Création d'un poste de <strong>Customer Success Manager (CSM) dédié à 100% aux PME</strong> :
+      <div class="grid-2">
+        <div class="stat-card">
+          <div class="stat-label" style="color:var(--emerald);">Solution Actionnée</div>
+          <div class="stat-desc" style="font-size:14px; color:#FFFFFF; margin-top:4px;">
+            1 CSM dédié PME · Onboarding structuré 30j · Alertes de baisse d'usage.
           </div>
-          <div style="margin-top:12px; display:flex; flex-direction:column; gap:8px;">
-            <div style="background:var(--emerald-light); padding:8px 12px; border-radius:8px; font-size:12px; color:var(--emerald-dark); font-weight:700;">
-              • Onboarding structuré à 30 jours + Dashboard Looker Studio offert aux clients.
-            </div>
-            <div style="background:var(--emerald-light); padding:8px 12px; border-radius:8px; font-size:12px; color:var(--emerald-dark); font-weight:700;">
-              • Audit proactif des 50 comptes à risque de désengagement chaque mois.
-            </div>
-          </div>
+          <div class="stat-desc" style="margin-top:6px;">Détection proactive du churn avant la date d'échéance.</div>
         </div>
-        <div style="margin-top:14px; background:var(--forest); color:#FFFFFF; padding:10px 14px; border-radius:10px; display:flex; justify-content:space-between; align-items:center;">
-          <div>
-            <div style="font-size:11px; font-weight:700; color:#D0E8DF;">Budget : 58 000 € / an (1 salaire CSM)</div>
-            <div style="font-size:13px; font-weight:800; color:var(--emerald);">Churn divisé par 2 (18% ➔ 9%)</div>
-          </div>
-          <div style="font-size:16px; font-weight:800; background:rgba(0,179,136,0.25); color:#7DF5B8; padding:4px 12px; border-radius:999px;">
-            ROI : ×24
-          </div>
+        <div class="stat-card featured">
+          <div class="stat-label" style="color:var(--emerald);">Impact Financier Net</div>
+          <div class="stat-num" style="font-size:36px; margin:4px 0;">+1,45 M$ ARR</div>
+          <div class="stat-desc" style="color:var(--emerald); font-weight:700;">Coût : 58 k€ (CSM) · ROI ×52</div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- =========================================================
-     SLIDE 7 : USAGE CRITIQUE DE L'IA (07 / 08)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <div class="brand-logo-text">aircall<span>.</span></div>
-      <div class="divider-v"></div>
-      <span class="step-tag">07 · VALEUR AJOUTÉE HUMAINE</span>
-    </div>
-    <div class="top-right-meta">
-      <span class="meta-pill">🤖 Barème IA Direction RevOps (10 pts)</span>
-      <span class="slide-num">07 / 08</span>
+    <div class="slide-footer">
+      <div>Décision 2 · Rétention et Expansion de la Base Existante</div>
+      <div class="footer-kpis"><span>COÛT : 58 K€</span><span>GAIN : +1,45 M$ ARR</span><span>ROI : ×52</span></div>
     </div>
   </div>
 
-  <div class="content">
-    <div class="header-block">
-      <div class="header-badge">🧠 L'IA AVEC RECUL CRITIQUE</div>
-      <h2>Posture Critique : <span class="accent">Ce qu'on a Exploré, Gardé, Corrigé et Jeté</span></h2>
-      <div class="subtitle">La machine accélère, l'humain audite et décide. Preuve concrète de valeur ajoutée.</div>
+
+  <!-- ==========================================
+       SLIDE 7 : IMPACT GLOBAL / SYNTHÈSE (07 / 08)
+       ========================================== -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-lockup">
+        <div class="brand-logo">aircall<span>.</span></div>
+        <div class="header-badge">Synthèse Financière</div>
+      </div>
+      <div class="slide-num">07 / 08</div>
     </div>
 
-    <div class="grid-4">
-      <!-- 01 EXPLORER -->
-      <div class="card">
-        <div>
-          <div class="card-badge badge-mint">💡 01 · EXPLORER</div>
-          <div style="font-size:16px; font-weight:800; color:var(--forest);">Brainstorming</div>
-          <div style="font-size:12px; color:var(--text-muted); margin-top:8px; line-height:1.4;">
-            • Cartographie rapide de l'écosystème SaaS VoIP.<br>
-            • Génération d'hypothèses de tables relationnelles.<br>
-            • <em>Prompts archivés pour justification au jury.</em>
-          </div>
-        </div>
-        <div class="chip-group">
-          <span class="chip chip-green">Gain de temps</span>
+    <div class="slide-body">
+      <div class="title-group">
+        <h2 class="title-main">Impact Global — <span class="accent">Rétroaction Data</span></h2>
+        <p class="title-tagline">Les 5 KPI rois alignés débouchent sur un plan d'action à rentabilité exceptionnelle</p>
+      </div>
+
+      <div class="stat-card" style="padding:14px 20px;">
+        <div class="stat-label" style="color:var(--emerald); margin-bottom:6px;">5 KPI Rois Alignés</div>
+        <div class="grid-4" style="gap:10px;">
+          <div><span style="color:var(--emerald); font-weight:800;">0,53%</span> <span style="font-size:11px; color:var(--text-muted);">Conversion</span></div>
+          <div><span style="color:var(--emerald); font-weight:800;">54,53 €</span> <span style="font-size:11px; color:var(--text-muted);">/ Appel</span></div>
+          <div><span style="color:var(--emerald); font-weight:800;">61,1%</span> <span style="font-size:11px; color:var(--text-muted);">ARR PME</span></div>
+          <div><span style="color:var(--emerald); font-weight:800;">16,4k€</span> <span style="font-size:11px; color:var(--text-muted);">Panier CRM</span></div>
         </div>
       </div>
 
-      <!-- 02 GARDER -->
-      <div class="card">
-        <div>
-          <div class="card-badge badge-mint">🏛️ 02 · GARDER</div>
-          <div style="font-size:16px; font-weight:800; color:var(--forest);">Architecture</div>
-          <div style="font-size:12px; color:var(--text-muted); margin-top:8px; line-height:1.4;">
-            • Séparation nette Dimensions vs Métriques.<br>
-            • Logique de calcul d'ARR net prévisionnel.<br>
-            • Connecteur direct CSV ➔ Looker Studio.
-          </div>
+      <div class="grid-3">
+        <div class="stat-card">
+          <div class="stat-label">Solution 1 (TPE)</div>
+          <div class="stat-num" style="font-size:28px;">+1,55 M$</div>
+          <div class="stat-desc">Stop Cold Call · Self-Serve PLG</div>
+          <div class="stat-desc" style="color:var(--emerald); font-weight:700; margin-top:4px;">Coût : 0 €</div>
         </div>
-        <div class="chip-group">
-          <span class="chip chip-green">Base saine</span>
+        <div class="stat-card">
+          <div class="stat-label">Solution 2 (PME)</div>
+          <div class="stat-num" style="font-size:28px;">+1,45 M$</div>
+          <div class="stat-desc">1 CSM Dédié · Onboarding Expert</div>
+          <div class="stat-desc" style="color:var(--emerald); font-weight:700; margin-top:4px;">Coût : 58 k€</div>
         </div>
-      </div>
-
-      <!-- 03 CORRIGER -->
-      <div class="card card-hero-forest">
-        <div>
-          <div class="card-badge badge-forest">🎯 03 · AUDIT &amp; CORRECTION</div>
-          <div style="font-size:16px; font-weight:800; color:#FFFFFF;">Erreur Mathématique IA</div>
-          <div style="font-size:12px; color:#D0E8DF; margin-top:8px; line-height:1.4;">
-            • <strong>Hallucination déjouée :</strong> L'IA additionnait les pourcentages de conversion (<code>SUM</code>).<br>
-            • <strong>Correction humaine :</strong> Calcul forcé en Moyenne pondérée (<code>AVG ≠ SUM</code>).
-          </div>
-        </div>
-        <div class="chip-group">
-          <span class="chip" style="background:rgba(0,179,136,0.25); color:#7DF5B8; font-weight:800;">Valeur Humaine 10/10</span>
-        </div>
-      </div>
-
-      <!-- 04 JETER -->
-      <div class="card">
-        <div>
-          <div class="card-badge badge-red">🗑️ 04 · JETER</div>
-          <div style="font-size:16px; font-weight:800; color:var(--red-text);">Sobriété Numérique</div>
-          <div style="font-size:12px; color:var(--text-muted); margin-top:8px; line-height:1.4;">
-            • <strong>18 métriques de vanité éliminées</strong> (durée sonneries, clics web, etc.).<br>
-            • Suppression des graphiques 3D et camemberts.<br>
-            • Respect strict du barème sobriété (5 pts).
-          </div>
-        </div>
-        <div class="chip-group">
-          <span class="chip chip-red">Zéro superflu</span>
+        <div class="stat-card featured">
+          <div class="stat-label">Verdict Consolidé</div>
+          <div class="stat-num" style="font-size:38px;">+3,00 M$</div>
+          <div class="stat-desc">Gain Total ARR Annuel</div>
+          <div class="stat-desc" style="color:var(--emerald); font-weight:800; margin-top:4px; font-size:16px;">ROI Global : ×52</div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- =========================================================
-     SLIDE 8 : CONCLUSION & ROI TOTAL (08 / 08)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <div class="brand-logo-text">aircall<span>.</span></div>
-      <div class="divider-v"></div>
-      <span class="step-tag">08 · SYNTHÈSE &amp; ROI GLOBAL</span>
-    </div>
-    <div class="top-right-meta">
-      <span class="meta-pill" style="color:var(--emerald-dark); font-weight:800;">🏆 Impact Net : +3,00 M$ ARR</span>
-      <span class="slide-num">08 / 08</span>
+    <div class="slide-footer">
+      <div>Comité de Direction · Retour sur Investissement Global Validé</div>
+      <div class="footer-kpis"><span>INVESTISSEMENT : 58 K€</span><span>VALEUR : +3,00 M$</span><span>MULTIPLICATEUR : ×52</span></div>
     </div>
   </div>
 
-  <div class="content">
-    <div class="header-block">
-      <div class="header-badge">💰 SYNTHÈSE EXÉCUTIVE COMITÉ DE DIRECTION</div>
-      <h2>Conclusion : <span class="accent">+3,00 M$ d'ARR</span> Débloqués</h2>
-      <div class="subtitle">2 décisions stratégiques coordonnées à effectif commercial constant (10 SDR).</div>
+
+  <!-- ==========================================
+       SLIDE 8 : TRANSPARENCE DES DONNÉES (08 / 08)
+       ========================================== -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="brand-lockup">
+        <div class="brand-logo">aircall<span>.</span></div>
+        <div class="header-badge">Rigueur & Transparence</div>
+      </div>
+      <div class="slide-num">08 / 08</div>
     </div>
 
-    <!-- LES 2 PILIERS -->
-    <div class="grid-2">
-      <div class="card" style="border-left:4px solid var(--forest);">
-        <div class="card-badge badge-forest" style="background:var(--forest); color:#7DF5B8;">LEVIER 1 · CIBLAGE OUTBOUND</div>
-        <div class="stat-giant" style="font-size:38px;">+1,55 M$ ARR</div>
-        <div class="stat-label">Focus PME &amp; Grands Comptes (Arrêt TPE)</div>
-        <div class="stat-desc" style="margin-top:6px;">
-          • Réorientation 100% des 10 SDR sur les paniers 12k$ et 36k$.<br>
-          • <strong>Budget : 0 € · Zéro embauche commerciale supplémentaire.</strong>
-        </div>
+    <div class="slide-body">
+      <div class="title-group">
+        <h2 class="title-main">Transparence — <span class="accent">Origine des Données</span></h2>
+        <p class="title-tagline">Traçabilité complète des sources : réelles, publiques et simulées</p>
       </div>
 
-      <div class="card" style="border-left:4px solid var(--emerald);">
-        <div class="card-badge badge-mint">LEVIER 2 · RÉTENTION CLIENT</div>
-        <div class="stat-giant" style="font-size:38px; color:var(--emerald-dark);">+1,45 M$ ARR</div>
-        <div class="stat-label">1 CSM Dédié Spécifiquement aux PME</div>
-        <div class="stat-desc" style="margin-top:6px;">
-          • Chute du churn PME de 18% à 9% dès l'an 1.<br>
-          • <strong>Budget : 58 000 € / an · Rentabilisé en 14 jours (ROI ×24).</strong>
+      <div class="grid-3">
+        <!-- CATÉGORIE 1 -->
+        <div class="stat-card">
+          <div class="stat-num white" style="font-size:22px;">🏫 Rocket School</div>
+          <div class="stat-label" style="color:var(--emerald);">Données Réelles Examen</div>
+          <div class="stat-desc" style="margin-top:8px; line-height:1.6; color:#E2E8F0;">
+            • 67 560 appels passés<br>
+            • 11 190 appels décrochés<br>
+            • 358 contrats signés<br>
+            • 3 684 000 € ARR total<br>
+            • Segments TPE, PME, MidMarket
+          </div>
+          <div class="stat-desc" style="margin-top:12px; font-size:11px; color:var(--emerald);">
+            Source : Référentiel Officiel Soutenance
+          </div>
+        </div>
+
+        <!-- CATÉGORIE 2 -->
+        <div class="stat-card">
+          <div class="stat-num white" style="font-size:22px;">🌐 Aircall.io</div>
+          <div class="stat-label" style="color:var(--emerald);">Données Publiques Réelles</div>
+          <div class="stat-desc" style="margin-top:8px; line-height:1.6; color:#E2E8F0;">
+            • Positionnement VoIP SaaS Cloud<br>
+            • Présence dans +100 pays<br>
+            • +100 intégrations logicielles<br>
+            • Connecteurs Salesforce, HubSpot<br>
+            • Fonctionnalités CTI & Analytics
+          </div>
+          <div class="stat-desc" style="margin-top:12px; font-size:11px; color:var(--emerald);">
+            Source : aircall.io & support.aircall.io
+          </div>
+        </div>
+
+        <!-- CATÉGORIE 3 -->
+        <div class="stat-card">
+          <div class="stat-num white" style="font-size:22px;">🧪 Simulées</div>
+          <div class="stat-label" style="color:var(--emerald);">Données Exercice</div>
+          <div class="stat-desc" style="margin-top:8px; line-height:1.6; color:#E2E8F0;">
+            • Noms des 10 commerciaux (SDRs)<br>
+            • Performance individuelle (Camille... Maxime)<br>
+            • Ventilation par canal (Outbound, CRM, Web)<br>
+            • Attribution granulaire des appels
+          </div>
+          <div class="stat-desc" style="margin-top:12px; font-size:11px; color:var(--emerald);">
+            Source : Modélisation Pédagogique Exam
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- GRAND BLOC HERO CONSOLIDÉ -->
-    <div style="background:var(--forest); color:#FFFFFF; border-radius:16px; padding:18px 26px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 12px 32px rgba(6,36,28,0.2); border:1px solid rgba(0,179,136,0.3);">
-      <div>
-        <div style="font-size:11px; font-weight:800; letter-spacing:1px; color:var(--emerald); text-transform:uppercase;">IMPACT ÉCONOMIQUE CONSOLIDÉ · CONSEIL D'ADMINISTRATION</div>
-        <div style="font-size:22px; font-weight:800; margin-top:2px;">2 Décisions · 1 Cockpit Data Studio · Effectif Constant</div>
-        <div style="font-size:13px; color:#D0E8DF; margin-top:4px;">
-          Budget total investi : <strong>58 000 €</strong> (1 salaire CSM) ➔ <strong>+3,00 Millions $ de valeur nette créée</strong>.
-        </div>
-      </div>
-      <div style="text-align:right; flex-shrink:0;">
-        <div style="font-size:44px; font-weight:800; color:var(--emerald); line-height:1;">+3,00 M$</div>
-        <div style="font-size:14px; font-weight:800; background:rgba(0,179,136,0.25); color:#7DF5B8; padding:5px 16px; border-radius:999px; display:inline-block; margin-top:6px;">
-          ROI Global : ×52
-        </div>
-      </div>
+    <div class="slide-footer">
+      <div>Transparence Totale · Méthodologie Conforme Référentiel</div>
+      <div class="footer-kpis"><span>3 SOURCES FORMALISÉES</span><span>TRAÇABILITÉ 100%</span></div>
     </div>
   </div>
-</div>
 
 </div>
 
-<!-- NAVIGATION ARROWS (SIDE) -->
-<button type="button" class="nav-arrow nav-prev" id="prevBtn" aria-label="Slide précédente">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-</button>
-<button type="button" class="nav-arrow nav-next" id="nextBtn" aria-label="Slide suivante">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-</button>
-
-<!-- FLOATING BOTTOM NAVIGATION BAR -->
-<div class="bottom-nav-bar" id="bottomNavBar">
-  <button type="button" class="bottom-nav-btn" id="barPrevBtn" aria-label="Slide précédente">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    <span>Précédent</span>
-  </button>
-  <div class="nav-dots" id="navDots">
-    <button type="button" class="nav-dot active" data-slide="0" title="Slide 1">1</button>
-    <button type="button" class="nav-dot" data-slide="1" title="Slide 2">2</button>
-    <button type="button" class="nav-dot" data-slide="2" title="Slide 3">3</button>
-    <button type="button" class="nav-dot" data-slide="3" title="Slide 4">4</button>
-    <button type="button" class="nav-dot" data-slide="4" title="Slide 5">5</button>
-    <button type="button" class="nav-dot" data-slide="5" title="Slide 6">6</button>
-    <button type="button" class="nav-dot" data-slide="6" title="Slide 7">7</button>
-    <button type="button" class="nav-dot" data-slide="7" title="Slide 8">8</button>
-  </div>
-  <button type="button" class="bottom-nav-btn" id="barNextBtn" aria-label="Slide suivante">
-    <span>Suivant</span>
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-  </button>
-</div>
+<!-- NAVIGATION ARROWS -->
+<button class="nav-arrow nav-prev" onclick="changeSlide(-1)" title="Slide précédente">❮</button>
+<button class="nav-arrow nav-next" onclick="changeSlide(1)" title="Slide suivante">❯</button>
+<div class="keyboard-hint">Touches [←] et [→] pour naviguer</div>
 
 <script>
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.nav-dot');
-
-  function updateDots(index) {
-    dots.forEach((dot, i) => {
-      if (i === index) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
-    });
-  }
+  const totalSlides = slides.length;
 
   function showSlide(index) {
-    const total = slides.length;
-    if (index < 0) index = total - 1;
-    if (index >= total) index = 0;
-
+    if (index < 0) index = 0;
+    if (index >= totalSlides) index = totalSlides - 1;
     slides.forEach((s, i) => {
-      s.classList.remove('active');
-      if (i === index) s.classList.add('active');
+      s.classList.toggle('active', i === index);
     });
     currentSlide = index;
-    updateDots(index);
   }
 
   function changeSlide(direction) {
     showSlide(currentSlide + direction);
   }
 
-  window.showSlide = showSlide;
-  window.changeSlide = changeSlide;
-
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const barPrevBtn = document.getElementById('barPrevBtn');
-  const barNextBtn = document.getElementById('barNextBtn');
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); changeSlide(-1); });
-  }
-  if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); changeSlide(1); });
-  }
-  if (barPrevBtn) {
-    barPrevBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); changeSlide(-1); });
-  }
-  if (barNextBtn) {
-    barNextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); changeSlide(1); });
-  }
-
-  dots.forEach((dot, idx) => {
-    dot.addEventListener('click', (e) => {
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'Space') {
       e.preventDefault();
-      e.stopPropagation();
-      showSlide(idx);
-    });
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'Enter') {
       changeSlide(1);
-    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
       changeSlide(-1);
     }
   });
 
-  let touchStartX = 0;
-  let touchEndX = 0;
-  document.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-  document.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    if (touchStartX - touchEndX > 50) {
+  // Click to advance
+  document.getElementById('deck').addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-arrow')) {
       changeSlide(1);
-    } else if (touchEndX - touchStartX > 50) {
-      changeSlide(-1);
     }
-  }, { passive: true });
+  });
 </script>
+
 </body>
 </html>
