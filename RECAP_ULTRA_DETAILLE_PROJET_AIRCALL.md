@@ -349,6 +349,64 @@ L'ensemble des livrables est organisé en miroir entre le répertoire de product
 
 ---
 
+## 7.BIS ARCHITECTURE OFFICIELLE DES 8 SLIDES (CONFORME TRANSCRIPTION GEMINI)
+
+Conformément à la transcription officielle des échanges avec Gemini (fichier ), la présentation orale repose sur un format **ultra-épuré** : zéro phrase, uniquement des mots-clés percutants, des chiffres macro et la charte graphique Aircall (fond noir/sombre, typographie blanche, ponctuation et accents vert émeraude ).
+
+### 🎞️ Détail Slide par Slide (Format 16:9 Exécutif)
+
+* **Slide 1 : Identité Aircall (01 / 08)**
+  * *Accroche :* Aircall — Téléphonie Cloud & SaaS
+  * *Mots-clés & Chiffres :* Licorne SaaS VoIP mondiale · +100 Pays couverts · +100 Intégrations CRM (Salesforce, HubSpot, Zendesk) · 15 000+ Entreprises clientes.
+  * *Bandeau Macro :* 67 560 appels · 358 contrats · 3,68 M€ ARR.
+
+* **Slide 2 : Gouvernance & Cadrage (02 / 08)**
+  * *Accroche :* Gouvernance & Cadrage CoDir
+  * *3 Décideurs :*
+    1. **Directeur Commercial :** Priorisation Pipe (Focus comptes à haute valeur).
+    2. **Directeur Financier :** Business Case & Validation ROI (+3,00 M$ ARR).
+    3. **Directeur IT :** Faisabilité Technique (Intégrations CRM & connecteurs).
+  * *Cheminement en 3 étapes :* 1. Cadrage Périmètre $	o$ 2. Cartographie Flux $	o$ 3. Validation CoDir.
+
+* **Slide 3 : Problématique Générale : « Trop de KPI tue le KPI » (03 / 08)**
+  * *Titre :* « Trop de KPI tue le KPI »
+  * *Visuel Entonnoir (Pyramide Inversée) :*
+    * **Haut :** 20 Métriques Brutes (appels, tentatives, durées, sonneries, objections...).
+    * **Milieu :** 12 Ratios Clés (taux décroché 16,6%, transfo démo 47%, coût/appel...).
+    * **Bas :** 5 Indicateurs Rois (Conversion 0,53%, Rendement 54,53€/appel, PME 61,1% ARR, Panier CRM 16,4k€, Écart SDR 441k€).
+  * *Sous la pyramide :* Les 2 Problèmes majeurs révélés : ⚠️ Dispersion TPE & ⚠️ Churn PME.
+
+* **Slide 4 : Vision Aircall — Pilotage Data (04 / 08)**
+  * *Titre :* Vision Aircall — Pilotage Data
+  * *Visuel :* Capture propre et intégrée du Dashboard Google Looker Studio.
+  * *4 Piliers :* 9 Blocs sans chevauchement · 2 Filtres déroulants (Segment, Commercial) · Persistance Cloud validée · Prise de décision en 10 secondes.
+
+* **Slide 5 : Problème 1 : Dispersion TPE (05 / 08)**
+  * *Titre :* Dispersion TPE — Cible Prioritaire Non Rentable
+  * *Constat :* 42% des appels passés (28 375 appels) pour seulement 6% de l'ARR (238 400 €) · Panier moyen dérisoire de 3 725 €.
+  * *Solution :* Arrêt immédiat du Cold Call TPE · Bascule en libre-service 100% en ligne (Product-Led Growth).
+  * *Bilan :* Coût 0 € · Réallocation du temps commercial sur les PME · Gain : **+1,55 M$ ARR**.
+
+* **Slide 6 : Problème 2 : Risque Churn PME (06 / 08)**
+  * *Titre :* Risque Churn PME — Fuite de Valeur Majeure
+  * *Constat :* 2,25 M€ d'ARR concentrés sur les PME (61,1% du total) · Taux de churn annuel estimé à 20% · Perte potentielle de ~400 k€.
+  * *Solution :* Recrutement d'1 CSM dédié PME · Onboarding structuré 30 jours · Alertes d'usage prédictives.
+  * *Bilan :* Coût annuel : 58 k€ · Gain : **+1,45 M$ ARR** · ROI de l'action : ×25.
+
+* **Slide 7 : Impact Global — Rétroaction Data (07 / 08)**
+  * *Titre :* Impact Global — Rétroaction Data
+  * *Alignement :* Rappel des 5 KPI Rois alignés $	o$ 2 Solutions activées.
+  * *Bilan Consolidé :* **+3,00 M$ ARR** débloqués · Coût opérationnel global : **58 k€** · Verdict rentabilité : **ROI ×52**.
+
+* **Slide 8 : Transparence — Origine des Données (08 / 08)**
+  * *Titre :* Transparence — Origine des Données
+  * *Matrice de Traçabilité en 3 Catégories :*
+    1. **Données Réelles Rocket School :** 67 560 appels, 11 190 décrochés, 358 contrats, 3,68 M€ ARR, segments TPE/PME/MidMarket (*Source : Référentiel Officiel Soutenance*).
+    2. **Données Publiques Aircall.io :** Positionnement VoIP SaaS, couverture +100 pays, catalogue +100 intégrations, connecteurs Salesforce/HubSpot (*Source : aircall.io & support.aircall.io*).
+    3. **Données Simulées pour l'Exercice :** Répartition des 10 SDRs (Camille Laurent à Maxime Roux), ventilation granulaire par commercial et par canal d'acquisition (*Source : Modélisation pédagogique de l'épreuve*).
+
+---
+
 ## 8. GUIDE DE SOUTENANCE ORALE, FICHE ANTISÈCHE & FAQ PIÈGES DU JURY
 
 Pour viser le 20/20 lors de l'épreuve orale, voici la stratégie rhétorique et les réponses types aux objections classiques du jury Rocket School.
