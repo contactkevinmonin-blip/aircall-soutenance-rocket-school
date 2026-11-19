@@ -215,148 +215,105 @@
     margin-top: 10px;
   }
 
-  /* TRUE INVERTED PYRAMID (6 NIVEAUX AVEC NOMS DE KPI & FILTRAGE) */
-  .true-pyramid-wrap {
+  /* CLEAN MINIMALIST INVERTED PYRAMID (5 NIVEAUX ÉPURÉS) */
+  .clean-pyramid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 7px;
+    gap: 10px;
     width: 100%;
-    margin-top: 4px;
-    position: relative;
+    margin-top: 10px;
   }
-  .pyr-step {
-    border-radius: 9px;
-    padding: 7px 16px;
+  .pyr-row {
     display: flex;
-    flex-direction: column;
-    gap: 3px;
-    box-sizing: border-box;
-    transition: all 0.25s ease;
-    text-align: left;
-  }
-  .pyr-step-header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 13px 24px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
   }
-  .pyr-step-title {
+  .pyr-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .pyr-step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .pyr-step-main {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+  .pyr-step-sub {
+    font-size: 13px;
+    margin-top: 2px;
+    opacity: 0.85;
+  }
+  .pyr-tag-count {
     font-size: 12.5px;
     font-weight: 800;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .pyr-badge-count {
-    font-size: 10.5px;
-    font-weight: 800;
-    padding: 2px 8px;
+    padding: 5px 12px;
     border-radius: 999px;
-  }
-  .pyr-pills-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    align-items: center;
-  }
-  .kpi-chip {
-    font-size: 10.5px;
-    font-weight: 700;
-    padding: 2px 6.5px;
-    border-radius: 4px;
     white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-  }
-  .chip-raw {
-    background: #FFFFFF;
-    color: var(--forest);
-    border: 1px solid #C5E8DC;
-  }
-  .chip-family {
-    background: #FFFFFF;
-    color: var(--teal);
-    border: 1px solid #A8E6D0;
-  }
-  .chip-eliminated {
-    background: #FEE2E2 !important;
-    color: #991B1B !important;
-    text-decoration: line-through;
-    opacity: 0.9;
-    border: 1px solid #FECACA !important;
-    font-weight: 800;
-  }
-  .chip-retained {
-    background: #EAF8F3;
-    color: var(--forest);
-    border: 1px solid #82D7B7;
-  }
-  .chip-star {
-    background: #00B388;
-    color: #06241C;
-    font-weight: 800;
-    font-size: 11px;
-    padding: 3px 8.5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 179, 136, 0.3);
   }
 
-  /* Pyramid Tiers Widths & Colors */
-  .p-tier-1 {
+  /* 5 Inverted Pyramid Tiers */
+  .row-1 {
     width: 100%;
-    background: #F4FBF8;
+    background: #F2FAF6;
     border: 1.5px solid #C5E8DC;
     color: var(--forest);
   }
-  .p-tier-1 .pyr-badge-count { background: #C5E8DC; color: var(--forest); }
+  .row-1 .pyr-step-num { background: #C5E8DC; color: var(--forest); }
+  .row-1 .pyr-tag-count { background: #C5E8DC; color: var(--forest); }
 
-  .p-tier-2 {
-    width: 88%;
-    background: #E4F7EF;
-    border: 1.5px solid #A8E6D0;
+  .row-2 {
+    width: 86%;
+    background: #DDF5EB;
+    border: 1.5px solid #A4E6CD;
     color: var(--forest);
   }
-  .p-tier-2 .pyr-badge-count { background: #A8E6D0; color: var(--teal); }
+  .row-2 .pyr-step-num { background: #A4E6CD; color: var(--teal); }
+  .row-2 .pyr-tag-count { background: #A4E6CD; color: var(--teal); }
 
-  .p-tier-3 {
-    width: 76%;
-    background: #D0F2E4;
-    border: 1.5px solid #82D7B7;
+  .row-3 {
+    width: 72%;
+    background: #BFEFDC;
+    border: 1.5px solid #78D6B4;
     color: var(--forest);
   }
-  .p-tier-3 .pyr-badge-count { background: #FFE4E6; color: #9F1239; }
+  .row-3 .pyr-step-num { background: #78D6B4; color: var(--forest); }
+  .row-3 .pyr-tag-count { background: #FFE4E6; color: #9F1239; }
 
-  .p-tier-4 {
-    width: 65%;
-    background: #115743;
+  .row-4 {
+    width: 58%;
+    background: #0B6B53;
     border: 1.5px solid #084032;
     color: #FFFFFF;
   }
-  .p-tier-4 .pyr-step-title { color: #FFFFFF; }
-  .p-tier-4 .pyr-badge-count { background: #FFE4E6; color: #9F1239; }
-  .p-tier-4 .chip-retained { background: rgba(255,255,255,0.18); color: #FFFFFF; border: none; }
+  .row-4 .pyr-step-num { background: rgba(255,255,255,0.22); color: #FFFFFF; }
+  .row-4 .pyr-tag-count { background: rgba(255,255,255,0.22); color: #FFFFFF; }
 
-  .p-tier-5 {
-    width: 55%;
-    background: #084032;
-    border: 1.5px solid #00B388;
-    color: #FFFFFF;
-  }
-  .p-tier-5 .pyr-step-title { color: #FFFFFF; }
-  .p-tier-5 .pyr-badge-count { background: #FFE4E6; color: #9F1239; }
-  .p-tier-5 .chip-retained { background: rgba(255,255,255,0.2); color: #FFFFFF; border: none; }
-
-  .p-tier-6 {
+  .row-5 {
     width: 46%;
     background: #06241C;
     border: 2px solid #00B388;
     color: #FFFFFF;
-    box-shadow: 0 8px 24px rgba(0, 179, 136, 0.35);
+    box-shadow: 0 10px 28px rgba(0, 179, 136, 0.35);
   }
-  .p-tier-6 .pyr-step-title { color: #00B388; }
-  .p-tier-6 .pyr-badge-count { background: #00B388; color: #06241C; font-weight: 800; }
+  .row-5 .pyr-step-num { background: #00B388; color: #06241C; }
+  .row-5 .pyr-step-main { color: #00B388; }
+  .row-5 .pyr-tag-count { background: #00B388; color: #06241C; }
 
   /* AVATARS & PERSON ICONS */
   .avatar-badge {
@@ -605,130 +562,68 @@
   <div class="content">
     <div>
       <h2>La Pyramide Inversée de <span class="accent">Sélection des Indicateurs</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:3px;">Entonnoir en 6 étapes : filtrage impitoyable de 25 chiffres bruts vers les 7 KPI qui font décider la direction.</div>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:3px;">Comment nous avons filtré 25 données brutes en entonnoir pour ne retenir que les 7 KPI qui font décider la direction.</div>
     </div>
 
-    <div class="true-pyramid-wrap">
-      <!-- 1. COLLECTE BRUTE (100%) -->
-      <div class="pyr-step p-tier-1">
-        <div class="pyr-step-header">
-          <div class="pyr-step-title">
-            <span>1. Collecte Brute Téléphonie &amp; CRM</span>
+    <div class="clean-pyramid">
+      <!-- 1. 25 KPI BRUTS -->
+      <div class="pyr-row row-1">
+        <div class="pyr-left">
+          <div class="pyr-step-num">1</div>
+          <div>
+            <div class="pyr-step-main">Collecte Brute : 25 Métriques Initiales</div>
+            <div class="pyr-step-sub">Toutes les données brutes de téléphonie VoIP et du CRM (appels, sonneries, durées, SAV, tickets, clics...).</div>
           </div>
-          <span class="pyr-badge-count">25 KPI BRUTS ENTRÉS</span>
         </div>
-        <div class="pyr-pills-row">
-          <span class="kpi-chip chip-raw">Appels passés</span>
-          <span class="kpi-chip chip-raw">Durée moyenne</span>
-          <span class="kpi-chip chip-raw">Sonneries</span>
-          <span class="kpi-chip chip-raw">Décrochés</span>
-          <span class="kpi-chip chip-raw">Heures d'activité</span>
-          <span class="kpi-chip chip-raw">Messages vocaux</span>
-          <span class="kpi-chip chip-raw">Transferts</span>
-          <span class="kpi-chip chip-raw">No-Show</span>
-          <span class="kpi-chip chip-raw">RDV planifiés</span>
-          <span class="kpi-chip chip-raw">RDV qualifiés</span>
-          <span class="kpi-chip chip-raw">Démos</span>
-          <span class="kpi-chip chip-raw">Devis</span>
-          <span class="kpi-chip chip-raw">Deals signés</span>
-          <span class="kpi-chip chip-raw">Délai closing</span>
-          <span class="kpi-chip chip-raw">Churn PME</span>
-          <span class="kpi-chip chip-raw">NPS</span>
-          <span class="kpi-chip chip-raw">FCR (SAV)</span>
-          <span class="kpi-chip chip-raw">Tickets</span>
-          <span class="kpi-chip chip-raw">ARPA</span>
-          <span class="kpi-chip chip-raw">ACV</span>
-          <span class="kpi-chip chip-raw">MRR</span>
-          <span class="kpi-chip chip-raw">ARR</span>
-          <span class="kpi-chip chip-raw">CAC</span>
-          <span class="kpi-chip chip-raw">LTV</span>
-          <span class="kpi-chip chip-raw">Coût licences</span>
-        </div>
+        <span class="pyr-tag-count">25 Métriques</span>
       </div>
 
-      <!-- 2. STRUCTURATION EN 4 FAMILLES (88%) -->
-      <div class="pyr-step p-tier-2">
-        <div class="pyr-step-header">
-          <div class="pyr-step-title">
-            <span>2. Structuration en 4 Piliers Métier</span>
+      <!-- 2. 18 KPI STRUCTURÉS -->
+      <div class="pyr-row row-2">
+        <div class="pyr-left">
+          <div class="pyr-step-num">2</div>
+          <div>
+            <div class="pyr-step-main">Regroupement en 4 Piliers Métier</div>
+            <div class="pyr-step-sub">Organisation thématique : Activité commerciale · Funnel de vente · Rétention client · Finance.</div>
           </div>
-          <span class="pyr-badge-count">18 KPI STRUCTURÉS</span>
         </div>
-        <div class="pyr-pills-row">
-          <span class="kpi-chip chip-family"><strong>Activité :</strong> Appels, Durée, Sonneries, Heures</span>
-          <span class="kpi-chip chip-family"><strong>Funnel Sales :</strong> Décrochés, RDV, No-Show, Closing, Délai</span>
-          <span class="kpi-chip chip-family"><strong>Rétention :</strong> Churn, NPS, FCR</span>
-          <span class="kpi-chip chip-family"><strong>Finance :</strong> ARR, ACV, CAC, LTV, ARPA</span>
-        </div>
+        <span class="pyr-tag-count">18 Indicateurs</span>
       </div>
 
-      <!-- 3. FILTRE HORS PÉRIMÈTRE (76%) -->
-      <div class="pyr-step p-tier-3">
-        <div class="pyr-step-header">
-          <div class="pyr-step-title">
-            <span>3. Filtre Hors Périmètre (Exclusion Support &amp; Compta)</span>
+      <!-- 3. FILTRE HORS PÉRIMÈTRE -->
+      <div class="pyr-row row-3">
+        <div class="pyr-left">
+          <div class="pyr-step-num">3</div>
+          <div>
+            <div class="pyr-step-main">Filtre Hors Périmètre (Exclusion Support &amp; Compta)</div>
+            <div class="pyr-step-sub">Élimination des tickets SAV, des coûts de licences et du temps passé sans impact commercial.</div>
           </div>
-          <span class="pyr-badge-count">-4 ÉLIMINÉS (14 RESTANTS)</span>
         </div>
-        <div class="pyr-pills-row">
-          <span class="kpi-chip chip-eliminated">Tickets SAV ✕</span>
-          <span class="kpi-chip chip-eliminated">FCR (Résolution SAV) ✕</span>
-          <span class="kpi-chip chip-eliminated">Coût licences ✕</span>
-          <span class="kpi-chip chip-eliminated">Heures d'activité brutes ✕</span>
-          <span class="kpi-chip chip-retained" style="font-size:10px;">➔ Centrage exclusif sur le funnel de conversion Sales</span>
-        </div>
+        <span class="pyr-tag-count" style="background:#FFE4E6; color:#9F1239;">-4 Éliminés</span>
       </div>
 
-      <!-- 4. FILTRE VANITY METRICS (65%) -->
-      <div class="pyr-step p-tier-4">
-        <div class="pyr-step-header">
-          <div class="pyr-step-title">
-            <span>4. Filtre Vanity Metrics (Élimination des Chiffres Flatteurs)</span>
+      <!-- 4. FILTRE VANITY METRICS -->
+      <div class="pyr-row row-4">
+        <div class="pyr-left">
+          <div class="pyr-step-num">4</div>
+          <div>
+            <div class="pyr-step-main">Filtre Vanity Metrics (Zéro Chiffre Flatteur)</div>
+            <div class="pyr-step-sub">Suppression de la durée des sonneries, des messages vocaux et des métriques sans levier d'action.</div>
           </div>
-          <span class="pyr-badge-count">-4 ÉLIMINÉS (10 RESTANTS)</span>
         </div>
-        <div class="pyr-pills-row">
-          <span class="kpi-chip chip-eliminated">Durée des sonneries ✕</span>
-          <span class="kpi-chip chip-eliminated">Volume messages vocaux ✕</span>
-          <span class="kpi-chip chip-eliminated">Transferts internes ✕</span>
-          <span class="kpi-chip chip-eliminated">MRR (Doublon ARR) ✕</span>
-          <span class="kpi-chip chip-retained" style="font-size:10px;">➔ Suppression des chiffres sans levier d'action</span>
-        </div>
+        <span class="pyr-tag-count" style="background:#FFE4E6; color:#9F1239;">-7 Éliminés</span>
       </div>
 
-      <!-- 5. TEST D'ARBITRAGE DIRECTION (55%) -->
-      <div class="pyr-step p-tier-5">
-        <div class="pyr-step-header">
-          <div class="pyr-step-title">
-            <span>5. Test d'Arbitrage Direction (Filtre Monereau)</span>
+      <!-- 5. 7 KPI DÉCISIONNELS -->
+      <div class="pyr-row row-5">
+        <div class="pyr-left">
+          <div class="pyr-step-num">5</div>
+          <div>
+            <div class="pyr-step-main">Les 7 KPI Décisionnels Retenus pour le Dashboard</div>
+            <div class="pyr-step-sub" style="color:#D0E8DF;">Volume appels · Connect Rate (Décroché) · Taux RDV · Taux Closing · Churn PME · Panier ACV · ARR Net.</div>
           </div>
-          <span class="pyr-badge-count">-3 ÉLIMINÉS (7 FINALISTES)</span>
         </div>
-        <div class="pyr-pills-row">
-          <span class="kpi-chip chip-eliminated">No-Show isolé ✕</span>
-          <span class="kpi-chip chip-eliminated">CAC global marketing ✕</span>
-          <span class="kpi-chip chip-eliminated">ARPA (Doublon ACV) ✕</span>
-          <span class="kpi-chip chip-retained" style="font-size:10px;">➔ Chaque chiffre restant force une décision de direction</span>
-        </div>
-      </div>
-
-      <!-- 6. SOMMET DÉCISIONNEL (46%) -->
-      <div class="pyr-step p-tier-6">
-        <div class="pyr-step-header">
-          <div class="pyr-step-title">
-            <span>6. Les 7 KPI Décisionnels Retenus pour le Dashboard</span>
-          </div>
-          <span class="pyr-badge-count">7 KPI DÉCISIONNELS</span>
-        </div>
-        <div class="pyr-pills-row" style="gap:5px;">
-          <span class="kpi-chip chip-star">1. Volume d'appels</span>
-          <span class="kpi-chip chip-star">2. Connect Rate (Décroché)</span>
-          <span class="kpi-chip chip-star">3. Taux RDV</span>
-          <span class="kpi-chip chip-star">4. Taux Closing</span>
-          <span class="kpi-chip chip-star">5. Churn annuel PME</span>
-          <span class="kpi-chip chip-star">6. Panier moyen ACV</span>
-          <span class="kpi-chip chip-star">7. ARR Additionnel net</span>
-        </div>
+        <span class="pyr-tag-count">7 KPI Décisionnels</span>
       </div>
     </div>
   </div>
