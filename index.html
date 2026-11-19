@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Aircall — Soutenance Rocket School (10 Slides)</title>
+<title>Aircall — Soutenance Commerciale & Décisions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
     display: none !important;
     flex-direction: column;
     justify-content: space-between;
-    padding: clamp(24px, 4.5vh, 44px) clamp(32px, 5vw, 64px);
+    padding: clamp(24px, 4vh, 40px) clamp(32px, 5vw, 64px);
     background: var(--white);
     color: var(--forest);
     overflow: hidden;
@@ -123,12 +123,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: clamp(14px, 2.2vh, 26px);
+    gap: clamp(14px, 2.2vh, 24px);
     position: relative;
     z-index: 2;
   }
 
-  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
   .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -137,7 +136,7 @@
     background: var(--offwhite);
     border: 1.5px solid var(--mint-border);
     border-radius: 14px;
-    padding: clamp(16px, 2.2vh, 24px) clamp(16px, 1.8vw, 22px);
+    padding: clamp(16px, 2.2vh, 22px) clamp(16px, 1.8vw, 22px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -162,90 +161,115 @@
   .card-index {
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.1px;
+    color: var(--teal);
     text-transform: uppercase;
-    color: var(--teal);
-    padding-bottom: 8px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid var(--mint-border);
+    margin-bottom: 8px;
   }
-  .card.featured .card-index,
-  .dark-green .card .card-index {
-    color: var(--emerald);
-    border-bottom-color: rgba(255,255,255,0.14);
-  }
-  .dark-green .card.featured .card-index {
-    color: var(--teal);
-    border-bottom-color: var(--mint-border);
-  }
+  .featured .card-index { color: var(--emerald); }
+  .dark-green .card-index { color: #7FF5D3; }
 
   .num-xl {
-    font-size: clamp(32px, 4.5vh, 46px);
+    font-size: clamp(34px, 4.8vh, 52px);
     font-weight: 800;
     line-height: 1;
     letter-spacing: -1.5px;
-    margin-bottom: 8px;
-    white-space: nowrap;
     color: var(--forest);
   }
-  .card.featured .num-xl,
-  .dark-green .card .num-xl { color: var(--white); }
+  .featured .num-xl { color: var(--emerald); }
+  .dark-green .num-xl { color: var(--white); }
   .dark-green .card.featured .num-xl { color: var(--forest); }
 
-  .lbl-lg { font-size: clamp(16px, 2vh, 20px); font-weight: 800; line-height: 1.25; }
-  .lbl-sm { font-size: clamp(12.5px, 1.5vh, 14px); font-weight: 600; opacity: 0.82; margin-top: 4px; line-height: 1.35; }
-
-  table.clean-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background: var(--white);
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1.5px solid var(--mint-border);
-    font-size: clamp(13px, 1.6vh, 15px);
-  }
-  table.clean-table th {
-    background: var(--forest);
-    color: var(--white);
-    padding: 12px 18px;
-    text-align: left;
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-  }
-  table.clean-table td {
-    padding: 12px 18px;
-    border-bottom: 1px solid #E4F2EC;
-    font-weight: 700;
-    color: var(--forest);
-  }
-  table.clean-table tr:nth-child(even) td { background: var(--offwhite); }
-  table.clean-table tr:last-child td { border-bottom: none; }
-
-  .badge-solid { background: var(--emerald); color: var(--forest); padding: 5px 12px; border-radius: 999px; font-weight: 800; font-size: 13px; display: inline-block; }
-  .badge-dark { background: var(--forest); color: var(--white); padding: 5px 12px; border-radius: 999px; font-weight: 800; font-size: 13px; display: inline-block; }
-  .badge-mint { background: var(--mint); color: var(--forest); border: 1px solid var(--mint-border); padding: 4px 11px; border-radius: 999px; font-weight: 800; font-size: 13px; display: inline-block; }
+  .lbl-lg { font-size: 17px; font-weight: 700; margin-top: 6px; }
+  .lbl-sm { font-size: 13.5px; color: #526661; margin-top: 6px; line-height: 1.45; }
+  .featured .lbl-sm { color: #C5E8DC; }
+  .dark-green .lbl-sm { color: rgba(255,255,255,0.85); }
 
   .bottom-pill {
+    background: var(--mint);
+    border: 1px solid var(--mint-border);
+    border-radius: 10px;
+    padding: 10px 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--forest);
-    border: 1.5px solid rgba(255,255,255,0.18);
-    padding: 10px 22px;
-    border-radius: 999px;
     font-size: 13px;
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--teal);
   }
-  .slide:not(.dark-green) .bottom-pill {
-    background: var(--mint);
-    border-color: var(--mint-border);
+  .dark-green .bottom-pill {
+    background: rgba(6, 36, 28, 0.45);
+    border-color: rgba(255,255,255,0.2);
+    color: var(--white);
+  }
+
+  .badge-roi {
+    display: inline-flex;
+    align-items: center;
+    background: var(--emerald);
+    color: var(--forest);
+    font-weight: 800;
+    font-size: 16px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  /* PYRAMID STYLES */
+  .pyramid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 4px;
+  }
+  .pyramid-level {
+    border-radius: 12px;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+  }
+  .pyr-1 {
+    width: 100%;
+    background: #EAF8F3;
+    border: 1.5px solid var(--mint-border);
     color: var(--forest);
   }
-  .slide:not(.dark-green) .bottom-pill strong { color: var(--teal); }
+  .pyr-2 {
+    width: 82%;
+    background: #C5E8DC;
+    border: 1.5px solid #9CD4C3;
+    color: var(--forest);
+  }
+  .pyr-3 {
+    width: 65%;
+    background: #0B6B53;
+    color: #FFFFFF;
+  }
+  .pyr-4 {
+    width: 48%;
+    background: #06241C;
+    border: 2px solid var(--emerald);
+    color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(0, 179, 136, 0.25);
+  }
+
+  /* AVATARS */
+  .avatar-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--mint);
+    border: 2px solid var(--mint-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
 </style>
 </head>
 <body>
@@ -253,549 +277,519 @@
 <div id="deck">
 
 <!-- =========================================================
-     SLIDE 1 : CONTEXTE AIRCALL & DISTINCTION DONNÉES (01 / 10)
+     SLIDE 1 : PRÉSENTATION D'AIRCALL & CHIFFRES CLÉS (01 / 09)
      ========================================================= -->
 <div class="slide dark-green active">
   <div class="top-row">
     <div class="brand-lockup">
       <svg width="124" height="34" viewBox="0 0 140 40" fill="none"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/></svg>
       <div class="divider-v"></div>
-      <span class="step-tag">01 · CONTEXTE &amp; DONNÉES</span>
+      <span class="step-tag">01 · PRÉSENTATION</span>
     </div>
-    <span class="slide-num">01 / 10</span>
+    <span class="slide-num">01 / 09</span>
   </div>
 
   <div class="content">
     <div>
-      <h1>Contexte Aircall &amp; <span class="accent">Distinction des Données</span></h1>
-      <div class="lbl-lg" style="color:#FFFFFF; opacity:0.92; margin-top:6px;">Aircall édite le logiciel de téléphonie cloud des commerciaux (intégré au CRM) : piloter par la donnée pour transformer l'activité en revenu.</div>
+      <h1>Aircall en <span class="accent">4 Chiffres Clés</span></h1>
+      <div class="lbl-lg" style="color:#FFFFFF; opacity:0.92; margin-top:6px;">Le logiciel français de téléphonie des commerciaux devenu licorne mondiale.</div>
     </div>
 
     <div class="grid-4">
       <div class="card">
-        <div class="card-index">MARCHÉ RÉEL · GETLATKA 2024</div>
-        <div class="num-xl">204 M$</div>
-        <div class="lbl-lg">6<sup>e</sup> Mondial SaaS VoIP</div>
-        <div class="lbl-sm">Catégorie Contact Center Software (Talkdesk 420M$, Dialpad 350M$).</div>
+        <div class="card-index">CHIFFRE D'AFFAIRES (ARR)</div>
+        <div class="num-xl">250 M$</div>
+        <div class="lbl-lg">6<sup>e</sup> Mondial</div>
+        <div class="lbl-sm">Ventes d'abonnements annuels dans le monde (base GetLatka : 204 M$ clos).</div>
       </div>
       <div class="card featured">
-        <div class="card-index" style="color:var(--forest);">PRESSE · MADDYNESS / ÉCHOS</div>
-        <div class="num-xl">250 M$</div>
-        <div class="lbl-lg">ARR Forward 2024–2026</div>
-        <div class="lbl-sm" style="color:var(--forest);">Série D de 120 M$ · Valo ~1 Md$ · Rentable EBITDA+ dès 2024.</div>
-      </div>
-      <div class="card">
-        <div class="card-index">BASE CLIENTS B2B</div>
+        <div class="card-index" style="color:var(--forest);">CLIENTÈLE ENTREPRISE</div>
         <div class="num-xl">24 000+</div>
         <div class="lbl-lg">Entreprises Clientes</div>
-        <div class="lbl-sm">Présence dans 100+ pays · ARPA en hausse à 10 417 $/an.</div>
+        <div class="lbl-sm" style="color:var(--forest);">Utilisé au quotidien par les équipes de vente dans plus de 100 pays.</div>
       </div>
       <div class="card">
-        <div class="card-index">ÉQUIPE SALES SIMULÉE</div>
-        <div class="num-xl">10 SDR/AE</div>
-        <div class="lbl-lg">Sur 6 Mois (10k Appels)</div>
-        <div class="lbl-sm">Étalonnée sur benchmarks Gong Labs (300M+ appels) &amp; Cognism.</div>
+        <div class="card-index">ÉQUIPE DANS LE MONDE</div>
+        <div class="num-xl">800</div>
+        <div class="lbl-lg">Salariés</div>
+        <div class="lbl-sm">Équipes réparties entre Paris, New York, Madrid, Londres et Berlin.</div>
+      </div>
+      <div class="card">
+        <div class="card-index">MODÈLE ÉCONOMIQUE</div>
+        <div class="num-xl">Rentable</div>
+        <div class="lbl-lg">Licorne Rentable</div>
+        <div class="lbl-sm">Passage en rentabilité opérationnelle (EBITDA positif) atteint en 2024.</div>
       </div>
     </div>
 
     <div class="bottom-pill">
-      <span><strong style="color:var(--emerald);">Distinction Méthodologique Obligatoire :</strong> Marché 100 % Réel (GetLatka &amp; Presse)</span>
-      <span><strong style="color:var(--emerald);">Équipe Commerciale :</strong> 10 Commerciaux Simulés (Secret d'affaires logs CRM)</span>
-      <span><strong style="color:var(--emerald);">Décideur :</strong> Direction Commerciale</span>
+      <span><strong>Règle Méthodologique :</strong> Données de marché 100 % réelles et vérifiées (Sources : GetLatka, Maddyness, Les Échos).</span>
     </div>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 2 : PROBLÉMATIQUE ET DÉCISIONS À ÉCLAIRER (02 / 10)
+     SLIDE 2 : LES DÉCIDEURS & LE CADRAGE (02 / 09)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
       <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
       <div class="divider-v"></div>
-      <span class="step-tag">02 · PROBLÉMATIQUE &amp; DÉCISIONS</span>
+      <span class="step-tag">02 · GOUVERNANCE &amp; CADRAGE</span>
     </div>
-    <span class="slide-num">02 / 10</span>
+    <span class="slide-num">02 / 09</span>
   </div>
 
   <div class="content">
     <div>
-      <h2>Problématique : <span class="accent">Sortir du « Trop de KPI tue le KPI »</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Plus de 30 métriques éparpillées : la data doit servir à trancher, pas à décorer.</div>
+      <h2>Le Trio de Décision &amp; <span class="accent">le Cadrage du Projet</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Qui décide et sur quel périmètre exact concentrons-nous nos efforts ?</div>
     </div>
 
+    <!-- 3 DECIDEURS COTE A COTE -->
     <div class="grid-3">
-      <div class="card">
-        <div class="card-index">DÉCISION 1 · RÉPUTATION TÉLÉPHONIQUE</div>
-        <div class="num-xl" style="color:var(--forest);">Anti-Spam</div>
-        <div class="lbl-lg">Quels numéros d'appel purger ?</div>
-        <div class="lbl-sm"><strong>Constat :</strong> 95 % des prospects raccrochent quand le numéro est tagué « Suspect Spam ».<br><strong>Action :</strong> Identifier et remplacer immédiatement les numéros sous 10 % de décroché.</div>
+      <div class="card featured" style="padding:16px 20px;">
+        <div class="avatar-box" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3);">👔</div>
+        <div class="card-index" style="color:var(--emerald);">DÉCIDEUR PRINCIPAL · SPONSOR</div>
+        <div class="lbl-lg" style="font-size:18px; color:#FFFFFF;">Directeur Commercial</div>
+        <div class="lbl-sm" style="color:#C5E8DC; font-size:13px;">
+          • Fixe les quotas des 10 commerciaux.<br>
+          • Tranche sur l'organisation des ventes.<br>
+          • Pilote les rendez-vous et signatures.
+        </div>
       </div>
-      <div class="card featured">
-        <div class="card-index">DÉCISION 2 · FORMATION &amp; COACHING</div>
-        <div class="num-xl" style="color:var(--emerald);">Écart ×3,7</div>
-        <div class="lbl-lg">Quels commerciaux former d'urgence ?</div>
-        <div class="lbl-sm" style="color:#C5E8DC;"><strong>Constat :</strong> Le Top Performer signe 82 contrats vs 22 pour la moyenne.<br><strong>Action :</strong> Entraîner les prospecteurs (SDR) aux 30 premières secondes d'accroche pour décrocher le RDV.</div>
+
+      <div class="card" style="padding:16px 20px;">
+        <div class="avatar-box">📊</div>
+        <div class="card-index">DÉCIDEUR RENTABILITÉ &amp; BUDGET</div>
+        <div class="lbl-lg" style="font-size:18px; color:var(--forest);">Directeur Financier (DAF)</div>
+        <div class="lbl-sm" style="font-size:13px;">
+          • Valide le budget de recrutement.<br>
+          • Surveille le panier moyen par client.<br>
+          • Exige un retour sur investissement rapide.
+        </div>
       </div>
-      <div class="card">
-        <div class="card-index">DÉCISION 3 · STRATÉGIE TARIFAIRE</div>
-        <div class="num-xl" style="color:var(--forest);">Dashboard Gratuit</div>
-        <div class="lbl-lg">Comment contrer les concurrents ?</div>
-        <div class="lbl-sm"><strong>Constat :</strong> L'option Aircall Analytics+ coûte +15 $/m et repousse les PME vers Ringover ou Allo.<br><strong>Action :</strong> Offrir notre modèle Looker Studio gratuitement pour fidéliser nos clients.</div>
+
+      <div class="card" style="padding:16px 20px;">
+        <div class="avatar-box">💻</div>
+        <div class="card-index">DÉCIDEUR TECHNIQUE &amp; TÉLÉCOM</div>
+        <div class="lbl-lg" style="font-size:18px; color:var(--forest);">Directeur Technique (DSI)</div>
+        <div class="lbl-sm" style="font-size:13px;">
+          • Surveille la réputation des numéros d'appel.<br>
+          • Valide les règles légales d'appels et SMS.<br>
+          • Automatise les alertes dans le CRM.
+        </div>
+      </div>
+    </div>
+
+    <!-- CADRAGE PERIMETRE -->
+    <div class="grid-3">
+      <div class="card" style="padding:12px 16px;">
+        <div class="card-index">LE PROBLÈME</div>
+        <div class="lbl-sm" style="font-weight:700; color:var(--forest); font-size:13px;">Trop de chiffres suivis au quotidien, aucune décision claire prise.</div>
+      </div>
+      <div class="card" style="padding:12px 16px;">
+        <div class="card-index">DANS LE PÉRIMÈTRE</div>
+        <div class="lbl-sm" style="font-weight:700; color:var(--forest); font-size:13px;">Les 10 commerciaux sur 6 mois (appels, RDV, contrats signés).</div>
+      </div>
+      <div class="card" style="padding:12px 16px;">
+        <div class="card-index">HORS PÉRIMÈTRE</div>
+        <div class="lbl-sm" style="font-weight:700; color:var(--forest); font-size:13px;">Le support client SAV, la publicité payante et la comptabilité.</div>
       </div>
     </div>
 
     <div class="bottom-pill">
-      <span><strong>Principe Directeur :</strong> « Si un chiffre ne fait prendre aucune décision, ce n'est pas un KPI. »</span>
-      <span><strong>Objectif :</strong> Relier l'activité brute des commerciaux au revenu ARR généré.</span>
+      <span><strong>Règle de Gouvernance :</strong> 1 sponsor principal qui tranche (Directeur Commercial) épaulé par le DAF (Budget) et le DSI (Technique).</span>
     </div>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 3 : PÉRIMÈTRE RETENU ET EXCLUSIONS (03 / 10)
+     SLIDE 3 : LA PYRAMIDE INVERSÉE DES KPI (03 / 09)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
       <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
       <div class="divider-v"></div>
-      <span class="step-tag">03 · PÉRIMÈTRE &amp; EXCLUSIONS</span>
+      <span class="step-tag">03 · SÉLECTION DES KPI</span>
     </div>
-    <span class="slide-num">03 / 10</span>
+    <span class="slide-num">03 / 09</span>
   </div>
 
   <div class="content">
     <div>
-      <h2>Périmètre Retenu &amp; <span class="accent">Exclusions Volontaires</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Un cadrage chirurgical pour garantir la clarté et la sobriété de l'analyse.</div>
+      <h2>L'Entonnoir de Sélection des <span class="accent">Indicateurs</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Comment nous sommes passés de 25 chiffres bruts aux 6 indicateurs qui font décider.</div>
     </div>
 
-    <div class="grid-2">
-      <div class="card featured" style="padding:28px;">
-        <div class="card-index">DANS LE PÉRIMÈTRE (100 % COUVERT)</div>
-        <div class="lbl-lg" style="font-size:22px; margin-bottom:12px; color:var(--emerald);">Funnel Commercial &amp; Acquisition</div>
-        <div class="lbl-sm" style="font-size:15px; line-height:1.6; color:#FFFFFF;">
-          • Prospection sortante B2B (<em>Outbound Cold Calling</em>).<br>
-          • Rappel ultra-rapide des leads entrants (<em>Inbound &lt; 5 min</em>).<br>
-          • Équipe représentative de <strong>10 commerciaux (SDR / AE)</strong> sur 6 mois.<br>
-          • Comparaison géographique : Europe vs États-Unis.<br>
-          • 5 scénarios d'étude (Spam, US, Standard Europe, Top Performer, Inbound).
-        </div>
+    <div class="pyramid-container">
+      <div class="pyramid-level pyr-1">
+        <span style="font-weight:800; font-size:14px;">1. LE GRAND BRAINSTORMING (25 Métriques)</span>
+        <span style="font-size:12.5px; opacity:0.85;">Appels, sonneries, décrochés, no-show, tickets SAV, clics web, durées, résiliations...</span>
       </div>
 
-      <div class="card" style="padding:28px;">
-        <div class="card-index">HORS PÉRIMÈTRE (EXCLUSIONS MOTIVÉES)</div>
-        <div class="lbl-lg" style="font-size:22px; margin-bottom:12px; color:var(--forest);">Support Client &amp; Marketing Payant</div>
-        <div class="lbl-sm" style="font-size:15px; line-height:1.6;">
-          • <strong>Support client post-vente :</strong> Tickets Zendesk, SAV technique.<br>
-          • <strong>Marketing d'acquisition payante :</strong> Enchères Google Ads, campagnes Meta.<br>
-          • <strong>Facturation comptable &amp; Dunning :</strong> Recouvrement des factures.<br>
-          • <strong>Justification :</strong> Éviter la dispersion et concentrer 100 % de l'effort sur la rentabilité commerciale pure.
-        </div>
+      <div class="pyramid-level pyr-2">
+        <span style="font-weight:800; font-size:14px;">2. LE TRI EN 4 FAMILLES (14 Indicateurs)</span>
+        <span style="font-size:12.5px;">Activité Téléphonique · Prospection · Négociation Vente · Rentabilité Financière</span>
+      </div>
+
+      <div class="pyramid-level pyr-3">
+        <span style="font-weight:800; font-size:14px;">3. LE FILTRE : « CE CHIFFRE FAIT DÉCIDER QUOI ? »</span>
+        <span style="font-size:12.5px; opacity:0.9;">Élimination des stats sans action (sonneries, tickets SAV, chiffres flatteurs)</span>
+      </div>
+
+      <div class="pyramid-level pyr-4">
+        <span style="font-weight:800; font-size:15px; color:var(--emerald);">4. LES 6 KPI DÉCISIONNELS RETENUS</span>
+        <span style="font-size:13px; font-weight:700;">Décroché · RDV · Démo · Vente · Délai · Panier</span>
       </div>
     </div>
 
     <div class="bottom-pill">
-      <span><strong>Sobriété Numérique :</strong> Centrage sur le cœur du métier commercial (Prospection ➔ Décroché ➔ RDV ➔ Closing).</span>
+      <span><strong>Principe Directeur de Frédéric Monereau :</strong> « Si un chiffre ne pousse pas à une décision managériale, on ne l'affiche pas. »</span>
     </div>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 4 : OBJECTIFS ET PARTIES PRENANTES (04 / 10)
+     SLIDE 4 : MAQUETTE DASHBOARD DATA STUDIO (04 / 09)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
       <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
       <div class="divider-v"></div>
-      <span class="step-tag">04 · OBJECTIFS &amp; GOUVERNANCE</span>
-    </div>
-    <span class="slide-num">04 / 10</span>
-  </div>
-
-  <div class="content">
-    <div>
-      <h2>Objectifs du Projet &amp; <span class="accent">Matrice des Parties Prenantes</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">De quoi parle-t-on concrètement ? Quel est le but du projet et qui utilise les données au quotidien ?</div>
-    </div>
-
-    <!-- 1. LES 2 OBJECTIFS CHIFFRÉS DU PROJET -->
-    <div class="grid-2" style="margin-bottom:10px;">
-      <div class="card featured" style="padding:14px 18px;">
-        <div class="card-index" style="color:var(--forest);">OBJECTIF 1 · IMPACT REVENU CHIFFRÉ</div>
-        <div style="display:flex; align-items:baseline; gap:10px; margin:2px 0 4px 0;">
-          <span style="font-size:28px; font-weight:800; color:var(--emerald);">+4,17 M$ ARR</span>
-          <span style="font-size:14px; font-weight:700; color:#FFFFFF;">(+400 contrats signés / an)</span>
-        </div>
-        <div class="lbl-sm" style="color:#C5E8DC; line-height:1.4; font-size:12.5px;">
-          <strong>Ce que ça veut dire :</strong> Générer 4 millions de dollars de revenus supplémentaires <strong>à effectif constant (10 commerciaux)</strong>, sans recruter, en colmatant les 3 fuites du tunnel d'appels.
-        </div>
-      </div>
-
-      <div class="card" style="padding:14px 18px;">
-        <div class="card-index">OBJECTIF 2 · PILOTAGE OPÉRATIONNEL HEBDOMADAIRE</div>
-        <div style="display:flex; align-items:baseline; gap:10px; margin:2px 0 4px 0;">
-          <span style="font-size:28px; font-weight:800; color:var(--forest);">1 Page Unique</span>
-          <span style="font-size:14px; font-weight:700; color:var(--forest);">Rituel du Lundi Matin (30 sec)</span>
-        </div>
-        <div class="lbl-sm" style="line-height:1.4; font-size:12.5px;">
-          <strong>Ce que ça veut dire :</strong> Remplacer les réunions floues par 1 tableau de bord de 6 KPI. Chaque manager sait en 30 secondes quel commercial coacher et quels numéros d'appel sont spammés.
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. LA MATRICE DES 4 PARTIES PRENANTES -->
-    <div class="grid-4">
-      <div class="card" style="padding:12px 14px;">
-        <div class="card-index">1. DÉCIDEUR / SPONSOR</div>
-        <div class="lbl-lg" style="font-size:15px; margin:3px 0 4px 0; color:var(--forest);">VP Sales &amp; CEO</div>
-        <div class="lbl-sm" style="font-size:11.5px; line-height:1.35;">
-          <strong>Son rôle :</strong> Valide les budgets outils (anti-spam, CRM), ajuste les quotas et tranche les choix d'organisation commerciale.
-        </div>
-      </div>
-
-      <div class="card" style="padding:12px 14px;">
-        <div class="card-index">2. PILOTES / MANAGERS</div>
-        <div class="lbl-lg" style="font-size:15px; margin:3px 0 4px 0; color:var(--forest);">Managers SDR &amp; AE</div>
-        <div class="lbl-sm" style="font-size:11.5px; line-height:1.35;">
-          <strong>Leur quotidien :</strong> Ouvrent le tableau chaque lundi à 9h pour détecter les baisses de décroché et coacher l'accroche des commerciaux.
-        </div>
-      </div>
-
-      <div class="card" style="padding:12px 14px;">
-        <div class="card-index">3. BÉNÉFICIAIRES TERRAIN</div>
-        <div class="lbl-lg" style="font-size:15px; margin:3px 0 4px 0; color:var(--forest);">10 Commerciaux (SDR/AE)</div>
-        <div class="lbl-sm" style="font-size:11.5px; line-height:1.35;">
-          <strong>Leur bénéfice :</strong> Ne plus appeler dans le vide avec des numéros blacklistés et recevoir les prospects chauds en &lt; 5 min pour signer plus.
-        </div>
-      </div>
-
-      <div class="card" style="padding:12px 14px;">
-        <div class="card-index">4. GARANT DATA &amp; PROJET</div>
-        <div class="lbl-lg" style="font-size:15px; margin:3px 0 4px 0; color:var(--forest);">RevOps / Chef de Projet</div>
-        <div class="lbl-sm" style="font-size:11.5px; line-height:1.35;">
-          <strong>Notre mission :</strong> Garantir la véracité des données, éliminer les erreurs de calcul (Moyenne ≠ Somme) et assurer la sobriété de l'outil.
-        </div>
-      </div>
-    </div>
-
-    <div class="bottom-pill">
-      <span><strong>Gouvernance Simple &amp; Lisible :</strong> 1 sponsor qui arbitre · 2 managers qui coachent · 10 commerciaux qui performent · 1 garant de la donnée.</span>
-    </div>
-  </div>
-</div>
-
-<!-- =========================================================
-     SLIDE 5 : PARCOURS COMMERCIAL & DONNÉES NÉCESSAIRES (05 / 10)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
-      <div class="divider-v"></div>
-      <span class="step-tag">05 · PARCOURS COMMERCIAL</span>
-    </div>
-    <span class="slide-num">05 / 10</span>
-  </div>
-
-  <div class="content">
-    <div>
-      <h2>Le Parcours Commercial &amp; <span class="accent">les Données Nécessaires</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Comment un appel téléphonique se transforme en chiffre d'affaires : décomposer le funnel pour trouver les fuites.</div>
-    </div>
-
-    <div class="grid-4">
-      <div class="card">
-        <div class="card-index">ÉTAPE 1 · L'APPEL EST PASSÉ</div>
-        <div class="num-xl">10 000</div>
-        <div class="lbl-lg">Appels Sortants</div>
-        <div class="lbl-sm"><strong>Activité brute :</strong> Les 10 commerciaux prospectent par téléphone (données de la table <code>Funnel_B2B</code>).</div>
-      </div>
-      <div class="card">
-        <div class="card-index">ÉTAPE 2 · LE PROSPECT DÉCROCHE</div>
-        <div class="num-xl">5% à 45%</div>
-        <div class="lbl-lg">Taux de Décroché (Connect)</div>
-        <div class="lbl-sm"><strong>La 1<sup>re</sup> fuite :</strong> Si le numéro est tagué « Spam », 95 % des gens rejettent l'appel avant même de parler.</div>
-      </div>
-      <div class="card">
-        <div class="card-index">ÉTAPE 3 · LE SDR DÉCROCHE UN RDV</div>
-        <div class="num-xl">25 à 4 000</div>
-        <div class="lbl-lg">RDV Démo Qualifiés</div>
-        <div class="lbl-sm"><strong>L'accroche (30s) :</strong> Le prospecteur (SDR) convainc le prospect d'assister à une démonstration du logiciel.</div>
-      </div>
-      <div class="card featured">
-        <div class="card-index" style="color:var(--forest);">ÉTAPE 4 · L'AE SIGNE LE CONTRAT</div>
-        <div class="num-xl">5 à 1 000</div>
-        <div class="lbl-lg">Contrats Signés (Closing)</div>
-        <div class="lbl-sm" style="color:var(--forest);"><strong>La vente finale :</strong> Le vendeur (AE) fait la démo et encaisse l'ARR (panier moyen annuel de 10 417 $/an).</div>
-      </div>
-    </div>
-
-    <div class="bottom-pill">
-      <span><strong>Ce que la décomposition révèle :</strong> Regarder seulement la signature finale masque les causes. La majorité des pertes vient des numéros spammés dès l'étape 2.</span>
-    </div>
-  </div>
-</div>
-
-<!-- =========================================================
-     SLIDE 6 : CHOIX DES SIX KPI ET RÈGLES DE CALCUL (06 / 10)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
-      <div class="divider-v"></div>
-      <span class="step-tag">06 · KPI &amp; CALCULS</span>
-    </div>
-    <span class="slide-num">06 / 10</span>
-  </div>
-
-  <div class="content">
-    <div>
-      <h2>Choix des Six KPI &amp; <span class="accent">Règles de Calcul Décisionnelles</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Règle de Frédéric Monereau : « Un KPI = Une Décision ».</div>
-    </div>
-
-    <table class="clean-table">
-      <thead>
-        <tr>
-          <th style="width:20%;">KPI Retenu</th>
-          <th style="width:25%;">Règle de Calcul &amp; Type</th>
-          <th style="width:18%;">Valeur Constatée</th>
-          <th style="width:37%;">Décision Commerciale Liée</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>1. Connect Rate</strong></td>
-          <td><code>Appels Décrochés / Total Appels</code></td>
-          <td><span class="badge-solid">18,48 % (AVG)</span></td>
-          <td>Purger et remplacer les numéros DID si le taux chute sous 10 %.</td>
-        </tr>
-        <tr>
-          <td><strong>2. Taux RDV / Décroché</strong></td>
-          <td><code>RDV Qualifiés / Décrochés</code></td>
-          <td><span class="badge-mint">15 % (Médiane)</span></td>
-          <td>Coacher l'accroche des 30 premières secondes si &lt; 15 %.</td>
-        </tr>
-        <tr>
-          <td><strong>3. Taux Closing AE</strong></td>
-          <td><code>Contrats Signés / RDV Qualifiés</code></td>
-          <td><span class="badge-mint">20 % ➔ 25 %</span></td>
-          <td>Généraliser la démo dès le 1<sup>er</sup> RDV pour tous les AE si &lt; 20 %.</td>
-        </tr>
-        <tr>
-          <td><strong>4. ARR Additionnel</strong></td>
-          <td><code>Delta Contrats Signés × ACV</code></td>
-          <td><span class="badge-dark">+4,175 M$ ARR</span></td>
-          <td>Arbitrer les budgets commerciaux et les primes de performance.</td>
-        </tr>
-        <tr>
-          <td><strong>5. ACV Moyen</strong></td>
-          <td><code>ARR Nouveau / Contrats Signés</code></td>
-          <td><span class="badge-mint">10 417 $/an</span></td>
-          <td>Inciter les AE à privilégier les comptes Mid-Market (&gt;10 licences).</td>
-        </tr>
-        <tr>
-          <td><strong>6. Satisfaction Client</strong></td>
-          <td><code>Note Moyenne G2 / Capterra</code></td>
-          <td><span class="badge-mint">4,3 / 5</span></td>
-          <td>Déclencher les alertes préventives anti-churn auprès du CSM.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="bottom-pill">
-      <span><strong>Règle de Calcul Vitale :</strong> Agrégation stricte en <strong>Moyenne pondérée (<code>AVG</code>)</strong> et jamais en Somme (<code>SUM</code>).</span>
-    </div>
-  </div>
-</div>
-
-<!-- =========================================================
-     SLIDE 7 : MAQUETTE DE LA PAGE DE PILOTAGE (07 / 10)
-     ========================================================= -->
-<div class="slide">
-  <div class="top-row">
-    <div class="brand-lockup">
-      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
-      <div class="divider-v"></div>
-      <span class="step-tag">07 · DASHBOARD LOOKER STUDIO</span>
+      <span class="step-tag">04 · DASHBOARD DATA STUDIO</span>
     </div>
     <div style="display:flex; gap:10px; align-items:center;">
-      <span class="badge-solid">18,48 % Décroché (AVG)</span>
-      <span class="badge-mint">4 494 RDV</span>
-      <span class="badge-dark">1 115 Signés</span>
-      <span class="slide-num">07 / 10</span>
+      <span style="background:var(--mint); color:var(--teal); font-weight:800; font-size:12px; padding:6px 12px; border-radius:999px;">18,48 % Décroché</span>
+      <span style="background:var(--forest); color:#FFFFFF; font-weight:800; font-size:12px; padding:6px 12px; border-radius:999px;">4 494 Rendez-vous</span>
+      <span style="background:var(--emerald); color:var(--forest); font-weight:800; font-size:12px; padding:6px 12px; border-radius:999px;">1 115 Ventes</span>
+      <span class="slide-num">04 / 09</span>
     </div>
   </div>
 
   <div class="content" style="align-items:stretch; justify-content:flex-start;">
     <div>
-      <h2>Maquette de la Page de Pilotage : <span class="accent">Looker Studio Aircall</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Une vision décisionnelle en 10 secondes : identifier instantanément où agir pour débloquer les ventes.</div>
+      <h2>Le Tableau de Bord en <span class="accent">10 Secondes Chrono</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Une vision décisionnelle instantanée : où sont nos goulets d'étranglement et nos leviers de croissance ?</div>
     </div>
 
-    <div style="width:100%; flex:1; min-height:0; max-height:calc(100vh - 200px); display:flex; align-items:center; justify-content:center; margin-top:8px;">
+    <div style="width:100%; flex:1; min-height:0; max-height:calc(100vh - 200px); display:flex; align-items:center; justify-content:center; margin-top:6px;">
       <img src="capture_vrai_datastudio_kevin.jpg" alt="Dashboard Looker Studio Aircall" style="width:100%; height:100%; object-fit:contain; display:block; border-radius:8px;">
     </div>
   </div>
 
   <div class="bottom-pill">
-    <span><strong>Règle des 10 Secondes :</strong> En un regard, la direction identifie où ça va bien (Inbound, Top Performers) et où ça va mal (Spam, US).</span>
+    <span><strong>Règle des 10 Secondes :</strong> La direction identifie d'un coup d'œil où ça va bien (en haut) et où ça coince (en bas).</span>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 8 : DIAGNOSTIC ET PASSAGE À L'ACTION (08 / 10)
+     SLIDE 5 : PROBLÈME 1 · STOP TPE -> PME (05 / 09)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
       <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
       <div class="divider-v"></div>
-      <span class="step-tag">08 · DIAGNOSTIC &amp; ACTIONS</span>
+      <span class="step-tag">05 · PROBLÈME 1 &amp; ACTION</span>
     </div>
-    <span class="slide-num">08 / 10</span>
+    <span class="slide-num">05 / 09</span>
   </div>
 
   <div class="content">
     <div>
-      <h2>Diagnostic &amp; Passage à l'Action : <span class="accent">3 Recommandations</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Chaque action calibrée selon les 7 rubriques obligatoires de Frédéric Monereau.</div>
+      <h2>Arrêter les TPE : <span class="accent">Se Concentrer sur les PME</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Passer moins de coups de fil dans le vide et vendre des contrats 3 fois plus gros.</div>
     </div>
 
     <div class="grid-3">
-      <div class="card">
-        <div class="card-index">RECO 1 · NUMÉROS SPAM &amp; ICP PME</div>
-        <div class="lbl-lg" style="font-size:20px; margin-bottom:8px;">Rotation DID &amp; PME 20–200</div>
-        <div class="lbl-sm"><strong>Constat :</strong> 5 % de décroché sur numéros spam.<br><strong>Action :</strong> Purge hebdomadaire + ciblage ICP.<br><strong>Semaines :</strong> S1 (ICP), S2-S3 (tri base), S4-S8 (appels).<br><strong>Budget :</strong> 5j RevOps + 300 € outil réputation.<br><strong>Risque &amp; Plan B :</strong> Épuisement pool ➔ DID localisé.</div>
-        <div class="num-xl" style="color:var(--forest); font-size:32px; margin-top:14px;">+150 k$ ARR</div>
+      <div class="card" style="padding:20px;">
+        <div class="card-index">LE CONSTAT DANS LA DATA</div>
+        <div class="num-xl" style="color:#D9534F;">45 %</div>
+        <div class="lbl-lg">Des appels partent sur des TPE</div>
+        <div class="lbl-sm">
+          • Taux de RDV bloqué à seulement <strong>1,2 %</strong>.<br>
+          • Contrats trop petits : <strong>3 600 € / an</strong>.<br>
+          • Les commerciaux s'épuisent sans signer.
+        </div>
       </div>
 
-      <div class="card featured">
-        <div class="card-index">RECO 2 · COACHING SDR &amp; DÉMO</div>
-        <div class="lbl-lg" style="font-size:20px; margin-bottom:8px;">Généraliser la Démo Immédiate</div>
-        <div class="lbl-sm" style="color:#C5E8DC;"><strong>Constat :</strong> Le Top Performer signe 82 contrats (×3,7) car il fait la démo au 1<sup>er</sup> RDV.<br><strong>Action :</strong> Entraînement accroche 30s + démo 15 min.<br><strong>Semaines :</strong> S1 (vidéo), S2-S3 (formation), S4-S10 (écoutes).<br><strong>Budget :</strong> 6j manager. KPI : closing 15%➔25%.<br><strong>Risque &amp; Plan B :</strong> Résistance ➔ 3 volontaires pilotes.</div>
-        <div class="num-xl" style="color:var(--emerald); font-size:32px; margin-top:14px;">+625 k$ ARR</div>
+      <div class="card" style="padding:20px;">
+        <div class="card-index">L'ACTION CONCRÈTE</div>
+        <div class="lbl-lg" style="font-size:20px; color:var(--forest); margin-bottom:8px;">Verrouiller le Ciblage CRM</div>
+        <div class="lbl-sm">
+          • Interdire la prospection sur les moins de 20 salariés.<br>
+          • Filtrer automatiquement les PME de 20 à 200 salariés.<br>
+          • Suivi chaque lundi matin en 15 minutes.
+        </div>
+        <div style="margin-top:10px; font-size:12.5px; font-weight:700; color:var(--teal);">Moyens : 5 jours RevOps + 500 € d'outil de tri.</div>
       </div>
 
-      <div class="card">
-        <div class="card-index">RECO 3 · INBOUND &amp; TEMPLATE OFFERT</div>
-        <div class="lbl-lg" style="font-size:20px; margin-bottom:8px;">Rappel &lt; 5 min &amp; Looker Gratuit</div>
-        <div class="lbl-sm"><strong>Constat :</strong> 45 % de décroché et 1 000 signés si rappelé en &lt; 5 min.<br><strong>Action :</strong> Routage automatique + Template Data Studio offert aux clients pour contrer Ringover et Allo.<br><strong>Semaines :</strong> S1-S4 (intégration), S5-S12 (lancement).<br><strong>Budget :</strong> 10j RevOps. Risque : saturation ➔ SLA d'urgence.</div>
-        <div class="num-xl" style="color:var(--forest); font-size:32px; margin-top:14px;">+3,4 M$ ARR</div>
+      <div class="card featured" style="padding:20px;">
+        <div class="card-index" style="color:var(--forest);">LE RETOUR SUR INVESTISSEMENT</div>
+        <div class="num-xl" style="color:var(--emerald);">+1,55 M$</div>
+        <div class="lbl-lg" style="color:#FFFFFF;">ARR Additionnel par An</div>
+        <div class="lbl-sm" style="color:#C5E8DC;">
+          • Panier moyen en hausse de <strong>+40 %</strong>.<br>
+          • Contrats PME <strong>3 fois plus faciles à signer</strong>.<br>
+          • 0 commercial recruté en plus.
+        </div>
+        <div class="badge-roi">ROI Immédiat</div>
       </div>
     </div>
 
     <div class="bottom-pill">
-      <span><strong>Impact Consolidé :</strong> +4,175 M$ d'ARR additionnel activé sur 90 jours à effectif constant.</span>
+      <span><strong>Arbitrage Directeur Co &amp; DAF :</strong> Même temps de travail, mais 100 % de l'énergie réorientée sur des entreprises qui ont du budget.</span>
     </div>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 9 : GESTION DE PROJET, QUALITÉ & IA (09 / 10)
+     SLIDE 6 : PROBLÈME 2 · FIDÉLISATION & CSM (06 / 09)
      ========================================================= -->
 <div class="slide">
   <div class="top-row">
     <div class="brand-lockup">
       <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
       <div class="divider-v"></div>
-      <span class="step-tag">09 · GESTION DE PROJET &amp; IA</span>
+      <span class="step-tag">06 · PROBLÈME 2 &amp; ACTION</span>
     </div>
-    <span class="slide-num">09 / 10</span>
+    <span class="slide-num">06 / 09</span>
   </div>
 
   <div class="content">
     <div>
-      <h2>Gestion de Projet, Qualité &amp; <span class="accent">Usage Critique de l'IA</span></h2>
-      <div class="lbl-lg" style="color:var(--teal); margin-top:6px;">Les 4 temps obligatoires de l'évaluation de l'IA (Barème : 10 points).</div>
+      <h2>Fidélisation Client : <span class="accent">Recruter 1 Responsable Dédié</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Stopper les résiliations vers Ringover et Allo grâce à un accompagnement humain.</div>
     </div>
 
-    <table class="clean-table">
-      <thead>
-        <tr>
-          <th style="width:22%;">Rubrique Officielle</th>
-          <th style="width:43%;">Détail des Actions Réalisées</th>
-          <th style="width:35%;">Arbitrage Humain &amp; Justification</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>1. Pour explorer</strong></td>
-          <td>Brainstorming des structures de données, génération d'une première liste de 25 métriques potentielles.</td>
-          <td>Conservation de la trace des prompts pour la défense orale.</td>
-        </tr>
-        <tr>
-          <td><strong>2. Ce qu'on a gardé</strong></td>
-          <td>L'architecture en 4 tables relationnelles et la formule de calcul ARR (<code>Delta Signés × ACV</code>).</td>
-          <td>Validation car solutions gratuites, robustes et conformes au brief.</td>
-        </tr>
-        <tr>
-          <td><strong>3. Ce qu'on a corrigé</strong></td>
-          <td><strong>Audit mathématique :</strong> L'IA additionnait les pourcentages (<code>SUM</code>). Forcé en <strong>Moyenne (<code>AVG ≠ SUM</code> : 18,48 %)</strong>.<br><strong>Données réelles :</strong> Remplacement des chiffres inventés par <strong>GetLatka 2024</strong>.</td>
-          <td>Preuve concrète du contrôle humain indispensable : l'IA ne sait pas auditer ses calculs.</td>
-        </tr>
-        <tr>
-          <td><strong>4. Ce qu'on a jeté</strong></td>
-          <td>Rejet de 15 KPI superflus sans décision associée, graphiques 3D et métriques de support client.</td>
-          <td><strong>Sobriété numérique (5 pts) :</strong> Ne garder que les données utiles à la décision.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="grid-3">
+      <div class="card" style="padding:20px;">
+        <div class="card-index">LE CONSTAT DANS LA DATA</div>
+        <div class="num-xl" style="color:#D9534F;">18 %</div>
+        <div class="lbl-lg">De résiliations chez les PME</div>
+        <div class="lbl-sm">
+          • Perte de <strong>10 000 € à 15 000 €</strong> par client qui part.<br>
+          • Concurrence agressive de Ringover et Allo.<br>
+          • Aucun suivi humain pour les PME après la vente.
+        </div>
+      </div>
+
+      <div class="card" style="padding:20px;">
+        <div class="card-index">L'ACTION CONCRÈTE</div>
+        <div class="lbl-lg" style="font-size:20px; color:var(--forest); margin-bottom:8px;">Recruter 1 Responsable CSM</div>
+        <div class="lbl-sm">
+          • Appel de suivi personnalisé à 30 et 90 jours.<br>
+          • Offrir notre modèle de tableau de bord sans surcoût.<br>
+          • Verrouiller le réengagement 60 jours avant l'échéance.
+        </div>
+        <div style="margin-top:10px; font-size:12.5px; font-weight:700; color:var(--teal);">Coût : 58 000 € / an (salaire chargé du CSM).</div>
+      </div>
+
+      <div class="card featured" style="padding:20px;">
+        <div class="card-index" style="color:var(--forest);">LE RETOUR SUR INVESTISSEMENT</div>
+        <div class="num-xl" style="color:var(--emerald);">+1,45 M$</div>
+        <div class="lbl-lg" style="color:#FFFFFF;">ARR Sauvé par An</div>
+        <div class="lbl-sm" style="color:#C5E8DC;">
+          • Résiliations divisées par deux (de 18 % à 7 %).<br>
+          • Rentabilisé dès le <strong>5<sup>e</sup> contrat sauvé</strong>.<br>
+          • Bénéfice net : +1,39 M$ pour Aircall.
+        </div>
+        <div class="badge-roi">ROI de l'Embauche : ×24</div>
+      </div>
+    </div>
 
     <div class="bottom-pill">
-      <span><strong>Gestion du Projet :</strong> 4 jalons datés sur 2 jours (17 et 20 novembre) · 100 % données sourcées.</span>
+      <span><strong>Validation DAF :</strong> Investir 58 k€ dans un salarié dédié rapporte 1,45 M€ de chiffre d'affaires préservé.</span>
     </div>
   </div>
 </div>
 
 <!-- =========================================================
-     SLIDE 10 : LIMITES ET PROCHAINES ÉTAPES (10 / 10)
+     SLIDE 7 : PROBLÈME 3 · NUMÉROS & SMS (07 / 09)
+     ========================================================= -->
+<div class="slide">
+  <div class="top-row">
+    <div class="brand-lockup">
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="divider-v"></div>
+      <span class="step-tag">07 · PROBLÈME 3 &amp; ACTION</span>
+    </div>
+    <span class="slide-num">07 / 09</span>
+  </div>
+
+  <div class="content">
+    <div>
+      <h2>Télécom : <span class="accent">Changer les Numéros Spammés &amp; SMS</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Ne plus être bloqué par les opérateurs et doubler nos chances de contact.</div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card" style="padding:20px;">
+        <div class="card-index">LE CONSTAT DANS LA DATA</div>
+        <div class="num-xl" style="color:#D9534F;">&lt; 5 %</div>
+        <div class="lbl-lg">De décroché sur numéros spammés</div>
+        <div class="lbl-sm">
+          • <strong>30 % des numéros</strong> sont tagués « Spam ».<br>
+          • Les prospects rejettent l'appel directement.<br>
+          • Les commerciaux perdent 3 heures par jour.
+        </div>
+      </div>
+
+      <div class="card" style="padding:20px;">
+        <div class="card-index">L'ACTION CONCRÈTE</div>
+        <div class="lbl-lg" style="font-size:20px; color:var(--forest); margin-bottom:8px;">Rotation 09 + Rebond SMS 07</div>
+        <div class="lbl-sm">
+          • Changer de numéro 09 chaque jour (max 60 appels).<br>
+          • En cas de non-réponse : <strong>SMS immédiat depuis un 07</strong>.<br>
+          • Conforme aux règles légales de l'Arcep.
+        </div>
+        <div style="margin-top:10px; font-size:12.5px; font-weight:700; color:var(--teal);">Budget : 240 € / mois (numéros et SMS).</div>
+      </div>
+
+      <div class="card featured" style="padding:20px;">
+        <div class="card-index" style="color:var(--forest);">LE RETOUR SUR INVESTISSEMENT</div>
+        <div class="num-xl" style="color:var(--emerald);">+1,17 M$</div>
+        <div class="lbl-lg" style="color:#FFFFFF;">ARR Débloqué par An</div>
+        <div class="lbl-sm" style="color:#C5E8DC;">
+          • Taux de décroché qui remonte de 5 % à 14 %.<br>
+          • <strong>35 % de réponses</strong> au SMS de relance.<br>
+          • Des milliers de prospects rattrapés.
+        </div>
+        <div class="badge-roi">ROI Télécom : ×40</div>
+      </div>
+    </div>
+
+    <div class="bottom-pill">
+      <span><strong>Validation DSI :</strong> Téléphonie propre et légale + relance moderne par SMS mobile pour démultiplier le contact.</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SLIDE 8 : USAGE CRITIQUE DE L'IA (08 / 09)
+     ========================================================= -->
+<div class="slide">
+  <div class="top-row">
+    <div class="brand-lockup">
+      <span style="font-weight:800; font-size:20px; color:var(--forest);">aircall</span>
+      <div class="divider-v"></div>
+      <span class="step-tag">08 · MÉTHODOLOGIE IA</span>
+    </div>
+    <span class="slide-num">08 / 09</span>
+  </div>
+
+  <div class="content">
+    <div>
+      <h2>L'Intelligence Artificielle <span class="accent">avec Recul</span></h2>
+      <div class="lbl-lg" style="color:var(--teal); margin-top:4px;">Comment l'IA a accéléré notre travail et où le contrôle humain a été indispensable.</div>
+    </div>
+
+    <div class="grid-4">
+      <div class="card" style="padding:18px;">
+        <div class="card-index">1. POUR EXPLORER</div>
+        <div class="lbl-lg" style="font-size:17px; color:var(--forest); margin-bottom:6px;">Brainstorming</div>
+        <div class="lbl-sm">
+          • Génération d'une liste de 25 métriques de vente.<br>
+          • Pistes d'organisation pour le fichier de données.
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px;">
+        <div class="card-index">2. CE QU'ON A GARDÉ</div>
+        <div class="lbl-lg" style="font-size:17px; color:var(--forest); margin-bottom:6px;">Structure Propre</div>
+        <div class="lbl-sm">
+          • Modèle de tableau à 13 colonnes.<br>
+          • Calcul du panier moyen par client (ACV).
+        </div>
+      </div>
+
+      <div class="card featured" style="padding:18px;">
+        <div class="card-index" style="color:var(--emerald);">3. CE QU'ON A CORRIGÉ (PREUVE)</div>
+        <div class="lbl-lg" style="font-size:17px; color:#FFFFFF; margin-bottom:6px;">Contrôle Humain</div>
+        <div class="lbl-sm" style="color:#C5E8DC;">
+          • L'IA additionnait les pourcentages.<br>
+          • Forcé manuellement en <strong>Moyenne pondérée</strong>.<br>
+          • Remplacement des faux chiffres par <strong>GetLatka réel</strong>.
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px;">
+        <div class="card-index">4. CE QU'ON A JETÉ</div>
+        <div class="lbl-lg" style="font-size:17px; color:var(--forest); margin-bottom:6px;">Sobriété Numérique</div>
+        <div class="lbl-sm">
+          • Rejet de 15 métriques décoratives.<br>
+          • Aucun graphique 3D inutile.<br>
+          • Zéro donnée hors-sujet.
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-pill">
+      <span><strong>Barème Monereau (10 points IA) :</strong> L'IA accélère la recherche, mais seul l'humain audite les calculs et garantit la vérité des chiffres.</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     SLIDE 9 : CONCLUSION & ROI TOTAL (09 / 09)
      ========================================================= -->
 <div class="slide dark-green">
   <div class="top-row">
     <div class="brand-lockup">
       <svg width="124" height="34" viewBox="0 0 140 40" fill="none"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00B388"/></svg>
       <div class="divider-v"></div>
-      <span class="step-tag">10 · LIMITES &amp; PROCHAINES ÉTAPES</span>
+      <span class="step-tag">09 · CONCLUSION &amp; ROI</span>
     </div>
-    <span class="slide-num">10 / 10</span>
+    <span class="slide-num">09 / 09</span>
   </div>
 
   <div class="content">
     <div>
-      <h1>Limites du Modèle &amp; <span class="accent">Prochaines Étapes</span></h1>
-      <div class="lbl-lg" style="color:#FFFFFF; opacity:0.92; margin-top:8px;">Une démarche honnête et un plan de déploiement opérationnel immédiat.</div>
+      <h1>Résultat Final : <span class="accent">+4,17 M$ d'ARR</span> Débloqué</h1>
+      <div class="lbl-lg" style="color:#FFFFFF; opacity:0.92; margin-top:6px;">Ce que rapporte concrètement le pilotage par la donnée à la direction d'Aircall.</div>
     </div>
 
-    <div class="grid-2">
-      <div class="card" style="padding:28px;">
-        <div class="card-index">LIMITES OBJECTIVES IDENTIFIÉES</div>
-        <div class="lbl-lg" style="font-size:22px; margin-bottom:12px; color:var(--white);">Ce que le modèle ne mesure pas encore</div>
-        <div class="lbl-sm" style="font-size:15px; line-height:1.6; color:#C5E8DC;">
-          • <strong>Équipe simulée :</strong> Les logs CRM nominatifs d'Aircall sont sous clause de confidentialité.<br>
-          • <strong>CAC incomplet :</strong> Le coût d'acquisition actuel n'intègre pas les charges fixes et salaires bruts des SDR/AE.<br>
-          • <strong>Saisonnalité :</strong> L'étude est étalonnée sur 6 mois, sans intégrer les baisses d'août et de décembre.
-        </div>
+    <div class="grid-3">
+      <div class="card" style="padding:22px;">
+        <div class="card-index" style="color:#7FF5D3;">ACTION 1 · CIBLAGE PME</div>
+        <div class="num-xl" style="font-size:40px;">+1,55 M$</div>
+        <div class="lbl-lg" style="color:#FFFFFF;">ARR Additionnel</div>
+        <div class="lbl-sm">Vente de contrats 3x plus rentables en arrêtant les TPE.</div>
       </div>
 
-      <div class="card featured" style="padding:28px;">
-        <div class="card-index" style="color:var(--forest);">PROCHAINES ÉTAPES (DÈS LA SEMAINE PROCHAINE)</div>
-        <div class="lbl-lg" style="font-size:22px; margin-bottom:12px; color:var(--forest);">Plan de Déploiement Opérationnel</div>
-        <div class="lbl-sm" style="font-size:15px; line-height:1.6;">
-          • <strong>J+7 :</strong> Brancher l'API Webhook native Aircall directement dans Salesforce / HubSpot.<br>
-          • <strong>J+14 :</strong> Démarrer le pilote de double-écoute SDR sur 3 commerciaux volontaires.<br>
-          • <strong>J+30 :</strong> Mettre en ligne le Template Looker Studio comme lead magnet commercial face à Ringover et Allo.
-        </div>
+      <div class="card" style="padding:22px;">
+        <div class="card-index" style="color:#7FF5D3;">ACTION 2 · RECRUTEMENT CSM</div>
+        <div class="num-xl" style="font-size:40px;">+1,45 M$</div>
+        <div class="lbl-lg" style="color:#FFFFFF;">ARR Sauvé</div>
+        <div class="lbl-sm">Résiliations divisées par deux grâce au suivi humain des PME.</div>
+      </div>
+
+      <div class="card" style="padding:22px;">
+        <div class="card-index" style="color:#7FF5D3;">ACTION 3 · NUMÉROS &amp; SMS</div>
+        <div class="num-xl" style="font-size:40px;">+1,17 M$</div>
+        <div class="lbl-lg" style="color:#FFFFFF;">ARR Débloqué</div>
+        <div class="lbl-sm">Conversations sauvées des spams grâce à la rotation 09 et SMS 07.</div>
+      </div>
+    </div>
+
+    <!-- GRAND BLOC DE REUSSITE -->
+    <div style="background:var(--forest); border:2px solid var(--emerald); border-radius:14px; padding:18px 24px; display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <div style="font-size:24px; font-weight:800; color:#FFFFFF;">TOTAL ARR DÉBLOQUÉ : <span style="color:var(--emerald);">+4,17 M$ / AN</span></div>
+        <div style="font-size:14px; color:#C5E8DC; margin-top:4px;">Généré à effectif commercial strictement constant (0 embauche de vendeur).</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:13px; color:rgba(255,255,255,0.8);">Investissement : 58 k€ (CSM) + 3 k€ (outils)</div>
+        <div style="font-size:22px; font-weight:800; color:var(--emerald);">ROI Global : ×68</div>
       </div>
     </div>
 
     <div class="bottom-pill">
-      <span><strong style="color:var(--emerald);">Soutenance Terminée :</strong> Raisonnement validé sur les 10 points du barème officiel. Merci pour votre attention !</span>
+      <span><strong>Conclusion du Comité :</strong> « Moins de chiffres éparpillés, 3 décisions chirurgicales, un impact financier massif. »</span>
     </div>
   </div>
 </div>
