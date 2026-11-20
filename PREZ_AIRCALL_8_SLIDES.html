@@ -2171,6 +2171,62 @@
   .flow-arrow-col { color: #00875A !important; }
 
   /* SLIDE 3 : BENCHMARK & SWOT */
+
+  /* SLIDE 3 BENCHMARK KPI GRID & SWOT PUNCH */
+  .b-kpi-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    margin: 8px 0 !important;
+  }
+  .b-kpi-item {
+    background: #F8F9FA !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 4px !important;
+    padding: 5px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .b-kpi-val {
+    font-size: 14px !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    color: #111827 !important;
+    letter-spacing: -0.3px !important;
+  }
+  .b-kpi-lbl {
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    color: #6B7280 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3px !important;
+    margin-top: 2px !important;
+  }
+  .swot-punch-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .swot-punch-card {
+    background: #F8F9FA !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+  }
+  .punch-val {
+    font-size: 13.5px !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.2px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 2px !important;
+  }
+  .punch-text {
+    font-size: 9.5px !important;
+    line-height: 1.25 !important;
+    color: #374151 !important;
+  }
+
   .benchmark-col {
     background: #FFFFFF !important;
     border: 1px solid #E5E7EB !important;
@@ -2655,6 +2711,9 @@
   <!-- =========================================================
        SLIDE 3 : POSITIONNEMENT & SWOT (AIRCALL VS RINGOVER VS ALLO)
        ========================================================= -->
+    <!-- =========================================================
+       SLIDE 3 : POSITIONNEMENT CONCURRENTIEL & SWOT
+       ========================================================= -->
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
@@ -2670,15 +2729,15 @@
     </div>
 
     <div class="content">
-      <div class="header-block" style="margin-bottom:6px;">
+      <div class="header-block" style="margin-bottom:8px;">
         <div class="header-badge">VEILLE MARCHÉ &amp; DIAGNOSTIC STRATÉGIQUE</div>
         <h2>Positionnement Concurrentiel : <span class="accent">Aircall vs Ringover vs Allo</span></h2>
-        <div class="subtitle">Pourquoi Aircall domine le cœur PME, et comment neutraliser l'agressivité tarifaire sur la TPE via le modèle PLG.</div>
+        <div class="subtitle">Chiffres clés du marché et diagnostic SWOT : dominer le cœur PME et automatiser la TPE.</div>
       </div>
 
       <div class="bench-swot-layout">
         
-        <!-- SECTION 1 : BENCHMARK 3 ACTEURS CLÉS -->
+        <!-- SECTION 1 : BENCHMARK EN 4 CHIFFRES CLÉS -->
         <div class="benchmark-strip">
           
           <!-- AIRCALL (NOUS) -->
@@ -2688,25 +2747,30 @@
                 <div class="bench-brand-icon icon-aircall">A</div>
                 <div class="bench-brand-name">Aircall <span class="bench-sublabel">(Notre Modèle)</span></div>
               </div>
-              <span class="bench-badge green">Leader CRM</span>
+              <span class="bench-badge green">Leader PME</span>
             </div>
-            <div class="bench-specs-grid">
-              <div class="bench-spec-line">
-                <span class="spec-label">Cible</span>
-                <span class="spec-val"><strong>PME (20-250 sal.)</strong> &amp; Mid-Market</span>
+            
+            <div class="b-kpi-grid">
+              <div class="b-kpi-item">
+                <div class="b-kpi-val" style="color:#00875A;">+100 CRM</div>
+                <div class="b-kpi-lbl">Intégrations Natives</div>
               </div>
-              <div class="bench-spec-line">
-                <span class="spec-label">Tarif</span>
-                <span class="spec-val"><strong>30 € à 50 €</strong> / mois / agent (SaaS Premium)</span>
+              <div class="b-kpi-item">
+                <div class="b-kpi-val" style="color:#00875A;">9 617 €</div>
+                <div class="b-kpi-lbl">Panier Moyen PME</div>
               </div>
-              <div class="bench-spec-line">
-                <span class="spec-label">Avantage</span>
-                <span class="spec-val"><strong>+100 intégrations CRM natives</strong> (HubSpot, Salesforce, Zendesk)</span>
+              <div class="b-kpi-item">
+                <div class="b-kpi-val">30 - 50 €</div>
+                <div class="b-kpi-lbl">Prix / mois / agent</div>
+              </div>
+              <div class="b-kpi-item">
+                <div class="b-kpi-val">250 M$</div>
+                <div class="b-kpi-lbl">ARR Licorne SaaS</div>
               </div>
             </div>
+
             <div class="bench-verdict-pill green">
-              
-              <span><strong>Verdict :</strong> Domination absolue dès qu'un CRM métier est en place.</span>
+              <span><strong>Verdict :</strong> Domination absolue du cœur PME grâce au moat CRM.</span>
             </div>
           </div>
 
@@ -2719,23 +2783,28 @@
               </div>
               <span class="bench-badge blue">Challenger Prix</span>
             </div>
-            <div class="bench-specs-grid">
-              <div class="bench-spec-line">
-                <span class="spec-label">Cible</span>
-                <span class="spec-val">TPE &amp; PME Françaises (10-100 sal.)</span>
+            
+            <div class="b-kpi-grid">
+              <div class="b-kpi-item">
+                <div class="b-kpi-val" style="color:#0284C7;">~25 CRM</div>
+                <div class="b-kpi-lbl">Catalogue Restreint</div>
               </div>
-              <div class="bench-spec-line">
-                <span class="spec-label">Tarif</span>
-                <span class="spec-val">Dès <strong>21 € / mois</strong> (Suite agressive Voix + IA Empower)</span>
+              <div class="b-kpi-item">
+                <div class="b-kpi-val" style="color:#0284C7;">21 € / m</div>
+                <div class="b-kpi-lbl">Forfait Voix + IA</div>
               </div>
-              <div class="bench-spec-line">
-                <span class="spec-label">Avantage</span>
-                <span class="spec-val">Catalogue CRM restreint (~25 outils) &amp; connecteurs moins profonds</span>
+              <div class="b-kpi-item">
+                <div class="b-kpi-val">10 - 100</div>
+                <div class="b-kpi-lbl">Salariés Ciblés</div>
+              </div>
+              <div class="b-kpi-item">
+                <div class="b-kpi-val">40 M€</div>
+                <div class="b-kpi-lbl">ARR France / Europe</div>
               </div>
             </div>
+
             <div class="bench-verdict-pill blue">
-              
-              <span><strong>Verdict :</strong> Très agressif sur petits parcs, vulnérable sur workflows complexes.</span>
+              <span><strong>Verdict :</strong> Agressif sur le prix, vulnérable sur workflows complexes.</span>
             </div>
           </div>
 
@@ -2746,51 +2815,52 @@
                 <div class="bench-brand-icon icon-allo">AL</div>
                 <div class="bench-brand-name">Allo</div>
               </div>
-              <span class="bench-badge amber">100% PLG Web</span>
+              <span class="bench-badge amber">100% Self-Serve</span>
             </div>
-            <div class="bench-specs-grid">
-              <div class="bench-spec-line">
-                <span class="spec-label">Cible</span>
-                <span class="spec-val">Micro-entreprises &amp; TPE (&lt; 10 salariés)</span>
+            
+            <div class="b-kpi-grid">
+              <div class="b-kpi-item">
+                <div class="b-kpi-val" style="color:#D97706;">9 € / m</div>
+                <div class="b-kpi-lbl">Prix Plancher TPE</div>
               </div>
-              <div class="bench-spec-line">
-                <span class="spec-label">Tarif</span>
-                <span class="spec-val">Dès <strong>9 € à 19 € / mois</strong> (Offre plancher sans engagement)</span>
+              <div class="b-kpi-item">
+                <div class="b-kpi-val" style="color:#D97706;">0 SDR</div>
+                <div class="b-kpi-lbl">Vente 100% en ligne</div>
               </div>
-              <div class="bench-spec-line">
-                <span class="spec-label">Avantage</span>
-                <span class="spec-val">Installation en 3 min web · 0 analytique avancée · Zéro commercial</span>
+              <div class="b-kpi-item">
+                <div class="b-kpi-val">&lt; 5 CRM</div>
+                <div class="b-kpi-lbl">Connecteurs Basiques</div>
+              </div>
+              <div class="b-kpi-item">
+                <div class="b-kpi-val">&lt; 10 sal.</div>
+                <div class="b-kpi-lbl">Micro-Entreprises</div>
               </div>
             </div>
+
             <div class="bench-verdict-pill amber">
-              
-              <span><strong>Verdict :</strong> Rafle les TPE en libre-service web. Modèle à automatiser chez nous via Lemlist + site !</span>
+              <span><strong>Verdict :</strong> Modèle PLG à adopter pour la TPE via Lemlist (1,8 k€).</span>
             </div>
           </div>
 
         </div>
 
-        <!-- SECTION 2 : MATRICE SWOT SYNTHÉTIQUE (PESTEL · PORTER · BMC) -->
+        <!-- SECTION 2 : SWOT RESTRUCTURÉ EN MOTS-CLÉS & CHIFFRES CLÉS -->
         <div class="swot-grid">
           
           <!-- FORCES -->
           <div class="swot-box s-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:var(--emerald-bright);">Forces · Nos Atouts Clés</span>
-              <span class="swot-tag tag-s">Interne +</span>
+              <span class="swot-title" style="color:#00875A;">Forces · Nos Atouts Clés</span>
+              <span class="swot-tag tag-s">INTERNE +</span>
             </div>
-            <div class="swot-items-list">
-              <div class="swot-item-row">
-                <span class="fw-badge bmc">BMC</span>
-                <span><strong>Catalogue de +100 CRM natifs :</strong> Rétention et barrière à la sortie infranchissables une fois synchronisé.</span>
+            <div class="swot-punch-list">
+              <div class="swot-punch-card">
+                <div class="punch-val" style="color:#00875A;">+100 CRM NATIFS</div>
+                <div class="punch-text"><strong>MOAT TECHNOLOGIQUE :</strong> Barrière à la sortie maximale sur le cœur PME.</div>
               </div>
-              <div class="swot-item-row">
-                <span class="fw-badge data">DATA</span>
-                <span><strong>Closing AE exceptionnel à <span class="num-hl">47,2 %</span> :</strong> 1 démo sur 2 signe (358 signatures sur 759 démos).</span>
-              </div>
-              <div class="swot-item-row">
-                <span class="fw-badge bmc">BMC</span>
-                <span><strong>Marque Licorne mondiale :</strong> 250 M$ d'ARR, rentable (EBITDA+) et reconnue dans +100 pays.</span>
+              <div class="swot-punch-card">
+                <div class="punch-val" style="color:#00875A;">47,2 % CLOSING</div>
+                <div class="punch-text"><strong>CONVERSION RECORD :</strong> 1 démo sur 2 signée par les AEs (358 signatures).</div>
               </div>
             </div>
           </div>
@@ -2798,21 +2868,17 @@
           <!-- FAIBLESSES -->
           <div class="swot-box w-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:#F87171;">Faiblesses · Nos Freins Directs</span>
-              <span class="swot-tag tag-w">Interne -</span>
+              <span class="swot-title" style="color:#DC2626;">Faiblesses · Nos Freins Directs</span>
+              <span class="swot-tag tag-w">INTERNE -</span>
             </div>
-            <div class="swot-items-list">
-              <div class="swot-item-row">
-                <span class="fw-badge data">DATA</span>
-                <span><strong>Gaspillage commercial TPE :</strong> <span style="color:#F87171; font-weight:800;">42 % des appels</span> pour seulement 13,8 % de l'ARR (CAC &gt; LTV).</span>
+            <div class="swot-punch-list">
+              <div class="swot-punch-card">
+                <div class="punch-val" style="color:#DC2626;">42 % APPELS PERDUS</div>
+                <div class="punch-text"><strong>DISPERSION TPE :</strong> 28 545 appels passés pour seulement 6 % de l'ARR.</div>
               </div>
-              <div class="swot-item-row">
-                <span class="fw-badge bmc">BMC</span>
-                <span><strong>Zéro CSM dédié sur la PME :</strong> 2,25 M€ d'ARR (61 % du CA) exposés sans accompagnement (churn 20 %).</span>
-              </div>
-              <div class="swot-item-row">
-                <span class="fw-badge bmc">BMC</span>
-                <span><strong>Vente 100 % assistée :</strong> Absence de parcours digital autonome même pour les petits forfaits.</span>
+              <div class="swot-punch-card">
+                <div class="punch-val" style="color:#DC2626;">2,25 M€ À RISQUE</div>
+                <div class="punch-text"><strong>CHURN POTENTIEL :</strong> 61 % du revenu d'Aircall sans aucun CSM dédié.</div>
               </div>
             </div>
           </div>
@@ -2820,21 +2886,17 @@
           <!-- OPPORTUNITÉS -->
           <div class="swot-box o-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:#60A5FA;">Opportunités · Nos Relais</span>
-              <span class="swot-tag tag-o">Externe +</span>
+              <span class="swot-title" style="color:#0284C7;">Opportunités · Nos Relais</span>
+              <span class="swot-tag tag-o">EXTERNE +</span>
             </div>
-            <div class="swot-items-list">
-              <div class="swot-item-row">
-                <span class="fw-badge porter">LEMLIST</span>
-                <span><strong>Automatisation TPE via Lemlist :</strong> Séquences Cold Emailing automatisées renvoyant vers l'essai gratuit web (coût SDR = 0 €).</span>
+            <div class="swot-punch-list">
+              <div class="swot-punch-card">
+                <div class="punch-val" style="color:#0284C7;">+1,60 M$ ARR</div>
+                <div class="punch-text"><strong>AUTOMATISATION LEMLIST :</strong> Séquences vers l'essai web à 1 800 € (ROI ×888).</div>
               </div>
-              <div class="swot-item-row">
-                <span class="fw-badge pestel">PESTEL</span>
-                <span><strong>Boom Hybride &amp; IA Vocale :</strong> Transcription temps réel et résumés d'appels pour doper le panier moyen.</span>
-              </div>
-              <div class="swot-item-row">
-                <span class="fw-badge bmc">BMC</span>
-                <span><strong>Expansion sur base PME installée :</strong> Vente de licences additionnelles et numéros (NRR &gt; 110 %).</span>
+              <div class="swot-punch-card">
+                <div class="punch-val" style="color:#0284C7;">+1,45 M$ ARR</div>
+                <div class="punch-text"><strong>PÔLE CSM PME :</strong> Rétention renforcée et upsell licences/numéros (ROI ×25).</div>
               </div>
             </div>
           </div>
@@ -2842,21 +2904,17 @@
           <!-- MENACES -->
           <div class="swot-box t-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:#FBBF24;">Menaces · Risques Marché</span>
-              <span class="swot-tag tag-t">Externe -</span>
+              <span class="swot-title" style="color:#D97706;">Menaces · Risques Marché</span>
+              <span class="swot-tag tag-t">EXTERNE -</span>
             </div>
-            <div class="swot-items-list">
-              <div class="swot-item-row">
-                <span class="fw-badge porter">PORTER</span>
-                <span><strong>Guerre des prix de Ringover &amp; Allo</strong> sur les petits comptes (&lt; 20 sal.) avec forfaits dès 9-21 €.</span>
+            <div class="swot-punch-list">
+              <div class="swot-punch-card">
+                <div class="punch-val" style="color:#D97706;">PRIX DÈS 9 €</div>
+                <div class="punch-text"><strong>GUERRE DES PRIX :</strong> Pression agressive de Ringover et Allo sur la TPE.</div>
               </div>
-              <div class="swot-item-row">
-                <span class="fw-badge pestel">PESTEL</span>
-                <span><strong>Durcissement des lois anti-démarchage :</strong> Régulation ARCEP / Bloctel et chute du taux de décroché à froid.</span>
-              </div>
-              <div class="swot-item-row">
-                <span class="fw-badge porter">PORTER</span>
-                <span><strong>Substituts Teams / Zoom Phone :</strong> Commoditisation de la téléphonie basique d'appoint.</span>
+              <div class="swot-punch-card">
+                <div class="punch-val" style="color:#D97706;">LOIS ANTI-PHONING</div>
+                <div class="punch-text"><strong>DÉCROCHÉ EN CHUTE :</strong> Régulation Bloctel &amp; Naegelen sur les appels sortants.</div>
               </div>
             </div>
           </div>
@@ -2866,10 +2924,9 @@
         <!-- SECTION 3 : STRATEGIC TAKEAWAY BOTTOM BAR -->
         <div class="swot-takeaway-bar">
           <div class="takeaway-left">
-            
             <span class="takeaway-label">Arbitrage CoDir</span>
             <span class="takeaway-text">
-              <strong>Remplacer les appels TPE par des séquences Lemlist</strong> vers l'essai web existant (1 800 €) &rarr; <strong>Concentrer 100% des SDRs sur la PME (+100 CRM)</strong> pour générer <strong>+3,05 M$ d'ARR</strong>.
+              <strong>Stopper les appels TPE</strong> &rarr; <strong>Automatiser via Lemlist vers l'essai web (1 800 €)</strong> &rarr; <strong>100% des SDRs sur la PME (+100 CRM)</strong>.
             </span>
           </div>
           <span class="takeaway-right-chip">IMPACT : +3,05 M$ ARR · ROI ×51</span>
@@ -2879,10 +2936,6 @@
     </div>
   </div>
 
-
-  <!-- =========================================================
-       SLIDE 3 : PROBLÉMATIQUE (TROP DE KPI TUE LE KPI)
-       ========================================================= -->
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
