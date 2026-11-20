@@ -1451,30 +1451,7 @@
     font-weight: 900;
   }
 
-  .nav-arrow {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(6, 27, 20, 0.85);
-    border: 1px solid var(--border);
-    color: var(--text-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 9999;
-    transition: all 0.15s ease;
-  }
-  .nav-arrow:hover {
-    background: var(--emerald);
-    color: #061B14;
-    border-color: var(--emerald-bright);
-  }
-  .nav-prev { left: 16px; }
-  .nav-next { right: 16px; }
+  .nav-arrow { display: none !important; }
 
     /* =========================================================
      SLIDE 5 & 6 : VIS-À-VIS ULTRA-CLAIR (PROBLÈME vs SOLUTION)
@@ -2478,9 +2455,7 @@
   <button type="button" class="btn-fullscreen-deck" id="btnDeckFullscreen" title="Plein Écran Toute la Présentation (Touche F)">⛶ Plein Écran</button>
 </div>
 
-<!-- FLOATING SIDE ARROWS -->
-<button type="button" class="nav-arrow nav-prev" id="sidePrev" aria-label="Slide Précédente">◀</button>
-<button type="button" class="nav-arrow nav-next" id="sideNext" aria-label="Slide Suivante">▶</button>
+
 
 <script>
   let currentSlide = 0;
@@ -2556,8 +2531,7 @@
 
   document.getElementById('btnPrev').addEventListener('click', () => showSlide(currentSlide - 1));
   document.getElementById('btnNext').addEventListener('click', () => showSlide(currentSlide + 1));
-  document.getElementById('sidePrev').addEventListener('click', () => showSlide(currentSlide - 1));
-  document.getElementById('sideNext').addEventListener('click', () => showSlide(currentSlide + 1));
+
 
   dots.forEach(dot => {
     dot.addEventListener('click', (e) => {
