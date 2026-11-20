@@ -861,6 +861,60 @@
     border-color: var(--emerald-bright);
   }
 
+  
+  /* GANTT POPUP TRIGGERS & TABS */
+  .gantt-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(0, 230, 164, 0.16);
+    border: 1px solid var(--emerald-bright);
+    color: var(--emerald-bright);
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .gantt-trigger-btn:hover {
+    background: var(--emerald-bright);
+    color: #061B14;
+    box-shadow: 0 0 14px rgba(0, 230, 164, 0.5);
+    transform: translateY(-1px);
+  }
+  .timeline-feasibility-bar {
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .timeline-feasibility-bar:hover {
+    border-color: rgba(0, 230, 164, 0.6);
+    box-shadow: 0 4px 20px rgba(0, 230, 164, 0.18);
+    background: rgba(10, 45, 35, 0.85);
+  }
+  .gantt-tab-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .gantt-tab-btn.active {
+    background: var(--emerald-bright);
+    color: #061B14;
+    border-color: var(--emerald-bright);
+  }
+  .gantt-tab-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFF;
+  }
+
   /* MODAL OVERLAY */
   .kpi-modal-overlay {
     display: none;
@@ -2141,7 +2195,7 @@
               </div>
             </div>
             <div class="visavis-chips-row">
-              <span class="v-chip time">Déploiement : 45 Jours</span>
+              <span class="v-chip time" onclick="openGanttModal(1)" style="cursor:pointer;" title="Voir le diagramme de Gantt">Déploiement : 45 Jours ↗</span>
               <span class="v-chip ttv">Time-to-Value : J+30 à J+60</span>
               <span class="v-chip cost">Coût Direct : 0 €</span>
             </div>
@@ -2151,9 +2205,12 @@
       </div>
 
       <!-- TIMELINE & DÉPLOIEMENT EN BAS (45 JOURS) -->
-      <div class="timeline-feasibility-bar">
+      <div class="timeline-feasibility-bar" onclick="openGanttModal(1)" title="Cliquer pour ouvrir le diagramme de Gantt détaillé">
         <div class="timeline-header">
-          <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (45 JOURS)</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (45 JOURS)</span>
+            <button type="button" class="gantt-trigger-btn" onclick="event.stopPropagation(); openGanttModal(1);">📊 Voir le Gantt Détaillé ↗</button>
+          </div>
           <span class="timeline-ttv">Time-to-Value : <strong>J+30 à J+60</strong> · Horizon : <strong>45 Jours (Quick Win)</strong> · Faisabilité : <strong>Élevée (Coût 0 €)</strong></span>
         </div>
         <div class="timeline-steps">
@@ -2265,7 +2322,7 @@
               </div>
             </div>
             <div class="visavis-chips-row">
-              <span class="v-chip time">Déploiement : 90 Jours</span>
+              <span class="v-chip time" onclick="openGanttModal(2)" style="cursor:pointer;" title="Voir le diagramme de Gantt">Déploiement : 90 Jours ↗</span>
               <span class="v-chip ttv">Time-to-Value : J+60 à J+90</span>
               <span class="v-chip cost">Budget : 58 k€ (ROI ×25)</span>
             </div>
@@ -2275,9 +2332,12 @@
       </div>
 
       <!-- TIMELINE & DÉPLOIEMENT EN BAS (90 JOURS) -->
-      <div class="timeline-feasibility-bar">
+      <div class="timeline-feasibility-bar" onclick="openGanttModal(2)" title="Cliquer pour ouvrir le diagramme de Gantt détaillé">
         <div class="timeline-header">
-          <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (90 JOURS / Q1-Q2)</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (90 JOURS / Q1-Q2)</span>
+            <button type="button" class="gantt-trigger-btn" onclick="event.stopPropagation(); openGanttModal(2);">📊 Voir le Gantt Détaillé ↗</button>
+          </div>
           <span class="timeline-ttv">Time-to-Value : <strong>J+60 à J+90</strong> · Horizon : <strong>90 Jours</strong> · Faisabilité : <strong>Moyenne (1 Recrutement)</strong></span>
         </div>
         <div class="timeline-steps">
@@ -2546,6 +2606,11 @@
       if (e.key === 'Escape') closeKpiModal();
       return;
     }
+    const ganttModal = document.getElementById('ganttDrilldownModal');
+    if (ganttModal && ganttModal.classList.contains('active')) {
+      if (e.key === 'Escape') closeGanttModal();
+      return;
+    }
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
       showSlide(currentSlide + 1);
     } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
@@ -2556,6 +2621,27 @@
 
 
 <!-- KPI DRILL-DOWN MODAL -->
+<!-- GANTT DRILL-DOWN MODAL -->
+<div id="ganttDrilldownModal" class="kpi-modal-overlay" onclick="closeGanttModalOnBackdrop(event)">
+  <div class="kpi-modal-box" style="max-width:880px;" onclick="event.stopPropagation()">
+    <div class="kpi-modal-header">
+      <div class="kpi-modal-header-left">
+        <span class="kpi-modal-tag" id="ganttModalTag">PLANIFICATION OPÉRATIONNELLE • GANTT REVOPS</span>
+        <h3 class="kpi-modal-title" id="ganttModalTitle">Diagramme de Gantt Détaillé</h3>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button type="button" class="gantt-tab-btn" id="ganttTab1" onclick="switchGanttTab(1)">Solution 1 (45j)</button>
+        <button type="button" class="gantt-tab-btn" id="ganttTab2" onclick="switchGanttTab(2)">Solution 2 (90j)</button>
+        <button type="button" class="gantt-tab-btn" id="ganttTabMaster" onclick="switchGanttTab(3)">Master Roadmap</button>
+        <button type="button" class="kpi-modal-close" onclick="closeGanttModal()" title="Fermer [Échap]">✕</button>
+      </div>
+    </div>
+    <div class="kpi-modal-body" id="ganttModalBody">
+      <!-- Injected dynamically by renderGanttModal() -->
+    </div>
+  </div>
+</div>
+
 <div id="kpiDrilldownModal" class="kpi-modal-overlay" onclick="closeKpiModalOnBackdrop(event)">
   <div class="kpi-modal-box" onclick="event.stopPropagation()">
     <div class="kpi-modal-header">
@@ -2993,6 +3079,258 @@
     if (e.target && e.target.id === 'kpiDrilldownModal') {
       closeKpiModal();
     }
+  }
+
+
+  /* GANTT POPUP MODAL LOGIC & DATASET */
+  const masterGanttData = {
+  "1": {
+    "tag": "PLANIFICATION OPÉRATIONNELLE • ARBITRAGE N°1",
+    "title": "Diagramme de Gantt Détaillé : Solution 1 (45 Jours / S1 à S6)",
+    "subtitle": "Bascule 100% Self-Serve TPE & Réallocation Intégrale des SDRs sur PME",
+    "kpis": [
+      {
+        "label": "Horizon Temps",
+        "val": "45 Jours (S1-S6)"
+      },
+      {
+        "label": "Coût Direct",
+        "val": "0 € (Quick Win)"
+      },
+      {
+        "label": "Impact ARR",
+        "val": "+1,55 M$ (J+30 à J+60)"
+      }
+    ],
+    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (45J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <line x1=\"210.0\" y1=\"0\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"250.83333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S1</text>\n        \n        <line x1=\"291.6666666666667\" y1=\"0\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"332.5\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S2</text>\n        \n        <line x1=\"373.33333333333337\" y1=\"0\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"414.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S3</text>\n        \n        <line x1=\"455.0\" y1=\"0\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"495.8333333333333\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S4</text>\n        \n        <line x1=\"536.6666666666667\" y1=\"0\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"577.5000000000001\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S5</text>\n        \n        <line x1=\"618.3333333333334\" y1=\"0\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"659.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        <line x1=\"700.0\" y1=\"0\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Audit & Filtrage CRM HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"212.0\" y=\"37\" width=\"159.33333333333334\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.3\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Parcours Self-Serve & Vidéo PLG</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Product / Web</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"293.6666666666667\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#10B981\" fill-opacity=\"0.3\" stroke=\"#10B981\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"373.33333333333337\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Quotas & Territoires 100% PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Head of Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#8B5CF6\" fill-opacity=\"0.3\" stroke=\"#8B5CF6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Playbook Script & Coaching SDR</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead SDR</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.3\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Go-Live & Suivi Conversion PME</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RevOps / Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.3\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n      <!-- Milestones bar -->\n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+15 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#10B981\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#10B981\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+15 : Self-Serve</text>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#8B5CF6\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#8B5CF6\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Quotas 100% PME</text>\n      \n      <!-- Milestone J+45 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+45 : GO-LIVE (+1,55M$)</text>\n    </svg>",
+    "tasks": [
+      {
+        "num": "1.1",
+        "name": "Audit & Filtrage CRM HubSpot",
+        "resp": "Lead RevOps",
+        "timing": "Semaines 1 – 2",
+        "output": "Règles de qualification automatique des leads < 20 salariés créées dans le CRM."
+      },
+      {
+        "num": "1.2",
+        "name": "Mise en ligne Parcours Self-Serve (PLG)",
+        "resp": "Product / Web",
+        "timing": "Semaines 2 – 3",
+        "output": "Vidéo démo interactive hébergée, page pricing autonome et passerelle Stripe/CB active."
+      },
+      {
+        "num": "1.3",
+        "name": "Réattribution Territoires & Quotas 100% PME",
+        "resp": "Head of Sales",
+        "timing": "Semaines 3 – 4",
+        "output": "Nouveaux quotas SDR orientés PME/MidMarket et injection des listes de comptes qualifiés."
+      },
+      {
+        "num": "1.4",
+        "name": "Playbook Script Camille & Entraînement SDR",
+        "resp": "Lead SDR",
+        "timing": "Semaines 4 – 5",
+        "output": "Diffusion du script d'accroche business + 2 sessions de double écoute VoIP Aircall."
+      },
+      {
+        "num": "1.5",
+        "name": "Go-Live Opérationnel & Mesure ROI",
+        "resp": "RevOps / Sales",
+        "timing": "Semaines 5 – 6",
+        "output": "Zéro appel manuel sur TPE. Premières démos et signatures additionnelles à J+60."
+      }
+    ],
+    "insightTag": "Faisabilité & Livrables Clés",
+    "insightText": "<strong>Faisabilité maximale :</strong> Le parcours Self-Serve absorbe 100% des TPE dès S2 sans intervention commerciale humaine. Cela libère <strong>4 200 heures SDR par an</strong> immédiatement réinjectées sur la PME pour générer <strong>+1,55 M$ d'ARR</strong> dès le premier trimestre."
+  },
+  "2": {
+    "tag": "PLANIFICATION OPÉRATIONNELLE • ARBITRAGE N°2",
+    "title": "Diagramme de Gantt Détaillé : Solution 2 (90 Jours / Mois 1 à 3)",
+    "subtitle": "Recrutement CSM Dédié PME & Déploiement Triggers Inactivité HubSpot",
+    "kpis": [
+      {
+        "label": "Horizon Temps",
+        "val": "90 Jours (Q1-Q2)"
+      },
+      {
+        "label": "Budget Engagé",
+        "val": "58 000 € chargés"
+      },
+      {
+        "label": "Impact ARR",
+        "val": "+1,45 M$ (ROI ×25)"
+      }
+    ],
+    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (90J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <rect x=\"210\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"291.6666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n        \n        <rect x=\"373.33333333333337\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"455.00000000000006\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n        \n        <rect x=\"536.6666666666667\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"618.3333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n        <line x1=\"210.0\" y1=\"26\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"250.83333333333334\" y1=\"26\" x2=\"250.83333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"291.6666666666667\" y1=\"26\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"332.5\" y1=\"26\" x2=\"332.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"373.33333333333337\" y1=\"26\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"414.1666666666667\" y1=\"26\" x2=\"414.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"455.0\" y1=\"26\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"495.83333333333337\" y1=\"26\" x2=\"495.83333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"536.6666666666667\" y1=\"26\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"618.3333333333334\" y1=\"26\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"659.1666666666667\" y1=\"26\" x2=\"659.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"700.0\" y1=\"26\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Alertes Tech Inactivité HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"37\" width=\"118.5\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.32\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"271.25\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S3</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Chasse & Recrutement CSM PME</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RH / VP Sales</text>\n        \n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.32\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S4</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Onboarding & Sauvetage 20 PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / RevOps</text>\n        \n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#EF4444\" fill-opacity=\"0.32\" stroke=\"#EF4444\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S5 - S8</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Industrialisation QBRs & CSAT</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM Dédié</text>\n        \n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#8B5CF6\" fill-opacity=\"0.32\" stroke=\"#8B5CF6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S7 - S10</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Campagnes Expansion NRR > 110%</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / Sales</text>\n        \n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.32\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S9 - S12</text>\n        \n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#F59E0B\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#F59E0B\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Recrutement CSM</text>\n      \n      <!-- Milestone J+60 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#EF4444\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#EF4444\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+60 : 400 k€ Churn Sauvé</text>\n      \n      <!-- Milestone J+90 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+90 : NRR &gt; 110% (+1,45M$)</text>\n    </svg>",
+    "tasks": [
+      {
+        "num": "2.1",
+        "name": "Alertes Tech Inactivité HubSpot",
+        "resp": "Lead RevOps",
+        "timing": "Mois 1 (S1 – S3)",
+        "output": "Webhooks Aircall ➔ HubSpot : alerte automatique dès qu'une PME passe sous 50 appels/sem."
+      },
+      {
+        "num": "2.2",
+        "name": "Chasse & Recrutement CSM PME",
+        "resp": "RH / VP Sales",
+        "timing": "Mois 1 (S1 – S4)",
+        "output": "Sourcing, entretiens de sélection et signature du contrat CSM (58 k€ chargés)."
+      },
+      {
+        "num": "2.3",
+        "name": "Onboarding & Sauvetage 20 PME",
+        "resp": "CSM / RevOps",
+        "timing": "Mois 2 (S5 – S8)",
+        "output": "Prise de contact prioritaire sur les 20 comptes en alerte churn : 400 k€ d'ARR sauvés."
+      },
+      {
+        "num": "2.4",
+        "name": "Industrialisation QBRs & CSAT",
+        "resp": "CSM Dédié",
+        "timing": "Mois 2 – 3 (S7 – S10)",
+        "output": "Mise en place des revues trimestrielles stratégiques et questionnaires de satisfaction."
+      },
+      {
+        "num": "2.5",
+        "name": "Campagnes Expansion NRR > 110%",
+        "resp": "CSM / Head of Sales",
+        "timing": "Mois 3 (S9 – S12)",
+        "output": "Ajout de licences agents et numéros internationaux : sécurisation de +1,45 M$ d'ARR."
+      }
+    ],
+    "insightTag": "Faisabilité & Livrables Clés",
+    "insightText": "<strong>Faisabilité maîtrisée :</strong> Le seuil de rentabilité est franchi dès le 2e mois avec le sauvetage direct de 400 k€ d'ARR à risque. Avec un budget de 58 k€, le <strong>ROI unitaire atteint ×25</strong> et permet de ramener le taux d'attrition PME sous les 5%."
+  },
+  "3": {
+    "tag": "MASTER ROADMAP REVOPS • SYNTHÈSE CODIR",
+    "title": "Master Gantt Consolidé : Arbitrages 1 & 2 Synchronisés (90 Jours)",
+    "subtitle": "Planning Directeur d'Exécution & Atteinte des +3,00 M$ d'ARR",
+    "kpis": [
+      {
+        "label": "Durée Totale",
+        "val": "90 Jours (Q1-Q2)"
+      },
+      {
+        "label": "Budget Consolidé",
+        "val": "58 000 € (1 CSM)"
+      },
+      {
+        "label": "ROI Consolidé",
+        "val": "ROI ×52 (Payback 4,2 m)"
+      }
+    ],
+    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">MASTER ROADMAP REVOPS</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">IMPACT ARR</text>\n    \n        <rect x=\"210\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"291.6666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n        \n        <rect x=\"373.33333333333337\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"455.00000000000006\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n        \n        <rect x=\"536.6666666666667\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"618.3333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n        <line x1=\"210.0\" y1=\"26\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"250.83333333333334\" y1=\"26\" x2=\"250.83333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"291.6666666666667\" y1=\"26\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"332.5\" y1=\"26\" x2=\"332.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"373.33333333333337\" y1=\"26\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"414.1666666666667\" y1=\"26\" x2=\"414.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"455.0\" y1=\"26\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"495.83333333333337\" y1=\"26\" x2=\"495.83333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"536.6666666666667\" y1=\"26\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"618.3333333333334\" y1=\"26\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"659.1666666666667\" y1=\"26\" x2=\"659.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"700.0\" y1=\"26\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/>\n      <text x=\"15\" y=\"56\" fill=\"#00E6A4\" font-size=\"10\" font-weight=\"900\">SOLUTION 1 : Self-Serve TPE &amp; Quotas PME</text>\n      <text x=\"150\" y=\"56\" fill=\"#34D399\" font-size=\"9\" font-weight=\"800\">+1,55 M$ (0 €)</text>\n      <rect x=\"210\" y=\"42\" width=\"490\" height=\"24\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n      <rect x=\"212\" y=\"44\" width=\"241.0\" height=\"20\" fill=\"#10B981\" fill-opacity=\"0.35\" stroke=\"#10B981\" stroke-width=\"2\" rx=\"4\"/>\n      <text x=\"332.5\" y=\"58\" fill=\"#FFFFFF\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">HORIZON 45 JOURS (S1 à S6) • QUICK WIN</text>\n      <polygon points=\"455.0,44 461.0,54 455.0,64 449.0,54\" fill=\"#00E6A4\"/>\n    \n      <text x=\"15\" y=\"101\" fill=\"#60A5FA\" font-size=\"10\" font-weight=\"900\">SOLUTION 2 : Pôle CSM PME &amp; Triggers Tech</text>\n      <text x=\"150\" y=\"101\" fill=\"#93C5FD\" font-size=\"9\" font-weight=\"800\">+1,45 M$ (58k€)</text>\n      <rect x=\"210\" y=\"87\" width=\"490\" height=\"24\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n      <rect x=\"212\" y=\"89\" width=\"486.0\" height=\"20\" fill=\"#3B82F6\" fill-opacity=\"0.35\" stroke=\"#3B82F6\" stroke-width=\"2\" rx=\"4\"/>\n      <text x=\"455.0\" y=\"103\" fill=\"#FFFFFF\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">HORIZON 90 JOURS (S1 à S12) • RETENTION &amp; UPSELL</text>\n      <polygon points=\"700.0,89 706.0,99 700.0,109 694.0,99\" fill=\"#3B82F6\"/>\n    \n      <rect x=\"15\" y=\"130\" width=\"690\" height=\"40\" fill=\"rgba(0,230,164,0.12)\" stroke=\"rgba(0,230,164,0.35)\" stroke-width=\"1.5\" rx=\"8\"/>\n      <text x=\"30\" y=\"155\" fill=\"#FFFFFF\" font-size=\"12\" font-weight=\"900\">SYNCHRONISATION GLOBALE CODIR :</text>\n      <text x=\"270\" y=\"155\" fill=\"#00E6A4\" font-size=\"12.5\" font-weight=\"900\">+3,00 M$ ARR GÉNÉRÉS</text>\n      <text x=\"520\" y=\"155\" fill=\"#FBBF24\" font-size=\"11\" font-weight=\"800\">ROI GLOBAL : ×52 (Payback 4,2 mois)</text>\n    </svg>",
+    "tasks": [
+      {
+        "num": "SOL 1",
+        "name": "Solution 1 : Quick Win Self-Serve TPE",
+        "resp": "Sales & RevOps",
+        "timing": "J+1 à J+45 (S1-S6)",
+        "output": "Libération immédiate de 4 200 h SDR et réallocation 100% PME ➔ +1,55 M$ d'ARR."
+      },
+      {
+        "num": "SOL 2",
+        "name": "Solution 2 : Rétention & Expansion CSM PME",
+        "resp": "CSM & Tech",
+        "timing": "J+1 à J+90 (S1-S12)",
+        "output": "Recrutement CSM + Triggers inactivité HubSpot ➔ +1,45 M$ d'ARR sécurisé."
+      },
+      {
+        "num": "CODIR",
+        "name": "Jalon CoDir J+90 : Bilan Consolidé",
+        "resp": "Direction Générale",
+        "timing": "J+90",
+        "output": "+3,00 M$ ARR total, rentabilité Rule of 40 renforcée et EBITDA préservé."
+      }
+    ],
+    "insightTag": "Arbitrage Stratégique Consolidé",
+    "insightText": "<strong>Effet de levier maximal :</strong> L'Arbitrage 1 (Quick Win gratuit sous 45 jours) finance et prépare le terrain de l'Arbitrage 2 (CSM PME). Pour un investissement minime de 58 k€, l'entreprise génère <strong>+3,00 M$ d'ARR</strong> avec un retour sur investissement spectaculaire de <strong>ROI ×52</strong>."
+  }
+};
+  let currentGanttTab = 1;
+
+  function openGanttModal(tabId) {
+    currentGanttTab = tabId || 1;
+    switchGanttTab(currentGanttTab);
+    const modal = document.getElementById('ganttDrilldownModal');
+    if (modal) modal.classList.add('active');
+  }
+
+  function closeGanttModal() {
+    const modal = document.getElementById('ganttDrilldownModal');
+    if (modal) modal.classList.remove('active');
+  }
+
+  function closeGanttModalOnBackdrop(e) {
+    if (e.target && e.target.id === 'ganttDrilldownModal') {
+      closeGanttModal();
+    }
+  }
+
+  function switchGanttTab(tabId) {
+    currentGanttTab = tabId;
+    const data = masterGanttData[tabId];
+    if (!data) return;
+
+    // Update Tab Buttons
+    document.getElementById('ganttTab1').classList.toggle('active', tabId === 1);
+    document.getElementById('ganttTab2').classList.toggle('active', tabId === 2);
+    document.getElementById('ganttTabMaster').classList.toggle('active', tabId === 3);
+
+    // Update Header
+    document.getElementById('ganttModalTag').innerHTML = data.tag;
+    document.getElementById('ganttModalTitle').innerHTML = data.title;
+
+    // Render Body
+    const body = document.getElementById('ganttModalBody');
+    body.innerHTML = `
+      <div class="kpi-modal-kpis-grid">
+        ${data.kpis.map(k => `
+          <div class="kpi-modal-mini-card">
+            <div class="kpi-modal-mini-label">${k.label}</div>
+            <div class="kpi-modal-mini-val">${k.val}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- VISUAL SVG GANTT CHART -->
+      <div class="kpi-chart-box" style="padding:14px 16px;">
+        <div class="kpi-chart-title">
+          <span>${data.subtitle}</span>
+          <span style="font-size:9px; color:var(--emerald-bright); font-weight:800; text-transform:uppercase; letter-spacing:0.8px; background:rgba(0,230,164,0.12); padding:2px 8px; border-radius:4px; border:1px solid rgba(0,230,164,0.3);">JALONS &amp; DÉPENDANCES</span>
+        </div>
+        <div style="width:100%; margin:4px 0 6px 0;">
+          ${data.svg}
+        </div>
+      </div>
+
+      <!-- DETAILED TASK TABLE -->
+      <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 14px;">
+        <div style="font-size:10.5px; font-weight:800; color:#FFFFFF; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Détail des Chantiers &amp; Livrables Opérationnels :</div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          ${data.tasks.map(t => `
+            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:6px 12px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:9.5px; font-weight:900; color:var(--emerald-bright); background:rgba(0,230,164,0.12); padding:2px 6px; border-radius:4px;">${t.num}</span>
+                <strong style="font-size:11px; color:#FFFFFF;">${t.name}</strong>
+                <span style="font-size:9px; color:#94A3B8;">(${t.resp})</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span style="font-size:9.5px; color:#E2E8F0; max-width:340px; text-align:right;">${t.output}</span>
+                <span style="font-size:9.5px; font-weight:800; color:var(--emerald-bright); white-space:nowrap;">${t.timing}</span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <!-- INSIGHT CALLOUT -->
+      <div class="kpi-insight-card">
+        <div class="kpi-insight-tag">${data.insightTag}</div>
+        <div class="kpi-insight-text">${data.insightText}</div>
+      </div>
+    `;
   }
 
 </script>
