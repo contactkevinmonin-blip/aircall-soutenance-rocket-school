@@ -311,149 +311,311 @@
   }
 
   
-  /* SLIDE 3 (NOUVELLE) : BENCHMARK CONCURRENTIEL & SWOT */
+  /* =========================================================
+     SLIDE 3 : BENCHMARK CONCURRENTIEL & SWOT ULTRA-PRO
+     ========================================================= */
   .bench-swot-layout {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     width: 100%;
     flex: 1;
     min-height: 0;
   }
   
-  /* BENCHMARK GRID (3 CARDS) */
+  /* BENCHMARK STRIP (3 CARDS) */
   .benchmark-strip {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.08fr 0.96fr 0.96fr;
     gap: 12px;
   }
   .benchmark-col {
-    background: rgba(10, 40, 30, 0.65);
-    border: 1px solid var(--border);
-    border-radius: 11px;
-    padding: 10px 14px;
+    background: rgba(6, 27, 20, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+    position: relative;
+    backdrop-filter: blur(10px);
     transition: all 0.2s ease;
   }
   .benchmark-col.highlight-aircall {
-    border-color: var(--emerald-bright);
-    background: rgba(0, 179, 136, 0.14);
-    box-shadow: 0 4px 20px rgba(0, 230, 164, 0.15);
+    border: 1.5px solid var(--emerald-bright);
+    background: linear-gradient(135deg, rgba(0, 230, 164, 0.14) 0%, rgba(6, 27, 20, 0.88) 100%);
+    box-shadow: 0 6px 24px rgba(0, 230, 164, 0.18);
   }
-  .bench-header {
+  .bench-top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
-  .bench-brand {
-    font-size: 13px;
-    font-weight: 900;
-    color: #FFFFFF;
+  .bench-brand-wrap {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+  }
+  .bench-brand-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+  }
+  .icon-aircall { background: var(--emerald-bright); color: #061B14; }
+  .icon-ringover { background: #3B82F6; color: #FFFFFF; }
+  .icon-allo { background: #F59E0B; color: #061B14; }
+
+  .bench-brand-name {
+    font-size: 16px;
+    font-weight: 900;
+    color: #FFFFFF;
+    letter-spacing: -0.2px;
+  }
+  .bench-sublabel {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--emerald-bright);
+    margin-left: 4px;
+    background: rgba(0, 230, 164, 0.15);
+    padding: 2px 6px;
+    border-radius: 4px;
   }
   .bench-badge {
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 800;
-    padding: 2px 7px;
+    padding: 3px 9px;
     border-radius: 999px;
     text-transform: uppercase;
     letter-spacing: 0.4px;
   }
-  .bench-badge.green { background: rgba(0, 230, 164, 0.15); color: var(--emerald-bright); border: 1px solid rgba(0, 230, 164, 0.35); }
-  .bench-badge.blue { background: rgba(59, 130, 246, 0.15); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.35); }
-  .bench-badge.amber { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.35); }
-  .bench-row {
-    font-size: 9.5px;
+  .bench-badge.green { background: rgba(0, 230, 164, 0.18); color: var(--emerald-bright); border: 1px solid rgba(0, 230, 164, 0.4); }
+  .bench-badge.blue { background: rgba(59, 130, 246, 0.18); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.4); }
+  .bench-badge.amber { background: rgba(245, 158, 11, 0.18); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+  .bench-specs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11.5px;
     color: #CBD5E1;
+  }
+  .bench-spec-line {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
     line-height: 1.35;
   }
-  .bench-row strong { color: #FFFFFF; }
-  .bench-verdict {
-    margin-top: auto;
-    font-size: 9px;
-    font-weight: 700;
-    padding-top: 4px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  .spec-label {
+    font-weight: 800;
+    color: #94A3B8;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    min-width: 58px;
+    flex-shrink: 0;
   }
-  .bench-verdict.green { color: var(--emerald-bright); }
-  .bench-verdict.blue { color: #93C5FD; }
-  .bench-verdict.amber { color: #FDE68A; }
+  .spec-val {
+    color: #FFFFFF;
+    font-weight: 500;
+  }
+  .spec-val strong {
+    color: var(--emerald-bright);
+    font-weight: 800;
+  }
+
+  .bench-verdict-pill {
+    margin-top: auto;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.3;
+  }
+  .bench-verdict-pill.green {
+    background: rgba(0, 230, 164, 0.14);
+    color: var(--emerald-bright);
+    border: 1px solid rgba(0, 230, 164, 0.35);
+  }
+  .bench-verdict-pill.blue {
+    background: rgba(59, 130, 246, 0.12);
+    color: #93C5FD;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+  .bench-verdict-pill.amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #FDE68A;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
 
   /* SWOT GRID (2x2) */
   .swot-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 10px;
+    gap: 12px;
     flex: 1;
     min-height: 0;
   }
   .swot-box {
-    background: rgba(10, 36, 28, 0.6);
-    border: 1px solid var(--border);
-    border-radius: 11px;
-    padding: 10px 14px;
+    background: rgba(6, 27, 20, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px 16px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
   }
-  .swot-box.s-box { border-left: 3.5px solid var(--emerald-bright); }
-  .swot-box.w-box { border-left: 3.5px solid #EF4444; }
-  .swot-box.o-box { border-left: 3.5px solid #3B82F6; }
-  .swot-box.t-box { border-left: 3.5px solid #F59E0B; }
+  .swot-box.s-box {
+    border-top: 3.5px solid var(--emerald-bright);
+    background: linear-gradient(180deg, rgba(0, 230, 164, 0.08) 0%, rgba(6, 27, 20, 0.75) 100%);
+  }
+  .swot-box.w-box {
+    border-top: 3.5px solid #EF4444;
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.08) 0%, rgba(6, 27, 20, 0.75) 100%);
+  }
+  .swot-box.o-box {
+    border-top: 3.5px solid #3B82F6;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, rgba(6, 27, 20, 0.75) 100%);
+  }
+  .swot-box.t-box {
+    border-top: 3.5px solid #F59E0B;
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, rgba(6, 27, 20, 0.75) 100%);
+  }
   
   .swot-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
   .swot-title {
-    font-size: 11px;
+    font-size: 13.5px;
     font-weight: 900;
     color: #FFFFFF;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
+    letter-spacing: 0.3px;
+  }
+  .swot-tag {
+    font-size: 8.5px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 999px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
-  .swot-tag {
-    font-size: 8px;
-    font-weight: 800;
-    padding: 1.5px 6px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-  .tag-s { background: rgba(0, 230, 164, 0.15); color: var(--emerald-bright); }
-  .tag-w { background: rgba(239, 68, 68, 0.15); color: #F87171; }
-  .tag-o { background: rgba(59, 130, 246, 0.15); color: #60A5FA; }
-  .tag-t { background: rgba(245, 158, 11, 0.15); color: #FBBF24; }
+  .tag-s { background: rgba(0, 230, 164, 0.18); color: var(--emerald-bright); border: 1px solid rgba(0, 230, 164, 0.35); }
+  .tag-w { background: rgba(239, 68, 68, 0.18); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.35); }
+  .tag-o { background: rgba(59, 130, 246, 0.18); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.35); }
+  .tag-t { background: rgba(245, 158, 11, 0.18); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.35); }
   
-  .swot-bullets {
+  .swot-items-list {
     display: flex;
     flex-direction: column;
-    gap: 3.5px;
-  }
-  .swot-item {
-    display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
+    flex: 1;
     gap: 6px;
+  }
+  .swot-item-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    color: #E2E8F0;
+    line-height: 1.35;
+    background: rgba(255, 255, 255, 0.035);
+    padding: 7px 10px;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    flex: 1;
+  }
+  .fw-badge {
+    font-size: 8px;
+    font-weight: 900;
+    padding: 2px 5.5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+  }
+  .fw-badge.bmc { background: rgba(0, 230, 164, 0.2); color: var(--emerald-bright); border: 0.5px solid rgba(0, 230, 164, 0.45); }
+  .fw-badge.data { background: rgba(168, 85, 247, 0.2); color: #C084FC; border: 0.5px solid rgba(168, 85, 247, 0.45); }
+  .fw-badge.porter { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 0.5px solid rgba(245, 158, 11, 0.45); }
+  .fw-badge.pestel { background: rgba(59, 130, 246, 0.2); color: #60A5FA; border: 0.5px solid rgba(59, 130, 246, 0.45); }
+
+  .swot-item-row strong {
+    color: #FFFFFF;
+    font-weight: 800;
+  }
+  .swot-item-row .num-hl {
+    color: var(--emerald-bright);
+    font-weight: 800;
+  }
+
+  /* STRATEGIC TAKEAWAY BOTTOM BAR */
+  .swot-takeaway-bar {
+    background: linear-gradient(90deg, rgba(0, 230, 164, 0.16) 0%, rgba(6, 27, 20, 0.9) 100%);
+    border: 1px solid rgba(0, 230, 164, 0.35);
+    border-radius: 10px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .takeaway-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11.5px;
+    color: #F1F5F9;
+  }
+  .takeaway-icon {
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .takeaway-label {
+    font-weight: 900;
+    color: var(--emerald-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     font-size: 9.5px;
-    color: #CBD5E1;
+    background: rgba(0, 230, 164, 0.2);
+    padding: 3px 8px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+  .takeaway-text {
     line-height: 1.35;
   }
-  .swot-bullet-icon {
-    font-size: 10px;
-    line-height: 1;
-    flex-shrink: 0;
-    margin-top: 1px;
-    font-weight: 900;
+  .takeaway-text strong {
+    color: #FFFFFF;
   }
-  .swot-item strong { color: #FFFFFF; font-weight: 800; }
+  .takeaway-right-chip {
+    font-size: 10px;
+    font-weight: 900;
+    background: var(--emerald-bright);
+    color: #061B14;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 
   /* SLIDE 2 : GOUVERNANCE */
   .gov-flow-container {
@@ -924,7 +1086,7 @@
     margin-right: 4px;
   }
   .block-card-badge {
-    font-size: 8.5px;
+    font-size: 9.5px;
     font-weight: 800;
     color: var(--emerald-bright);
     background: rgba(0, 230, 164, 0.12);
@@ -987,7 +1149,7 @@
     box-shadow: 0 4px 18px rgba(0, 230, 164, 0.28);
   }
   .drilldown-cue {
-    font-size: 8.5px;
+    font-size: 9.5px;
     font-weight: 800;
     color: var(--emerald-bright);
     background: rgba(0, 230, 164, 0.14);
@@ -2006,10 +2168,10 @@
     </div>
 
     <div class="content">
-      <div class="header-block" style="margin-bottom:8px;">
-        <div class="header-badge">BENCHMARK CONCURRENTIEL &amp; ANALYSE SWOT</div>
-        <h2>Positionnement Marché : <span class="accent">Aircall vs Ringover vs Allo</span></h2>
-        <div class="subtitle">Pourquoi Aircall gagne sur les PME connectées, et comment contrer l'agressivité tarifaire sur la TPE.</div>
+      <div class="header-block" style="margin-bottom:6px;">
+        <div class="header-badge">VEILLE MARCHÉ &amp; DIAGNOSTIC STRATÉGIQUE</div>
+        <h2>Positionnement Concurrentiel : <span class="accent">Aircall vs Ringover vs Allo</span></h2>
+        <div class="subtitle">Pourquoi Aircall domine le cœur PME, et comment neutraliser l'agressivité tarifaire sur la TPE via le modèle PLG.</div>
       </div>
 
       <div class="bench-swot-layout">
@@ -2019,63 +2181,114 @@
           
           <!-- AIRCALL (NOUS) -->
           <div class="benchmark-col highlight-aircall">
-            <div class="bench-header">
-              <span class="bench-brand">Aircall <span style="font-size:9.5px; font-weight:800; color:var(--emerald-bright);">(Notre Modèle)</span></span>
-              <span class="bench-badge green">Leader Intégrations</span>
+            <div class="bench-top-bar">
+              <div class="bench-brand-wrap">
+                <div class="bench-brand-icon icon-aircall">A</div>
+                <div class="bench-brand-name">Aircall <span class="bench-sublabel">(Notre Modèle)</span></div>
+              </div>
+              <span class="bench-badge green">★ Leader CRM</span>
             </div>
-            <div class="bench-row"><strong>Cible :</strong> PME (20-250 sal.) &amp; International</div>
-            <div class="bench-row"><strong>Force :</strong> <strong>+100 intégrations natives</strong> (HubSpot, Salesforce, Zendesk)</div>
-            <div class="bench-row"><strong>Modèle :</strong> SaaS Premium (30 € à 50 € / mois / agent)</div>
-            <div class="bench-verdict green">✓ Intouchable sur les équipes équipées d'un CRM.</div>
+            <div class="bench-specs-grid">
+              <div class="bench-spec-line">
+                <span class="spec-label">🎯 Cible</span>
+                <span class="spec-val"><strong>PME (20–250 sal.)</strong> &amp; Mid-Market</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">💰 Tarif</span>
+                <span class="spec-val"><strong>30 € à 50 €</strong> / mois / agent (SaaS Premium)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">⚡ Moat</span>
+                <span class="spec-val"><strong>+100 intégrations CRM natives</strong> (HubSpot, Salesforce, Zendesk)</span>
+              </div>
+            </div>
+            <div class="bench-verdict-pill green">
+              <span>🏆</span>
+              <span><strong>Verdict :</strong> Domination absolue dès qu'un CRM métier est en place.</span>
+            </div>
           </div>
 
           <!-- RINGOVER -->
           <div class="benchmark-col">
-            <div class="bench-header">
-              <span class="bench-brand">Ringover</span>
-              <span class="bench-badge blue">Suite Tout-en-Un</span>
+            <div class="bench-top-bar">
+              <div class="bench-brand-wrap">
+                <div class="bench-brand-icon icon-ringover">R</div>
+                <div class="bench-brand-name">Ringover</div>
+              </div>
+              <span class="bench-badge blue">Challenger Prix</span>
             </div>
-            <div class="bench-row"><strong>Cible :</strong> TPE &amp; PME Françaises</div>
-            <div class="bench-row"><strong>Force :</strong> Tarif agressif dès 21 €/m (Voix + SMS + Visio + IA)</div>
-            <div class="bench-row"><strong>Faiblesse :</strong> Catalogue d'intégrations beaucoup plus restreint</div>
-            <div class="bench-verdict blue">— Challenger prix très actif sur les petits parcs.</div>
+            <div class="bench-specs-grid">
+              <div class="bench-spec-line">
+                <span class="spec-label">🎯 Cible</span>
+                <span class="spec-val">TPE &amp; PME Françaises (10–100 sal.)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">💰 Tarif</span>
+                <span class="spec-val">Dès <strong>21 € / mois</strong> (Suite agressive Voix + IA Empower)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">⚡ Moat</span>
+                <span class="spec-val">Catalogue CRM restreint (~25 outils) &amp; connecteurs moins profonds</span>
+              </div>
+            </div>
+            <div class="bench-verdict-pill blue">
+              <span>⚔️</span>
+              <span><strong>Verdict :</strong> Très agressif sur petits parcs, vulnérable sur workflows complexes.</span>
+            </div>
           </div>
 
           <!-- ALLO -->
           <div class="benchmark-col">
-            <div class="bench-header">
-              <span class="bench-brand">Allo</span>
-              <span class="bench-badge amber">Low-Cost &amp; PLG</span>
+            <div class="bench-top-bar">
+              <div class="bench-brand-wrap">
+                <div class="bench-brand-icon icon-allo">⚡</div>
+                <div class="bench-brand-name">Allo</div>
+              </div>
+              <span class="bench-badge amber">100% PLG Web</span>
             </div>
-            <div class="bench-row"><strong>Cible :</strong> Micro-entreprises &amp; TPE (&lt; 10 salariés)</div>
-            <div class="bench-row"><strong>Force :</strong> Installation en 3 minutes, souscription 100% web</div>
-            <div class="bench-row"><strong>Faiblesse :</strong> Zéro profondeur analytique, pas de routage complexe</div>
-            <div class="bench-verdict amber">— Rafle les TPE sans aucun commercial humain.</div>
+            <div class="bench-specs-grid">
+              <div class="bench-spec-line">
+                <span class="spec-label">🎯 Cible</span>
+                <span class="spec-val">Micro-entreprises &amp; TPE (&lt; 10 salariés)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">💰 Tarif</span>
+                <span class="spec-val">Dès <strong>9 € à 19 € / mois</strong> (Offre plancher sans engagement)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">⚡ Moat</span>
+                <span class="spec-val">Installation en 3 min web · 0 analytique avancée · Zéro commercial</span>
+              </div>
+            </div>
+            <div class="bench-verdict-pill amber">
+              <span>🚀</span>
+              <span><strong>Verdict :</strong> Rafle les TPE en Self-Serve. Le modèle exact à répliquer chez nous !</span>
+            </div>
           </div>
 
         </div>
 
-        <!-- SECTION 2 : MATRICE SWOT SYNTHÉTIQUE (PESTEL / PORTER / BMC) -->
+        <!-- SECTION 2 : MATRICE SWOT SYNTHÉTIQUE (PESTEL · PORTER · BMC) -->
         <div class="swot-grid">
           
           <!-- FORCES -->
           <div class="swot-box s-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:var(--emerald-bright);">1. Forces (Nos Super-Pouvoirs)</span>
+              <span class="swot-title" style="color:var(--emerald-bright);">🛡️ Forces · Nos Atouts Clés</span>
               <span class="swot-tag tag-s">Interne +</span>
             </div>
-            <div class="swot-bullets">
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:var(--emerald-bright);">✓</span>
-                <span><strong>Catalogue de +100 intégrations CRM natives</strong> : rétention client maximale une fois branché dans HubSpot/Salesforce.</span>
+            <div class="swot-items-list">
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Catalogue de +100 CRM natifs :</strong> Rétention et barrière à la sortie infranchissables une fois synchronisé.</span>
               </div>
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:var(--emerald-bright);">✓</span>
-                <span><strong>Taux de closing AE exceptionnel (47,2%)</strong> : 1 démo sur 2 signe, efficacité commerciale bien supérieure au marché.</span>
+              <div class="swot-item-row">
+                <span class="fw-badge data">DATA</span>
+                <span><strong>Closing AE exceptionnel à <span class="num-hl">47,2 %</span> :</strong> 1 démo sur 2 signe (358 signatures sur 759 démos).</span>
               </div>
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:var(--emerald-bright);">✓</span>
-                <span><strong>Marque licorne mondiale de confiance</strong> : 250 M$ d'ARR, 85 000+ utilisateurs quotidiens dans plus de 100 pays.</span>
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Marque Licorne mondiale :</strong> 250 M$ d'ARR, rentable (EBITDA+) et reconnue dans +100 pays.</span>
               </div>
             </div>
           </div>
@@ -2083,21 +2296,21 @@
           <!-- FAIBLESSES -->
           <div class="swot-box w-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:#F87171;">2. Faiblesses (Nos Freins Directs)</span>
+              <span class="swot-title" style="color:#F87171;">⚠️ Faiblesses · Nos Freins Directs</span>
               <span class="swot-tag tag-w">Interne —</span>
             </div>
-            <div class="swot-bullets">
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:#EF4444;">—</span>
-                <span><strong>Gaspillage d'effort sur la TPE</strong> : 42% des appels passés pour seulement 13,8% du revenu global généré.</span>
+            <div class="swot-items-list">
+              <div class="swot-item-row">
+                <span class="fw-badge data">DATA</span>
+                <span><strong>Gaspillage commercial TPE :</strong> <span style="color:#F87171; font-weight:800;">42 % des appels</span> pour seulement 13,8 % de l'ARR (CAC &gt; LTV).</span>
               </div>
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:#EF4444;">—</span>
-                <span><strong>Zéro CSM dédié sur la PME</strong> : 2,25 M€ d'ARR (61% du CA) exposés au risque de churn sans accompagnement proactif.</span>
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Zéro CSM dédié sur la PME :</strong> 2,25 M€ d'ARR (61 % du CA) exposés sans accompagnement (churn 20 %).</span>
               </div>
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:#EF4444;">—</span>
-                <span><strong>Absence de canal 100% digital</strong> : vente assistée lourde même pour les petits forfaits de démarrage.</span>
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Vente 100 % assistée :</strong> Absence de parcours digital autonome même pour les petits forfaits.</span>
               </div>
             </div>
           </div>
@@ -2105,21 +2318,21 @@
           <!-- OPPORTUNITÉS -->
           <div class="swot-box o-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:#60A5FA;">3. Opportunités (À Saisir Vite)</span>
+              <span class="swot-title" style="color:#60A5FA;">🚀 Opportunités · Nos Relais</span>
               <span class="swot-tag tag-o">Externe +</span>
             </div>
-            <div class="swot-bullets">
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:#3B82F6;">➔</span>
-                <span><strong>Bascule de la TPE en Self-Serve (PLG)</strong> : vente en ligne en 3 clics pour contrer directement Allo sans coût SDR.</span>
+            <div class="swot-items-list">
+              <div class="swot-item-row">
+                <span class="fw-badge porter">PORTER</span>
+                <span><strong>Bascule TPE en Self-Serve (PLG) :</strong> Vente web en 3 clics pour contrer Allo à coût SDR strictement nul.</span>
               </div>
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:#3B82F6;">➔</span>
-                <span><strong>Boom du travail hybride &amp; IA vocale</strong> : résumé automatique des appels, coaching IA et transcription temps réel.</span>
+              <div class="swot-item-row">
+                <span class="fw-badge pestel">PESTEL</span>
+                <span><strong>Boom Hybride &amp; IA Vocale :</strong> Transcription temps réel et résumés d'appels pour doper le panier moyen.</span>
               </div>
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:#3B82F6;">➔</span>
-                <span><strong>Expansion sur la base PME installée</strong> : ajout continu de licences agents et numéros internationaux (NRR &gt; 110%).</span>
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Expansion sur base PME installée :</strong> Vente de licences additionnelles et numéros (NRR &gt; 110 %).</span>
               </div>
             </div>
           </div>
@@ -2127,31 +2340,42 @@
           <!-- MENACES -->
           <div class="swot-box t-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:#FBBF24;">4. Menaces (Ce Qui Nous Guette)</span>
+              <span class="swot-title" style="color:#FBBF24;">⚡ Menaces · Risques Marché</span>
               <span class="swot-tag tag-t">Externe —</span>
             </div>
-            <div class="swot-bullets">
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:#F59E0B;">!</span>
-                <span><strong>Guerre des prix de Ringover et Allo</strong> sur les petits comptes (&lt; 20 salariés) avec des forfaits à bas coût.</span>
+            <div class="swot-items-list">
+              <div class="swot-item-row">
+                <span class="fw-badge porter">PORTER</span>
+                <span><strong>Guerre des prix de Ringover &amp; Allo</strong> sur les petits comptes (&lt; 20 sal.) avec forfaits dès 9–21 €.</span>
               </div>
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:#F59E0B;">!</span>
-                <span><strong>Durcissement des lois anti-démarchage</strong> : régulation ARCEP / Bloctel et blocage des appels sortants à froid.</span>
+              <div class="swot-item-row">
+                <span class="fw-badge pestel">PESTEL</span>
+                <span><strong>Durcissement des lois anti-démarchage :</strong> Régulation ARCEP / Bloctel et chute du taux de décroché à froid.</span>
               </div>
-              <div class="swot-item">
-                <span class="swot-bullet-icon" style="color:#F59E0B;">!</span>
-                <span><strong>Menace de substitution</strong> : intégration native de téléphonie basique dans Microsoft Teams et Zoom Phone.</span>
+              <div class="swot-item-row">
+                <span class="fw-badge porter">PORTER</span>
+                <span><strong>Substituts Teams / Zoom Phone :</strong> Commoditisation de la téléphonie basique d'appoint.</span>
               </div>
             </div>
           </div>
 
         </div>
 
+        <!-- SECTION 3 : STRATEGIC TAKEAWAY BOTTOM BAR -->
+        <div class="swot-takeaway-bar">
+          <div class="takeaway-left">
+            <span class="takeaway-icon">💡</span>
+            <span class="takeaway-label">Arbitrage CoDir</span>
+            <span class="takeaway-text">
+              <strong>Sortir du combat prix sur la TPE</strong> en copiant le modèle PLG d'Allo (0 €) ➔ <strong>Concentrer 100% de la force SDR sur la PME (+100 CRM)</strong> pour sanctuariser <strong>+3,00 M$ d'ARR</strong>.
+            </span>
+          </div>
+          <span class="takeaway-right-chip">IMPACT : +3,00 M$ ARR · ROI ×52</span>
+        </div>
+
       </div>
     </div>
   </div>
-
 
 
   <!-- =========================================================
