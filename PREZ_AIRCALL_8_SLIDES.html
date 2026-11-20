@@ -1970,6 +1970,819 @@
   }
 
 </style>
+
+<style id="human-styles">
+  /* =========================================================
+     THÈME OFFICIEL AIRCALL — DESIGN HUMAIN, ÉPURÉ & PROFESSIONNEL
+     Inspiré directement de la charte officielle aircall.com
+     ========================================================= */
+
+  :root {
+    --bg-main: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-subtle: #F8FAF9;
+    --bg-card-hover: #F1F5F3;
+    --emerald: #00875A;
+    --emerald-dark: #006644;
+    --emerald-mint: #E6F7F0;
+    --emerald-mint-border: #A3E0CE;
+    --border: #E5E7EB;
+    --border-subtle: #E2ECE7;
+    --text-main: #111827;
+    --text-white: #111827;
+    --text-muted: #4B5563;
+    --text-dim: #6B7280;
+    --red-alert: #DC2626;
+    --red-bg: #FEF2F2;
+    --red-border: #FECACA;
+    --blue-tech: #2563EB;
+    --blue-bg: #EFF6FF;
+    --blue-border: #BFDBFE;
+    --amber-gold: #D97706;
+    --amber-bg: #FFFBEB;
+    --amber-border: #FDE68A;
+  }
+
+  /* RESET & BASE FONTS */
+  * {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+  }
+
+  #deck {
+    background: #FFFFFF !important;
+  }
+
+  .slide {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+  }
+
+  /* LOGOS */
+  .logo-light { display: block !important; }
+  .logo-dark { display: none !important; }
+
+  /* TOP ROW HEADER */
+  .top-row {
+    border-bottom: 1px solid #E5E7EB !important;
+    background: #FFFFFF !important;
+    padding-bottom: 12px !important;
+  }
+
+  .divider-v {
+    background: #E5E7EB !important;
+  }
+
+  .step-tag {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border: 1px solid #A3E0CE !important;
+    font-weight: 800 !important;
+  }
+
+  .meta-pill {
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    font-weight: 700 !important;
+  }
+
+  .slide-num {
+    background: #E6F7F0 !important;
+    border: 1px solid #A3E0CE !important;
+    color: #00875A !important;
+    font-weight: 800 !important;
+  }
+
+  /* HEADINGS & SUBTITLES */
+  .header-badge {
+    background: #E6F7F0 !important;
+    border: 1px solid #A3E0CE !important;
+    color: #00875A !important;
+    font-weight: 800 !important;
+  }
+
+  .header-block h1, .header-block h2 {
+    color: #111827 !important;
+    letter-spacing: -0.025em !important;
+    font-weight: 900 !important;
+  }
+
+  .header-block .subtitle {
+    color: #4B5563 !important;
+    font-weight: 500 !important;
+  }
+
+  .accent {
+    color: #00875A !important;
+  }
+
+  /* =========================================================
+     SLIDE 1 : 4 CARTES MÉTRIQUES
+     ========================================================= */
+  .metric-card {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  }
+
+  .metric-card.card-highlight {
+    border: 2px solid #00875A !important;
+    background: linear-gradient(145deg, #F0FDF4 0%, #FFFFFF 100%) !important;
+    box-shadow: 0 8px 25px rgba(0, 135, 90, 0.08) !important;
+  }
+
+  .card-badge {
+    color: #00875A !important;
+    font-weight: 800 !important;
+  }
+
+  .stat-giant {
+    color: #00875A !important;
+    letter-spacing: -0.03em !important;
+    font-weight: 900 !important;
+  }
+
+  .metric-card.card-highlight .stat-giant {
+    color: #00875A !important;
+  }
+
+  .stat-label {
+    color: #111827 !important;
+    font-weight: 800 !important;
+  }
+
+  .stat-desc {
+    color: #4B5563 !important;
+  }
+
+  .chip {
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+  }
+
+  .chip-green {
+    background: #E6F7F0 !important;
+    border-color: #A3E0CE !important;
+    color: #00875A !important;
+    font-weight: 800 !important;
+  }
+
+  /* =========================================================
+     SLIDE 2 : GOUVERNANCE CODIR
+     ========================================================= */
+  .director-card {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .director-avatar {
+    background: #E6F7F0 !important;
+    border: 2px solid #00875A !important;
+    color: #00875A !important;
+  }
+
+  .director-role {
+    color: #111827 !important;
+    font-weight: 800 !important;
+  }
+
+  .director-focus {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border: 1px solid #A3E0CE !important;
+    font-weight: 700 !important;
+  }
+
+  .director-duty {
+    color: #4B5563 !important;
+  }
+
+  .linear-flow {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+  }
+
+  .flow-step {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  }
+
+  .flow-step-title {
+    color: #111827 !important;
+    font-weight: 800 !important;
+  }
+
+  .flow-step-desc {
+    color: #4B5563 !important;
+  }
+
+  .flow-step-tag {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+  }
+
+  .flow-arrow-col {
+    color: #00875A !important;
+  }
+
+  /* =========================================================
+     SLIDE 3 : BENCHMARK & SWOT (HUMAN AIRCALL LOOK)
+     ========================================================= */
+  .benchmark-col {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .benchmark-col.highlight-aircall {
+    border: 2px solid #00875A !important;
+    background: linear-gradient(145deg, #F0FDF4 0%, #FFFFFF 100%) !important;
+    box-shadow: 0 8px 25px rgba(0, 135, 90, 0.08) !important;
+  }
+
+  .bench-top-bar {
+    border-bottom: 1px solid #F1F5F9 !important;
+  }
+
+  .bench-brand-name {
+    color: #111827 !important;
+    font-weight: 800 !important;
+  }
+
+  .bench-sublabel {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+  }
+
+  .icon-aircall { background: #00875A !important; color: #FFFFFF !important; }
+  .icon-ringover { background: #2563EB !important; color: #FFFFFF !important; }
+  .icon-allo { background: #D97706 !important; color: #FFFFFF !important; }
+
+  .bench-badge.green { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
+  .bench-badge.blue { background: #EFF6FF !important; color: #2563EB !important; border: 1px solid #BFDBFE !important; }
+  .bench-badge.amber { background: #FFFBEB !important; color: #D97706 !important; border: 1px solid #FDE68A !important; }
+
+  .spec-label { color: #6B7280 !important; }
+  .spec-val { color: #1F2937 !important; }
+  .spec-val strong { color: #00875A !important; }
+
+  .bench-verdict-pill.green { background: #DCFCE7 !important; color: #166534 !important; border: 1px solid #86EFAC !important; }
+  .bench-verdict-pill.blue { background: #DBEAFE !important; color: #1E40AF !important; border: 1px solid #93C5FD !important; }
+  .bench-verdict-pill.amber { background: #FEF3C7 !important; color: #92400E !important; border: 1px solid #FDE68A !important; }
+
+  /* SWOT BOXES */
+  .swot-box {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .swot-box.s-box {
+    border-top: 3.5px solid #00875A !important;
+    background: linear-gradient(180deg, #F0FDF4 0%, #FFFFFF 100%) !important;
+  }
+  .swot-box.w-box {
+    border-top: 3.5px solid #DC2626 !important;
+    background: linear-gradient(180deg, #FFF5F5 0%, #FFFFFF 100%) !important;
+  }
+  .swot-box.o-box {
+    border-top: 3.5px solid #2563EB !important;
+    background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%) !important;
+  }
+  .swot-box.t-box {
+    border-top: 3.5px solid #D97706 !important;
+    background: linear-gradient(180deg, #FFFBEB 0%, #FFFFFF 100%) !important;
+  }
+
+  .swot-head {
+    border-bottom: 1px solid #F1F5F9 !important;
+  }
+
+  .swot-title { color: #111827 !important; }
+  .s-box .swot-title { color: #00875A !important; }
+  .w-box .swot-title { color: #DC2626 !important; }
+  .o-box .swot-title { color: #2563EB !important; }
+  .t-box .swot-title { color: #D97706 !important; }
+
+  .tag-s { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
+  .tag-w { background: #FEF2F2 !important; color: #DC2626 !important; border: 1px solid #FECACA !important; }
+  .tag-o { background: #EFF6FF !important; color: #2563EB !important; border: 1px solid #BFDBFE !important; }
+  .tag-t { background: #FFFBEB !important; color: #D97706 !important; border: 1px solid #FDE68A !important; }
+
+  .swot-item-row {
+    background: #F8FAF9 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #374151 !important;
+  }
+  .swot-item-row strong { color: #111827 !important; }
+  .swot-item-row .num-hl { color: #00875A !important; }
+
+  .fw-badge.bmc { background: #E6F7F0 !important; color: #00875A !important; border: 0.5px solid #A3E0CE !important; }
+  .fw-badge.data { background: #F3E8FF !important; color: #7E22CE !important; border: 0.5px solid #D8B4FE !important; }
+  .fw-badge.porter { background: #FFFBEB !important; color: #D97706 !important; border: 0.5px solid #FDE68A !important; }
+  .fw-badge.pestel { background: #EFF6FF !important; color: #2563EB !important; border: 0.5px solid #BFDBFE !important; }
+
+  .swot-takeaway-bar {
+    background: linear-gradient(90deg, #E6F7F0 0%, #F0FDF4 100%) !important;
+    border: 1.5px solid #A3E0CE !important;
+    border-radius: 12px !important;
+  }
+  .takeaway-left { color: #1F2937 !important; }
+  .takeaway-label { background: #00875A !important; color: #FFFFFF !important; }
+  .takeaway-text strong { color: #111827 !important; }
+  .takeaway-right-chip { background: #00875A !important; color: #FFFFFF !important; }
+
+  /* =========================================================
+     SLIDE 4 : PROBLÉMATIQUE DATA (PYRAMIDE)
+     ========================================================= */
+  .funnel-arrow-sidebar {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    border-radius: 12px !important;
+  }
+  .down-arrow-svg path {
+    stroke: #00875A !important;
+  }
+  .down-arrow-svg polygon {
+    fill: #00875A !important;
+  }
+
+  .pyramid-step {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
+  }
+  .step-label { color: #00875A !important; font-weight: 800 !important; }
+  .step-num { color: #111827 !important; font-weight: 900 !important; }
+  .step-title { color: #111827 !important; font-weight: 800 !important; }
+  .step-desc { color: #4B5563 !important; }
+
+  .king-pill {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    color: #374151 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  }
+  .king-pill strong { color: #00875A !important; font-weight: 800 !important; }
+  .king-pill span { color: #374151 !important; font-weight: 600 !important; }
+
+  .problem-box-tpe {
+    background: #FFF5F5 !important;
+    border: 1.5px solid #FECACA !important;
+    border-radius: 12px !important;
+    color: #991B1B !important;
+  }
+  .problem-box-tpe strong { color: #991B1B !important; }
+
+  .problem-box-pme {
+    background: #FFFBEB !important;
+    border: 1.5px solid #FDE68A !important;
+    border-radius: 12px !important;
+    color: #92400E !important;
+  }
+  .problem-box-pme strong { color: #92400E !important; }
+
+  /* =========================================================
+     SLIDE 5 : LOOKER STUDIO & 6 RATIOS
+     ========================================================= */
+  .dashboard-wrapper {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+  }
+
+  .toggle-btn {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    border-radius: 8px !important;
+  }
+  .toggle-btn.active {
+    background: #00875A !important;
+    color: #FFFFFF !important;
+    border-color: #00875A !important;
+  }
+  .link-external {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border-color: #A3E0CE !important;
+  }
+
+  .block-card {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03) !important;
+  }
+  .block-card:hover {
+    border-color: #00875A !important;
+    box-shadow: 0 6px 18px rgba(0, 135, 90, 0.1) !important;
+  }
+  .block-card-title { color: #111827 !important; }
+  .block-card-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
+  .drilldown-cue { background: #F3F4F6 !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; }
+  .ratio-val-giant { color: #00875A !important; font-weight: 900 !important; }
+  .ratio-sub-badge { background: #F3F4F6 !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; }
+  .block-card-desc { color: #6B7280 !important; }
+
+  /* =========================================================
+     SLIDES 6 & 7 : VIS-À-VIS PROBLÈME vs SOLUTION
+     ========================================================= */
+  .visavis-col.problem-side {
+    background: #FFF5F5 !important;
+    border: 1.5px solid #FECACA !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 18px rgba(220, 38, 38, 0.06) !important;
+  }
+  .visavis-banner.problem-banner {
+    background: #FEE2E2 !important;
+    border-bottom: 1px solid #FECACA !important;
+  }
+  .visavis-col.problem-side .hero-stat-card {
+    background: #FFFFFF !important;
+    border: 1px solid #FECACA !important;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.04) !important;
+  }
+  .visavis-col.problem-side .hero-lbl { color: #4B5563 !important; }
+  .visavis-col.problem-side .fact-text { color: #1F2937 !important; }
+  .visavis-col.problem-side .fact-text strong { color: #111827 !important; }
+  .visavis-col.problem-side .visavis-tag { color: #991B1B !important; }
+
+  .visavis-col.solution-side {
+    background: #F0FDF4 !important;
+    border: 1.5px solid #BBF7D0 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 18px rgba(0, 135, 90, 0.08) !important;
+  }
+  .visavis-banner.solution-banner {
+    background: #DCFCE7 !important;
+    border-bottom: 1px solid #BBF7D0 !important;
+  }
+  .visavis-col.solution-side .hero-stat-card {
+    background: #FFFFFF !important;
+    border: 1px solid #BBF7D0 !important;
+    box-shadow: 0 2px 8px rgba(0, 135, 90, 0.04) !important;
+  }
+  .hero-num-green { color: #00875A !important; font-weight: 900 !important; }
+  .visavis-col.solution-side .hero-lbl { color: #4B5563 !important; }
+  .visavis-col.solution-side .fact-text { color: #1F2937 !important; }
+  .visavis-col.solution-side .fact-text strong { color: #111827 !important; }
+  .visavis-col.solution-side .visavis-tag { color: #166534 !important; }
+
+  .fact-bullet-red { background: #FEE2E2 !important; border: 1px solid #F87171 !important; color: #DC2626 !important; }
+  .fact-bullet-green { background: #DCFCE7 !important; border: 1px solid #4ADE80 !important; color: #16A34A !important; }
+
+  .v-chip {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+  }
+  .v-chip.time { background: #E6F7F0 !important; color: #00875A !important; border-color: #A3E0CE !important; font-weight: 800 !important; }
+
+  .timeline-feasibility-bar {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  }
+  .timeline-header { border-bottom: 1px solid #E5E7EB !important; }
+  .timeline-badge { color: #00875A !important; font-weight: 800 !important; }
+  .timeline-ttv { color: #4B5563 !important; }
+  .gantt-trigger-btn {
+    background: #00875A !important;
+    color: #FFFFFF !important;
+    border-radius: 6px !important;
+  }
+  .t-step {
+    background: #F8FAF9 !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 8px !important;
+  }
+  .t-title { color: #111827 !important; font-weight: 800 !important; }
+  .t-desc { color: #4B5563 !important; }
+  .t-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
+  .t-arrow { color: #00875A !important; }
+
+  /* =========================================================
+     SLIDE 8 : SYNTHÈSE GLOBALE CODIR (ROI GÉANT)
+     ========================================================= */
+  .summary-kpi-card {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+  }
+  .summary-kpi-val { color: #00875A !important; font-weight: 900 !important; }
+  .summary-kpi-lbl { color: #111827 !important; font-weight: 800 !important; }
+  .summary-kpi-sub { color: #6B7280 !important; }
+
+  .big-roi-banner {
+    background: linear-gradient(135deg, #E6F7F0 0%, #D1FAE5 100%) !important;
+    border: 2px solid #00875A !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 30px rgba(0, 135, 90, 0.12) !important;
+  }
+  .big-roi-banner .card-badge { color: #00875A !important; }
+  .big-roi-banner .stat-giant { color: #00875A !important; }
+  .big-roi-banner .stat-giant.white { color: #111827 !important; }
+  .big-roi-banner .stat-label { color: #1F2937 !important; font-weight: 800 !important; }
+  .roi-tag-hero { background: #00875A !important; color: #FFFFFF !important; }
+  .roi-bubble-stat { background: #FFFFFF !important; border: 1px solid #A3E0CE !important; }
+  .bubble-lbl { color: #4B5563 !important; }
+  .bubble-val { color: #00875A !important; font-weight: 900 !important; }
+
+  /* =========================================================
+     SLIDE 9 : MATRICE DE TRANSPARENCE & TRAÇABILITÉ
+     ========================================================= */
+  .transparency-table {
+    border: 1px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+  .transparency-table th {
+    background: #F8FAF9 !important;
+    color: #111827 !important;
+    border-bottom: 2px solid #E5E7EB !important;
+    font-weight: 800 !important;
+  }
+  .transparency-table td {
+    background: #FFFFFF !important;
+    color: #1F2937 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .source-pill.real { background: #DCFCE7 !important; color: #166534 !important; border: 1px solid #86EFAC !important; }
+  .source-pill.public { background: #EFF6FF !important; color: #1E40AF !important; border: 1px solid #BFDBFE !important; }
+  .source-pill.simulated { background: #F3E8FF !important; color: #6B21A8 !important; border: 1px solid #D8B4FE !important; }
+
+  /* =========================================================
+     BOTTOM NAVIGATION BAR (FLOATING WHITE PILL)
+     ========================================================= */
+  .bottom-nav-bar {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 999px !important;
+  }
+  .bottom-nav-btn {
+    color: #111827 !important;
+    font-weight: 700 !important;
+  }
+  .bottom-nav-btn:hover {
+    background: #F3F4F6 !important;
+    color: #00875A !important;
+  }
+  .nav-dot {
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+  }
+  .nav-dot.active {
+    background: #00875A !important;
+    color: #FFFFFF !important;
+    border-color: #00875A !important;
+    box-shadow: 0 2px 8px rgba(0, 135, 90, 0.3) !important;
+  }
+  .btn-fullscreen-deck {
+    background: #E6F7F0 !important;
+    border: 1px solid #A3E0CE !important;
+    color: #00875A !important;
+    font-weight: 800 !important;
+  }
+
+  /* =========================================================
+     MODALS (ZOOM KPI & GANTT DRILLDOWN) — CLEAN HUMAN DIALOGS
+     ========================================================= */
+  .kpi-modal-overlay {
+    background: rgba(17, 24, 39, 0.6) !important;
+    backdrop-filter: blur(6px) !important;
+  }
+  .kpi-modal-content {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    color: #111827 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15) !important;
+  }
+  .kpi-modal-header {
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .kpi-modal-badge {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border: 1px solid #A3E0CE !important;
+  }
+  .kpi-modal-title {
+    color: #111827 !important;
+  }
+  .kpi-modal-subtitle {
+    color: #4B5563 !important;
+  }
+  .kpi-modal-close {
+    background: #F3F4F6 !important;
+    color: #4B5563 !important;
+    border: 1px solid #E5E7EB !important;
+  }
+  .kpi-modal-close:hover {
+    background: #E5E7EB !important;
+    color: #111827 !important;
+  }
+  .kpi-hero-card {
+    background: #F8FAF9 !important;
+    border: 1px solid #E5E7EB !important;
+  }
+  .kpi-hero-num { color: #00875A !important; font-weight: 900 !important; }
+  .kpi-hero-sub { color: #6B7280 !important; }
+  .chart-box-title { color: #111827 !important; font-weight: 800 !important; }
+  .table-data th {
+    background: #F8FAF9 !important;
+    color: #111827 !important;
+    border-bottom: 1.5px solid #E5E7EB !important;
+  }
+  .table-data td {
+    background: #FFFFFF !important;
+    color: #1F2937 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .kpi-analysis-box {
+    background: #F0FDF4 !important;
+    border: 1px solid #BBF7D0 !important;
+    color: #166534 !important;
+  }
+  .kpi-analysis-title { color: #00875A !important; font-weight: 800 !important; }
+  .kpi-analysis-text { color: #1F2937 !important; }
+  .kpi-action-box {
+    background: #E6F7F0 !important;
+    border: 1.5px solid #A3E0CE !important;
+    color: #00875A !important;
+  }
+  .kpi-action-title { color: #00875A !important; font-weight: 800 !important; }
+  .kpi-action-text { color: #111827 !important; }
+
+  /* GANTT MODAL */
+  .gantt-modal-content {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    color: #111827 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15) !important;
+  }
+  .gantt-modal-header {
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .gantt-modal-badge {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border: 1px solid #A3E0CE !important;
+  }
+  .gantt-modal-title { color: #111827 !important; }
+  .gantt-tab-btn {
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+  }
+  .gantt-tab-btn.active {
+    background: #00875A !important;
+    color: #FFFFFF !important;
+    border-color: #00875A !important;
+  }
+  .gantt-table th {
+    background: #F8FAF9 !important;
+    color: #111827 !important;
+    border-bottom: 1.5px solid #E5E7EB !important;
+  }
+  .gantt-table td {
+    background: #FFFFFF !important;
+    color: #1F2937 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .gantt-grid-header {
+    background: #F8FAF9 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .gantt-week-header { color: #6B7280 !important; }
+  .gantt-task-row {
+    border-bottom: 1px solid #F1F5F9 !important;
+  }
+  .gantt-task-name { color: #111827 !important; }
+  .gantt-task-resp { color: #6B7280 !important; }
+  .gantt-bar-fill {
+    background: linear-gradient(90deg, #00875A 0%, #00BD82 100%) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 2px 6px rgba(0, 135, 90, 0.25) !important;
+  }
+  .gantt-summary-card {
+    background: #F8FAF9 !important;
+    border: 1px solid #E5E7EB !important;
+  }
+  .gantt-summary-title { color: #00875A !important; }
+  .gantt-summary-val { color: #111827 !important; }
+
+  
+  /* MODAL COMPONENT OVERRIDES */
+  .kpi-modal-mini-card {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    text-align: center !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+  }
+  .kpi-modal-mini-label {
+    color: #4B5563 !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+  }
+  .kpi-modal-mini-val {
+    color: #00875A !important;
+    font-size: 18px !important;
+    font-weight: 900 !important;
+  }
+
+  .kpi-chart-box {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
+  }
+  .kpi-chart-title {
+    color: #111827 !important;
+    font-weight: 800 !important;
+  }
+
+  .kpi-insight-card {
+    background: #F0FDF4 !important;
+    border: 1.5px solid #BBF7D0 !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+  }
+  .kpi-insight-tag {
+    background: #DCFCE7 !important;
+    color: #166534 !important;
+    border: 1px solid #86EFAC !important;
+    font-weight: 800 !important;
+  }
+  .kpi-insight-text {
+    color: #1F2937 !important;
+  }
+  .kpi-insight-text strong {
+    color: #111827 !important;
+  }
+
+  /* SVG THEMING ON LIGHT BACKGROUND */
+  svg line[stroke="rgba(255,255,255,0.06)"],
+  svg line[stroke="rgba(255,255,255,0.08)"],
+  svg line[stroke="rgba(255,255,255,0.1)"] {
+    stroke: #E5E7EB !important;
+  }
+  svg text[fill="#FFFFFF"] { fill: #111827 !important; }
+  svg text[fill="#E2E8F0"] { fill: #374151 !important; }
+  svg text[fill="#CBD5E1"] { fill: #4B5563 !important; }
+  svg text[fill="#94A3B8"] { fill: #6B7280 !important; }
+
+  /* ZOOM LIGHTBOX */
+  #zoomModal {
+    background: rgba(17, 24, 39, 0.8) !important;
+  }
+
+  /* PRINT MODE (LIGHT & CRISP) */
+  @media print {
+    html, body {
+      background: #FFFFFF !important;
+      color: #111827 !important;
+    }
+    #deck {
+      background: #FFFFFF !important;
+    }
+    .slide {
+      background: #FFFFFF !important;
+      color: #111827 !important;
+    }
+    .bottom-nav-bar, .nav-arrow, .view-toggle-bar, #liveContainer, .kpi-modal-overlay, #zoomModal, #ganttDrilldownModal {
+      display: none !important;
+    }
+    #captureContainer {
+      display: flex !important;
+      height: 520px !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 
@@ -1981,7 +2794,8 @@
   <div class="slide active">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">01 · IDENTITÉ OFFICIELLE</span>
       </div>
@@ -2061,7 +2875,8 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">02 · GOUVERNANCE &amp; CADRAGE</span>
       </div>
@@ -2157,7 +2972,8 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">03 · BENCHMARK &amp; SWOT</span>
       </div>
@@ -2384,7 +3200,8 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">04 · PROBLÉMATIQUE DATA</span>
       </div>
@@ -2513,7 +3330,8 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">05 · PILOTAGE DATA STUDIO</span>
       </div>
@@ -2655,7 +3473,8 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">06 · ARBITRAGE STRATÉGIQUE N°1</span>
       </div>
@@ -2782,7 +3601,8 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">07 · ARBITRAGE STRATÉGIQUE N°2</span>
       </div>
@@ -2909,7 +3729,8 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">08 · SYNTHÈSE GLOBALE &amp; ROI</span>
       </div>
@@ -2973,7 +3794,8 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">08 · TRANSPARENCE &amp; CONFORMITÉ</span>
       </div>
@@ -3579,16 +4401,16 @@
       </div>
 
       <!-- DETAILED BREAKDOWN LIST -->
-      <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 16px;">
-        <div style="font-size:11px; font-weight:800; color:#FFFFFF; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">${data.detailTitle}</div>
+      <div style="background:#F8FAF9; border:1px solid #E5E7EB; border-radius:10px; padding:12px 16px;">
+        <div style="font-size:11px; font-weight:800; color:#111827; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">${data.detailTitle}</div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
           ${data.details.map(d => `
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:8px 12px; display:flex; flex-direction:column; gap:2px;">
+            <div style="background:#FFFFFF; border:1px solid #E5E7EB; border-radius:8px; padding:8px 12px; display:flex; flex-direction:column; gap:2px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
               <div style="display:flex; justify-content:space-between; align-items:baseline;">
-                <span style="font-size:11px; font-weight:700; color:#E2E8F0;">${d.label}</span>
-                <strong style="font-size:12px; font-weight:900; color:var(--emerald-bright);">${d.val}</strong>
+                <span style="font-size:11px; font-weight:700; color:#374151;">${d.label}</span>
+                <strong style="font-size:12px; font-weight:900; color:#00875A;">${d.val}</strong>
               </div>
-              <span style="font-size:9.5px; color:#94A3B8;">${d.desc}</span>
+              <span style="font-size:9.5px; color:#6B7280;">${d.desc}</span>
             </div>
           `).join('')}
         </div>
@@ -3841,19 +4663,19 @@
       </div>
 
       <!-- DETAILED TASK TABLE -->
-      <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 14px;">
-        <div style="font-size:10.5px; font-weight:800; color:#FFFFFF; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Détail des Chantiers &amp; Livrables Opérationnels :</div>
+      <div style="background:#F8FAF9; border:1px solid #E5E7EB; border-radius:10px; padding:10px 14px;">
+        <div style="font-size:10.5px; font-weight:800; color:#111827; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Détail des Chantiers &amp; Livrables Opérationnels :</div>
         <div style="display:flex; flex-direction:column; gap:6px;">
           ${data.tasks.map(t => `
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:6px 12px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+            <div style="background:#FFFFFF; border:1px solid #E5E7EB; border-radius:6px; padding:6px 12px; display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
               <div style="display:flex; align-items:center; gap:8px;">
-                <span style="font-size:9.5px; font-weight:900; color:var(--emerald-bright); background:rgba(0,230,164,0.12); padding:2px 6px; border-radius:4px;">${t.num}</span>
-                <strong style="font-size:11px; color:#FFFFFF;">${t.name}</strong>
-                <span style="font-size:9px; color:#94A3B8;">(${t.resp})</span>
+                <span style="font-size:9.5px; font-weight:900; color:#00875A; background:#E6F7F0; padding:2px 6px; border-radius:4px; border:1px solid #A3E0CE;">${t.num}</span>
+                <strong style="font-size:11px; color:#111827;">${t.name}</strong>
+                <span style="font-size:9px; color:#6B7280;">(${t.resp})</span>
               </div>
               <div style="display:flex; align-items:center; gap:12px;">
-                <span style="font-size:9.5px; color:#E2E8F0; max-width:340px; text-align:right;">${t.output}</span>
-                <span style="font-size:9.5px; font-weight:800; color:var(--emerald-bright); white-space:nowrap;">${t.timing}</span>
+                <span style="font-size:9.5px; color:#374151; max-width:340px; text-align:right;">${t.output}</span>
+                <span style="font-size:9.5px; font-weight:800; color:#00875A; white-space:nowrap;">${t.timing}</span>
               </div>
             </div>
           `).join('')}
