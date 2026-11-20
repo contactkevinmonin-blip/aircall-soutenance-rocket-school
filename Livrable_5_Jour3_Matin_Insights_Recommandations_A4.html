@@ -1,0 +1,410 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8">
+<title>Aircall — Livrable 05 : Insights &amp; 2 Arbitrages Stratégiques (A4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: 210mm 297mm;
+    margin: 0;
+  }
+  @media print {
+    body {
+      background: #FFFFFF !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .no-print { display: none !important; }
+    .a4-page {
+      width: 210mm !important;
+      height: 297mm !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      page-break-after: always !important;
+      break-after: page !important;
+      margin: 0 !important;
+      padding: 10mm 13mm 9mm !important;
+    }
+  }
+
+  :root {
+    --forest: #06241C;
+    --teal: #084032;
+    --emerald: #00BD82;
+    --mint: #EAF8F3;
+    --mint-border: #C5E8DC;
+    --white: #FFFFFF;
+    --offwhite: #F8FCFA;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  }
+
+  body {
+    background: #0B1B15;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .a4-page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    padding: 10mm 13mm 9mm;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .banner {
+    background: var(--forest);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 11px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 80px;
+    background: var(--emerald);
+    clip-path: polygon(0 0, 100% 0, 45% 100%, 0 100%);
+    opacity: 0.18;
+  }
+  .banner-left { position: relative; z-index: 2; }
+  .banner-right { position: relative; z-index: 2; }
+
+  .step-tag {
+    display: inline-block;
+    font-size: 7.5pt;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.12);
+    color: var(--emerald);
+    padding: 2.5px 9px;
+    border-radius: 999px;
+    margin-bottom: 3px;
+  }
+  .banner h1 {
+    font-size: 13pt;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    color: var(--white);
+    line-height: 1.15;
+  }
+  .banner h1 span { color: var(--emerald); }
+
+  .sec-title {
+    font-size: 8.6pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--teal);
+    margin: 6px 0 4px;
+    padding-left: 8px;
+    border-left: 3px solid var(--emerald);
+    line-height: 1.2;
+  }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 6px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 6px; }
+
+  .card {
+    background: var(--offwhite);
+    border: 1px solid var(--mint-border);
+    border-radius: 8px;
+    padding: 8px 11px;
+    text-align: left;
+  }
+  .card.featured {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: var(--white);
+  }
+  .card.alert {
+    background: #FFF5F5;
+    border-color: #FED7D7;
+  }
+  .card-index {
+    font-size: 6.8pt;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--mint-border);
+  }
+  .card.featured .card-index {
+    color: var(--emerald);
+    border-bottom-color: rgba(255,255,255,0.18);
+  }
+  .card.alert .card-index {
+    color: #E53E3E;
+    border-bottom-color: #FEB2B2;
+  }
+  .big-num {
+    font-size: 14pt;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    color: var(--forest);
+    line-height: 1.05;
+    margin-bottom: 2px;
+  }
+  .card.featured .big-num { color: var(--emerald); }
+  .card.alert .big-num { color: #C53030; }
+  .card h3 {
+    font-size: 8.2pt;
+    font-weight: 800;
+    margin-bottom: 2px;
+    color: var(--forest);
+  }
+  .card.featured h3 { color: var(--white); }
+  .card.alert h3 { color: #9B2C2C; }
+  .card p {
+    font-size: 7.2pt;
+    line-height: 1.25;
+    color: #264A3E;
+    font-weight: 500;
+  }
+  .card.featured p { color: #D0E8DF; }
+  .card.alert p { color: #742A2A; }
+
+  .callout {
+    background: var(--mint);
+    border: 1px solid var(--mint-border);
+    border-left: 4px solid var(--emerald);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 7.6pt;
+    line-height: 1.3;
+    color: var(--forest);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--mint-border);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 7.2pt;
+    margin-bottom: 6px;
+    background: var(--white);
+  }
+  th {
+    background: var(--forest);
+    color: var(--white);
+    text-align: left;
+    padding: 4.5px 7px;
+    font-weight: 800;
+    font-size: 6.9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+  td {
+    padding: 4px 7px;
+    border-bottom: 1px solid #EBF5F0;
+    vertical-align: middle;
+    line-height: 1.2;
+    color: var(--forest);
+    font-weight: 500;
+  }
+  tr:nth-child(even) td { background: var(--offwhite); }
+  tr:last-child td { border-bottom: none; }
+
+  .b-solid { background: var(--emerald); color: var(--forest); font-weight: 800; padding: 1.5px 6px; border-radius: 999px; font-size: 6.8pt; display: inline-block; }
+  .b-dark { background: var(--forest); color: var(--white); font-weight: 800; padding: 1.5px 6px; border-radius: 999px; font-size: 6.8pt; display: inline-block; }
+  .b-mint { background: var(--mint); color: var(--forest); border: 1px solid var(--mint-border); font-weight: 800; padding: 1.5px 6px; border-radius: 999px; font-size: 6.8pt; display: inline-block; }
+  .b-alert { background: #FED7D7; color: #9B2C2C; font-weight: 800; padding: 1.5px 6px; border-radius: 999px; font-size: 6.8pt; display: inline-block; }
+
+  .page-footer {
+    border-top: 1px solid var(--mint-border);
+    padding-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.2pt;
+    color: var(--teal);
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+  }
+</style>
+</head><body><div class="a4-page">
+  
+<svg style="position:absolute; top:0; right:0; width:160px; height:160px; z-index:0; pointer-events:none;" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M180 0H50L135 140C148 160 162 172 180 175V0Z" fill="#EAF8F3"/>
+</svg>
+
+  <div class="page-content">
+    <div class="banner">
+      <div class="banner-left">
+        <div class="step-tag">LIVRABLE 05 · JOUR 3 MATIN</div>
+        <h1>Faire Parler la Data : <span>Diagnostic &amp; 2 Arbitrages ROIstes</span></h1>
+      </div>
+      <div class="banner-right">
+        <span style="font-size:8.5pt; font-weight:800; color:var(--emerald);">aircall.</span>
+      </div>
+    </div>
+
+    <div class="sec-title">1. Diagnostic Segmenté du Funnel Commercial (67 560 Appels Réels)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:18%;">Segment Client</th>
+          <th style="width:14%;">Appels (% total)</th>
+          <th style="width:14%;">Connects (Tx)</th>
+          <th style="width:14%;">Démos (Tx/conn)</th>
+          <th style="width:12%;">Deals Closés</th>
+          <th style="width:14%;">Panier Moyen</th>
+          <th style="width:14%;">ARR Signé (% ARR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TPE (1–19 sal.)</strong></td>
+          <td>28 545 <span class="b-alert">42,3 %</span></td>
+          <td>4 333 (15,2 %)</td>
+          <td>112 <span class="b-alert">2,58 %</span></td>
+          <td>60 deals</td>
+          <td>3 725 €</td>
+          <td>223 500 € <span class="b-alert">6,1 %</span></td>
+        </tr>
+        <tr>
+          <td><strong>PME (20–200 sal.)</strong></td>
+          <td>32 520 (48,1 %)</td>
+          <td>5 521 (17,0 %)</td>
+          <td>537 <span class="b-solid">9,73 %</span></td>
+          <td>234 deals</td>
+          <td><strong>9 617 €</strong></td>
+          <td><strong>2 250 300 € (61,1 %)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>MidMarket (201–1k)</strong></td>
+          <td>6 495 (9,6 %)</td>
+          <td>1 336 (20,6 %)</td>
+          <td>110 (8,23 %)</td>
+          <td>64 deals</td>
+          <td><span class="b-dark">18 909 €</span></td>
+          <td>1 210 200 € (32,8 %)</td>
+        </tr>
+        <tr style="font-weight:800; background:#EAF8F3;">
+          <td><strong>TOTAL GLOBAL</strong></td>
+          <td><strong>67 560 (100 %)</strong></td>
+          <td><strong>11 190 (16,56 %)</strong></td>
+          <td><strong>759 (6,78 %)</strong></td>
+          <td><strong>358 deals</strong></td>
+          <td><strong>10 291 €</strong></td>
+          <td><strong>3 684 000 € (100 %)</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sec-title">2. Les 2 Dysfonctionnements Majeurs de la Performance Commerciale</div>
+    <div class="grid-2">
+      <div class="card alert">
+        <div class="card-index">PROBLÈME 1 · DRAIN D'ÉNERGIE TPE</div>
+        <div class="big-num">42,3 % Appels ➔ 6,1 % ARR</div>
+        <h3>Démarchage Sortant à Perte sur les Petits Comptes</h3>
+        <p>Les TPE absorbent 28 545 appels et 4 333 connects pour seulement 223 500 € d'ARR. La conversion connect ➔ démo est 3,8× plus faible qu'en PME (2,58 % vs 9,73 %) et le panier moyen de 3 725 € ne rentabilise pas le coût commercial d'un SDR.</p>
+      </div>
+
+      <div class="card alert">
+        <div class="card-index">PROBLÈME 2 · RISQUE DE CHURN PME</div>
+        <div class="big-num">2,25 M€ ARR Exposés (20 % Churn)</div>
+        <h3>400 000 € de Fuite Sèche Faute de CSM Dédié</h3>
+        <p>Le segment PME est le poumon d'Aircall (61,1 % de l'ARR total). Sans accompagnement dédié, l'onboarding est hétérogène et les baisses d'usage VoIP ne sont pas détectées à temps, causant une perte annuelle nette évitable de 400 k€.</p>
+      </div>
+    </div>
+
+    <div class="sec-title">3. Les 2 Arbitrages Stratégiques à Fort ROI (Recommandation CoDir)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:18%;">Arbitrage</th>
+          <th style="width:26%;">Décision &amp; Action Métier</th>
+          <th style="width:30%;">Mise en Œuvre, Faisabilité &amp; Déploiement Temps</th>
+          <th style="width:26%;">Impact Financier &amp; TTV</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="b-dark">ARBITRAGE N°1</span><br><strong>Focus 100% PME &amp; Self-Serve TPE</strong></td>
+          <td><strong>Arrêt total du Cold Call sur les TPE</strong>.<br>Redirection vers un parcours PLG 100% en ligne. Réallocation des 28 545 appels sur les PME &amp; MidMarket.</td>
+          <td>
+            <strong>Horizon : 45 Jours (Quick Win 0€)</strong><br>
+            • <em>S1-S2 :</em> Routing CRM HubSpot/Salesforce leads &lt; 20 sal.<br>
+            • <em>S3-S4 :</em> Quotas SDR réalignés 100% PME &amp; scripts.<br>
+            • <em>S5-S6 :</em> Go-Live opérationnel complet.
+          </td>
+          <td>
+            <span class="b-solid">+1,55 M$ d'ARR</span><br>
+            <strong>Coût direct : 0 €</strong><br>
+            <span style="font-size:7.5pt; color:var(--text-muted);">⚡ Time-to-Value : <strong>J+30 à J+60</strong></span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="b-dark">ARBITRAGE N°2</span><br><strong>Rétention &amp; Expansion PME</strong></td>
+          <td><strong>Recrutement d'1 CSM dédié PME</strong> pour sécuriser les 2,25 M€ d'ARR et générer des upsells licences/numéros additionnels.</td>
+          <td>
+            <strong>Horizon : 90 Jours (Q1-Q2)</strong><br>
+            • <em>Mois 1 (J+30) :</em> Chasse CSM + Alertes tech HubSpot (&lt;50 appels/sem).<br>
+            • <em>Mois 2 (J+60) :</em> Prise de poste CSM + sauvetage 20 comptes PME.<br>
+            • <em>Mois 3 (J+90) :</em> QBRs, churn &lt;5%, régime de croisière.
+          </td>
+          <td>
+            <span class="b-solid">+1,45 M$ d'ARR</span><br>
+            Coût : <strong>58 000 € chargés</strong><br>
+            <strong>ROI unitaire : ×25</strong><br>
+            <span style="font-size:7.5pt; color:var(--text-muted);">⚡ Time-to-Value : <strong>J+60 à J+90</strong></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <strong>BILAN GLOBAL CONSOLIDÉ :</strong> Arbitrage 1 (+1,55 M$) + Arbitrage 2 (+1,45 M$) = <strong>+3,00 M$ d'ARR générés</strong>.
+      </div>
+      <div>
+        Budget engagé : <strong>58 000 €</strong> | <strong>Retour sur Investissement Global : ROI ×52</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Aircall × Rocket School — Livrable 05 (Jour 3 Matin) : Insights &amp; Arbitrages Stratégiques</span>
+    <span>Page 5 / 6</span>
+  </div>
+</div></body></html>

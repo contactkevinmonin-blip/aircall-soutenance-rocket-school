@@ -1,0 +1,401 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8">
+<title>Aircall — Livrables des 6 Demi-Journées (A4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: 210mm 297mm;
+    margin: 0;
+  }
+  @media print {
+    body {
+      background: #FFFFFF !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .no-print { display: none !important; }
+    .a4-page {
+      width: 210mm !important;
+      height: 297mm !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      page-break-after: always !important;
+      break-after: page !important;
+      margin: 0 !important;
+      padding: 10mm 13mm 9mm !important;
+    }
+  }
+
+  :root {
+    --forest: #06241C;
+    --teal: #084032;
+    --emerald: #00BD82;
+    --mint: #EAF8F3;
+    --mint-border: #C5E8DC;
+    --white: #FFFFFF;
+    --offwhite: #F8FCFA;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  }
+
+  body {
+    background: #03140F;
+    color: var(--forest);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0 60px;
+    gap: 24px;
+  }
+
+  .top-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 24px;
+    z-index: 9999;
+  }
+  .btn-print {
+    background: var(--emerald);
+    color: var(--forest);
+    border: none;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 12.5px;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+  }
+
+  .a4-page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    padding: 10mm 13mm 9mm;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Sleek Dark Forest Header Banner */
+  .banner {
+    background: var(--forest);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 11px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 80px;
+    background: var(--emerald);
+    clip-path: polygon(0 0, 100% 0, 45% 100%, 0 100%);
+    opacity: 0.18;
+  }
+  .banner-left { position: relative; z-index: 2; }
+  .banner-right { position: relative; z-index: 2; }
+
+  .step-tag {
+    display: inline-block;
+    font-size: 7.5pt;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.12);
+    color: var(--emerald);
+    padding: 2.5px 9px;
+    border-radius: 999px;
+    margin-bottom: 3px;
+  }
+  .banner h1 {
+    font-size: 13pt;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    color: var(--white);
+    line-height: 1.15;
+  }
+  .banner h1 span { color: var(--emerald); }
+
+  .sec-title {
+    font-size: 8.6pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--teal);
+    margin: 7px 0 5px;
+    padding-left: 8px;
+    border-left: 3px solid var(--emerald);
+    line-height: 1.2;
+  }
+
+  /* Clean Left-Aligned Bento Cards */
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 7px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 7px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 7px; }
+
+  .card {
+    background: var(--offwhite);
+    border: 1px solid var(--mint-border);
+    border-radius: 8px;
+    padding: 8px 11px;
+    text-align: left;
+  }
+  .card.featured {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: var(--white);
+  }
+  .card-index {
+    font-size: 6.8pt;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--mint-border);
+  }
+  .card.featured .card-index {
+    color: var(--emerald);
+    border-bottom-color: rgba(255,255,255,0.18);
+  }
+  .big-num {
+    font-size: 15pt;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    color: var(--forest);
+    line-height: 1.05;
+    margin-bottom: 2px;
+  }
+  .card.featured .big-num { color: var(--emerald); }
+  .card h3 {
+    font-size: 8.5pt;
+    font-weight: 800;
+    margin-bottom: 2px;
+    color: var(--forest);
+  }
+  .card.featured h3 { color: var(--white); }
+  .card p {
+    font-size: 7.4pt;
+    line-height: 1.3;
+    color: #264A3E;
+    font-weight: 500;
+  }
+  .card.featured p { color: #D0E8DF; }
+
+  .callout {
+    background: var(--mint);
+    border: 1px solid var(--mint-border);
+    border-left: 4px solid var(--emerald);
+    border-radius: 8px;
+    padding: 7px 11px;
+    font-size: 7.9pt;
+    line-height: 1.35;
+    color: var(--forest);
+    margin-bottom: 7px;
+    font-weight: 600;
+  }
+
+  /* Ultra-Clean Monochrome Green & White Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--mint-border);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 7.5pt;
+    margin-bottom: 6px;
+    background: var(--white);
+  }
+  th {
+    background: var(--forest);
+    color: var(--white);
+    text-align: left;
+    padding: 5px 8px;
+    font-weight: 800;
+    font-size: 7.2pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+  td {
+    padding: 4.5px 8px;
+    border-bottom: 1px solid #EBF5F0;
+    vertical-align: middle;
+    line-height: 1.25;
+    color: var(--forest);
+    font-weight: 500;
+  }
+  tr:nth-child(even) td { background: var(--offwhite); }
+  tr:last-child td { border-bottom: none; }
+
+  /* Strictly Green & White Badges */
+  .b-solid { background: var(--emerald); color: var(--forest); font-weight: 800; padding: 1.5px 6.5px; border-radius: 999px; font-size: 7pt; display: inline-block; }
+  .b-dark { background: var(--forest); color: var(--white); font-weight: 800; padding: 1.5px 6.5px; border-radius: 999px; font-size: 7pt; display: inline-block; }
+  .b-mint { background: var(--mint); color: var(--forest); border: 1px solid var(--mint-border); font-weight: 800; padding: 1.5px 6.5px; border-radius: 999px; font-size: 7pt; display: inline-block; }
+  code { background: var(--mint); padding: 1px 4px; border-radius: 3px; font-family: monospace; font-size: 7pt; color: var(--forest); font-weight: 700; }
+
+  .page-footer {
+    border-top: 1px solid var(--mint-border);
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.2pt;
+    color: var(--teal);
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+  }
+</style>
+</head><body><div class="a4-page">
+  
+<svg style="position:absolute; top:0; right:0; width:160px; height:160px; z-index:0; pointer-events:none;" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M180 0H50L135 140C148 160 162 172 180 175V0Z" fill="#EAF8F3"/>
+</svg>
+
+  <div class="page-content">
+    <div class="banner">
+      <div class="banner-left">
+        <div class="step-tag">LIVRABLE 01 · JOUR 1 MATIN</div>
+        <h1>Note de Cadrage du Projet Data — <span>Aircall</span></h1>
+      </div>
+      <div class="banner-right"><svg width="108" height="30" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.943 0c4.18 0 7.878.34 10.127.86 4.485.944 8.017 4.486 8.958 8.984.52 2.256.858 5.964.858 10.156s-.339 7.9-.858 10.156c-.941 4.498-4.473 8.04-8.958 8.984-2.25.52-5.947.86-10.127.86-4.18 0-7.878-.34-10.127-.86-4.485-.944-8.017-4.486-8.958-8.984C.338 27.9 0 24.192 0 20s.339-7.9.858-10.156C1.799 5.346 5.33 1.804 9.816.86 12.066.34 15.763 0 19.943 0z" fill="#FFFFFF"/><path d="M22.576 28.916c.977.205 1.78.886 2.16 1.79a.74.74 0 00.75.45c.096-.008.178-.016.245-.023 1.562-.156 2.79-.374 3.504-.628l.004-.002a1.27 1.27 0 00.816-1.296l-.002-.015a.606.606 0 01-.002-.041c-.122-1.632-1.11-5.454-2.587-9.816-1.688-4.987-3.453-9.024-4.249-9.811l-.001-.002a1.711 1.711 0 00-.673-.431l-.009-.003c-.522-.177-1.485-.296-2.59-.296-1.103 0-2.067.119-2.59.296l-.007.003a1.71 1.71 0 00-.674.433c-.796.787-2.562 4.824-4.25 9.81-1.476 4.363-2.464 8.185-2.586 9.817a.587.587 0 01-.003.041l-.001.015a4.98 4.98 0 00-.005.108c0 .544.341 1.008.82 1.188l.005.002c.714.254 1.943.472 3.507.628l.216.02a.777.777 0 00.785-.467 3.023 3.023 0 012.15-1.77c.586-.136 1.547-.224 2.634-.224s2.048.088 2.633.224z" fill="#00BD82"/><path fill-rule="evenodd" clip-rule="evenodd" d="M63.309 13.326h3.811v16.68H63.31v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.54-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm54.664 0h3.811v16.68h-3.811v-2.931c-1.191 2.079-3.233 3.272-5.888 3.272-4.424 0-7.963-3.885-7.963-8.69 0-4.806 3.539-8.657 7.963-8.657 2.655 0 4.697 1.193 5.888 3.272v-2.946zm-59.65 13.396c2.893 0 5.07-2.181 5.07-5.078 0-2.863-2.177-5.044-5.07-5.044a5.036 5.036 0 00-5.07 5.044 5.044 5.044 0 005.07 5.078zm54.465 0c2.892 0 5.07-2.181 5.07-5.078 0-2.863-2.178-5.044-5.07-5.044a5.036 5.036 0 00-5.071 5.044 5.044 5.044 0 005.071 5.078zM72.227 5c1.327 0 2.45 1.125 2.45 2.42a2.464 2.464 0 01-2.45 2.453c-1.327 0-2.416-1.09-2.416-2.453C69.81 6.125 70.9 5 72.227 5zm-1.872 8.28h3.778v16.68h-3.778V13.28zm15.044-.326c.727 0 1.428.108 1.933.3.297.114.56.239.763.345l-1.537 3.222a5.321 5.321 0 00-1.534-.22c-1.838 0-3.88 1.533-3.88 4.464v8.895h-3.777V13.28h3.778v2.4c.748-1.601 2.62-2.726 4.254-2.726zm18.371 12.78c-1.259 2.76-4.185 4.567-7.657 4.567-4.934 0-8.712-3.715-8.712-8.656 0-4.942 3.744-8.69 8.678-8.69 3.233 0 5.956 1.6 7.181 4.055l-3.199 1.806c-.68-1.33-2.178-2.215-3.982-2.215-2.858 0-4.934 2.18-4.934 5.044 0 2.828 2.11 5.01 4.968 5.01 1.94 0 3.54-.92 4.288-2.454l3.369 1.533zM128.796 5v24.96h-3.777V5h3.777zm7.012 0v24.96h-3.777V5h3.777z" fill="#FFFFFF"/></svg></div>
+    </div>
+
+    <div class="callout">
+      <strong>Problématique directrice :</strong> Comment piloter, en mode projet, la mesure de la performance commerciale d'Aircall en sélectionnant les KPI BizDev pertinents et en concevant un dashboard Looker Studio (Data Studio) qui éclaire réellement les décisions de la direction ?
+    </div>
+
+    <div class="sec-title">1. Chiffres Clés Officiels d'Aircall (Contexte Vérifié 2024–2026)</div>
+    <div class="grid-4">
+      <div class="card featured">
+        <div class="card-index">01 · ARR 2023 ➔ 2026</div>
+        <div class="big-num">250 M$</div>
+        <h3>Revenu Récurrent</h3>
+        <p>140 M$ (2023) ➔ 175 M$ (2024) ➔ 204 M$ (2025) ➔ 250 M$ (2026).</p>
+      </div>
+      <div class="card">
+        <div class="card-index">02 · CLIENTS &amp; ARPA</div>
+        <div class="big-num">24 000+</div>
+        <h3>16k ➔ 24k Entreprises</h3>
+        <p>ARPA en hausse à 10 417 $/an (+19 % vs 8 750 $ en 2023).</p>
+      </div>
+      <div class="card">
+        <div class="card-index">03 · VALORISATION</div>
+        <div class="big-num">~1 Md$</div>
+        <h3>Licorne Française</h3>
+        <p>Série D de 120 M$ menée par Goldman Sachs AM (Paris · NY).</p>
+      </div>
+      <div class="card">
+        <div class="card-index">04 · RENTABILITÉ</div>
+        <div class="big-num">312 k$</div>
+        <h3>ARR / Salarié (Rentable)</h3>
+        <p>Rentable dès 2024 · Productivité doublée (175k$ ➔ 312k$).</p>
+      </div>
+    </div>
+
+    <div class="sec-title">2. Les 5 Dimensions du Cadrage Projet RevOps</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:23%;">Dimension</th>
+          <th>Spécification Opérationnelle Retenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>01 · Objectif stratégique</strong></td>
+          <td>Sortir du piège « <em>Trop de KPI tue le KPI</em> » en reliant l'<strong>activité SDR</strong> (appels, décroché), la <strong>conversion AE</strong> (RDV, closing) et la <strong>rentabilité récurrente</strong> (ARR, ACV, CAC).</td>
+        </tr>
+        <tr>
+          <td><strong>02 · Périmètre couvert</strong></td>
+          <td>Équipes commerciales sortantes (<em>Outbound Cold Calling</em>) et entrantes (<em>Inbound</em>), suivies par pays (Europe vs US) et par scénario de performance.</td>
+        </tr>
+        <tr>
+          <td><strong>03 · Parties prenantes</strong></td>
+          <td><strong>Sponsors :</strong> Direction Commerciale (VP Sales) &amp; CEO (Olivier Pailhès) · <strong>Pilotage :</strong> Équipe RevOps / Data · <strong>Utilisateurs :</strong> Managers Sales &amp; Finance (CFO).</td>
+        </tr>
+        <tr>
+          <td><strong>04 · Architecture</strong></td>
+          <td>Base structurée <strong>Google Sheets / Excel</strong> (1 ligne = 1 observation vérifiée, zéro cellule fusionnée) branchée gratuitement sur <strong>Google Data Studio (Looker Studio)</strong> pour contourner le surcoût d'<em>Analytics+</em> (+15 $/mois).</td>
+        </tr>
+        <tr>
+          <td><strong>05 · Sobriété numérique</strong></td>
+          <td>Limitation volontaire à <strong>12 KPI prioritaires</strong> sur une vue synthétique unique afin d'éviter la surcharge cognitive et les requêtes serveur inutiles.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sec-title">3. Jalonnement du Projet sur les 6 Demi-Journées</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:14%;">Jalon</th>
+          <th style="width:22%;">Demi-Journées</th>
+          <th style="width:40%;">Activités Clés</th>
+          <th style="width:24%;">Livrable Validé</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="b-dark">Jalon 1</span></td>
+          <td><strong>Jour 1 (Matin &amp; AM)</strong></td>
+          <td>Cadrage projet + processus d'analyse et audit des sources vérifiées.</td>
+          <td>Note de cadrage + 4 tables sourcées.</td>
+        </tr>
+        <tr>
+          <td><span class="b-mint">Jalon 2</span></td>
+          <td><strong>Jour 2 (Matin)</strong></td>
+          <td>Benchmark sectoriel B2B et sélection des 12 KPI prioritaires.</td>
+          <td>Référentiel des 12 KPI &amp; formules.</td>
+        </tr>
+        <tr>
+          <td><span class="b-mint">Jalon 3</span></td>
+          <td><strong>Jour 2 (Après-midi)</strong></td>
+          <td>Construction du Dashboard opérationnel sur Google Data Studio.</td>
+          <td>Dashboard Data Studio (Lecteur).</td>
+        </tr>
+        <tr>
+          <td><span class="b-solid">Jalon 4</span></td>
+          <td><strong>Jour 3 (Matin &amp; AM)</strong></td>
+          <td>Dégagement des insights, recommandations chiffrées et soutenance.</td>
+          <td>Plan d'action ROI &amp; Support oral.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Aircall × Rocket School — Livrable 01 (Jour 1 Matin) : Note de cadrage du projet data</span>
+    <span>Page 1 / 6</span>
+  </div>
+</div></body></html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8">
+<title>Aircall — Livrable 06 : Note de Synthèse CoDir &amp; Soutenance Orale (A4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: 210mm 297mm;
+    margin: 0;
+  }
+  @media print {
+    body {
+      background: #FFFFFF !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .no-print { display: none !important; }
+    .a4-page {
+      width: 210mm !important;
+      height: 297mm !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      page-break-after: always !important;
+      break-after: page !important;
+      margin: 0 !important;
+      padding: 10mm 13mm 9mm !important;
+    }
+  }
+
+  :root {
+    --forest: #06241C;
+    --teal: #084032;
+    --emerald: #00BD82;
+    --mint: #EAF8F3;
+    --mint-border: #C5E8DC;
+    --white: #FFFFFF;
+    --offwhite: #F8FCFA;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  }
+
+  body {
+    background: #0B1B15;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .a4-page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    padding: 10mm 13mm 9mm;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .banner {
+    background: var(--forest);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 11px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 80px;
+    background: var(--emerald);
+    clip-path: polygon(0 0, 100% 0, 45% 100%, 0 100%);
+    opacity: 0.18;
+  }
+  .banner-left { position: relative; z-index: 2; }
+  .banner-right { position: relative; z-index: 2; }
+
+  .step-tag {
+    display: inline-block;
+    font-size: 7.5pt;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.12);
+    color: var(--emerald);
+    padding: 2.5px 9px;
+    border-radius: 999px;
+    margin-bottom: 3px;
+  }
+  .banner h1 {
+    font-size: 13pt;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    color: var(--white);
+    line-height: 1.15;
+  }
+  .banner h1 span { color: var(--emerald); }
+
+  .sec-title {
+    font-size: 8.6pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--teal);
+    margin: 6px 0 4px;
+    padding-left: 8px;
+    border-left: 3px solid var(--emerald);
+    line-height: 1.2;
+  }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 6px; }
+
+  .card {
+    background: var(--offwhite);
+    border: 1px solid var(--mint-border);
+    border-radius: 8px;
+    padding: 8px 11px;
+    text-align: left;
+  }
+  .card.featured {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: var(--white);
+  }
+  .card-index {
+    font-size: 6.8pt;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--mint-border);
+  }
+  .card.featured .card-index {
+    color: var(--emerald);
+    border-bottom-color: rgba(255,255,255,0.18);
+  }
+  .card h3 {
+    font-size: 8.2pt;
+    font-weight: 800;
+    margin-bottom: 2px;
+    color: var(--forest);
+  }
+  .card.featured h3 { color: var(--white); }
+  .card p {
+    font-size: 7.2pt;
+    line-height: 1.25;
+    color: #264A3E;
+    font-weight: 500;
+  }
+  .card.featured p { color: #D0E8DF; }
+
+  .callout {
+    background: var(--mint);
+    border: 1px solid var(--mint-border);
+    border-left: 4px solid var(--emerald);
+    border-radius: 8px;
+    padding: 7px 11px;
+    font-size: 7.6pt;
+    line-height: 1.35;
+    color: var(--forest);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--mint-border);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 7.2pt;
+    margin-bottom: 6px;
+    background: var(--white);
+  }
+  th {
+    background: var(--forest);
+    color: var(--white);
+    text-align: left;
+    padding: 4.5px 7px;
+    font-weight: 800;
+    font-size: 6.9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+  td {
+    padding: 4px 7px;
+    border-bottom: 1px solid #EBF5F0;
+    vertical-align: middle;
+    line-height: 1.2;
+    color: var(--forest);
+    font-weight: 500;
+  }
+  tr:nth-child(even) td { background: var(--offwhite); }
+  tr:last-child td { border-bottom: none; }
+
+  .b-solid { background: var(--emerald); color: var(--forest); font-weight: 800; padding: 1.5px 6px; border-radius: 999px; font-size: 6.8pt; display: inline-block; }
+  .b-dark { background: var(--forest); color: var(--white); font-weight: 800; padding: 1.5px 6px; border-radius: 999px; font-size: 6.8pt; display: inline-block; }
+  .b-mint { background: var(--mint); color: var(--forest); border: 1px solid var(--mint-border); font-weight: 800; padding: 1.5px 6px; border-radius: 999px; font-size: 6.8pt; display: inline-block; }
+
+  .page-footer {
+    border-top: 1px solid var(--mint-border);
+    padding-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.2pt;
+    color: var(--teal);
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+  }
+</style>
+</head><body><div class="a4-page">
+  
+<svg style="position:absolute; top:0; right:0; width:160px; height:160px; z-index:0; pointer-events:none;" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M180 0H50L135 140C148 160 162 172 180 175V0Z" fill="#EAF8F3"/>
+</svg>
+
+  <div class="page-content">
+    <div class="banner">
+      <div class="banner-left">
+        <div class="step-tag">LIVRABLE 06 · JOUR 3 APRÈS-MIDI</div>
+        <h1>Note de Synthèse Direction &amp; <span>Plan de Soutenance Orale</span></h1>
+      </div>
+      <div class="banner-right">
+        <span style="font-size:8.5pt; font-weight:800; color:var(--emerald);">aircall.</span>
+      </div>
+    </div>
+
+    <div class="sec-title">1. Synthèse Exécutive pour le CoDir d'Aircall</div>
+    <div class="callout">
+      <strong>À l'attention de la Direction Générale, Direction Commerciale &amp; Financière :</strong><br>
+      L'audit approfondi des 67 560 appels et 3,68 M€ d'ARR révèle un potentiel de croissance entravé par la dispersion d'effort (42,3 % des appels sur les TPE pour seulement 6,1 % du revenu) et l'exposition d'un churn de 20 % sur le cœur PME.<br>
+      Notre plan stratégique 2026 active <strong>2 décisions ROIstes avec calendrier de mise en œuvre cadré</strong> :<br>
+      <strong>(1) Stop Cold Call TPE ➔ Basculement Self-Serve (PLG)</strong> : réallocation de 28 545 appels vers les PME/MidMarket. <strong>Déploiement en 45 jours (Quick Win 0 €)</strong>, Time-to-Value à J+30-J+60 (routing CRM en S1-S2, quotas réalignés en S3-S4, Go-Live en S5-S6). <strong>Gain : +1,55 M$ ARR</strong>.<br>
+      <strong>(2) Sécurisation cœur PME ➔ 1 CSM Dédié + Onboarding Automatisé + Alertes Usage</strong> : protection des 2,25 M€ d'ARR et expansion. <strong>Déploiement en 90 jours (Q1-Q2, 58 000 € chargés)</strong>, Time-to-Value plein à J+60-J+90 (Mois 1 Recrutement &amp; triggers tech, Mois 2 Arrivée CSM &amp; sauvetage 20 comptes, Mois 3 QBRs &amp; churn &lt; 5%). <strong>Gain : +1,45 M$ ARR (ROI ×25)</strong>.<br>
+      <strong>Impact financier net consolidé : +3,00 M$ d'ARR pour un ROI global de ×52.</strong>
+    </div>
+
+    <div class="sec-title">2. Usage Critique des Données &amp; Traçabilité des Sources (Évalué sur /15)</div>
+    <div class="grid-3">
+      <div class="card featured">
+        <div class="card-index">01 · CAS D'ÉTUDE OFFICIEL</div>
+        <h3>Référentiel Rocket School</h3>
+        <p>Volumes bruts certifiés : <strong>67 560 appels</strong>, <strong>11 190 connects</strong>, <strong>358 signatures</strong>, <strong>3,68 M€ ARR</strong> et ventilation TPE/PME/MidMarket.</p>
+      </div>
+      <div class="card">
+        <div class="card-index">02 · CONTEXTE PUBLIC</div>
+        <h3>Sources aircall.io</h3>
+        <p>Positionnement licorne SaaS téléphonie cloud, présence dans <strong>+100 pays</strong> et catalogue de <strong>+100 intégrations CRM natives</strong>.</p>
+      </div>
+      <div class="card">
+        <div class="card-index">03 · CADRE PÉDAGOGIQUE</div>
+        <h3>Données Simulées Test</h3>
+        <p>Répartition nominative des <strong>10 SDRs</strong>, écart d'ancienneté (Camille 26 mois vs Maxime 3 mois) et attribution granulaire par canal.</p>
+      </div>
+    </div>
+
+    <div class="sec-title">3. Déroulé Chronométré de la Soutenance Orale (15 Minutes · 8 Slides)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:14%;">Temps</th>
+          <th style="width:16%;">Slides</th>
+          <th style="width:48%;">Messages Clés &amp; Démonstration Face au Jury</th>
+          <th style="width:22%;">Objectif Posture</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>0:00 – 3:00</strong></td>
+          <td><span class="b-dark">Slide 1 &amp; 2</span></td>
+          <td><strong>Identité Aircall &amp; Cadrage CoDir</strong> : Présentation de la licorne (250 M$ ARR, +100 pays) et alignement des 3 décideurs (Commercial, Finance, IT).</td>
+          <td><span class="b-mint">Crédibilité &amp; Cadre</span></td>
+        </tr>
+        <tr>
+          <td><strong>3:00 – 6:30</strong></td>
+          <td><span class="b-mint">Slide 3 &amp; 4</span></td>
+          <td><strong>« Trop de KPI tue les KPI » &amp; Cockpit Data</strong> : Pyramide inversée (20 ➔ 12 ➔ 5 KPI rois). Démo live Looker Studio (9 blocs sans chevauchement, filtres dynamiques).</td>
+          <td><span class="b-mint">Maîtrise Data</span></td>
+        </tr>
+        <tr>
+          <td><strong>6:30 – 11:30</strong></td>
+          <td><span class="b-solid">Slide 5 &amp; 6</span></td>
+          <td><strong>Les 2 Arbitrages ROIstes &amp; Faisabilité Temps</strong> :<br>
+          • Problème 1 (TPE) : Déploiement 45j (Quick Win 0€), TTV J+30-J+60 (+1,55 M$).<br>
+          • Problème 2 (PME) : Déploiement 90j (58 k€), TTV J+60-J+90, ROI ×25 (+1,45 M$).</td>
+          <td><span class="b-solid">Force de Conviction</span></td>
+        </tr>
+        <tr>
+          <td><strong>11:30 – 15:00</strong></td>
+          <td><span class="b-dark">Slide 7 &amp; 8</span></td>
+          <td><strong>Impact Consolidé &amp; Transparence</strong> : Bilan +3,00 M$ ARR / ROI ×52. Matrice d'intégrité des 3 sources de données. Échanges &amp; Q&amp;A CoDir.</td>
+          <td><span class="b-mint">Rigueur &amp; Clôture</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Aircall × Rocket School — Livrable 06 (Jour 3 Après-midi) : Synthèse CoDir &amp; Soutenance Orale</span>
+    <span>Page 6 / 6</span>
+  </div>
+</div></body></html>
