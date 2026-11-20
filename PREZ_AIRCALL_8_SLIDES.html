@@ -90,7 +90,7 @@
       background: radial-gradient(circle at 80% 20%, #0B2D22 0%, #061B14 70%) !important;
       box-sizing: border-box !important;
     }
-    .bottom-nav-bar, .nav-arrow, .view-toggle-bar, #liveContainer {
+    .bottom-nav-bar, .nav-arrow, .view-toggle-bar, #liveContainer, .kpi-modal-overlay, #zoomModal {
       display: none !important;
     }
     #captureContainer {
@@ -828,6 +828,232 @@
     pointer-events: none;
     backdrop-filter: blur(4px);
   }
+  
+  /* KPI DRILL-DOWN MODAL & HOVER CUES */
+  .block-card {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+  }
+  .block-card:hover {
+    border-color: var(--emerald-bright) !important;
+    background: rgba(0, 179, 136, 0.22) !important;
+    transform: translateX(-4px);
+    box-shadow: 0 4px 18px rgba(0, 230, 164, 0.28);
+  }
+  .drilldown-cue {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: var(--emerald-bright);
+    background: rgba(0, 230, 164, 0.14);
+    border: 1px solid rgba(0, 230, 164, 0.4);
+    padding: 1.5px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .block-card:hover .drilldown-cue {
+    background: var(--emerald-bright);
+    color: #061B14;
+    border-color: var(--emerald-bright);
+  }
+
+  /* MODAL OVERLAY */
+  .kpi-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(4, 16, 12, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 99999999;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .kpi-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+  .kpi-modal-box {
+    background: linear-gradient(150deg, #09261D 0%, #051811 100%);
+    border: 1px solid var(--emerald-bright);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 230, 164, 0.3);
+    width: 100%;
+    max-width: 820px;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: kpiModalPop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes kpiModalPop {
+    from { transform: scale(0.93) translateY(10px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  .kpi-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.28);
+  }
+  .kpi-modal-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .kpi-modal-tag {
+    font-size: 10px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .kpi-modal-title {
+    font-size: 19px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: -0.3px;
+  }
+  .kpi-modal-close {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 800;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+  }
+  .kpi-modal-close:hover {
+    background: #EF4444;
+    border-color: #EF4444;
+    color: #FFFFFF;
+    transform: rotate(90deg);
+  }
+  .kpi-modal-body {
+    padding: 20px 22px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .kpi-modal-kpis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .kpi-modal-mini-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+  .kpi-modal-mini-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .kpi-modal-mini-val {
+    font-size: 19px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+    margin-top: 3px;
+    letter-spacing: -0.2px;
+  }
+  .kpi-chart-box {
+    background: rgba(0, 0, 0, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 18px;
+  }
+  .kpi-chart-title {
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .kpi-bars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .kpi-bar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .kpi-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #E2E8F0;
+  }
+  .kpi-bar-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .kpi-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+  }
+  .bar-accent-green { background: var(--emerald-bright); }
+  .bar-accent-blue { background: #3B82F6; }
+  .bar-accent-amber { background: #F59E0B; }
+  .bar-accent-red { background: #EF4444; }
+  .bar-accent-purple { background: #A78BFA; }
+
+  .kpi-insight-card {
+    background: rgba(0, 179, 136, 0.12);
+    border-left: 4px solid var(--emerald-bright);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .kpi-insight-tag {
+    font-size: 9.5px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .kpi-insight-text {
+    font-size: 12px;
+    color: #E2E8F0;
+    line-height: 1.45;
+  }
+
   #zoomModal {
     display: none;
     position: fixed;
@@ -1763,10 +1989,13 @@
 
         <!-- RIGHT: 6 RATIOS CALCULÉS EN DIRECT SUR LES DONNÉES LOOKER -->
         <div class="nine-blocks-sidebar">
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(1)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">1.</span> Taux de Décroché</span>
-              <span class="block-card-badge">Activité</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Activité</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">16,56 %</span>
@@ -1775,10 +2004,13 @@
             <div class="block-card-desc">11 190 décrochés sur 67 560 appels passés.</div>
           </div>
 
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(2)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">2.</span> Taux de Démo / Connect</span>
-              <span class="block-card-badge">Pitch SDR</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Pitch SDR</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">6,78 %</span>
@@ -1787,10 +2019,13 @@
             <div class="block-card-desc">759 démos calées sur 11 190 appels utiles.</div>
           </div>
 
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(3)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">3.</span> Taux de Closing Démo</span>
-              <span class="block-card-badge">Conversion AE</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Conversion AE</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">47,17 %</span>
@@ -1799,10 +2034,13 @@
             <div class="block-card-desc">358 contrats closés sur 759 démos présentées.</div>
           </div>
 
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(4)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">4.</span> Transformation Globale</span>
-              <span class="block-card-badge">Funnel Entier</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Funnel Entier</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">0,53 %</span>
@@ -1811,10 +2049,13 @@
             <div class="block-card-desc">358 signatures sur les 67 560 appels totaux.</div>
           </div>
 
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(5)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">5.</span> Panier Moyen (ACV)</span>
-              <span class="block-card-badge">Valeur / Deal</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Valeur / Deal</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">10 291 €</span>
@@ -1823,10 +2064,13 @@
             <div class="block-card-desc">TPE : 3 725 € vs PME : 9 617 € vs Mid : 18 909 €.</div>
           </div>
 
-          <div class="block-card highlight">
+          <div class="block-card highlight" onclick="openKpiModal(6)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">6.</span> Part ARR Cœur PME</span>
-              <span class="block-card-badge" style="background:var(--emerald-bright); color:#061B14;">Cœur de Cible</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge" style="background:var(--emerald-bright); color:#061B14;">Cœur de Cible</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">61,1 %</span>
@@ -2323,6 +2567,11 @@
   });
 
   window.addEventListener('keydown', (e) => {
+    const kpiModal = document.getElementById('kpiDrilldownModal');
+    if (kpiModal && kpiModal.classList.contains('active')) {
+      if (e.key === 'Escape') closeKpiModal();
+      return;
+    }
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
       showSlide(currentSlide + 1);
     } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
@@ -2331,6 +2580,22 @@
   });
 </script>
 
+
+<!-- KPI DRILL-DOWN MODAL -->
+<div id="kpiDrilldownModal" class="kpi-modal-overlay" onclick="closeKpiModalOnBackdrop(event)">
+  <div class="kpi-modal-box" onclick="event.stopPropagation()">
+    <div class="kpi-modal-header">
+      <div class="kpi-modal-header-left">
+        <span class="kpi-modal-tag" id="kpiModalTag">DRILL-DOWN DÉCISIONNEL REVOPS</span>
+        <h3 class="kpi-modal-title" id="kpiModalTitle">Taux de Décroché</h3>
+      </div>
+      <button type="button" class="kpi-modal-close" onclick="closeKpiModal()" title="Fermer [Échap]">✕</button>
+    </div>
+    <div class="kpi-modal-body" id="kpiModalBody">
+      <!-- Rendu dynamique par openKpiModal() -->
+    </div>
+  </div>
+</div>
 
 <!-- ZOOM MODAL LIGHTBOX -->
 <div id="zoomModal">
@@ -2426,6 +2691,180 @@
       });
     }
   }
+
+  /* KPI DRILL-DOWN MODAL LOGIC & DATASET */
+  const kpiModalData = {
+    1: {
+      badge: "DRILL-DOWN REVOPS • KPI N°1",
+      title: "Taux de Décroché : 16,56 % (Volume d'Appels & Canaux)",
+      kpis: [
+        { label: "Appels Totaux Passés", val: "67 560" },
+        { label: "Conversations Utiles", val: "11 190" },
+        { label: "Benchmark Marché SaaS", val: "14,0 % (+2,6 pts)" }
+      ],
+      chartTitle: "Taux de Décroché par Canal d'Acquisition Commerciale",
+      bars: [
+        { label: "Inbound Leads (Demandes entrantes site & démos)", sub: "2 150 décrochés / 8 890 appels", valDisplay: "24,18 %", pctFill: 24.18, colorClass: "bar-accent-green" },
+        { label: "Partenaires CRM (Écosystème HubSpot & Salesforce)", sub: "2 860 décrochés / 14 430 appels", valDisplay: "19,82 %", pctFill: 19.82, colorClass: "bar-accent-blue" },
+        { label: "Outbound Cold Call (Démarchage téléphonique à froid)", sub: "6 180 décrochés / 44 240 appels", valDisplay: "14,02 %", pctFill: 14.02, colorClass: "bar-accent-amber" },
+        { label: "Benchmark SaaS Téléphonie B2B", sub: "Moyenne sectorielle de référence", valDisplay: "14,00 %", pctFill: 14.00, colorClass: "bar-accent-purple" }
+      ],
+      insightTag: "Arbitrage RevOps CoDir",
+      insightText: "L'Outbound froid absorbe 65,5% du volume d'appels mais souffre du plus faible taux de décroché (14,0%). Les canaux Partenaires et Inbound génèrent +41% à +72% d'appels utiles en plus par heure passée. <strong>Action CoDir :</strong> Réorienter 20% du temps SDR sur la réactivation Inbound & Partenaires."
+    },
+    2: {
+      badge: "DRILL-DOWN REVOPS • KPI N°2",
+      title: "Taux de Démo / Connect : 6,78 % (Qualification SDR)",
+      kpis: [
+        { label: "Connects Utiles", val: "11 190" },
+        { label: "Démos R1 Obtenues", val: "759" },
+        { label: "Écart Top vs Flop", val: "x 2,38" }
+      ],
+      chartTitle: "Taux de Qualification Démo par Commercial (Équipe de 10 SDRs)",
+      bars: [
+        { label: "Camille (Top Performer de l'équipe)", sub: "178 démos calées / 1 815 connects utiles", valDisplay: "9,81 %", pctFill: 98.1, colorClass: "bar-accent-green" },
+        { label: "Lucas", sub: "122 démos calées / 1 450 connects utiles", valDisplay: "8,41 %", pctFill: 84.1, colorClass: "bar-accent-green" },
+        { label: "Sarah", sub: "95 démos calées / 1 340 connects utiles", valDisplay: "7,09 %", pctFill: 70.9, colorClass: "bar-accent-blue" },
+        { label: "Alexandre", sub: "89 démos calées / 1 300 connects utiles", valDisplay: "6,85 %", pctFill: 68.5, colorClass: "bar-accent-blue" },
+        { label: "Moyenne Équipe SDR (10 Commerciaux)", sub: "759 démos totales / 11 190 connects", valDisplay: "6,78 %", pctFill: 67.8, colorClass: "bar-accent-purple" },
+        { label: "Thomas", sub: "58 démos calées / 1 115 connects utiles", valDisplay: "5,20 %", pctFill: 52.0, colorClass: "bar-accent-amber" },
+        { label: "Maxime (Difficulté structurelle sur le pitch)", sub: "42 démos calées / 1 020 connects utiles", valDisplay: "4,12 %", pctFill: 41.2, colorClass: "bar-accent-red" }
+      ],
+      insightTag: "Plan de Coaching & Playbook",
+      insightText: "L'écart de 1 à 2,4 entre Camille (9,8%) et Maxime (4,1%) démontre que le blocage n'est pas le marché mais le manque de standardisation du pitch. Amener les 10 SDRs au niveau médian (8%) générerait <strong>+185 démos supplémentaires par an sans aucun recrutement</strong>. Action : playbook Notion + double écoute VoIP Aircall hebdomadaire."
+    },
+    3: {
+      badge: "DRILL-DOWN REVOPS • KPI N°3",
+      title: "Taux de Closing Démo : 47,17 % (Conversion Account Executive)",
+      kpis: [
+        { label: "Démos Présentées", val: "759" },
+        { label: "Contrats Closés Signés", val: "358" },
+        { label: "Cycle Moyen de Vente", val: "34,5 jours" }
+      ],
+      chartTitle: "Taux de Conversion en Closing par Segment d'Entreprise",
+      bars: [
+        { label: "TPE (< 20 salariés) — Vente transactionnelle rapide", sub: "136 contrats closés / 246 démos présentées", valDisplay: "55,28 %", pctFill: 55.28, colorClass: "bar-accent-green" },
+        { label: "PME (20 à 250 salariés) — Cœur de cible rentabilité", sub: "234 contrats closés / 490 démos présentées", valDisplay: "47,76 %", pctFill: 47.76, colorClass: "bar-accent-green" },
+        { label: "Mid-Market (> 250 salariés) — Vente complexe multi-décideurs", sub: "49 contrats closés / 128 démos présentées", valDisplay: "38,28 %", pctFill: 38.28, colorClass: "bar-accent-blue" },
+        { label: "Benchmark Marché SaaS B2B", sub: "Moyenne sectorielle de conversion AE", valDisplay: "30,00 %", pctFill: 30.00, colorClass: "bar-accent-purple" }
+      ],
+      insightTag: "Constat Majeur CoDir",
+      insightText: "Avec 47,2% de closing (près de 1 démo sur 2 convertie en contrat), le taux de transfo des Account Executives est excellent et bat largement le marché (+15 pts). <strong>Diagnostic RevOps :</strong> Le goulot d'étranglement de l'entreprise n'est absolument pas l'équipe de closing AE, mais le filtrage et la qualité des rendez-vous en amont."
+    },
+    4: {
+      badge: "DRILL-DOWN REVOPS • KPI N°4",
+      title: "Transformation Globale : 0,53 % (Entonnoir Commercial End-to-End)",
+      kpis: [
+        { label: "Appels Totaux", val: "67 560" },
+        { label: "Signatures Finales", val: "358" },
+        { label: "Effort Commercial", val: "1 Deal / 189 Appels" }
+      ],
+      chartTitle: "Déperdition Complète du Funnel Commercial (10 SDRs)",
+      bars: [
+        { label: "1. Appels Passés Bruts (Base 100%)", sub: "67 560 appels émis sur l'année", valDisplay: "100,0 %", pctFill: 100.0, colorClass: "bar-accent-blue" },
+        { label: "2. Conversations Utiles (Décroché 16,56%)", sub: "11 190 prospects ayant décroché le téléphone", valDisplay: "16,56 %", pctFill: 16.56, colorClass: "bar-accent-amber" },
+        { label: "3. Démos R1 Confirmées (1,12% des appels)", sub: "759 démos calées dans l'agenda des AEs", valDisplay: "1,12 %", pctFill: 11.2, colorClass: "bar-accent-purple" },
+        { label: "4. Contrats Signés Finaux (0,53% des appels)", sub: "358 deals gagnés pour 3,68 M€ d'ARR", valDisplay: "0,53 %", pctFill: 5.3, colorClass: "bar-accent-green" }
+      ],
+      insightTag: "Loi des Grands Nombres & Déperdition",
+      insightText: "Il faut <strong>189 coups de fil pour obtenir un seul contrat</strong>. Consacrer 42% de ces appels manuels à des cibles TPE à très faible valeur détruit la marge opérationnelle de l'équipe commerciale. L'enjeu RevOps est d'optimiser l'effort : chaque appel SDR doit impérativement cibler un compte PME à fort ACV."
+    },
+    5: {
+      badge: "DRILL-DOWN REVOPS • KPI N°5",
+      title: "Panier Moyen ACV : 10 291 € (Valeur Annuelle Moyenne par Deal)",
+      kpis: [
+        { label: "ARR Total Signé", val: "3,68 M€" },
+        { label: "Nombre de Signatures", val: "358" },
+        { label: "Multiplicateur PME / TPE", val: "2,58x" }
+      ],
+      chartTitle: "Valeur Moyenne Annuelle du Contrat (ACV) par Typologie de Client",
+      bars: [
+        { label: "Mid-Market (> 250 salariés)", sub: "18 909 € / an · 49 contrats (926,5 k€ ARR)", valDisplay: "18 909 €", pctFill: 100.0, colorClass: "bar-accent-blue" },
+        { label: "Moyenne Globale Aircall", sub: "10 291 € / an · 358 contrats closés (3,68 M€ ARR)", valDisplay: "10 291 €", pctFill: 54.42, colorClass: "bar-accent-purple" },
+        { label: "PME (20 à 250 salariés) — Cœur de Cible", sub: "9 617 € / an · 234 contrats (2,25 M€ ARR)", valDisplay: "9 617 €", pctFill: 50.86, colorClass: "bar-accent-green" },
+        { label: "TPE (< 20 salariés) — Faible valeur unitaire", sub: "3 725 € / an · 136 contrats (506,6 k€ ARR)", valDisplay: "3 725 €", pctFill: 19.70, colorClass: "bar-accent-red" }
+      ],
+      insightTag: "Arbitrage Économique DAF",
+      insightText: "Le temps passé par un commercial pour closer une TPE (3 725 €) est quasi identique à celui requis pour une PME (9 617 €), pour un rendement <strong>2,6 fois inférieur</strong>. En concentrant l'effort commercial sur la PME et le Mid-Market, le panier moyen global bondit mécaniquement de +38%."
+    },
+    6: {
+      badge: "DRILL-DOWN REVOPS • KPI N°6",
+      title: "Part ARR Cœur PME : 61,1 % (Le Pivot Stratégique CoDir)",
+      kpis: [
+        { label: "ARR Cœur PME", val: "2,25 M€" },
+        { label: "Part dans l'ARR Global", val: "61,09 %" },
+        { label: "Heures SDR Libérées", val: "4 200 h/an" }
+      ],
+      chartTitle: "Répartition de l'ARR Total (3,68 M€) par Typologie de Client",
+      bars: [
+        { label: "PME (20 à 250 salariés) — Cœur de rentabilité", sub: "2 250 300 € d'ARR (234 contrats) · 61,09% du CA", valDisplay: "61,09 %", pctFill: 61.09, colorClass: "bar-accent-green" },
+        { label: "Mid-Market (> 250 salariés) — Grands Comptes", sub: "926 500 € d'ARR (49 contrats) · 25,15% du CA", valDisplay: "25,15 %", pctFill: 25.15, colorClass: "bar-accent-blue" },
+        { label: "TPE (< 20 salariés) — Dispersion commerciale", sub: "506 600 € d'ARR (136 contrats) · 13,75% du CA", valDisplay: "13,75 %", pctFill: 13.75, colorClass: "bar-accent-red" }
+      ],
+      insightTag: "La Décision Clé de la Soutenance",
+      insightText: "<strong>Le paradoxe TPE :</strong> Les TPE consomment 42% des appels passés pour ne générer que 13,8% du revenu total. <strong>Décision CoDir :</strong> Automatiser la TPE en souscription 100% self-serve sur le site web sous 45 jours. Cela libère 4 200 heures d'appels réinvesties sur la PME pour générer <strong>+2,16 M$ d'ARR additionnel</strong>."
+    }
+  };
+
+  function openKpiModal(id) {
+    const data = kpiModalData[id];
+    if (!data) return;
+    
+    document.getElementById('kpiModalTag').innerHTML = data.badge;
+    document.getElementById('kpiModalTitle').innerHTML = data.title;
+    
+    const body = document.getElementById('kpiModalBody');
+    body.innerHTML = `
+      <div class="kpi-modal-kpis-grid">
+        ${data.kpis.map(k => `
+          <div class="kpi-modal-mini-card">
+            <div class="kpi-modal-mini-label">${k.label}</div>
+            <div class="kpi-modal-mini-val">${k.val}</div>
+          </div>
+        `).join('')}
+      </div>
+      
+      <div class="kpi-chart-box">
+        <div class="kpi-chart-title">
+          <span>${data.chartTitle}</span>
+          <span style="font-size:9.5px; color:var(--text-muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">Données Vérifiées Aircall</span>
+        </div>
+        <div class="kpi-bars-list">
+          ${data.bars.map(b => `
+            <div class="kpi-bar-item">
+              <div class="kpi-bar-header">
+                <span>${b.label} <span style="font-size:10px; color:var(--text-muted); font-weight:500;">(${b.sub})</span></span>
+                <strong style="color:var(--emerald-bright);">${b.valDisplay}</strong>
+              </div>
+              <div class="kpi-bar-track">
+                <div class="kpi-bar-fill ${b.colorClass}" style="width: ${Math.min(100, Math.max(3, b.pctFill))}%;"></div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      
+      <div class="kpi-insight-card">
+        <div class="kpi-insight-tag">${data.insightTag}</div>
+        <div class="kpi-insight-text">${data.insightText}</div>
+      </div>
+    `;
+    
+    const modal = document.getElementById('kpiDrilldownModal');
+    modal.classList.add('active');
+  }
+
+  function closeKpiModal() {
+    const modal = document.getElementById('kpiDrilldownModal');
+    if (modal) modal.classList.remove('active');
+  }
+
+  function closeKpiModalOnBackdrop(e) {
+    if (e.target && e.target.id === 'kpiDrilldownModal') {
+      closeKpiModal();
+    }
+  }
+
 </script>
 
 
