@@ -337,12 +337,48 @@
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: rgba(0, 179, 136, 0.15);
-    border: 1px solid var(--emerald);
+    background: rgba(0, 179, 136, 0.12);
+    border: 1.5px solid var(--emerald);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--emerald-bright);
+    flex-shrink: 0;
+  }
+  .fact-bullet-red {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    color: #EF4444;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+    line-height: 1;
+  }
+  .fact-bullet-green {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(0, 189, 130, 0.18);
+    border: 1px solid rgba(0, 189, 130, 0.5);
+    color: var(--emerald-bright);
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+    line-height: 1;
   }
   .director-role {
     font-size: 15px;
@@ -716,7 +752,7 @@
     line-height: 1.3;
   }
   .dashboard-img-box::after {
-    content: "🔍 Cliquer pour Agrandir en Plein Écran";
+    content: "Cliquer pour Agrandir en Plein Écran";
     position: absolute;
     bottom: 8px;
     right: 8px;
@@ -1325,14 +1361,14 @@
       </div>
       <div class="top-right-meta">
         
-        <span class="meta-pill">🦄 Licorne Téléphonie Cloud</span>
+        <span class="meta-pill">Licorne Téléphonie Cloud</span>
         <span class="slide-num">01 / 08</span>
       </div>
     </div>
 
     <div class="content">
       <div class="header-block">
-        <div class="header-badge">🚀 AUDIT REVOPS &amp; PERFORMANCE COMMERCIALE</div>
+        <div class="header-badge">AUDIT REVOPS &amp; PERFORMANCE COMMERCIALE</div>
         <h1>Aircall en <span class="accent">4 Chiffres Clés</span></h1>
         <div class="subtitle">Standard téléphonique cloud connecté nativement aux CRM — Modèle SaaS B2B mondial.</div>
       </div>
@@ -1340,7 +1376,7 @@
       <div class="grid-4">
         <div class="card card-highlight">
           <div>
-            <div class="card-badge">💎 VALORISATION &amp; ARR</div>
+            <div class="card-badge">VALORISATION &amp; ARR</div>
             <div class="stat-giant">250 M$</div>
             <div class="stat-label">ARR Global</div>
             <div class="stat-desc">Abonnements SaaS récurrents annuels mondiaux (statut licorne).</div>
@@ -1353,7 +1389,7 @@
 
         <div class="card">
           <div>
-            <div class="card-badge">🌍 CLIENTS ACTIFS</div>
+            <div class="card-badge">CLIENTS ACTIFS</div>
             <div class="stat-giant">24 000+</div>
             <div class="stat-label">Entreprises Clientes</div>
             <div class="stat-desc">Sociétés déployées à l'international dans plus de 100 pays.</div>
@@ -1366,7 +1402,7 @@
 
         <div class="card">
           <div>
-            <div class="card-badge">👥 UTILISATEURS ACTIFS</div>
+            <div class="card-badge">UTILISATEURS ACTIFS</div>
             <div class="stat-giant">85 000+</div>
             <div class="stat-label">Commerciaux &amp; Support</div>
             <div class="stat-desc">Professionnels qui passent leurs appels chaque jour sur Aircall.</div>
@@ -1379,7 +1415,7 @@
 
         <div class="card">
           <div>
-            <div class="card-badge">⚡ ÉCOSYSTÈME CRM &amp; APPS</div>
+            <div class="card-badge">ÉCOSYSTÈME CRM &amp; APPS</div>
             <div class="stat-giant">100+</div>
             <div class="stat-label">Intégrations Natives</div>
             <div class="stat-desc">Synchronisation en 1 clic avec Salesforce, HubSpot, Zendesk et Slack.</div>
@@ -1412,7 +1448,7 @@
 
     <div class="content">
       <div class="header-block">
-        <div class="header-badge">🤝 INSTANCES DÉCISIONNELLES &amp; MÉTHODE</div>
+        <div class="header-badge">INSTANCES DÉCISIONNELLES &amp; MÉTHODE</div>
         <h2>Les 3 Décideurs CoDir &amp; <span class="accent">Cheminement Cadré</span></h2>
         <div class="subtitle">Validation tripartite indispensable pour engager les arbitrages de croissance.</div>
       </div>
@@ -1420,21 +1456,21 @@
       <div class="gov-flow-container">
         <div class="gov-directors">
           <div class="director-card">
-            <div class="director-avatar">🎯</div>
+            <div class="director-avatar">DIR</div>
             <div class="director-role">Directeur Commercial</div>
             <div class="director-focus">Priorisation Pipe &amp; SDRs</div>
             <div class="director-duty">Valide le réalignement des 10 commerciaux et les quotas de conversion PME.</div>
           </div>
 
           <div class="director-card" style="border-color: var(--emerald-bright);">
-            <div class="director-avatar" style="border-color: var(--emerald-bright);">💰</div>
+            <div class="director-avatar" style="border-color: var(--emerald-bright); color: var(--emerald-bright);">DAF</div>
             <div class="director-role">Directeur Financier</div>
             <div class="director-focus" style="background: rgba(0, 230, 164, 0.2);">Validation Business Case &amp; ROI</div>
             <div class="director-duty">Arbitre le budget d'embauche (58 k€) et garantit la rentabilité nette (+3,00 M$).</div>
           </div>
 
           <div class="director-card">
-            <div class="director-avatar">⚙️</div>
+            <div class="director-avatar">DSI</div>
             <div class="director-role">Directeur IT &amp; Tech</div>
             <div class="director-focus">Faisabilité CRM &amp; Looker</div>
             <div class="director-duty">Valide la fiabilité des flux de données et l'automatisation du portail self-serve.</div>
@@ -1480,7 +1516,7 @@
 
     <div class="content">
       <div class="header-block">
-        <div class="header-badge">⚠️ DIAGNOSTIC &amp; ENTONNOIR</div>
+        <div class="header-badge">DIAGNOSTIC &amp; ENTONNOIR</div>
         <h2>« Trop de KPI tue les KPI » : <span class="accent">L'Entonnoir Décisionnel</span></h2>
         <div class="subtitle">Comment extraire la clarté stratégique d'une masse de métriques brutes.</div>
       </div>
@@ -1537,7 +1573,7 @@
 
               <!-- TIER 3 : 5 INDICATEURS ROIS (BOTTOM INVERTED TRIANGLE - ZÉRO DÉBORDEMENT) -->
               <polygon points="258,132 662,132 460,198" fill="url(#pyrTier3)" stroke="#FFFFFF" stroke-width="2" filter="url(#tipGlow)"/>
-              <text x="460" y="153" text-anchor="middle" fill="#061B14" font-size="12.5" font-weight="900" letter-spacing="0.8">👑 5 INDICATEURS ROIS</text>
+              <text x="460" y="153" text-anchor="middle" fill="#061B14" font-size="12.5" font-weight="900" letter-spacing="0.8">5 INDICATEURS ROIS</text>
               <text x="460" y="170" text-anchor="middle" fill="#061B14" font-size="8.5" font-weight="800" letter-spacing="0.5">PILOTAGE CODIR</text>
             </svg>
           </div>
@@ -1573,7 +1609,7 @@
       <div class="two-problems-block">
         <div class="problem-box">
           <div>
-            <div class="problem-tag">🚨 PROBLÈME MAJEUR N°1 · ENTONNOIR TPE</div>
+            <div class="problem-tag">PROBLÈME MAJEUR N°1 · ENTONNOIR TPE</div>
             <div class="problem-title">Dispersion d'Énergie sur les Petits Comptes</div>
           </div>
           <span class="chip-red">42% Effort ➔ 6% ARR</span>
@@ -1581,7 +1617,7 @@
 
         <div class="problem-box">
           <div>
-            <div class="problem-tag">🚨 PROBLÈME MAJEUR N°2 · ENTONNOIR PME</div>
+            <div class="problem-tag">PROBLÈME MAJEUR N°2 · ENTONNOIR PME</div>
             <div class="problem-title">Risque de Churn Massif Faute de CSM</div>
           </div>
           <span class="chip-red">2,25 M€ Menacés (20% Churn)</span>
@@ -1609,7 +1645,7 @@
 
     <div class="content">
       <div class="header-block">
-        <div class="header-badge">📊 COCKPIT DÉCISIONNEL INTERACTIF</div>
+        <div class="header-badge">COCKPIT DÉCISIONNEL INTERACTIF</div>
         <h2>Tableau de Bord Looker Studio : <span class="accent">Architecture 9 Blocs</span></h2>
         <div class="subtitle">Zéro chevauchement, double filtrage dynamique et persistance Cloud intégrale.</div>
       </div>
@@ -1620,8 +1656,8 @@
         <!-- LEFT: HERO DASHBOARD ZONE (WITHOUT BLACK BORDERS) -->
         <div class="dashboard-left-zone">
           <div class="view-toggle-bar">
-            <button type="button" class="toggle-btn active" id="tabLive">🔴 Mode Live Interactif (iframe)</button>
-            <button type="button" class="toggle-btn" id="tabCapture">🖼️ Capture HD Sécurisée</button>
+            <button type="button" class="toggle-btn active" id="tabLive">Mode Live Interactif (iframe)</button>
+            <button type="button" class="toggle-btn" id="tabCapture">Capture HD Sécurisée</button>
             <button type="button" class="toggle-btn" id="btnFullscreen">⛶ Plein Écran</button>
             <a href="https://datastudio.google.com/reporting/c201c591-05f7-40ca-adcf-a6a2e9f77384/page/AqxDG?pli=1" target="_blank" class="toggle-btn link-external">↗ Ouvrir Looker Studio</a>
           </div>
@@ -1708,7 +1744,7 @@
 
     <div class="content">
       <div class="header-block">
-        <div class="header-badge">🚨 AUDIT &amp; ARBITRAGE N°1</div>
+        <div class="header-badge">AUDIT &amp; ARBITRAGE N°1</div>
         <h2>Arbitrage 1 : <span style="color:#EF4444;">Arrêt du Cold Call TPE</span> ➔ <span class="accent">Basculement 100% Self-Serve</span></h2>
         <div class="subtitle">Stopper l'hémorragie commerciale sur les micro-comptes pour libérer 100% de la force de frappe sur le cœur PME.</div>
       </div>
@@ -1719,7 +1755,7 @@
         <!-- BLOC GAUCHE : LE PROBLÈME EN ROUGE -->
         <div class="visavis-col problem-side">
           <div class="visavis-banner problem-banner">
-            <span class="visavis-tag">🚨 1. LE PROBLÈME IDENTIFIÉ</span>
+            <span class="visavis-tag">1. LE PROBLÈME IDENTIFIÉ</span>
             <span class="visavis-badge-red">Dispersion à Perte</span>
           </div>
           <div class="visavis-body">
@@ -1729,15 +1765,15 @@
             </div>
             <div class="visavis-facts-list">
               <div class="fact-item">
-                <span class="fact-icon">📉</span>
+                <span class="fact-bullet-red">—</span>
                 <div class="fact-text"><strong>28 545 appels passés pour seulement 6% de l'ARR</strong> (223 500 € récoltés sur 3,68 M€).</div>
               </div>
               <div class="fact-item">
-                <span class="fact-icon">💸</span>
+                <span class="fact-bullet-red">—</span>
                 <div class="fact-text"><strong>Panier moyen 2,5× plus faible</strong> : 3 725 € en TPE contre 9 617 € sur les PME.</div>
               </div>
               <div class="fact-item">
-                <span class="fact-icon">🛑</span>
+                <span class="fact-bullet-red">—</span>
                 <div class="fact-text"><strong>Taux de conversion 4× inférieur</strong> (2,58% vs 9,73%). Coût d'acquisition commercial supérieur à la valeur client (CAC &gt; LTV).</div>
               </div>
             </div>
@@ -1747,7 +1783,7 @@
         <!-- BLOC DROIT : LA SOLUTION EN VERT -->
         <div class="visavis-col solution-side">
           <div class="visavis-banner solution-banner">
-            <span class="visavis-tag">✅ 2. LA SOLUTION IMMÉDIATE</span>
+            <span class="visavis-tag">2. LA SOLUTION IMMÉDIATE</span>
             <span class="visavis-badge-green">Arbitrage Self-Serve (PLG)</span>
           </div>
           <div class="visavis-body">
@@ -1757,22 +1793,22 @@
             </div>
             <div class="visavis-facts-list">
               <div class="fact-item">
-                <span class="fact-icon">🛑</span>
+                <span class="fact-bullet-green">✓</span>
                 <div class="fact-text"><strong>Arrêt immédiat du Cold Calling TPE</strong> : Redirection automatique vers démo vidéo &amp; souscription en ligne 100% autonome.</div>
               </div>
               <div class="fact-item">
-                <span class="fact-icon">🎯</span>
+                <span class="fact-bullet-green">✓</span>
                 <div class="fact-text"><strong>Réallocation intégrale sur les PME &amp; MidMarket</strong> : 100% des 28k appels et des 10 SDRs concentrés sur les comptes rentables.</div>
               </div>
               <div class="fact-item">
-                <span class="fact-icon">⚡</span>
+                <span class="fact-bullet-green">✓</span>
                 <div class="fact-text"><strong>Investissement : 0 €</strong> (simple réalignement interne de process CRM et quotas). <strong>Faisabilité maximale (Quick Win)</strong>.</div>
               </div>
             </div>
             <div class="visavis-chips-row">
-              <span class="v-chip time">⏱️ Déploiement : 45 Jours</span>
-              <span class="v-chip ttv">⚡ Time-to-Value : J+30 à J+60</span>
-              <span class="v-chip cost">💰 Coût Direct : 0 €</span>
+              <span class="v-chip time">Déploiement : 45 Jours</span>
+              <span class="v-chip ttv">Time-to-Value : J+30 à J+60</span>
+              <span class="v-chip cost">Coût Direct : 0 €</span>
             </div>
           </div>
         </div>
@@ -1782,8 +1818,8 @@
       <!-- TIMELINE & DÉPLOIEMENT EN BAS (45 JOURS) -->
       <div class="timeline-feasibility-bar">
         <div class="timeline-header">
-          <span class="timeline-badge">⏱️ PLAN DE DÉPLOIEMENT EN TEMPS (45 JOURS)</span>
-          <span class="timeline-ttv">⚡ Time-to-Value : <strong>J+30 à J+60</strong> · Horizon : <strong>45 Jours (Quick Win)</strong> · Faisabilité : <strong>Élevée (Coût 0 €)</strong></span>
+          <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (45 JOURS)</span>
+          <span class="timeline-ttv">Time-to-Value : <strong>J+30 à J+60</strong> · Horizon : <strong>45 Jours (Quick Win)</strong> · Faisabilité : <strong>Élevée (Coût 0 €)</strong></span>
         </div>
         <div class="timeline-steps">
           <div class="t-step">
@@ -1832,7 +1868,7 @@
 
     <div class="content">
       <div class="header-block">
-        <div class="header-badge">🛡️ AUDIT &amp; ARBITRAGE N°2</div>
+        <div class="header-badge">AUDIT &amp; ARBITRAGE N°2</div>
         <h2>Arbitrage 2 : <span style="color:#EF4444;">Risque de Churn Massif PME</span> ➔ <span class="accent">1 CSM Dédié &amp; Alertes</span></h2>
         <div class="subtitle">Sécuriser les 61% du chiffre d'affaires mondial contre le désengagement et générer une expansion continue.</div>
       </div>
@@ -1843,7 +1879,7 @@
         <!-- BLOC GAUCHE : LE PROBLÈME EN ROUGE -->
         <div class="visavis-col problem-side">
           <div class="visavis-banner problem-banner">
-            <span class="visavis-tag">🚨 1. LE PROBLÈME IDENTIFIÉ</span>
+            <span class="visavis-tag">1. LE PROBLÈME IDENTIFIÉ</span>
             <span class="visavis-badge-red">Risque Churn &amp; Angle Mort</span>
           </div>
           <div class="visavis-body">
@@ -1853,15 +1889,15 @@
             </div>
             <div class="visavis-facts-list">
               <div class="fact-item">
-                <span class="fact-icon">👑</span>
+                <span class="fact-bullet-red">—</span>
                 <div class="fact-text"><strong>Le segment PME est le cœur d'Aircall</strong> : 61,1% de l'ARR mondial (234 contrats signés), mais <strong>zéro CSM dédié</strong> !</div>
               </div>
               <div class="fact-item">
-                <span class="fact-icon">🕳️</span>
+                <span class="fact-bullet-red">—</span>
                 <div class="fact-text"><strong>Risque de churn annuel de 20%</strong> : Hémorragie directe estimée à <strong>400 000 €/an</strong> sans accompagnement post-vente.</div>
               </div>
               <div class="fact-item">
-                <span class="fact-icon">⚠️</span>
+                <span class="fact-bullet-red">—</span>
                 <div class="fact-text"><strong>Angle mort technologique</strong> : Aucune alerte automatisée en cas de baisse d'usage VoIP ou désengagement des équipes clientes.</div>
               </div>
             </div>
@@ -1871,7 +1907,7 @@
         <!-- BLOC DROIT : LA SOLUTION EN VERT -->
         <div class="visavis-col solution-side">
           <div class="visavis-banner solution-banner">
-            <span class="visavis-tag">✅ 2. LA SOLUTION IMMÉDIATE</span>
+            <span class="visavis-tag">2. LA SOLUTION IMMÉDIATE</span>
             <span class="visavis-badge-green">1 CSM Dédié + Tech HubSpot</span>
           </div>
           <div class="visavis-body">
@@ -1881,22 +1917,22 @@
             </div>
             <div class="visavis-facts-list">
               <div class="fact-item">
-                <span class="fact-icon">🤝</span>
+                <span class="fact-bullet-green">✓</span>
                 <div class="fact-text"><strong>Recrutement d'1 CSM dédié PME</strong> : Onboarding personnalisé, formation des admins et revues trimestrielles de performance (QBR).</div>
               </div>
               <div class="fact-item">
-                <span class="fact-icon">🔔</span>
+                <span class="fact-bullet-green">✓</span>
                 <div class="fact-text"><strong>Alertes d'inactivité HubSpot</strong> : Déclenchement automatique dès qu'une PME passe sous 50 appels/semaine pour intervention proactive.</div>
               </div>
               <div class="fact-item">
-                <span class="fact-icon">💎</span>
+                <span class="fact-bullet-green">✓</span>
                 <div class="fact-text"><strong>Budget : 58 000 € chargés</strong> ➔ <strong>Retour sur investissement : ROI ×25</strong> avec churn réduit sous 5%.</div>
               </div>
             </div>
             <div class="visavis-chips-row">
-              <span class="v-chip time">⏱️ Déploiement : 90 Jours</span>
-              <span class="v-chip ttv">⚡ Time-to-Value : J+60 à J+90</span>
-              <span class="v-chip cost">💰 Budget : 58 k€ (ROI ×25)</span>
+              <span class="v-chip time">Déploiement : 90 Jours</span>
+              <span class="v-chip ttv">Time-to-Value : J+60 à J+90</span>
+              <span class="v-chip cost">Budget : 58 k€ (ROI ×25)</span>
             </div>
           </div>
         </div>
@@ -1906,8 +1942,8 @@
       <!-- TIMELINE & DÉPLOIEMENT EN BAS (90 JOURS) -->
       <div class="timeline-feasibility-bar">
         <div class="timeline-header">
-          <span class="timeline-badge">⏱️ PLAN DE DÉPLOIEMENT EN TEMPS (90 JOURS / Q1-Q2)</span>
-          <span class="timeline-ttv">⚡ Time-to-Value : <strong>J+60 à J+90</strong> · Horizon : <strong>90 Jours</strong> · Faisabilité : <strong>Moyenne (1 Recrutement)</strong></span>
+          <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (90 JOURS / Q1-Q2)</span>
+          <span class="timeline-ttv">Time-to-Value : <strong>J+60 à J+90</strong> · Horizon : <strong>90 Jours</strong> · Faisabilité : <strong>Moyenne (1 Recrutement)</strong></span>
         </div>
         <div class="timeline-steps">
           <div class="t-step">
@@ -1957,7 +1993,7 @@
 
     <div class="content">
       <div class="header-block">
-        <div class="header-badge">🎯 BILAN DES 2 DÉCISIONS REVOPS</div>
+        <div class="header-badge">BILAN DES 2 DÉCISIONS REVOPS</div>
         <h2>Impact Global Consolidé : <span class="accent">+3,00 M$ d'ARR / ROI ×52</span></h2>
         <div class="subtitle">De l'analyse rigoureuse des 5 indicateurs rois à la création de valeur massive.</div>
       </div>
@@ -2021,7 +2057,7 @@
 
     <div class="content">
       <div class="header-block">
-        <div class="header-badge">🔍 INTÉGRITÉ &amp; TRAÇABILITÉ DES DONNÉES</div>
+        <div class="header-badge">INTÉGRITÉ &amp; TRAÇABILITÉ DES DONNÉES</div>
         <h2>Matrice de Transparence : <span class="accent">L'Origine de Chaque Donnée</span></h2>
         <div class="subtitle">Distinction formelle entre le cas d'étude réel, les données publiques et la simulation.</div>
       </div>
