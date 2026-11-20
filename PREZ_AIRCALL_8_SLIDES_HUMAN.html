@@ -1,0 +1,3069 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aircall — Soutenance RevOps & Performance Commerciale (8 Slides)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-main: #061B14;
+    --bg-card: #0A281E;
+    --bg-card-hover: #0D3327;
+    --emerald: #00B388;
+    --emerald-bright: #00E6A4;
+    --emerald-glow: rgba(0, 179, 136, 0.25);
+    --border: rgba(0, 179, 136, 0.22);
+    --border-active: rgba(0, 230, 164, 0.6);
+    --text-white: #FFFFFF;
+    --text-muted: #94A3B8;
+    --text-dim: #64748B;
+    --red-alert: #EF4444;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
+
+    html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #061B14;
+    color: #FFFFFF;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  #deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: none !important;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(18px, 3.5vh, 32px) clamp(24px, 4vw, 48px);
+    background: radial-gradient(circle at 80% 20%, #0B2D22 0%, #061B14 70%);
+    overflow: hidden;
+  }
+
+  .slide.active {
+    display: flex !important;
+    z-index: 10;
+  }
+
+  /* PRINT MODE (EXPORT PDF 8 SLIDES) */
+  @page { size: 1440px 900px; margin: 0; }
+  @media print {
+    html, body {
+      width: 1440px !important;
+      height: auto !important;
+      overflow: visible !important;
+      background: #061B14 !important;
+    }
+    #deck {
+      width: 1440px !important;
+      height: auto !important;
+      position: static !important;
+      overflow: visible !important;
+    }
+    .slide {
+      position: relative !important;
+      display: flex !important;
+      width: 1440px !important;
+      height: 900px !important;
+      page-break-after: always !important;
+      break-after: page !important;
+      overflow: hidden !important;
+      background: radial-gradient(circle at 80% 20%, #0B2D22 0%, #061B14 70%) !important;
+      box-sizing: border-box !important;
+    }
+    .bottom-nav-bar, .nav-arrow, .view-toggle-bar, #liveContainer {
+      display: none !important;
+    }
+    #captureContainer {
+      display: flex !important;
+      height: 520px !important;
+    }
+  }
+
+  /* TOP ROW BAR */
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-logo-img {
+    height: 28px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+  .brand-logo-text {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-white);
+  }
+  .brand-logo-text span { color: var(--emerald-bright); }
+  .divider-v {
+    width: 1px;
+    height: 18px;
+    background: var(--border);
+  }
+  .step-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    background: rgba(0, 179, 136, 0.12);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+  .top-right-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .meta-pill {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .slide-num {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--emerald-bright);
+    background: rgba(0, 179, 136, 0.15);
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+  }
+
+  /* CONTENT AREA */
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(16px, 2.5vh, 24px);
+    padding: clamp(8px, 1.5vh, 16px) 0;
+  }
+
+  /* HEADERS */
+  .header-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .header-badge {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+  }
+  h1, h2 {
+    font-size: clamp(26px, 3.4vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+    color: var(--text-white);
+  }
+  .accent { color: var(--emerald-bright); }
+  .accent-red { color: #F87171; }
+  .subtitle {
+    font-size: clamp(13px, 1.4vw, 15px);
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  /* GRID SYSTEMS */
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    width: 100%;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* CARD STYLES */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: clamp(16px, 2.2vh, 22px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  }
+  .card:hover {
+    border-color: var(--emerald-bright);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--emerald-glow);
+  }
+  .card-highlight {
+    border-color: var(--emerald);
+    background: linear-gradient(145deg, #0A281E 0%, #0F3B2C 100%);
+  }
+  .card-alert {
+    border-color: rgba(239, 68, 68, 0.4);
+    background: linear-gradient(145deg, #1C1113 0%, #2A1417 100%);
+  }
+
+  .stat-giant {
+    font-size: clamp(34px, 4.2vw, 48px);
+    font-weight: 900;
+    letter-spacing: -1.2px;
+    line-height: 1;
+    color: var(--emerald-bright);
+    margin: 8px 0;
+  }
+  .stat-giant.white { color: var(--text-white); }
+  .stat-giant.red { color: #F87171; }
+  .stat-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-white);
+    margin-bottom: 4px;
+  }
+  .stat-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .card-badge {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--emerald-bright);
+    margin-bottom: 6px;
+  }
+
+  .chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .chip-green {
+    background: rgba(0, 179, 136, 0.15);
+    color: var(--emerald-bright);
+    border-color: rgba(0, 179, 136, 0.3);
+  }
+  .chip-red {
+    background: rgba(239, 68, 68, 0.15);
+    color: #F87171;
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  /* SLIDE 2 : GOUVERNANCE */
+  .gov-flow-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .gov-directors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .director-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .director-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(0, 179, 136, 0.12);
+    border: 1.5px solid var(--emerald);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--emerald-bright);
+    flex-shrink: 0;
+  }
+  .fact-bullet-red {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    color: #EF4444;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+    line-height: 1;
+  }
+  .fact-bullet-green {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(0, 189, 130, 0.18);
+    border: 1px solid rgba(0, 189, 130, 0.5);
+    color: var(--emerald-bright);
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+    line-height: 1;
+  }
+  .director-role {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-white);
+  }
+  .director-focus {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--emerald-bright);
+    background: rgba(0, 179, 136, 0.12);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .director-duty {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .linear-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: stretch;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+  }
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: rgba(10, 40, 30, 0.6);
+    border: 1px solid rgba(0, 230, 164, 0.15);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-align: left;
+  }
+  .flow-step-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .flow-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--emerald);
+    color: #061B14;
+    font-size: 12px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .flow-step-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #FFF;
+  }
+  .flow-step-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.35;
+    font-weight: 500;
+  }
+  .flow-step-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 4px;
+  }
+  .flow-step-tag {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--emerald-bright);
+    background: rgba(0, 230, 164, 0.1);
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+  .flow-arrow-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--emerald-bright);
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  /* SLIDE 3 : PYRAMIDE INVERSÉE (STYLE C2M FUNNEL RESPONSIVE) */
+  .slide3-center-layout {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    align-items: center;
+    max-width: 1120px;
+    margin: 8px auto 14px auto;
+    width: 100%;
+  }
+  .funnel-arrow-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    height: 100%;
+  }
+  .arrow-text-top {
+    font-size: 10.5px;
+    font-weight: 800;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    line-height: 1.3;
+  }
+  .arrow-text-bottom {
+    font-size: 10.5px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    line-height: 1.3;
+  }
+  .down-arrow-svg {
+    width: 16px;
+    height: 130px;
+  }
+  .funnel-right-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .funnel-pyramid-wrapper {
+    width: 100%;
+    max-width: 920px;
+    height: 185px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .pyramid-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.45));
+  }
+
+  /* 5 INDICATEURS ROIS - STRIP HORIZONTALE SOUS LE FUNNEL (100% RESPONSIVE) */
+  .five-kings-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 920px;
+  }
+  .king-pill {
+    background: rgba(0, 230, 164, 0.08);
+    border: 1px solid rgba(0, 230, 164, 0.35);
+    border-radius: 8px;
+    padding: 7px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .king-pill:hover {
+    border-color: var(--emerald-bright);
+    transform: translateY(-2px);
+  }
+  .king-pill strong {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+  }
+  .king-pill span {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #E2E8F0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .two-problems-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 1120px;
+    margin: 6px auto 0 auto;
+    width: 100%;
+  }
+  .problem-box {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .problem-tag {
+    font-size: 10px;
+    font-weight: 800;
+    color: #F87171;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .problem-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-white);
+    margin-top: 2px;
+  }
+
+  /* SLIDE 4 : DASHBOARD HERO PLEIN ÉCRAN */
+  .slide:nth-child(4) .header-block {
+    margin-bottom: 8px;
+  }
+  .dashboard-hero-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .view-toggle-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .toggle-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .toggle-btn.active {
+    background: var(--emerald);
+    color: #061B14;
+    border-color: var(--emerald-bright);
+    font-weight: 800;
+  }
+  .toggle-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text-white);
+  }
+  .link-external {
+    margin-left: auto;
+    color: var(--emerald-bright);
+    border-color: rgba(0, 230, 164, 0.3);
+  }
+  
+    /* SLIDE 4 : 2 COLUMNS HERO LAYOUT (DASHBOARD LEFT + 6 BLOCKS RIGHT) */
+  .dashboard-main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 16px;
+    align-items: stretch;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+  }
+  
+  .dashboard-left-zone {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .view-toggle-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .toggle-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+  .toggle-btn.active {
+    background: var(--emerald);
+    color: #061B14;
+    border-color: var(--emerald-bright);
+    font-weight: 800;
+  }
+  .link-external {
+    margin-left: auto;
+    color: var(--emerald-bright);
+    border-color: rgba(0, 230, 164, 0.3);
+  }
+
+  /* DASHBOARD CONTAINER - WHITE BACKGROUND ELIMINATES BLACK BORDERS */
+  .dashboard-frame-box {
+    width: 100%;
+    flex: 1;
+    min-height: 520px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 230, 164, 0.4);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .dashboard-frame-box.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999999;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: #FFFFFF;
+  }
+  .dashboard-frame-box iframe {
+    border: none;
+    display: block;
+    transform-origin: top left;
+    position: absolute;
+    top: 0;
+  }
+
+  /* RIGHT SIDEBAR: 6 RATIOS CALCULÉS EN DIRECT SUR LES DONNÉES LOOKER */
+  .nine-blocks-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 7px;
+    height: 100%;
+    padding-top: 36px;
+    min-width: 330px;
+  }
+  .block-card {
+    background: rgba(10, 40, 30, 0.75);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 7px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    transition: all 0.2s ease;
+  }
+  .block-card:hover {
+    border-color: rgba(0, 230, 164, 0.4);
+    background: rgba(10, 45, 35, 0.9);
+  }
+  .block-card.highlight {
+    border-color: var(--emerald-bright);
+    background: rgba(0, 179, 136, 0.16);
+  }
+  .block-card-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .block-card-num {
+    color: var(--emerald-bright);
+    font-weight: 900;
+    margin-right: 4px;
+  }
+  .block-card-badge {
+    font-size: 8.5px;
+    font-weight: 800;
+    color: var(--emerald-bright);
+    background: rgba(0, 230, 164, 0.12);
+    padding: 1.5px 5px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+  }
+  .ratio-main-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 1px 0;
+  }
+  .ratio-val-giant {
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+  .ratio-sub-badge {
+    font-size: 8.5px;
+    font-weight: 700;
+    color: #A3B8B0;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 1.5px 6px;
+    border-radius: 4px;
+  }
+  .block-card-desc {
+    font-size: 9.5px;
+    color: var(--text-muted);
+    line-height: 1.25;
+  }
+  .dashboard-img-box::after {
+    content: "Cliquer pour Agrandir en Plein Écran";
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(6, 27, 20, 0.9);
+    border: 1px solid var(--emerald);
+    color: var(--emerald-bright);
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+  }
+  #zoomModal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.94);
+    z-index: 9999999;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    cursor: zoom-out;
+    backdrop-filter: blur(8px);
+  }
+  #zoomModal.active { display: flex; }
+  #zoomModal img {
+    max-width: 96vw;
+    max-height: 94vh;
+    object-fit: contain;
+    border: 2px solid var(--emerald-bright);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 230, 164, 0.3);
+  }
+  #zoomClose {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .old-dashboard-img-box {
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dashboard-img-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+  .nine-blocks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .block-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .block-item-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--text-white);
+  }
+  .block-item-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--emerald-bright);
+    background: rgba(0, 179, 136, 0.12);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  /* SLIDE 5 & 6 : ARBITRAGES */
+  .arbitrage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+  .side-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .box-metric {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .box-metric.alert {
+    border-color: rgba(239, 68, 68, 0.35);
+    background: rgba(239, 68, 68, 0.05);
+  }
+  .box-metric.success {
+    border-color: var(--emerald);
+    background: rgba(0, 179, 136, 0.1);
+  }
+
+  /* BARRE HORIZONTALE TIMELINE & FAISABILITÉ (SLIDES 5 & 6) */
+  .timeline-feasibility-bar {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 18px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .timeline-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 4px;
+  }
+  .timeline-badge {
+    font-size: 10.5px;
+    font-weight: 800;
+    color: var(--emerald-bright);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .timeline-ttv {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .timeline-ttv strong {
+    color: var(--emerald-bright);
+  }
+  .timeline-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .t-step {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 6px 10px;
+  }
+  .t-step.t-step-highlight {
+    border-color: rgba(0, 230, 164, 0.4);
+    background: rgba(0, 179, 136, 0.08);
+  }
+  .t-badge {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-white);
+    font-size: 9.5px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .t-badge.highlight {
+    background: var(--emerald);
+    color: #061B14;
+    font-weight: 900;
+  }
+  .t-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .t-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-white);
+  }
+  .t-desc {
+    font-size: 9.5px;
+    color: var(--text-muted);
+    line-height: 1.25;
+  }
+  .t-arrow {
+    color: var(--emerald-bright);
+    font-size: 14px;
+    font-weight: 900;
+  }
+  .metric-feasibility {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding-top: 4px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  }
+  .chip-time {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--emerald-bright);
+    background: rgba(0, 230, 164, 0.12);
+    border: 1px solid rgba(0, 230, 164, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .chip-risk {
+    font-size: 10px;
+    font-weight: 700;
+    color: #E2E8F0;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* SLIDE 7 : CONCLUSION ROI */
+  .kpi-rois-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    width: 100%;
+  }
+  .kpi-roi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+  }
+  .kpi-roi-val {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+  }
+  .kpi-roi-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .big-roi-banner {
+    background: #EAF8F3;
+    border: 1.5px solid #A3E0CE;
+    border-radius: 14px;
+    padding: 20px clamp(20px, 3vw, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 16px rgba(0, 189, 130, 0.08);
+  }
+  .big-roi-banner .card-badge { color: #00875A !important; }
+  .big-roi-banner .stat-giant { color: #00875A !important; }
+  .big-roi-banner .stat-giant.white { color: #0B241C !important; }
+  .big-roi-banner .stat-label { color: #2C4A3E !important; }
+
+  body.theme-dark .big-roi-banner {
+    background: linear-gradient(135deg, #0A281E 0%, #124D39 100%) !important;
+    border: 2px solid #00BD82 !important;
+  }
+  body.theme-dark .big-roi-banner .card-badge { color: #00BD82 !important; }
+  body.theme-dark .big-roi-banner .stat-giant { color: #00BD82 !important; }
+  body.theme-dark .big-roi-banner .stat-giant.white { color: #FFFFFF !important; }
+  body.theme-dark .big-roi-banner .stat-label { color: #A3B8B0 !important; }
+
+  /* SLIDE 8 : TRANSPARENCE TABLE */
+  .transparency-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .transparency-table th {
+    background: #00875A;
+    padding: 12px 16px;
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #FFFFFF;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+  .transparency-table td {
+    background: #FFFFFF;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    color: #1F2937;
+    border-bottom: 1px solid #E2ECE7;
+    vertical-align: middle;
+  }
+  body.theme-dark .transparency-table th {
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: #00BD82 !important;
+  }
+  body.theme-dark .transparency-table td {
+    background: transparent !important;
+    color: #E2E8F0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+  .transparency-table tr:last-child td { border-bottom: none; }
+  .badge-source {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .source-rocket { background: rgba(0, 179, 136, 0.2); color: var(--emerald-bright); border: 1px solid var(--emerald); }
+  .source-aircall { background: rgba(59, 130, 246, 0.2); color: #60A5FA; border: 1px solid #3B82F6; }
+  .source-simu { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid #F59E0B; }
+
+  /* BOTTOM NAVIGATION BAR */
+    .divider-nav-v {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.18);
+    margin: 0 2px;
+  }
+  .btn-fullscreen-deck {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 179, 136, 0.14);
+    border: 1px solid rgba(0, 230, 164, 0.4);
+    color: var(--emerald-bright);
+    font-size: 11.5px;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .btn-fullscreen-deck:hover {
+    background: var(--emerald-bright);
+    color: #061B14;
+    border-color: var(--emerald-bright);
+    box-shadow: 0 0 15px rgba(0, 230, 164, 0.5);
+  }
+  .btn-fullscreen-deck.active-fs {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #EF4444;
+    color: #FCA5A5;
+  }
+  .btn-fullscreen-deck.active-fs:hover {
+    background: #EF4444;
+    color: #FFFFFF;
+  }
+  .bottom-nav-bar {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(6, 27, 20, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+  }
+  .bottom-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    color: var(--text-white);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .bottom-nav-btn:hover {
+    background: var(--emerald);
+    color: #061B14;
+    border-color: var(--emerald-bright);
+  }
+  .nav-dots { display: flex; align-items: center; gap: 6px; }
+  .nav-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-muted);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .nav-dot:hover { background: rgba(255, 255, 255, 0.1); color: var(--text-white); }
+  .nav-dot.active {
+    background: var(--emerald-bright);
+    color: #061B14;
+    font-weight: 900;
+  }
+
+  .nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(6, 27, 20, 0.85);
+    border: 1px solid var(--border);
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.15s ease;
+  }
+  .nav-arrow:hover {
+    background: var(--emerald);
+    color: #061B14;
+    border-color: var(--emerald-bright);
+  }
+  .nav-prev { left: 16px; }
+  .nav-next { right: 16px; }
+
+    /* =========================================================
+     SLIDE 5 & 6 : VIS-À-VIS ULTRA-CLAIR (PROBLÈME vs SOLUTION)
+     ========================================================= */
+  .problem-solution-visavis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .visavis-col {
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .visavis-col:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Problem side (Left - Red) */
+  .visavis-col.problem-side {
+    background: rgba(40, 15, 15, 0.7);
+    border: 1.5px solid rgba(239, 68, 68, 0.45);
+  }
+  .visavis-banner.problem-banner {
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.25) 0%, rgba(239, 68, 68, 0.1) 100%);
+    border-bottom: 1px solid rgba(239, 68, 68, 0.35);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .visavis-badge-red {
+    background: #EF4444;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+  .hero-num-red {
+    font-size: 38px;
+    font-weight: 900;
+    color: #F87171;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  /* Solution side (Right - Green) */
+  .visavis-col.solution-side {
+    background: rgba(10, 42, 30, 0.75);
+    border: 1.5px solid rgba(0, 230, 164, 0.5);
+  }
+  .visavis-banner.solution-banner {
+    background: linear-gradient(90deg, rgba(0, 230, 164, 0.22) 0%, rgba(0, 230, 164, 0.08) 100%);
+    border-bottom: 1px solid rgba(0, 230, 164, 0.35);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .visavis-badge-green {
+    background: #00E6A4;
+    color: #061B14;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+  .hero-num-green {
+    font-size: 38px;
+    font-weight: 900;
+    color: #00E6A4;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .visavis-tag {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    color: #FFF;
+  }
+  .visavis-body {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+  .visavis-hero-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 10px;
+  }
+  .hero-lbl {
+    font-size: 13px;
+    font-weight: 800;
+    color: #FFF;
+    line-height: 1.3;
+  }
+  .visavis-facts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .fact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #E2E8F0;
+  }
+  .fact-icon {
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .visavis-chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+  .v-chip {
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .v-chip.time {
+    background: rgba(0, 230, 164, 0.12);
+    border: 1px solid rgba(0, 230, 164, 0.4);
+    color: #00E6A4;
+  }
+  .v-chip.ttv {
+    background: rgba(0, 179, 136, 0.2);
+    border: 1px solid rgba(0, 179, 136, 0.5);
+    color: #FFF;
+  }
+  .v-chip.cost {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #A3B8B0;
+  }
+
+</style>
+
+<style id="human-styles">
+  /* =========================================================
+     THÈME HUMAIN EXÉCUTIF (PAR DÉFAUT: RENDU PAPIER / OFFICIEL AIRCALL)
+     Inspiré du design system officiel aircall.io et des présentations CoDir
+     ========================================================= */
+  
+  :root {
+    --bg-main: #F5F7F6;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F8FAF9;
+    --emerald: #00875A;
+    --emerald-bright: #00BD82;
+    --emerald-glow: rgba(0, 189, 130, 0.12);
+    --border: #D8E4DE;
+    --border-active: #00BD82;
+    --text-white: #0B241C;
+    --text-muted: #4B6358;
+    --text-dim: #71887E;
+    --red-alert: #DC2626;
+  }
+
+  body.theme-dark {
+    --bg-main: #0B0F0E;
+    --bg-card: #131A18;
+    --bg-card-hover: #17221F;
+    --emerald: #00BD82;
+    --emerald-bright: #00BD82;
+    --emerald-glow: rgba(0, 189, 130, 0.15);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-active: rgba(0, 189, 130, 0.4);
+    --text-white: #FFFFFF;
+    --text-muted: #94A3B8;
+    --text-dim: #64748B;
+    --red-alert: #EF4444;
+  }
+
+  html, body {
+    background: var(--bg-main) !important;
+    color: var(--text-white) !important;
+  }
+
+  #deck {
+    background: var(--bg-main) !important;
+  }
+
+  .slide {
+    background: var(--bg-main) !important;
+    color: var(--text-white) !important;
+    box-shadow: none !important;
+  }
+
+  /* Logos */
+  .brand-logo-img { display: none !important; }
+  .logo-light { display: block !important; }
+  body.theme-dark .logo-light { display: none !important; }
+  body.theme-dark .logo-dark { display: block !important; }
+
+  .top-row {
+    border-bottom: 1px solid var(--border) !important;
+  }
+
+  .brand-logo-text {
+    color: var(--text-white) !important;
+  }
+
+  .meta-pill {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text-muted) !important;
+  }
+
+  .slide-num {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--emerald) !important;
+    font-weight: 800 !important;
+  }
+
+  .header-badge {
+    background: rgba(0, 189, 130, 0.08) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--emerald) !important;
+  }
+
+  .header-block h1, .header-block h2 {
+    color: var(--text-white) !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .header-block .subtitle {
+    color: var(--text-muted) !important;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 4px 16px -2px rgba(6, 27, 20, 0.05) !important;
+  }
+
+  .card-highlight {
+    background: var(--bg-card) !important;
+    border-color: var(--emerald-bright) !important;
+    box-shadow: 0 6px 20px -2px rgba(0, 189, 130, 0.15) !important;
+  }
+
+  .card-badge {
+    color: var(--emerald) !important;
+  }
+
+  .stat-giant {
+    color: var(--emerald) !important;
+  }
+
+  .stat-label {
+    color: var(--text-white) !important;
+  }
+
+  .stat-desc {
+    color: var(--text-muted) !important;
+  }
+
+  .chip {
+    background: var(--bg-main) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text-muted) !important;
+  }
+
+  .chip-green {
+    background: rgba(0, 189, 130, 0.12) !important;
+    border-color: var(--border-active) !important;
+    color: var(--emerald) !important;
+    font-weight: 800 !important;
+  }
+
+  /* Slide 2: Directors */
+  .director-card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 4px 16px -2px rgba(6, 27, 20, 0.05) !important;
+  }
+
+  .director-avatar {
+    background: rgba(0, 189, 130, 0.1) !important;
+    border-color: var(--emerald) !important;
+    color: var(--emerald) !important;
+  }
+
+  .director-role {
+    color: var(--text-white) !important;
+  }
+
+  .director-focus {
+    background: rgba(0, 189, 130, 0.08) !important;
+    color: var(--emerald) !important;
+  }
+
+  .director-duty {
+    color: var(--text-muted) !important;
+  }
+
+  .linear-flow {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 4px 16px -2px rgba(6, 27, 20, 0.05) !important;
+  }
+
+  .flow-step {
+    background: var(--bg-main) !important;
+    border: 1px solid var(--border) !important;
+  }
+
+  .flow-step-title {
+    color: var(--text-white) !important;
+  }
+
+  .flow-step-desc {
+    color: var(--text-muted) !important;
+  }
+
+  .flow-step-tag {
+    background: rgba(0, 189, 130, 0.1) !important;
+    color: var(--emerald) !important;
+  }
+
+  .flow-arrow-col {
+    color: var(--emerald) !important;
+  }
+
+  /* Slide 3: Pyramid & Kings */
+  .funnel-arrow-sidebar {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text-muted) !important;
+  }
+
+  .king-pill {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 10px rgba(6, 27, 20, 0.04) !important;
+  }
+
+  .king-pill strong {
+    color: var(--emerald) !important;
+  }
+
+  .king-pill span {
+    color: var(--text-muted) !important;
+  }
+
+  .problem-box-tpe {
+    background: #FFF5F5 !important;
+    border-color: #FECACA !important;
+    color: #991B1B !important;
+  }
+
+  body.theme-dark .problem-box-tpe {
+    background: rgba(239, 68, 68, 0.08) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #FCA5A5 !important;
+  }
+
+  .problem-box-pme {
+    background: #FFF8E6 !important;
+    border-color: #FDE68A !important;
+    color: #92400E !important;
+  }
+
+  body.theme-dark .problem-box-pme {
+    background: rgba(245, 158, 11, 0.08) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+    color: #FCD34D !important;
+  }
+
+  /* Slide 4: Looker & Sidebar */
+  .toggle-btn {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text-muted) !important;
+  }
+
+  .toggle-btn.active {
+    background: var(--emerald) !important;
+    color: #FFFFFF !important;
+    border-color: var(--emerald) !important;
+  }
+
+  .link-external {
+    color: var(--emerald) !important;
+    border-color: var(--border-active) !important;
+  }
+
+  .block-card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 10px rgba(6, 27, 20, 0.04) !important;
+  }
+
+  .block-card-title {
+    color: var(--text-white) !important;
+  }
+
+  .ratio-val-giant {
+    color: var(--emerald) !important;
+  }
+
+  .ratio-sub-badge {
+    background: var(--bg-main) !important;
+    color: var(--text-muted) !important;
+    border: 1px solid var(--border) !important;
+  }
+
+  .block-card-desc {
+    color: var(--text-muted) !important;
+  }
+
+  /* =========================================================
+     SLIDE 5 & 6: VIS-À-VIS (CORRECTION FOND ET CONTRASTE LIGHT)
+     ========================================================= */
+  .visavis-col.problem-side {
+    background: #FFF5F5 !important;
+    border: 1.5px solid #FECACA !important;
+    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.06) !important;
+  }
+
+  body.theme-dark .visavis-col.problem-side {
+    background: rgba(40, 15, 15, 0.7) !important;
+    border-color: rgba(239, 68, 68, 0.45) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .visavis-banner.problem-banner {
+    background: #FEE2E2 !important;
+    border-bottom: 1px solid #FECACA !important;
+  }
+
+  body.theme-dark .visavis-banner.problem-banner {
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.25) 0%, rgba(239, 68, 68, 0.1) 100%) !important;
+    border-bottom-color: rgba(239, 68, 68, 0.35) !important;
+  }
+
+  .visavis-col.problem-side .hero-lbl {
+    color: #4B6358 !important;
+  }
+
+  body.theme-dark .visavis-col.problem-side .hero-lbl {
+    color: #FFFFFF !important;
+  }
+
+  .visavis-col.problem-side .fact-text {
+    color: #1F2937 !important;
+  }
+
+  body.theme-dark .visavis-col.problem-side .fact-text {
+    color: #E2E8F0 !important;
+  }
+
+  .visavis-col.problem-side .fact-text strong {
+    color: #0F172A !important;
+  }
+
+  body.theme-dark .visavis-col.problem-side .fact-text strong {
+    color: #FFFFFF !important;
+  }
+
+  .visavis-col.problem-side .visavis-tag {
+    color: #991B1B !important;
+  }
+
+  body.theme-dark .visavis-col.problem-side .visavis-tag {
+    color: #FFFFFF !important;
+  }
+
+  .visavis-col.solution-side {
+    background: #F0FDF4 !important;
+    border: 1.5px solid #BBF7D0 !important;
+    box-shadow: 0 4px 16px rgba(0, 189, 130, 0.08) !important;
+  }
+
+  body.theme-dark .visavis-col.solution-side {
+    background: rgba(10, 42, 30, 0.75) !important;
+    border-color: rgba(0, 230, 164, 0.5) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .visavis-banner.solution-banner {
+    background: #DCFCE7 !important;
+    border-bottom: 1px solid #BBF7D0 !important;
+  }
+
+  body.theme-dark .visavis-banner.solution-banner {
+    background: linear-gradient(90deg, rgba(0, 230, 164, 0.22) 0%, rgba(0, 230, 164, 0.08) 100%) !important;
+    border-bottom-color: rgba(0, 230, 164, 0.35) !important;
+  }
+
+  .hero-num-green {
+    color: #00875A !important;
+  }
+
+  body.theme-dark .hero-num-green {
+    color: #00BD82 !important;
+  }
+
+  .visavis-col.solution-side .hero-lbl {
+    color: #4B6358 !important;
+  }
+
+  body.theme-dark .visavis-col.solution-side .hero-lbl {
+    color: #FFFFFF !important;
+  }
+
+  .visavis-col.solution-side .fact-text {
+    color: #1F2937 !important;
+  }
+
+  body.theme-dark .visavis-col.solution-side .fact-text {
+    color: #E2E8F0 !important;
+  }
+
+  .visavis-col.solution-side .fact-text strong {
+    color: #0F172A !important;
+  }
+
+  body.theme-dark .visavis-col.solution-side .fact-text strong {
+    color: #FFFFFF !important;
+  }
+
+  .visavis-col.solution-side .visavis-tag {
+    color: #166534 !important;
+  }
+
+  body.theme-dark .visavis-col.solution-side .visavis-tag {
+    color: #FFFFFF !important;
+  }
+
+  .fact-bullet-red {
+    background: #FEE2E2 !important;
+    border-color: #F87171 !important;
+    color: #DC2626 !important;
+  }
+
+  .fact-bullet-green {
+    background: #DCFCE7 !important;
+    border-color: #4ADE80 !important;
+    color: #16A34A !important;
+  }
+
+  .v-chip {
+    background: #FFFFFF !important;
+    border: 1px solid #DDE7E2 !important;
+    color: #4B6358 !important;
+  }
+
+  body.theme-dark .v-chip {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #94A3B8 !important;
+  }
+
+  .timeline-feasibility-bar {
+    background: #FFFFFF !important;
+    border: 1px solid #DDE7E2 !important;
+    box-shadow: 0 4px 16px rgba(6, 27, 20, 0.05) !important;
+  }
+
+  body.theme-dark .timeline-feasibility-bar {
+    background: rgba(0, 0, 0, 0.45) !important;
+    border-color: var(--border) !important;
+    box-shadow: none !important;
+  }
+
+  .timeline-header {
+    border-bottom: 1px solid #E2ECE7 !important;
+  }
+
+  body.theme-dark .timeline-header {
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .timeline-badge {
+    color: #00875A !important;
+  }
+
+  body.theme-dark .timeline-badge {
+    color: #00BD82 !important;
+  }
+
+  .timeline-ttv {
+    color: #4B6358 !important;
+  }
+
+  body.theme-dark .timeline-ttv {
+    color: #94A3B8 !important;
+  }
+
+  .t-step {
+    background: #F4F7F5 !important;
+    border: 1px solid #DDE7E2 !important;
+  }
+
+  body.theme-dark .t-step {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .t-title {
+    color: #0F231D !important;
+  }
+
+  body.theme-dark .t-title {
+    color: #FFFFFF !important;
+  }
+
+  .t-desc {
+    color: #4B6358 !important;
+  }
+
+  body.theme-dark .t-desc {
+    color: #94A3B8 !important;
+  }
+
+  .t-badge {
+    background: #E8F7F2 !important;
+    color: #00875A !important;
+    border: 1px solid #A3E0CE !important;
+  }
+
+  body.theme-dark .t-badge {
+    background: rgba(0, 189, 130, 0.15) !important;
+    color: #00BD82 !important;
+    border-color: rgba(0, 189, 130, 0.35) !important;
+  }
+
+  .t-arrow {
+    color: #00875A !important;
+  }
+
+  body.theme-dark .t-arrow {
+    color: #00BD82 !important;
+  }
+
+  /* Bottom Nav */
+  .bottom-nav-bar {
+    background: #FFFFFF !important;
+    border: 1px solid #DDE7E2 !important;
+    box-shadow: 0 10px 30px rgba(6, 27, 20, 0.12) !important;
+  }
+
+  body.theme-dark .bottom-nav-bar {
+    background: rgba(19, 27, 24, 0.94) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .bottom-nav-btn {
+    color: #0F231D !important;
+  }
+
+  body.theme-dark .bottom-nav-btn {
+    color: #FFFFFF !important;
+  }
+
+  .nav-dot {
+    background: #F4F7F5 !important;
+    border: 1px solid #DDE7E2 !important;
+    color: #4B6358 !important;
+  }
+
+  body.theme-dark .nav-dot {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #94A3B8 !important;
+  }
+
+  .nav-dot.active {
+    background: #00875A !important;
+    color: #FFFFFF !important;
+    border-color: #00875A !important;
+  }
+
+  body.theme-dark .nav-dot.active {
+    background: #00BD82 !important;
+    color: #061B14 !important;
+    border-color: #00BD82 !important;
+  }
+
+  .btn-fullscreen-deck {
+    background: rgba(0, 189, 130, 0.1) !important;
+    border: 1px solid #00BD82 !important;
+    color: #00875A !important;
+  }
+
+  body.theme-dark .btn-fullscreen-deck {
+    background: rgba(0, 189, 130, 0.12) !important;
+    border-color: rgba(0, 189, 130, 0.4) !important;
+    color: #00BD82 !important;
+  }
+
+  .btn-theme-switcher {
+    background: #F4F7F5 !important;
+    border: 1px solid #DDE7E2 !important;
+    color: #0F231D !important;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  body.theme-dark .btn-theme-switcher {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #FFFFFF !important;
+  }
+
+  .nav-arrow {
+    background: #FFFFFF !important;
+    border: 1px solid #DDE7E2 !important;
+    color: #4B6358 !important;
+    box-shadow: 0 4px 14px rgba(6, 27, 20, 0.08) !important;
+  }
+
+  body.theme-dark .nav-arrow {
+    background: rgba(19, 27, 24, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #FFFFFF !important;
+  }
+</style>
+
+</head>
+<body>
+
+<div id="deck">
+
+  <!-- =========================================================
+       SLIDE 1 : IDENTITÉ AIRCALL (4 CHIFFRES CLÉS)
+       ========================================================= -->
+  <div class="slide active">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <div class="divider-v"></div>
+        <span class="step-tag">01 · IDENTITÉ OFFICIELLE</span>
+      </div>
+      <div class="top-right-meta">
+        
+        <span class="meta-pill">Licorne Téléphonie Cloud</span>
+        <span class="slide-num">01 / 08</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block">
+        <div class="header-badge">AUDIT REVOPS &amp; PERFORMANCE COMMERCIALE</div>
+        <h1>Aircall en <span class="accent">4 Chiffres Clés</span></h1>
+        <div class="subtitle">Standard téléphonique cloud connecté nativement aux CRM — Modèle SaaS B2B mondial.</div>
+      </div>
+
+      <div class="grid-4">
+        <div class="card card-highlight">
+          <div>
+            <div class="card-badge">VALORISATION &amp; ARR</div>
+            <div class="stat-giant">250 M$</div>
+            <div class="stat-label">ARR Global</div>
+            <div class="stat-desc">Abonnements SaaS récurrents annuels mondiaux (statut licorne).</div>
+          </div>
+          <div class="chip-group">
+            <span class="chip chip-green">+30% YoY</span>
+            <span class="chip">SaaS B2B</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-badge">CLIENTS ACTIFS</div>
+            <div class="stat-giant">24 000+</div>
+            <div class="stat-label">Entreprises Clientes</div>
+            <div class="stat-desc">Sociétés abonnées à Aircall dans plus de 100 pays.</div>
+          </div>
+          <div class="chip-group">
+            <span class="chip chip-green">Abonnements B2B</span>
+            <span class="chip">100+ Pays</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-badge">USAGE MONDIAL</div>
+            <div class="stat-giant">85 000+</div>
+            <div class="stat-label">Utilisateurs Quotidiens</div>
+            <div class="stat-desc">Salariés (sales &amp; support) qui téléphonent chaque jour via l'application Aircall.</div>
+          </div>
+          <div class="chip-group">
+            <span class="chip chip-green">Licences Actives</span>
+            <span class="chip">Usage Quotidien</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-badge">ÉCOSYSTÈME CRM &amp; APPS</div>
+            <div class="stat-giant">100+</div>
+            <div class="stat-label">Intégrations Natives</div>
+            <div class="stat-desc">Synchronisation en 1 clic avec Salesforce, HubSpot, Zendesk et Slack.</div>
+          </div>
+          <div class="chip-group">
+            <span class="chip chip-green">HubSpot &amp; Salesforce</span>
+            <span class="chip">1-Click Install</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SLIDE 2 : GOUVERNANCE & CADRAGE (3 DÉCIDEURS + FLUX)
+       ========================================================= -->
+  <div class="slide">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <div class="divider-v"></div>
+        <span class="step-tag">02 · GOUVERNANCE &amp; CADRAGE</span>
+      </div>
+      <div class="top-right-meta">
+        
+        <span class="meta-pill">Alignement CoDir</span>
+        <span class="slide-num">02 / 08</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block">
+        <div class="header-badge">INSTANCES DÉCISIONNELLES &amp; MÉTHODE</div>
+        <h2>Les 3 Décideurs CoDir &amp; <span class="accent">Cheminement Cadré</span></h2>
+        <div class="subtitle">Validation tripartite indispensable pour engager les arbitrages de croissance.</div>
+      </div>
+
+      <div class="gov-flow-container">
+        <div class="gov-directors">
+          <div class="director-card">
+            <div class="director-avatar">DIR</div>
+            <div class="director-role">Directeur Commercial</div>
+            <div class="director-focus">Priorisation Pipe &amp; SDRs</div>
+            <div class="director-duty">Valide le réalignement des 10 commerciaux et les quotas de conversion PME.</div>
+          </div>
+
+          <div class="director-card" style="border-color: var(--emerald-bright);">
+            <div class="director-avatar" style="border-color: var(--emerald-bright); color: var(--emerald-bright);">DAF</div>
+            <div class="director-role">Directeur Financier</div>
+            <div class="director-focus" style="background: rgba(0, 230, 164, 0.2);">Validation Business Case &amp; ROI</div>
+            <div class="director-duty">Arbitre le budget d'embauche (58 k€) et garantit la rentabilité nette (+3,00 M$).</div>
+          </div>
+
+          <div class="director-card">
+            <div class="director-avatar">DSI</div>
+            <div class="director-role">Directeur IT &amp; Tech</div>
+            <div class="director-focus">Faisabilité CRM &amp; Looker</div>
+            <div class="director-duty">Valide la fiabilité des flux de données et l'automatisation du portail self-serve.</div>
+          </div>
+        </div>
+
+        <div class="linear-flow">
+          <div class="flow-step">
+            <div class="flow-step-header">
+              <div class="flow-num">1</div>
+              <div class="flow-step-title">Cadrage du Périmètre</div>
+            </div>
+            <div class="flow-step-desc">
+              <strong>Ce qu'on analyse :</strong> Audit complet des 10 SDRs sur 12 mois (67 560 appels &amp; 3,68 M€ d'ARR). Élimination des vanity metrics pour cibler 12 KPI utiles.
+            </div>
+            <div class="flow-step-footer">
+              <span class="flow-step-tag">Jour 1 Matin · Périmètre Métier</span>
+            </div>
+          </div>
+
+          <div class="flow-arrow-col">➔</div>
+
+          <div class="flow-step">
+            <div class="flow-step-header">
+              <div class="flow-num">2</div>
+              <div class="flow-step-title">Cartographie &amp; Funnel</div>
+            </div>
+            <div class="flow-step-desc">
+              <strong>Comment la donnée voyage :</strong> Chaîne VoIP Aircall ➔ CRM HubSpot ➔ Looker Studio. Modélisation du funnel pour repérer les fuites de conversion.
+            </div>
+            <div class="flow-step-footer">
+              <span class="flow-step-tag">J1 Après-Midi / J2 · Pipeline Data</span>
+            </div>
+          </div>
+
+          <div class="flow-arrow-col">➔</div>
+
+          <div class="flow-step">
+            <div class="flow-step-header">
+              <div class="flow-num">3</div>
+              <div class="flow-step-title">Décision CoDir &amp; ROI</div>
+            </div>
+            <div class="flow-step-desc">
+              <strong>Ce qu'on décide :</strong> Soumission des 2 arbitrages : Stop Cold Call TPE (45j) + CSM PME (90j). Validation tripartite pour générer +3,00 M$ d'ARR (ROI ×52).
+            </div>
+            <div class="flow-step-footer">
+              <span class="flow-step-tag">Jour 3 · Recommandation Finale</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SLIDE 3 : PROBLÉMATIQUE (TROP DE KPI TUE LE KPI)
+       ========================================================= -->
+  <div class="slide">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <div class="divider-v"></div>
+        <span class="step-tag">03 · PROBLÉMATIQUE DATA</span>
+      </div>
+      <div class="top-right-meta">
+        
+        <span class="meta-pill">Entonnoir Décisionnel</span>
+        <span class="slide-num">03 / 08</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block">
+        <div class="header-badge">DIAGNOSTIC &amp; ENTONNOIR</div>
+        <h2>« Trop de KPI tue les KPI » : <span class="accent">L'Entonnoir Décisionnel</span></h2>
+        <div class="subtitle">Comment extraire la clarté stratégique d'une masse de métriques brutes.</div>
+      </div>
+
+      <div class="slide3-center-layout">
+        <!-- LEFT: DOWN ARROW (Exact C2M Style) -->
+        <div class="funnel-arrow-sidebar">
+          <div class="arrow-text-top">Masse de<br>Données Brutes</div>
+          <svg viewBox="0 0 20 130" class="down-arrow-svg">
+            <line x1="10" y1="0" x2="10" y2="105" stroke="var(--emerald-bright)" stroke-width="2.5" stroke-dasharray="4 4"/>
+            <polygon points="3,103 10,125 17,103" fill="var(--emerald-bright)"/>
+          </svg>
+          <div class="arrow-text-bottom">Décisions<br>Actionnables</div>
+        </div>
+
+        <!-- RIGHT: PYRAMID + 5 KINGS DIRECTLY ALIGNED -->
+        <div class="funnel-right-zone">
+          <div class="funnel-pyramid-wrapper">
+            <svg viewBox="0 0 920 205" class="pyramid-svg">
+              <defs>
+                <linearGradient id="pyrTier1" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#06261B"/>
+                  <stop offset="50%" stop-color="#0B422F"/>
+                  <stop offset="100%" stop-color="#06261B"/>
+                </linearGradient>
+                <linearGradient id="pyrTier2" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#093828"/>
+                  <stop offset="50%" stop-color="#10563E"/>
+                  <stop offset="100%" stop-color="#093828"/>
+                </linearGradient>
+                <linearGradient id="pyrTier3" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#00A376"/>
+                  <stop offset="100%" stop-color="#00E6A4"/>
+                </linearGradient>
+                <filter id="tipGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="2.5" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              <!-- TIER 1 : 20 MÉTRIQUES BRUTES (TOP TRAPEZOID - ENLARGED) -->
+              <polygon points="10,4 910,4 790,62 130,62" fill="url(#pyrTier1)" stroke="#00B388" stroke-width="1.5"/>
+              <text x="460" y="26" text-anchor="middle" fill="#00E6A4" font-size="12.5" font-weight="900" letter-spacing="1">20 MÉTRIQUES BRUTES (LE MOTEUR COMMERCIAL)</text>
+              <text x="460" y="47" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="600" opacity="0.95">
+                67k Appels · 11k Connects · RDV · 759 Démos · 358 Deals · 3,68M€ ARR · 10 SDRs · 3 Canaux · Cycle 34,5j
+              </text>
+
+              <!-- TIER 2 : 12 RATIOS CLÉS (MIDDLE TRAPEZOID - ENLARGED) -->
+              <polygon points="138,68 782,68 670,126 250,126" fill="url(#pyrTier2)" stroke="#00E6A4" stroke-width="1.5"/>
+              <text x="460" y="90" text-anchor="middle" fill="#00E6A4" font-size="12" font-weight="900" letter-spacing="0.8">12 RATIOS CLÉS (EFFICACITÉ &amp; CONVERSIONS)</text>
+              <text x="460" y="111" text-anchor="middle" fill="#FFFFFF" font-size="9.5" font-weight="600" opacity="0.95">
+                Tx Décroché (16,6%) · Tx Démo (6,8%) · Closing (47,2%) · 42% Appels TPE · ARR PME · Écart SDR
+              </text>
+
+              <!-- TIER 3 : 5 INDICATEURS ROIS (BOTTOM INVERTED TRIANGLE - ZÉRO DÉBORDEMENT) -->
+              <polygon points="258,132 662,132 460,198" fill="url(#pyrTier3)" stroke="#FFFFFF" stroke-width="2" filter="url(#tipGlow)"/>
+              <text x="460" y="153" text-anchor="middle" fill="#061B14" font-size="12.5" font-weight="900" letter-spacing="0.8">5 INDICATEURS ROIS</text>
+              <text x="460" y="170" text-anchor="middle" fill="#061B14" font-size="8.5" font-weight="800" letter-spacing="0.5">PILOTAGE CODIR</text>
+            </svg>
+          </div>
+
+          <!-- 5 INDICATEURS ROIS - STRIP HORIZONTALE -->
+          <div class="five-kings-strip">
+        <div class="king-pill">
+          <strong>0,53 %</strong>
+          <span>Transfo Globale</span>
+        </div>
+        <div class="king-pill">
+          <strong>54,53 €</strong>
+          <span>ARR / Appel</span>
+        </div>
+        <div class="king-pill">
+          <strong>61,1 %</strong>
+          <span>ARR PME (Cœur)</span>
+        </div>
+        <div class="king-pill">
+          <strong>8 344 €</strong>
+          <span>Panier ColdCall</span>
+        </div>
+        <div class="king-pill">
+          <strong>441,5 k€</strong>
+          <span>Écart SDR (Top vs Bas)</span>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+      <!-- 2 MAJOR PROBLEMS (EMERGING FROM FUNNEL) -->
+      <div class="two-problems-block">
+        <div class="problem-box">
+          <div>
+            <div class="problem-tag">PROBLÈME MAJEUR N°1 · ENTONNOIR TPE</div>
+            <div class="problem-title">Dispersion d'Énergie sur les Petits Comptes</div>
+          </div>
+          <span class="chip-red">42% Effort ➔ 6% ARR</span>
+        </div>
+
+        <div class="problem-box">
+          <div>
+            <div class="problem-tag">PROBLÈME MAJEUR N°2 · ENTONNOIR PME</div>
+            <div class="problem-title">Risque de Churn Massif Faute de CSM</div>
+          </div>
+          <span class="chip-red">2,25 M€ Menacés (20% Churn)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SLIDE 4 : VISION AIRCALL — PILOTAGE DATA (LOOKER STUDIO)
+       ========================================================= -->
+  <div class="slide">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <div class="divider-v"></div>
+        <span class="step-tag">04 · PILOTAGE DATA STUDIO</span>
+      </div>
+      <div class="top-right-meta">
+        
+        <span class="meta-pill">6 Ratios Clés Décisionnels</span>
+        <span class="slide-num">04 / 08</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block">
+        <div class="header-badge">COCKPIT DÉCISIONNEL INTERACTIF</div>
+        <h2>Tableau de Bord Looker Studio : <span class="accent">Données &amp; 6 Ratios Clés</span></h2>
+        <div class="subtitle">Cockpit interactif des 67k appels et calcul en temps réel des 6 ratios de conversion du funnel commercial.</div>
+      </div>
+
+      <!-- 2 COLUMNS LAYOUT: HERO DASHBOARD (75%) + 6 RATIOS SIDEBAR (25%) -->
+      <div class="dashboard-main-layout">
+        
+        <!-- LEFT: HERO DASHBOARD ZONE (WITHOUT BLACK BORDERS) -->
+        <div class="dashboard-left-zone">
+          <div class="view-toggle-bar">
+            <button type="button" class="toggle-btn active" id="tabLive">Mode Live Interactif (iframe)</button>
+            <button type="button" class="toggle-btn" id="tabCapture">Capture HD Sécurisée</button>
+            <button type="button" class="toggle-btn" id="btnFullscreen">⛶ Plein Écran</button>
+            <a href="https://datastudio.google.com/reporting/c201c591-05f7-40ca-adcf-a6a2e9f77384/page/AqxDG?pli=1" target="_blank" class="toggle-btn link-external">↗ Ouvrir Looker Studio</a>
+          </div>
+
+          <div id="liveContainer" class="dashboard-frame-box">
+            <iframe id="lookerLiveIframe" src="https://datastudio.google.com/embed/reporting/c201c591-05f7-40ca-adcf-a6a2e9f77384/page/AqxDG" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+          </div>
+
+          <div id="captureContainer" class="dashboard-img-box" style="display:none;">
+            <img src="capture_vrai_datastudio_kevin.jpg" alt="Looker Studio Dashboard Aircall" style="width:100%; height:100%; object-fit:contain;">
+          </div>
+        </div>
+
+        <!-- RIGHT: 6 RATIOS CALCULÉS EN DIRECT SUR LES DONNÉES LOOKER -->
+        <div class="nine-blocks-sidebar">
+          <div class="block-card">
+            <div class="block-card-title">
+              <span><span class="block-card-num">1.</span> Taux de Décroché</span>
+              <span class="block-card-badge">Activité</span>
+            </div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">16,56 %</span>
+              <span class="ratio-sub-badge">Benchmark : 14%</span>
+            </div>
+            <div class="block-card-desc">11 190 décrochés sur 67 560 appels passés.</div>
+          </div>
+
+          <div class="block-card">
+            <div class="block-card-title">
+              <span><span class="block-card-num">2.</span> Taux de Démo / Connect</span>
+              <span class="block-card-badge">Pitch SDR</span>
+            </div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">6,78 %</span>
+              <span class="ratio-sub-badge">759 Démos</span>
+            </div>
+            <div class="block-card-desc">759 démos calées sur 11 190 appels utiles.</div>
+          </div>
+
+          <div class="block-card">
+            <div class="block-card-title">
+              <span><span class="block-card-num">3.</span> Taux de Closing Démo</span>
+              <span class="block-card-badge">Conversion AE</span>
+            </div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">47,17 %</span>
+              <span class="ratio-sub-badge">358 Signatures</span>
+            </div>
+            <div class="block-card-desc">358 contrats closés sur 759 démos présentées.</div>
+          </div>
+
+          <div class="block-card">
+            <div class="block-card-title">
+              <span><span class="block-card-num">4.</span> Transformation Globale</span>
+              <span class="block-card-badge">Funnel Entier</span>
+            </div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">0,53 %</span>
+              <span class="ratio-sub-badge">1 Deal / 189 Appels</span>
+            </div>
+            <div class="block-card-desc">358 signatures sur les 67 560 appels totaux.</div>
+          </div>
+
+          <div class="block-card">
+            <div class="block-card-title">
+              <span><span class="block-card-num">5.</span> Panier Moyen (ACV)</span>
+              <span class="block-card-badge">Valeur / Deal</span>
+            </div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">10 291 €</span>
+              <span class="ratio-sub-badge">ARR Total : 3,68 M€</span>
+            </div>
+            <div class="block-card-desc">TPE : 3 725 € vs PME : 9 617 € vs Mid : 18 909 €.</div>
+          </div>
+
+          <div class="block-card highlight">
+            <div class="block-card-title">
+              <span><span class="block-card-num">6.</span> Part ARR Cœur PME</span>
+              <span class="block-card-badge" style="background:var(--emerald-bright); color:#061B14;">Cœur de Cible</span>
+            </div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">61,1 %</span>
+              <span class="ratio-sub-badge" style="color:var(--emerald-bright);">2 250 300 €</span>
+            </div>
+            <div class="block-card-desc">234 deals PME génèrent l'essentiel de l'ARR.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- =========================================================
+       SLIDE 5 : PROBLÈME 1 — DISPERSION TPE (ARBITRAGE 1)
+       ========================================================= -->
+  <div class="slide">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <div class="divider-v"></div>
+        <span class="step-tag">05 · ARBITRAGE STRATÉGIQUE N°1</span>
+      </div>
+      <div class="top-right-meta">
+        <span class="meta-pill">Réallocation Commerciale</span>
+        <span class="slide-num">05 / 08</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block">
+        <div class="header-badge">AUDIT &amp; ARBITRAGE N°1</div>
+        <h2>Arbitrage 1 : <span style="color:#EF4444;">Arrêt du Cold Call TPE</span> ➔ <span class="accent">Basculement 100% Self-Serve</span></h2>
+        <div class="subtitle">Stopper l'hémorragie commerciale sur les micro-comptes pour libérer 100% de la force de frappe sur le cœur PME.</div>
+      </div>
+
+      <!-- VIS-À-VIS IMMÉDIAT : LE PROBLÈME (GAUCHE) vs LA SOLUTION (DROITE) -->
+      <div class="problem-solution-visavis">
+        
+        <!-- BLOC GAUCHE : LE PROBLÈME EN ROUGE -->
+        <div class="visavis-col problem-side">
+          <div class="visavis-banner problem-banner">
+            <span class="visavis-tag">1. LE PROBLÈME IDENTIFIÉ</span>
+            <span class="visavis-badge-red">Dispersion à Perte</span>
+          </div>
+          <div class="visavis-body">
+            <div class="visavis-hero-stat">
+              <span class="hero-num-red">42 %</span>
+              <span class="hero-lbl">Des appels commerciaux engloutis par les TPE</span>
+            </div>
+            <div class="visavis-facts-list">
+              <div class="fact-item">
+                <span class="fact-bullet-red">—</span>
+                <div class="fact-text"><strong>28 545 appels passés pour seulement 6% de l'ARR</strong> (223 500 € récoltés sur 3,68 M€).</div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-bullet-red">—</span>
+                <div class="fact-text"><strong>Panier moyen 2,5× plus faible</strong> : 3 725 € en TPE contre 9 617 € sur les PME.</div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-bullet-red">—</span>
+                <div class="fact-text"><strong>Taux de conversion 4× inférieur</strong> (2,58% vs 9,73%). Coût d'acquisition commercial supérieur à la valeur client (CAC &gt; LTV).</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOC DROIT : LA SOLUTION EN VERT -->
+        <div class="visavis-col solution-side">
+          <div class="visavis-banner solution-banner">
+            <span class="visavis-tag">2. LA SOLUTION IMMÉDIATE</span>
+            <span class="visavis-badge-green">Arbitrage Self-Serve (PLG)</span>
+          </div>
+          <div class="visavis-body">
+            <div class="visavis-hero-stat">
+              <span class="hero-num-green">+1,55 M$</span>
+              <span class="hero-lbl">Nouvel ARR additionnel annuel récurrent généré</span>
+            </div>
+            <div class="visavis-facts-list">
+              <div class="fact-item">
+                <span class="fact-bullet-green">✓</span>
+                <div class="fact-text"><strong>Arrêt immédiat du Cold Calling TPE</strong> : Redirection automatique vers démo vidéo &amp; souscription en ligne 100% autonome.</div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-bullet-green">✓</span>
+                <div class="fact-text"><strong>Réallocation intégrale sur les PME &amp; MidMarket</strong> : 100% des 28k appels et des 10 SDRs concentrés sur les comptes rentables.</div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-bullet-green">✓</span>
+                <div class="fact-text"><strong>Investissement : 0 €</strong> (simple réalignement interne de process CRM et quotas). <strong>Faisabilité maximale (Quick Win)</strong>.</div>
+              </div>
+            </div>
+            <div class="visavis-chips-row">
+              <span class="v-chip time">Déploiement : 45 Jours</span>
+              <span class="v-chip ttv">Time-to-Value : J+30 à J+60</span>
+              <span class="v-chip cost">Coût Direct : 0 €</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TIMELINE & DÉPLOIEMENT EN BAS (45 JOURS) -->
+      <div class="timeline-feasibility-bar">
+        <div class="timeline-header">
+          <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (45 JOURS)</span>
+          <span class="timeline-ttv">Time-to-Value : <strong>J+30 à J+60</strong> · Horizon : <strong>45 Jours (Quick Win)</strong> · Faisabilité : <strong>Élevée (Coût 0 €)</strong></span>
+        </div>
+        <div class="timeline-steps">
+          <div class="t-step">
+            <div class="t-badge">S1 – S2</div>
+            <div class="t-content">
+              <span class="t-title">Routing CRM Automatique</span>
+              <span class="t-desc">Redirection automatique des leads &lt; 20 salariés vers démo &amp; pricing self-serve.</span>
+            </div>
+          </div>
+          <div class="t-arrow">➔</div>
+          <div class="t-step">
+            <div class="t-badge">S3 – S4</div>
+            <div class="t-content">
+              <span class="t-title">Réattribution Territoires SDR</span>
+              <span class="t-desc">Nouveaux quotas 100% PME/MidMarket &amp; mise à jour des séquences Cold Call.</span>
+            </div>
+          </div>
+          <div class="t-arrow">➔</div>
+          <div class="t-step t-step-highlight">
+            <div class="t-badge highlight">S5 – S6</div>
+            <div class="t-content">
+              <span class="t-title">Go-Live &amp; Premiers Gains</span>
+              <span class="t-desc">100% effort SDR sur PME. Premières signatures additionnelles dès J+60 (+1,55 M$).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SLIDE 6 : PROBLÈME 2 — RISQUE CHURN PME (ARBITRAGE 2)
+       ========================================================= -->
+  <div class="slide">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <div class="divider-v"></div>
+        <span class="step-tag">06 · ARBITRAGE STRATÉGIQUE N°2</span>
+      </div>
+      <div class="top-right-meta">
+        <span class="meta-pill">Sécurisation ARR PME</span>
+        <span class="slide-num">06 / 08</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block">
+        <div class="header-badge">AUDIT &amp; ARBITRAGE N°2</div>
+        <h2>Arbitrage 2 : <span style="color:#EF4444;">Risque de Churn Massif PME</span> ➔ <span class="accent">1 CSM Dédié &amp; Alertes</span></h2>
+        <div class="subtitle">Sécuriser les 61% du chiffre d'affaires mondial contre le désengagement et générer une expansion continue.</div>
+      </div>
+
+      <!-- VIS-À-VIS IMMÉDIAT : LE PROBLÈME (GAUCHE) vs LA SOLUTION (DROITE) -->
+      <div class="problem-solution-visavis">
+        
+        <!-- BLOC GAUCHE : LE PROBLÈME EN ROUGE -->
+        <div class="visavis-col problem-side">
+          <div class="visavis-banner problem-banner">
+            <span class="visavis-tag">1. LE PROBLÈME IDENTIFIÉ</span>
+            <span class="visavis-badge-red">Risque Churn &amp; Angle Mort</span>
+          </div>
+          <div class="visavis-body">
+            <div class="visavis-hero-stat">
+              <span class="hero-num-red">2,25 M€</span>
+              <span class="hero-lbl">ARR PME totalement exposé sans aucun accompagnement dédié</span>
+            </div>
+            <div class="visavis-facts-list">
+              <div class="fact-item">
+                <span class="fact-bullet-red">—</span>
+                <div class="fact-text"><strong>Le segment PME est le cœur d'Aircall</strong> : 61,1% de l'ARR mondial (234 contrats signés), mais <strong>zéro CSM dédié</strong> !</div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-bullet-red">—</span>
+                <div class="fact-text"><strong>Risque de churn annuel de 20%</strong> : Hémorragie directe estimée à <strong>400 000 €/an</strong> sans accompagnement post-vente.</div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-bullet-red">—</span>
+                <div class="fact-text"><strong>Angle mort technologique</strong> : Aucune alerte automatisée en cas de baisse d'usage VoIP ou désengagement des équipes clientes.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOC DROIT : LA SOLUTION EN VERT -->
+        <div class="visavis-col solution-side">
+          <div class="visavis-banner solution-banner">
+            <span class="visavis-tag">2. LA SOLUTION IMMÉDIATE</span>
+            <span class="visavis-badge-green">1 CSM Dédié + Tech HubSpot</span>
+          </div>
+          <div class="visavis-body">
+            <div class="visavis-hero-stat">
+              <span class="hero-num-green">+1,45 M$</span>
+              <span class="hero-lbl">ARR PME sécurisé &amp; expansion (Upsell licences)</span>
+            </div>
+            <div class="visavis-facts-list">
+              <div class="fact-item">
+                <span class="fact-bullet-green">✓</span>
+                <div class="fact-text"><strong>Recrutement d'1 CSM dédié PME</strong> : Onboarding personnalisé, formation des admins et revues trimestrielles de performance (QBR).</div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-bullet-green">✓</span>
+                <div class="fact-text"><strong>Alertes d'inactivité HubSpot</strong> : Déclenchement automatique dès qu'une PME passe sous 50 appels/semaine pour intervention proactive.</div>
+              </div>
+              <div class="fact-item">
+                <span class="fact-bullet-green">✓</span>
+                <div class="fact-text"><strong>Budget : 58 000 € chargés</strong> ➔ <strong>Retour sur investissement : ROI ×25</strong> avec churn réduit sous 5%.</div>
+              </div>
+            </div>
+            <div class="visavis-chips-row">
+              <span class="v-chip time">Déploiement : 90 Jours</span>
+              <span class="v-chip ttv">Time-to-Value : J+60 à J+90</span>
+              <span class="v-chip cost">Budget : 58 k€ (ROI ×25)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TIMELINE & DÉPLOIEMENT EN BAS (90 JOURS) -->
+      <div class="timeline-feasibility-bar">
+        <div class="timeline-header">
+          <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (90 JOURS / Q1-Q2)</span>
+          <span class="timeline-ttv">Time-to-Value : <strong>J+60 à J+90</strong> · Horizon : <strong>90 Jours</strong> · Faisabilité : <strong>Moyenne (1 Recrutement)</strong></span>
+        </div>
+        <div class="timeline-steps">
+          <div class="t-step">
+            <div class="t-badge">Mois 1 (J+1 à J+30)</div>
+            <div class="t-content">
+              <span class="t-title">Chasse CSM &amp; Alertes Tech</span>
+              <span class="t-desc">Lancement recrutement CSM + triggers HubSpot (inactivité &lt; 50 appels/semaine).</span>
+            </div>
+          </div>
+          <div class="t-arrow">➔</div>
+          <div class="t-step">
+            <div class="t-badge">Mois 2 (J+31 à J+60)</div>
+            <div class="t-content">
+              <span class="t-title">Onboarding &amp; Sauvetage</span>
+              <span class="t-desc">Arrivée du CSM, intervention prioritaire sur les 20 comptes PME à risque de churn.</span>
+            </div>
+          </div>
+          <div class="t-arrow">➔</div>
+          <div class="t-step t-step-highlight">
+            <div class="t-badge highlight">Mois 3 (J+61 à J+90)</div>
+            <div class="t-content">
+              <span class="t-title">Régime de Croisière &amp; Upsell</span>
+              <span class="t-desc">Revues trimestrielles (QBR), churn réduit sous 5% et expansion NRR &gt; 110%.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SLIDE 7 : IMPACT GLOBAL — RÉTROACTION DATA (ROI X52)
+       ========================================================= -->
+  <div class="slide">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <div class="divider-v"></div>
+        <span class="step-tag">07 · SYNTHÈSE GLOBALE &amp; ROI</span>
+      </div>
+      <div class="top-right-meta">
+        
+        <span class="meta-pill">Impact CoDir 2026</span>
+        <span class="slide-num">07 / 08</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block">
+        <div class="header-badge">BILAN DES 2 DÉCISIONS REVOPS</div>
+        <h2>Impact Global Consolidé : <span class="accent">+3,00 M$ d'ARR / ROI ×52</span></h2>
+        <div class="subtitle">De l'analyse rigoureuse des 5 indicateurs rois à la création de valeur massive.</div>
+      </div>
+
+      <!-- 5 KPI ROIS -->
+      <div class="kpi-rois-row">
+        <div class="kpi-roi-card">
+          <div class="kpi-roi-val">0,53%</div>
+          <div class="kpi-roi-name">Transformation</div>
+        </div>
+        <div class="kpi-roi-card">
+          <div class="kpi-roi-val">54,53€</div>
+          <div class="kpi-roi-name">Rendement/Appel</div>
+        </div>
+        <div class="kpi-roi-card">
+          <div class="kpi-roi-val">61,1%</div>
+          <div class="kpi-roi-name">ARR Cœur PME</div>
+        </div>
+        <div class="kpi-roi-card">
+          <div class="kpi-roi-val">8 344€</div>
+          <div class="kpi-roi-name">Panier ColdCall</div>
+        </div>
+        <div class="kpi-roi-card">
+          <div class="kpi-roi-val">441,5k€</div>
+          <div class="kpi-roi-name">Écart Top/Junior</div>
+        </div>
+      </div>
+
+      <!-- BANNIÈRE ROI GÉANTE -->
+      <div class="big-roi-banner">
+        <div>
+          <div class="card-badge" style="color:var(--emerald-bright);">BILAN FINANCIER GLOBAL</div>
+          <div class="stat-giant" style="font-size:46px; margin:4px 0;">+3,00 M$ ARR</div>
+          <div class="stat-label">Gain Cumulé des 2 Arbitrages (+1,55M$ + 1,45M$)</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="card-badge" style="color:var(--text-white);">BUDGET DÉCISIONNEL</div>
+          <div class="stat-giant white" style="font-size:36px; margin:4px 0;">58 000 €</div>
+          <div class="stat-label" style="color:var(--emerald-bright); font-size:18px;">ROI Consolidé : ×52</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SLIDE 8 : TRANSPARENCE DES DONNÉES (MATRICE 3 SOURCES)
+       ========================================================= -->
+  <div class="slide">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <div class="divider-v"></div>
+        <span class="step-tag">08 · TRANSPARENCE &amp; CONFORMITÉ</span>
+      </div>
+      <div class="top-right-meta">
+        
+        <span class="meta-pill">Origine Certifiée</span>
+        <span class="slide-num">08 / 08</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block">
+        <div class="header-badge">INTÉGRITÉ &amp; TRAÇABILITÉ DES DONNÉES</div>
+        <h2>Matrice de Transparence : <span class="accent">L'Origine de Chaque Donnée</span></h2>
+        <div class="subtitle">Distinction formelle entre le cas d'étude réel, les données publiques et la simulation.</div>
+      </div>
+
+      <table class="transparency-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Catégorie de Source</th>
+            <th style="width: 50%;">Données &amp; Indicateurs Associés</th>
+            <th style="width: 25%;">Référence Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge-source source-rocket">Données Réelles Examen</span></td>
+            <td>
+              <strong>67 560</strong> appels passés, <strong>11 190</strong> décrochés, <strong>358</strong> deals signés, <strong>3,68 M€</strong> d'ARR total.<br>
+              Répartition par segment : TPE (28k appels), PME (32k appels), MidMarket (6,4k appels).
+            </td>
+            <td>Référentiel Officiel Rocket School</td>
+          </tr>
+          <tr>
+            <td><span class="badge-source source-aircall">Données Publiques Aircall</span></td>
+            <td>
+              Licorne SaaS Téléphonie Cloud, 250 M$ ARR mondial, 24 000+ clients.<br>
+              Présence dans <strong>+100 pays</strong>, <strong>+100 intégrations CRM</strong> natives (HubSpot, Salesforce).
+            </td>
+            <td>aircall.io &amp; support.aircall.io</td>
+          </tr>
+          <tr>
+            <td><span class="badge-source source-simu">Données Simulées Exercice</span></td>
+            <td>
+              Répartition de l'effort nominatif sur <strong>10 SDRs</strong> (de Camille Laurent à Maxime Roux).<br>
+              Écart d'ancienneté (24 mois vs 4 mois), ventilations détaillées par canal d'acquisition.
+            </td>
+            <td>Jeu de Test Examen RevOps</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAVIGATION BAR -->
+<div class="bottom-nav-bar">
+  <button type="button" class="bottom-nav-btn" id="btnPrev">◀ Précédent</button>
+  <div class="nav-dots" id="navDots">
+    <button type="button" class="nav-dot active" data-slide="0">1</button>
+    <button type="button" class="nav-dot" data-slide="1">2</button>
+    <button type="button" class="nav-dot" data-slide="2">3</button>
+    <button type="button" class="nav-dot" data-slide="3">4</button>
+    <button type="button" class="nav-dot" data-slide="4">5</button>
+    <button type="button" class="nav-dot" data-slide="5">6</button>
+    <button type="button" class="nav-dot" data-slide="6">7</button>
+    <button type="button" class="nav-dot" data-slide="7">8</button>
+  </div>
+  <button type="button" class="bottom-nav-btn" id="btnNext">Suivant ▶</button>
+  <div class="divider-nav-v"></div>
+  <button type="button" class="btn-theme-switcher" id="btnThemeToggle" title="Basculer entre Mode Clair et Mode Sombre">🌙 Mode Sombre</button>
+  <div class="divider-nav-v"></div>
+  <button type="button" class="btn-fullscreen-deck" id="btnDeckFullscreen" title="Plein Écran Toute la Présentation (Touche F)">⛶ Plein Écran</button>
+</div>
+
+<!-- FLOATING SIDE ARROWS -->
+<button type="button" class="nav-arrow nav-prev" id="sidePrev" aria-label="Slide Précédente">◀</button>
+<button type="button" class="nav-arrow nav-next" id="sideNext" aria-label="Slide Suivante">▶</button>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.nav-dot');
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    if (index < 0) index = 0;
+    if (index >= totalSlides) index = totalSlides - 1;
+    currentSlide = index;
+
+    slides.forEach((slide, i) => {
+      if (i === currentSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    dots.forEach((dot, i) => {
+      if (i === currentSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+
+    if (currentSlide === 3 && typeof fitLookerIframe === 'function') {
+      setTimeout(fitLookerIframe, 80);
+    }
+  }
+
+    // FULLSCREEN MODE FOR ENTIRE PRESENTATION
+  const btnDeckFs = document.getElementById('btnDeckFullscreen');
+  if (btnDeckFs) {
+    btnDeckFs.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.error('Error attempting to enable fullscreen:', err);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      if (document.fullscreenElement) {
+        btnDeckFs.innerHTML = '✕ Quitter';
+        btnDeckFs.classList.add('active-fs');
+      } else {
+        btnDeckFs.innerHTML = '⛶ Plein Écran';
+        btnDeckFs.classList.remove('active-fs');
+      }
+      if (currentSlide === 3 && typeof fitLookerIframe === 'function') {
+        setTimeout(fitLookerIframe, 150);
+      }
+    });
+  }
+
+  // Hotkey 'F' to toggle presentation fullscreen
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(()=>{});
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+  });
+
+  document.getElementById('btnPrev').addEventListener('click', () => showSlide(currentSlide - 1));
+  document.getElementById('btnNext').addEventListener('click', () => showSlide(currentSlide + 1));
+  document.getElementById('sidePrev').addEventListener('click', () => showSlide(currentSlide - 1));
+  document.getElementById('sideNext').addEventListener('click', () => showSlide(currentSlide + 1));
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      const idx = parseInt(e.target.getAttribute('data-slide'));
+      showSlide(idx);
+    });
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      showSlide(currentSlide + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      showSlide(currentSlide - 1);
+    }
+  });
+
+  const btnTheme = document.getElementById('btnThemeToggle');
+  if (btnTheme) {
+    btnTheme.addEventListener('click', () => {
+      document.body.classList.toggle('theme-dark');
+      const isDark = document.body.classList.contains('theme-dark');
+      btnTheme.innerHTML = isDark ? '☀ Mode Clair' : '🌙 Mode Sombre';
+    });
+  }
+
+</script>
+
+
+<!-- ZOOM MODAL LIGHTBOX -->
+<div id="zoomModal">
+  <div id="zoomClose">&times;</div>
+  <img src="capture_vrai_datastudio_kevin.jpg" alt="Looker Studio Dashboard HD Zoom">
+</div>
+
+<script>
+  // AUTO-FIT LOOKER STUDIO IFRAME WITH RESIZEOBSERVER
+  function fitLookerIframe() {
+    const box = document.getElementById('liveContainer');
+    const iframe = document.getElementById('lookerLiveIframe');
+    if (!box || !iframe) return;
+    const cw = box.clientWidth;
+    const ch = box.clientHeight;
+    if (cw < 100 || ch < 100) return;
+    const baseW = 1260;
+    const baseH = 880;
+    const scale = Math.min(cw / baseW, ch / baseH);
+    iframe.style.width = baseW + 'px';
+    iframe.style.height = baseH + 'px';
+    iframe.style.transform = 'scale(' + scale + ')';
+    iframe.style.transformOrigin = 'top left';
+    iframe.style.position = 'absolute';
+    iframe.style.top = '0';
+    iframe.style.left = Math.max(0, (cw - baseW * scale) / 2) + 'px';
+  }
+
+  window.addEventListener('resize', fitLookerIframe);
+  window.addEventListener('load', fitLookerIframe);
+  
+  const liveBox = document.getElementById('liveContainer');
+  if (liveBox) {
+    try {
+      new ResizeObserver(fitLookerIframe).observe(liveBox);
+    } catch(e) {}
+  }
+
+  
+  const tabLive = document.getElementById('tabLive');
+  const tabCapture = document.getElementById('tabCapture');
+  const liveContainer = document.getElementById('liveContainer');
+  const captureContainer = document.getElementById('captureContainer');
+  const btnFullscreen = document.getElementById('btnFullscreen');
+
+  if (tabLive && tabCapture && liveContainer && captureContainer) {
+    tabLive.addEventListener('click', () => {
+      tabLive.classList.add('active');
+      tabCapture.classList.remove('active');
+      liveContainer.style.display = 'flex';
+      captureContainer.style.display = 'none';
+      setTimeout(fitLookerIframe, 50);
+    });
+    tabCapture.addEventListener('click', () => {
+      tabCapture.classList.add('active');
+      tabLive.classList.remove('active');
+      liveContainer.style.display = 'none';
+      captureContainer.style.display = 'flex';
+    });
+  }
+
+  if (btnFullscreen && liveContainer) {
+    btnFullscreen.addEventListener('click', () => {
+      liveContainer.classList.toggle('fullscreen');
+      if (liveContainer.classList.contains('fullscreen')) {
+        btnFullscreen.innerHTML = '✕ Quitter Plein Écran';
+      } else {
+        btnFullscreen.innerHTML = '⛶ Plein Écran';
+      }
+      setTimeout(fitLookerIframe, 80);
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && liveContainer && liveContainer.classList.contains('fullscreen')) {
+      liveContainer.classList.remove('fullscreen');
+      if (btnFullscreen) btnFullscreen.innerHTML = '⛶ Plein Écran';
+      setTimeout(fitLookerIframe, 80);
+    }
+  });
+
+  const imgBox = document.querySelector('.dashboard-img-box');
+  const modal = document.getElementById('zoomModal');
+  const closeBtn = document.getElementById('zoomClose');
+
+  if (imgBox && modal) {
+    imgBox.addEventListener('click', () => modal.classList.add('active'));
+    modal.addEventListener('click', () => modal.classList.remove('active'));
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        modal.classList.remove('active');
+      });
+    }
+  }
+
+  const btnTheme = document.getElementById('btnThemeToggle');
+  if (btnTheme) {
+    btnTheme.addEventListener('click', () => {
+      document.body.classList.toggle('theme-dark');
+      const isDark = document.body.classList.contains('theme-dark');
+      btnTheme.innerHTML = isDark ? '☀ Mode Clair' : '🌙 Mode Sombre';
+    });
+  }
+
+</script>
+
+
+</body>
+</html>
