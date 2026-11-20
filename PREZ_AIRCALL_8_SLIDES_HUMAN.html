@@ -2474,35 +2474,169 @@
     border-radius: 6px !important;
   }
 
-  /* Règle 08 : MODALES SANS VERRE DÉPOLI (Fonds opaques et nets) */
+  /* Règle 08 : MODALES BLANCHES & DESIGN HUMAIN (Fonds opaques, 100% blancs épurés Aircall) */
   .kpi-modal-overlay {
-    background: rgba(15, 23, 42, 0.75) !important;
+    background: rgba(15, 23, 42, 0.65) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
-  .kpi-modal-content {
+  .kpi-modal-box {
     background: #FFFFFF !important;
     border: 1px solid #E5E7EB !important;
     color: #111827 !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
-    border-radius: 8px !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 12px !important;
+    max-width: 960px !important;
+    max-height: 92vh !important;
   }
-  .kpi-modal-header { border-bottom: 1px solid #E5E7EB !important; }
-  .kpi-modal-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; border-radius: 4px !important; }
-  .kpi-modal-title { color: #111827 !important; }
-  .kpi-modal-subtitle { color: #4B5563 !important; }
-  .kpi-modal-close { background: #F8F9FA !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; border-radius: 6px !important; }
-  .kpi-modal-close:hover { background: #E5E7EB !important; color: #111827 !important; }
-  .gantt-nav-tab { background: #F8F9FA !important; border: 1px solid #E5E7EB !important; color: #4B5563 !important; border-radius: 6px !important; }
-  .gantt-nav-tab.active { background: #00875A !important; color: #FFFFFF !important; border-color: #00875A !important; }
-  .gantt-kpi-pill { background: #F8F9FA !important; border: 1px solid #E5E7EB !important; border-radius: 6px !important; }
-  .gantt-kpi-val { color: #00875A !important; font-weight: 900 !important; }
-  .gantt-kpi-lbl { color: #6B7280 !important; }
-  .gantt-tasks-table { border: 1px solid #E5E7EB !important; border-radius: 6px !important; }
-  .gantt-tasks-table th { background: #F8F9FA !important; color: #111827 !important; }
-  .gantt-tasks-table td { background: #FFFFFF !important; color: #1F2937 !important; }
-  .gantt-insight-box { background: #F0FDF4 !important; border: 1px solid #A3E0CE !important; border-radius: 6px !important; color: #006644 !important; }
-  .gantt-insight-tag { color: #00875A !important; font-weight: 800 !important; }
+  .kpi-modal-header {
+    background: #FFFFFF !important;
+    border-bottom: 1px solid #E5E7EB !important;
+    padding: 12px 20px !important;
+  }
+  .kpi-modal-header-left {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+  }
+  .kpi-modal-tag {
+    color: #00875A !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+  }
+  .kpi-modal-title {
+    color: #111827 !important;
+    font-size: 16.5px !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.3px !important;
+  }
+  .kpi-modal-close {
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+  }
+  .kpi-modal-close:hover {
+    background: #E5E7EB !important;
+    color: #111827 !important;
+    transform: none !important;
+  }
+  .gantt-tab-btn {
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    padding: 5px 12px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+  }
+  .gantt-tab-btn:hover:not(.active) {
+    background: #E5E7EB !important;
+    color: #111827 !important;
+  }
+  .gantt-tab-btn.active {
+    background: #00875A !important;
+    color: #FFFFFF !important;
+    border-color: #00875A !important;
+    font-weight: 800 !important;
+  }
+  .kpi-modal-body {
+    background: #F8F9FA !important;
+    padding: 12px 18px !important;
+    gap: 10px !important;
+  }
+  .kpi-modal-kpis-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+  }
+  .kpi-modal-mini-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    text-align: center !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  }
+  .kpi-modal-mini-label {
+    color: #6B7280 !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+  }
+  .kpi-modal-mini-val {
+    color: #00875A !important;
+    font-size: 16.5px !important;
+    font-weight: 900 !important;
+    margin-top: 1px !important;
+    letter-spacing: -0.3px !important;
+  }
+  .kpi-chart-box {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  }
+  .kpi-chart-title {
+    color: #111827 !important;
+    font-size: 11.5px !important;
+    font-weight: 800 !important;
+    margin-bottom: 8px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .kpi-chart-title span:last-child {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border: 1px solid #A3E0CE !important;
+    border-radius: 4px !important;
+    padding: 2px 8px !important;
+    font-size: 8.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+  }
+  .kpi-insight-card {
+    background: #F0FDF4 !important;
+    border: 1px solid #A3E0CE !important;
+    border-left: 1px solid #A3E0CE !important;
+    border-radius: 8px !important;
+    padding: 9px 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+  }
+  .kpi-insight-tag {
+    color: #00875A !important;
+    font-size: 9.5px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+  }
+  .kpi-insight-text {
+    color: #1F2937 !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+  .kpi-insight-text strong {
+    color: #111827 !important;
+    font-weight: 800 !important;
+  }
 
   /* PRINT MODE CORRECTIONS */
   @media print {
@@ -4185,7 +4319,7 @@
   const masterGanttData = {
   "1": {
     "tag": "PLANIFICATION OPÉRATIONNELLE • ARBITRAGE N°1",
-    "title": "Diagramme de Gantt Détaillé : Solution 1 (45 Jours / S1 à S6)",
+    "title": "Solution 1 : Automatisation Lemlist & Focus PME (45 Jours)",
     "subtitle": "Automatisation Cold Email Lemlist TPE & Réallocation 100% des SDRs sur PME",
     "kpis": [
       {
@@ -4201,7 +4335,7 @@
         "val": "+1,60 M$ (ROI ×888)"
       }
     ],
-    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (45J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <line x1=\"210.0\" y1=\"0\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"250.83333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S1</text>\n        \n        <line x1=\"291.6666666666667\" y1=\"0\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"332.5\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S2</text>\n        \n        <line x1=\"373.33333333333337\" y1=\"0\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"414.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S3</text>\n        \n        <line x1=\"455.0\" y1=\"0\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"495.8333333333333\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S4</text>\n        \n        <line x1=\"536.6666666666667\" y1=\"0\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"577.5000000000001\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S5</text>\n        \n        <line x1=\"618.3333333333334\" y1=\"0\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"659.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        <line x1=\"700.0\" y1=\"0\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Audit & Filtrage CRM HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"212.0\" y=\"37\" width=\"159.33333333333334\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.3\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Parcours Self-Serve & Vidéo PLG</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Product / Web</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"293.6666666666667\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#10B981\" fill-opacity=\"0.3\" stroke=\"#10B981\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"373.33333333333337\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Quotas & Territoires 100% PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Head of Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#0284C7\" fill-opacity=\"0.3\" stroke=\"#0284C7\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Playbook Script & Coaching SDR</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead SDR</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.3\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Go-Live & Suivi Conversion PME</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RevOps / Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.3\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n      <!-- Milestones bar -->\n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+15 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#10B981\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#10B981\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+15 : Self-Serve</text>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#0284C7\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#0284C7\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Quotas 100% PME</text>\n      \n      <!-- Milestone J+45 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+45 : GO-LIVE (+1,60M$)</text>\n    </svg>",
+    "svg": "<svg viewBox=\"0 0 820 205\" width=\"100%\" height=\"205\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"820\" height=\"26\" fill=\"#F1F5F9\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#475569\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (45J)</text>\n      <text x=\"245\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n      <line x1=\"350.0\" y1=\"0\" x2=\"350.0\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <text x=\"387.9\" y=\"17\" fill=\"#00875A\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S1</text>\n      \n      <line x1=\"425.8\" y1=\"0\" x2=\"425.8\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <text x=\"463.8\" y=\"17\" fill=\"#00875A\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S2</text>\n      \n      <line x1=\"501.7\" y1=\"0\" x2=\"501.7\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <text x=\"539.6\" y=\"17\" fill=\"#00875A\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S3</text>\n      \n      <line x1=\"577.5\" y1=\"0\" x2=\"577.5\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <text x=\"615.4\" y=\"17\" fill=\"#00875A\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S4</text>\n      \n      <line x1=\"653.3\" y1=\"0\" x2=\"653.3\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <text x=\"691.3\" y=\"17\" fill=\"#00875A\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S5</text>\n      \n      <line x1=\"729.2\" y1=\"0\" x2=\"729.2\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <text x=\"767.1\" y=\"17\" fill=\"#00875A\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n      <line x1=\"805.0\" y1=\"0\" x2=\"805.0\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      \n      <!-- Row 1 -->\n      <text x=\"15\" y=\"47\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">1. Audit &amp; Filtrage CRM HubSpot</text>\n      <text x=\"245\" y=\"47\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">Lead RevOps</text>\n      <rect x=\"350\" y=\"35\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"352.0\" y=\"36\" width=\"148.0\" height=\"16\" fill=\"#3B82F6\" rx=\"4\"/>\n      <text x=\"426.0\" y=\"47\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S1 - S2</text>\n      \n      <!-- Row 2 -->\n      <text x=\"15\" y=\"74\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">2. Setup Lemlist &amp; Inscription Web</text>\n      <text x=\"245\" y=\"74\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">Product / Web</text>\n      <rect x=\"350\" y=\"62\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"427.8\" y=\"63\" width=\"148.0\" height=\"16\" fill=\"#00875A\" rx=\"4\"/>\n      <text x=\"501.8\" y=\"74\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S2 - S3</text>\n      \n      <!-- Row 3 -->\n      <text x=\"15\" y=\"101\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">3. Quotas &amp; Territoires 100% PME</text>\n      <text x=\"245\" y=\"101\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">Head of Sales</text>\n      <rect x=\"350\" y=\"89\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"503.7\" y=\"90\" width=\"148.0\" height=\"16\" fill=\"#0284C7\" rx=\"4\"/>\n      <text x=\"577.7\" y=\"101\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S3 - S4</text>\n      \n      <!-- Row 4 -->\n      <text x=\"15\" y=\"128\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">4. Playbook Script &amp; Coaching SDR</text>\n      <text x=\"245\" y=\"128\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">Lead SDR</text>\n      <rect x=\"350\" y=\"116\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"579.5\" y=\"117\" width=\"148.0\" height=\"16\" fill=\"#D97706\" rx=\"4\"/>\n      <text x=\"653.5\" y=\"128\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S4 - S5</text>\n      \n      <!-- Row 5 -->\n      <text x=\"15\" y=\"155\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">5. Go-Live &amp; Suivi Conversion PME</text>\n      <text x=\"245\" y=\"155\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">RevOps / Sales</text>\n      <rect x=\"350\" y=\"143\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"655.3\" y=\"144\" width=\"148.0\" height=\"16\" fill=\"#00875A\" rx=\"4\"/>\n      <text x=\"729.3\" y=\"155\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S5 - S6</text>\n      \n      <!-- Milestones bar -->\n      <line x1=\"350\" y1=\"178\" x2=\"805\" y2=\"178\" stroke=\"#00875A\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <polygon points=\"501.7,173 506.7,178 501.7,183 496.7,178\" fill=\"#00875A\"/>\n      <text x=\"501.7\" y=\"195\" fill=\"#00875A\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">J+15 : Lemlist Actif</text>\n      \n      <polygon points=\"653.3,173 658.3,178 653.3,183 648.3,178\" fill=\"#0284C7\"/>\n      <text x=\"653.3\" y=\"195\" fill=\"#0284C7\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Quotas 100% PME</text>\n      \n      <polygon points=\"805.0,173 810.0,178 805.0,183 800.0,178\" fill=\"#00875A\"/>\n      <text x=\"805.0\" y=\"195\" fill=\"#00875A\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+45 : GO-LIVE (+1,60M$)</text>\n    </svg>",
     "tasks": [
       {
         "num": "1.1",
@@ -4244,7 +4378,7 @@
   },
   "2": {
     "tag": "PLANIFICATION OPÉRATIONNELLE • ARBITRAGE N°2",
-    "title": "Diagramme de Gantt Détaillé : Solution 2 (90 Jours / Mois 1 à 3)",
+    "title": "Solution 2 : Structuration Pôle CSM PME (90 Jours)",
     "subtitle": "Recrutement CSM Dédié PME & Déploiement Triggers Inactivité HubSpot",
     "kpis": [
       {
@@ -4260,7 +4394,7 @@
         "val": "+1,45 M$ (ROI ×25)"
       }
     ],
-    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (90J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <rect x=\"210\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"291.6666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n        \n        <rect x=\"373.33333333333337\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"455.00000000000006\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n        \n        <rect x=\"536.6666666666667\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"618.3333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n        <line x1=\"210.0\" y1=\"26\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"250.83333333333334\" y1=\"26\" x2=\"250.83333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"291.6666666666667\" y1=\"26\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"332.5\" y1=\"26\" x2=\"332.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"373.33333333333337\" y1=\"26\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"414.1666666666667\" y1=\"26\" x2=\"414.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"455.0\" y1=\"26\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"495.83333333333337\" y1=\"26\" x2=\"495.83333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"536.6666666666667\" y1=\"26\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"618.3333333333334\" y1=\"26\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"659.1666666666667\" y1=\"26\" x2=\"659.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"700.0\" y1=\"26\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Alertes Tech Inactivité HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"37\" width=\"118.5\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.32\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"271.25\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S3</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Chasse & Recrutement CSM PME</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RH / VP Sales</text>\n        \n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.32\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S4</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Onboarding & Sauvetage 20 PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / RevOps</text>\n        \n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#EF4444\" fill-opacity=\"0.32\" stroke=\"#EF4444\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S5 - S8</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Industrialisation QBRs & CSAT</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM Dédié</text>\n        \n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#0284C7\" fill-opacity=\"0.32\" stroke=\"#0284C7\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S7 - S10</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Campagnes Expansion NRR > 110%</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / Sales</text>\n        \n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.32\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S9 - S12</text>\n        \n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#F59E0B\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#F59E0B\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Recrutement CSM</text>\n      \n      <!-- Milestone J+60 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#EF4444\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#EF4444\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+60 : 400 k€ Churn Sauvé</text>\n      \n      <!-- Milestone J+90 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+90 : NRR &gt; 110% (+1,45M$)</text>\n    </svg>",
+    "svg": "<svg viewBox=\"0 0 820 205\" width=\"100%\" height=\"205\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"820\" height=\"26\" fill=\"#F1F5F9\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#475569\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (90J)</text>\n      <text x=\"245\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n      <rect x=\"350\" y=\"2\" width=\"151.7\" height=\"22\" fill=\"#FFFFFF\" stroke=\"#CBD5E1\" stroke-width=\"1\" rx=\"4\"/>\n      <text x=\"425.8\" y=\"17\" fill=\"#00875A\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n      \n      <rect x=\"501.7\" y=\"2\" width=\"151.7\" height=\"22\" fill=\"#FFFFFF\" stroke=\"#CBD5E1\" stroke-width=\"1\" rx=\"4\"/>\n      <text x=\"577.5\" y=\"17\" fill=\"#00875A\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n      \n      <rect x=\"653.3\" y=\"2\" width=\"151.7\" height=\"22\" fill=\"#FFFFFF\" stroke=\"#CBD5E1\" stroke-width=\"1\" rx=\"4\"/>\n      <text x=\"729.2\" y=\"17\" fill=\"#00875A\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n      \n      <line x1=\"350.0\" y1=\"26\" x2=\"350.0\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"387.9\" y1=\"26\" x2=\"387.9\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"425.8\" y1=\"26\" x2=\"425.8\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"463.8\" y1=\"26\" x2=\"463.8\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"501.7\" y1=\"26\" x2=\"501.7\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"539.6\" y1=\"26\" x2=\"539.6\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"615.4\" y1=\"26\" x2=\"615.4\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"653.3\" y1=\"26\" x2=\"653.3\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"691.3\" y1=\"26\" x2=\"691.3\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"729.2\" y1=\"26\" x2=\"729.2\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"767.1\" y1=\"26\" x2=\"767.1\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"805.0\" y1=\"26\" x2=\"805.0\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      \n      <!-- Row 1 -->\n      <text x=\"15\" y=\"47\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">1. Alertes Tech Inactivité HubSpot</text>\n      <text x=\"245\" y=\"47\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">Lead RevOps</text>\n      <rect x=\"350\" y=\"35\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"352.0\" y=\"36\" width=\"112.0\" height=\"16\" fill=\"#3B82F6\" rx=\"4\"/>\n      <text x=\"408.0\" y=\"47\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S3</text>\n      \n      <!-- Row 2 -->\n      <text x=\"15\" y=\"74\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">2. Chasse &amp; Recrutement CSM PME</text>\n      <text x=\"245\" y=\"74\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">RH / VP Sales</text>\n      <rect x=\"350\" y=\"62\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"352.0\" y=\"63\" width=\"148.0\" height=\"16\" fill=\"#D97706\" rx=\"4\"/>\n      <text x=\"426.0\" y=\"74\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S4</text>\n      \n      <!-- Row 3 -->\n      <text x=\"15\" y=\"101\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">3. Onboarding &amp; Sauvetage 20 PME</text>\n      <text x=\"245\" y=\"101\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">CSM / RevOps</text>\n      <rect x=\"350\" y=\"89\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"503.7\" y=\"90\" width=\"148.0\" height=\"16\" fill=\"#DC2626\" rx=\"4\"/>\n      <text x=\"577.7\" y=\"101\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S5 - S8</text>\n      \n      <!-- Row 4 -->\n      <text x=\"15\" y=\"128\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">4. Industrialisation QBRs &amp; CSAT</text>\n      <text x=\"245\" y=\"128\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">CSM Dédié</text>\n      <rect x=\"350\" y=\"116\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"579.5\" y=\"117\" width=\"148.0\" height=\"16\" fill=\"#0284C7\" rx=\"4\"/>\n      <text x=\"653.5\" y=\"128\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S7 - S10</text>\n      \n      <!-- Row 5 -->\n      <text x=\"15\" y=\"155\" fill=\"#1E293B\" font-size=\"9\" font-weight=\"700\">5. Campagnes Expansion NRR &gt; 110%</text>\n      <text x=\"245\" y=\"155\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"600\">CSM / Sales</text>\n      <rect x=\"350\" y=\"143\" width=\"455\" height=\"18\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"655.3\" y=\"144\" width=\"148.0\" height=\"16\" fill=\"#00875A\" rx=\"4\"/>\n      <text x=\"729.3\" y=\"155\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S9 - S12</text>\n      \n      <!-- Milestones -->\n      <line x1=\"350\" y1=\"178\" x2=\"805\" y2=\"178\" stroke=\"#00875A\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <polygon points=\"501.7,173 506.7,178 501.7,183 496.7,178\" fill=\"#D97706\"/>\n      <text x=\"501.7\" y=\"195\" fill=\"#D97706\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Recrutement CSM</text>\n      \n      <polygon points=\"653.3,173 658.3,178 653.3,183 648.3,178\" fill=\"#DC2626\"/>\n      <text x=\"653.3\" y=\"195\" fill=\"#DC2626\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+60 : 400 k€ Sauvé</text>\n      \n      <polygon points=\"805.0,173 810.0,178 805.0,183 800.0,178\" fill=\"#00875A\"/>\n      <text x=\"805.0\" y=\"195\" fill=\"#00875A\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+90 : NRR &gt; 110% (+1,45M$)</text>\n    </svg>",
     "tasks": [
       {
         "num": "2.1",
@@ -4319,7 +4453,7 @@
         "val": "ROI ×51 (Payback 4,2 m)"
       }
     ],
-    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">MASTER ROADMAP REVOPS</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">IMPACT ARR</text>\n    \n        <rect x=\"210\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"291.6666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n        \n        <rect x=\"373.33333333333337\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"455.00000000000006\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n        \n        <rect x=\"536.6666666666667\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"618.3333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n        <line x1=\"210.0\" y1=\"26\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"250.83333333333334\" y1=\"26\" x2=\"250.83333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"291.6666666666667\" y1=\"26\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"332.5\" y1=\"26\" x2=\"332.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"373.33333333333337\" y1=\"26\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"414.1666666666667\" y1=\"26\" x2=\"414.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"455.0\" y1=\"26\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"495.83333333333337\" y1=\"26\" x2=\"495.83333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"536.6666666666667\" y1=\"26\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"618.3333333333334\" y1=\"26\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"659.1666666666667\" y1=\"26\" x2=\"659.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"700.0\" y1=\"26\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/>\n      <text x=\"15\" y=\"56\" fill=\"#00E6A4\" font-size=\"10\" font-weight=\"900\">SOLUTION 1 : Lemlist TPE &amp; Quotas PME</text>\n      <text x=\"150\" y=\"56\" fill=\"#34D399\" font-size=\"9\" font-weight=\"800\">+1,60 M$ (1,8 k€)</text>\n      <rect x=\"210\" y=\"42\" width=\"490\" height=\"24\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n      <rect x=\"212\" y=\"44\" width=\"241.0\" height=\"20\" fill=\"#10B981\" fill-opacity=\"0.35\" stroke=\"#10B981\" stroke-width=\"2\" rx=\"4\"/>\n      <text x=\"332.5\" y=\"58\" fill=\"#FFFFFF\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">HORIZON 45 JOURS (S1 à S6) • QUICK WIN</text>\n      <polygon points=\"455.0,44 461.0,54 455.0,64 449.0,54\" fill=\"#00E6A4\"/>\n    \n      <text x=\"15\" y=\"101\" fill=\"#60A5FA\" font-size=\"10\" font-weight=\"900\">SOLUTION 2 : Pôle CSM PME &amp; Triggers Tech</text>\n      <text x=\"150\" y=\"101\" fill=\"#93C5FD\" font-size=\"9\" font-weight=\"800\">+1,45 M$ (58k€)</text>\n      <rect x=\"210\" y=\"87\" width=\"490\" height=\"24\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n      <rect x=\"212\" y=\"89\" width=\"486.0\" height=\"20\" fill=\"#3B82F6\" fill-opacity=\"0.35\" stroke=\"#3B82F6\" stroke-width=\"2\" rx=\"4\"/>\n      <text x=\"455.0\" y=\"103\" fill=\"#FFFFFF\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">HORIZON 90 JOURS (S1 à S12) • RETENTION &amp; UPSELL</text>\n      <polygon points=\"700.0,89 706.0,99 700.0,109 694.0,99\" fill=\"#3B82F6\"/>\n    \n      <rect x=\"15\" y=\"130\" width=\"690\" height=\"40\" fill=\"rgba(0,230,164,0.12)\" stroke=\"rgba(0,230,164,0.35)\" stroke-width=\"1.5\" rx=\"8\"/>\n      <text x=\"30\" y=\"155\" fill=\"#FFFFFF\" font-size=\"12\" font-weight=\"900\">SYNCHRONISATION GLOBALE CODIR :</text>\n      <text x=\"270\" y=\"155\" fill=\"#00E6A4\" font-size=\"12.5\" font-weight=\"900\">+3,05 M$ ARR GÉNÉRÉS</text>\n      <text x=\"520\" y=\"155\" fill=\"#FBBF24\" font-size=\"11\" font-weight=\"800\">ROI GLOBAL : ×51 (Payback 4,2 mois)</text>\n    </svg>",
+    "svg": "<svg viewBox=\"0 0 820 205\" width=\"100%\" height=\"205\" style=\"display:block; overflow:visible;\">\n      <rect x=\"0\" y=\"0\" width=\"820\" height=\"26\" fill=\"#F1F5F9\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#475569\" font-size=\"9.5\" font-weight=\"800\">MASTER ROADMAP REVOPS</text>\n      <text x=\"245\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">IMPACT ARR</text>\n    \n      <rect x=\"350\" y=\"2\" width=\"151.7\" height=\"22\" fill=\"#FFFFFF\" stroke=\"#CBD5E1\" stroke-width=\"1\" rx=\"4\"/>\n      <text x=\"425.8\" y=\"17\" fill=\"#00875A\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n      \n      <rect x=\"501.7\" y=\"2\" width=\"151.7\" height=\"22\" fill=\"#FFFFFF\" stroke=\"#CBD5E1\" stroke-width=\"1\" rx=\"4\"/>\n      <text x=\"577.5\" y=\"17\" fill=\"#00875A\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n      \n      <rect x=\"653.3\" y=\"2\" width=\"151.7\" height=\"22\" fill=\"#FFFFFF\" stroke=\"#CBD5E1\" stroke-width=\"1\" rx=\"4\"/>\n      <text x=\"729.2\" y=\"17\" fill=\"#00875A\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n      \n      <line x1=\"350.0\" y1=\"26\" x2=\"350.0\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"387.9\" y1=\"26\" x2=\"387.9\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"425.8\" y1=\"26\" x2=\"425.8\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"463.8\" y1=\"26\" x2=\"463.8\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"501.7\" y1=\"26\" x2=\"501.7\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"539.6\" y1=\"26\" x2=\"539.6\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"615.4\" y1=\"26\" x2=\"615.4\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"653.3\" y1=\"26\" x2=\"653.3\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"691.3\" y1=\"26\" x2=\"691.3\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"729.2\" y1=\"26\" x2=\"729.2\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"767.1\" y1=\"26\" x2=\"767.1\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      <line x1=\"805.0\" y1=\"26\" x2=\"805.0\" y2=\"175\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n      \n      <!-- Solution 1 Track -->\n      <text x=\"15\" y=\"55\" fill=\"#00875A\" font-size=\"10\" font-weight=\"900\">SOLUTION 1 : Lemlist TPE &amp; Quotas PME</text>\n      <text x=\"245\" y=\"55\" fill=\"#006644\" font-size=\"9\" font-weight=\"800\">+1,60 M$ (1,8 k€)</text>\n      <rect x=\"350\" y=\"41\" width=\"455\" height=\"24\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"352\" y=\"43\" width=\"225.0\" height=\"20\" fill=\"#00875A\" rx=\"4\"/>\n      <text x=\"464.5\" y=\"57\" fill=\"#FFFFFF\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">HORIZON 45 JOURS (S1 à S6) • QUICK WIN</text>\n      <polygon points=\"577.5,43 583.5,53 577.5,63 571.5,53\" fill=\"#00875A\"/>\n      \n      <!-- Solution 2 Track -->\n      <text x=\"15\" y=\"99\" fill=\"#1D4ED8\" font-size=\"10\" font-weight=\"900\">SOLUTION 2 : Pôle CSM PME &amp; Triggers Tech</text>\n      <text x=\"245\" y=\"99\" fill=\"#1E40AF\" font-size=\"9\" font-weight=\"800\">+1,45 M$ (58 k€)</text>\n      <rect x=\"350\" y=\"85\" width=\"455\" height=\"24\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\" rx=\"4\"/>\n      <rect x=\"352\" y=\"87\" width=\"451.0\" height=\"20\" fill=\"#2563EB\" rx=\"4\"/>\n      <text x=\"577.5\" y=\"101\" fill=\"#FFFFFF\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">HORIZON 90 JOURS (S1 à S12) • RETENTION &amp; UPSELL</text>\n      <polygon points=\"805.0,87 811.0,97 805.0,107 799.0,97\" fill=\"#2563EB\"/>\n      \n      <!-- Bottom Banner -->\n      <rect x=\"15\" y=\"126\" width=\"790\" height=\"40\" fill=\"#E6F7F0\" stroke=\"#A3E0CE\" stroke-width=\"1\" rx=\"6\"/>\n      <text x=\"30\" y=\"151\" fill=\"#111827\" font-size=\"11.5\" font-weight=\"900\">SYNCHRONISATION GLOBALE CODIR :</text>\n      <text x=\"265\" y=\"151\" fill=\"#00875A\" font-size=\"12\" font-weight=\"900\">+3,05 M$ ARR GÉNÉRÉS</text>\n      <text x=\"550\" y=\"151\" fill=\"#B45309\" font-size=\"11\" font-weight=\"800\">ROI GLOBAL : ×51 (Payback 4,2 mois)</text>\n    </svg>",
     "tasks": [
       {
         "num": "SOL 1",
@@ -4407,9 +4541,9 @@
       <!-- DETAILED TASK TABLE -->
       <div style="background:#F8FAF9; border:1px solid #E5E7EB; border-radius:10px; padding:10px 14px;">
         <div style="font-size:10.5px; font-weight:800; color:#111827; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Détail des Chantiers &amp; Livrables Opérationnels :</div>
-        <div style="display:flex; flex-direction:column; gap:6px;">
+        <div style="display:flex; flex-direction:column; gap:4px;">
           ${data.tasks.map(t => `
-            <div style="background:#FFFFFF; border:1px solid #E5E7EB; border-radius:6px; padding:6px 12px; display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+            <div style="background:#FFFFFF; border:1px solid #E5E7EB; border-radius:6px; padding:4px 10px; display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
               <div style="display:flex; align-items:center; gap:8px;">
                 <span style="font-size:9.5px; font-weight:900; color:#00875A; background:#E6F7F0; padding:2px 6px; border-radius:4px; border:1px solid #A3E0CE;">${t.num}</span>
                 <strong style="font-size:11px; color:#111827;">${t.name}</strong>
