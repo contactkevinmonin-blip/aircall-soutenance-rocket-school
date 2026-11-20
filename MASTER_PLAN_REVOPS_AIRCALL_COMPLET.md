@@ -159,11 +159,11 @@ Pour piloter l'entreprise sans noyer le CoDir sous 20 métriques, nous consolido
                  │                                         │
                  ▼                                         ▼
      [ ARBITRAGE 1 : PLG ]                     [ ARBITRAGE 2 : CSM ]
-        +1,55 M$ (Coût 0€)                       +1,45 M$ (Coût 58k€)
+        +1,60 M$ (Lemlist 1,8k€)                 +1,45 M$ (CSM 58k€)
                  │                                         │
                  └────────────────────┬────────────────────┘
                                       ▼
-                          [ +3,00 M$ ARR / ROI ×52 ]
+                          [ +3,05 M$ ARR / ROI ×51 ]
 ```
 
 ### 👑 KPI Roi 1 (Activité) : Le Taux de Transformation Global (0,53 %)
@@ -266,7 +266,7 @@ Face à ces deux problèmes, nous engageons **strictement 2 décisions actionnab
   * Nettoyage des listes CRM et interdiction d'inscrire des comptes <20 salariés dans les cadences de cold calling.
   * Optimisation de la landing page tarifaire et parcours self-onboarding sans intervention humaine.
 * **Impact Financier :**
-  * Gain d'ARR additionnel modélisé : **+1,55 M$ d'ARR**.
+  * Gain d'ARR additionnel modélisé : **+1,60 M$ d'ARR** (+1,60 M$ PME & 170 k$ TPE web via Lemlist). Budget : **1 800 € / an** (Lemlist Pro + Lemwarm, **ROI ×888**).
   * Coût direct d'implémentation : **0 €** (redéploiement du temps existant des 10 SDRs).
   * Rentabilité nette : ROI immédiat et infini.
 
@@ -288,7 +288,7 @@ Face à ces deux problèmes, nous engageons **strictement 2 décisions actionnab
 ### 💰 Bilan Consolidé des 2 Arbitrages
 | Élément | Arbitrage 1 (PLG / Stop TPE) | Arbitrage 2 (CSM / Rétention PME) | TOTAL CONSOLIDÉ |
 | :--- | :---: | :---: | :---: |
-| **Gain ARR Net** | **+1,55 M$** | **+1,45 M$** | **+3,00 M$ ARR** |
+| **Gain ARR Net** | **+1,60 M$** | **+1,45 M$** | **+3,05 M$ ARR** |
 | **Coût d'Investissement** | **0 €** | **58 000 €** | **58 000 €** |
 | **Retour sur Investissement** | Immédiat | ROI ×25 | **ROI Consolidé ×52** |
 
@@ -341,7 +341,7 @@ Chaque demi-journée d'examen correspond à un livrable A4 normalisé, accessibl
 * **Livrable 4 (Jour 2 Après-midi) — Dashboard Interactif Looker Studio :**
   Spécifications techniques, maquette d'architecture 9 blocs sans chevauchement, formules des champs calculés (`Panier_Moyen`, `Taux_Transformation`) et validation de la persistance cloud.
 * **Livrable 5 (Jour 3 Matin) — Diagnostic Approfondi & Les 2 Arbitrages Stratégiques :**
-  Restitution des constats data sur les TPE et PME, formulation des deux arbitrages majeurs (+1,55 M$ et +1,45 M$), chiffrage complet des coûts (58 k€) et calcul du ROI consolidé (×52).
+  Restitution des constats data sur les TPE et PME, formulation des deux arbitrages majeurs (+1,60 M$ et +1,45 M$), chiffrage complet des coûts (59,8 k€) et calcul du ROI consolidé (×51).
 * **Livrable 6 (Jour 3 Après-midi) — Synthèse Exécutive CoDir & Plan de Soutenance :**
   Note de synthèse formelle pour les décideurs, posture critique et traçabilité des données (3 sources), et déroulé chronométré de l'oral en 15 minutes.
 
@@ -421,7 +421,7 @@ Règle éditoriale absolue : **Zéro phrase longue, aucun paragraphe dense, mots
     * `3 725 €` Panier Moyen TPE (Conversion 4× inférieure, CAC > LTV).
   * *Colonne Succès (Solution & Gain) :*
     * `Stop Cold Call` ➔ Basculement 100 % Self-Serve (PLG en ligne).
-    * `+1,55 M$` Nouvel ARR Additionnel (Coût d'implémentation : **0 €** | **TTV : J+30 à J+60**).
+    * `+1,60 M$` Nouvel ARR Additionnel (Budget Lemlist Pro : **1 800 €** | **ROI ×888** | **TTV : J+30 à J+60**).
 * **Barre Gantt & Bouton Pop-up Visuel :**
   * Bouton interactif `📅 Voir le Gantt Détaillé (Pop-up)` affichant le planning visuel semaine par semaine (S1-S2 Routing, S3-S4 Quotas, S5-S6 Go-Live).
 
@@ -439,16 +439,16 @@ Règle éditoriale absolue : **Zéro phrase longue, aucun paragraphe dense, mots
 * **Barre Gantt & Bouton Pop-up Visuel :**
   * Bouton interactif `📅 Voir le Gantt Détaillé (Pop-up)` affichant le planning visuel mois par mois (Mois 1 Chasse CSM & Alertes, Mois 2 Onboarding & Sauvetage, Mois 3 Croisière & Expansion).
 
-### 🟢 Slide 8 : Impact Global — Rétroaction Data (Bilan ROI ×52)
+### 🟢 Slide 8 : Impact Global — Rétroaction Data (Bilan ROI ×51)
 * **En-tête :** `aircall.` | 08 · SYNTHÈSE GLOBALE & ROI | Impact CoDir 2026 | 08 / 09
-* **Titre :** Impact Global Consolidé : **+3,00 M$ d'ARR / ROI ×52**
+* **Titre :** Impact Global Consolidé : **+3,05 M$ d'ARR / ROI ×51**
 * **Sous-titre :** De l'analyse rigoureuse des 5 indicateurs rois à la création de valeur massive.
 * **Ligne des 5 KPI Rois :**
   * `0,53%` Transfo | `54,53€` Rendement/Appel | `61,1%` ARR PME | `8 344€` ColdCall | `441,5k€` Écart SDR
 * **Bannière ROI Géante :**
-  * Gain ARR Net Consolidé : **+3,00 M$ ARR** (Arbitrage 1 : +1,55M$ + Arbitrage 2 : +1,45M$)
-  * Budget Décisionnel Engagé : **58 000 €**
-  * Résultat Final CoDir : **Retour sur Investissement Global ROI ×52**
+  * Gain ARR Net Consolidé : **+3,05 M$ ARR** (Arbitrage 1 : +1,60M$ Lemlist/PME + Arbitrage 2 : +1,45M$ CSM PME)
+  * Budget Décisionnel Engagé : **59 800 €** (Lemlist 1,8 k€ + CSM 58 k€)
+  * Résultat Final CoDir : **Retour sur Investissement Global ROI ×51**
 
 ### 🟢 Slide 9 : Transparence & Traçabilité des Données (Matrice 3 Sources & FAQ)
 * **En-tête :** `aircall.` | 09 · TRANSPARENCE & CONFORMITÉ | Origine Certifiée | 09 / 09
@@ -495,13 +495,13 @@ Pour garantir une posture d'intégrité absolue devant le jury de la Rocket Scho
 
 #### Bloc 4 : Les 2 Arbitrages Stratégiques & Gantt de Faisabilité (4 min 30 s — Slides 6 & 7)
 * **07:30 – 09:45 (Slide 6) :**
-  * *Script oral :* « Premier arbitrage : stopper le Cold Call sur la TPE. Pourquoi ? La TPE consomme 42 % des appels de nos 10 SDRs pour seulement 6 % de l'ARR. Le panier de 3 725 € détruit de la valeur face aux offres low-cost. Notre décision : basculer les TPE en Product-Led Growth, 100 % libre-service sur notre site, et réallouer les 28 545 appels vers les PME. Comme le montre notre planning Gantt visuel (accessible en un clic), c'est un **Quick Win déployé en 45 jours chrono** (routing CRM en S1-S2, réattribution des quotas en S3-S4, Go-Live en S5-S6). **Time-to-Value dès J+30 à J+60**, pour un gain de **+1,55 M$ d'ARR pour un coût de 0 €**. »
+  * *Script oral :* « Premier arbitrage : stopper le Cold Call sur la TPE. Pourquoi ? La TPE consomme 42 % des appels de nos 10 SDRs pour seulement 6 % de l'ARR. Or, Aircall propose déjà l'inscription en libre-service ("Essai gratuit") directement sur aircall.com ! Il était absurde de payer des SDRs pour faire du phoning manuel. Notre décision : déployer des campagnes d'emailing automatisées via Lemlist (1 800 €/an) avec warm-up lemwarm pour drainer les TPE vers notre essai gratuit web existant, et réallouer 100% des 28 545 appels de nos SDRs sur les PME avec CRM. Déployé en 45 jours chrono (Setup Lemlist en S1-S2, quotas PME en S3-S4, Go-Live en S5-S6), ce Quick Win délivre son Time-to-Value dès J+30 à J+60 pour un gain net de **+1,60 M$ d'ARR pour seulement 1 800 € de coût (ROI unitaire ×888)**. »
 * **09:45 – 12:00 (Slide 7) :**
   * *Script oral :* « Second arbitrage : sécuriser notre trésor de guerre, les 2,25 M€ d'ARR du cœur PME. Aujourd'hui, un churn moyen de 20 % nous coûte 400 000 € par an faute de suivi. Nous recrutons un CSM dédié PME, automatisons l'onboarding des petits comptes et déployons des alertes HubSpot d'inactivité téléphonique. Faisabilité cadrée sur **90 jours (Q1-Q2)** visible dans le Gantt : Mois 1 recrutement et alertes tech, Mois 2 onboarding et sauvetage des 20 comptes PME à risque, Mois 3 revues trimestrielles et rétention pérenne. **Time-to-Value plein à J+60-J+90**, pour **+1,45 M$ d'ARR protégé et étendu. Coût : 58 k€, ROI unitaire de ×25**. »
 
 #### Bloc 5 : Synthèse ROIste, Transparence & Q&A CoDir (3 min — Slides 8 & 9)
 * **12:00 – 13:30 (Slide 8) :**
-  * *Script oral :* « En synthèse, nos deux arbitrages combinés débloquent **+3,00 M$ d'ARR net pour seulement 58 000 € d'investissement**, soit un **retour sur investissement consolidé de ROI ×52**. C'est le passage d'une prospection subie à une machine de revenus prévisible et pérenne. »
+  * *Script oral :* « En synthèse, nos deux arbitrages combinés débloquent **+3,05 M$ d'ARR net pour 59 800 € d'investissement total**, soit un **retour sur investissement consolidé de ROI ×51**. C'est le passage d'une prospection subie à une machine de revenus prévisible et pérenne. »
 * **13:30 – 15:00 (Slide 9 & Échanges) :**
   * *Script oral :* « Toutes nos conclusions reposent sur une intégrité totale des données, traçables entre le cas d'étude Rocket School, les données réelles publiques d'Aircall et notre jeu de simulation. Je suis désormais à votre disposition pour vos questions. »
 

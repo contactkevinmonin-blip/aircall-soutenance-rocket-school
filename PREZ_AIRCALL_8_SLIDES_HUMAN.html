@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aircall — Soutenance RevOps & Performance Commerciale (8 Slides)</title>
+<title>Aircall — Soutenance RevOps & Performance Commerciale (9 Slides)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -90,7 +90,7 @@
       background: radial-gradient(circle at 80% 20%, #0B2D22 0%, #061B14 70%) !important;
       box-sizing: border-box !important;
     }
-    .bottom-nav-bar, .nav-arrow, .view-toggle-bar, #liveContainer {
+    .bottom-nav-bar, .nav-arrow, .view-toggle-bar, #liveContainer, .kpi-modal-overlay, #zoomModal {
       display: none !important;
     }
     #captureContainer {
@@ -308,6 +308,313 @@
     background: rgba(239, 68, 68, 0.15);
     color: #F87171;
     border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  
+  /* =========================================================
+     SLIDE 3 : BENCHMARK CONCURRENTIEL & SWOT ULTRA-PRO
+     ========================================================= */
+  .bench-swot-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+  }
+  
+  /* BENCHMARK STRIP (3 CARDS) */
+  .benchmark-strip {
+    display: grid;
+    grid-template-columns: 1.08fr 0.96fr 0.96fr;
+    gap: 12px;
+  }
+  .benchmark-col {
+    background: rgba(6, 27, 20, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+  }
+  .benchmark-col.highlight-aircall {
+    border: 1.5px solid var(--emerald-bright);
+    background: linear-gradient(135deg, rgba(0, 230, 164, 0.14) 0%, rgba(6, 27, 20, 0.88) 100%);
+    box-shadow: 0 6px 24px rgba(0, 230, 164, 0.18);
+  }
+  .bench-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .bench-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bench-brand-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+  }
+  .icon-aircall { background: var(--emerald-bright); color: #061B14; }
+  .icon-ringover { background: #3B82F6; color: #FFFFFF; }
+  .icon-allo { background: #F59E0B; color: #061B14; }
+
+  .bench-brand-name {
+    font-size: 16px;
+    font-weight: 900;
+    color: #FFFFFF;
+    letter-spacing: -0.2px;
+  }
+  .bench-sublabel {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--emerald-bright);
+    margin-left: 4px;
+    background: rgba(0, 230, 164, 0.15);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .bench-badge {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .bench-badge.green { background: rgba(0, 230, 164, 0.18); color: var(--emerald-bright); border: 1px solid rgba(0, 230, 164, 0.4); }
+  .bench-badge.blue { background: rgba(59, 130, 246, 0.18); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.4); }
+  .bench-badge.amber { background: rgba(245, 158, 11, 0.18); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+  .bench-specs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11.5px;
+    color: #CBD5E1;
+  }
+  .bench-spec-line {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    line-height: 1.35;
+  }
+  .spec-label {
+    font-weight: 800;
+    color: #94A3B8;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    min-width: 58px;
+    flex-shrink: 0;
+  }
+  .spec-val {
+    color: #FFFFFF;
+    font-weight: 500;
+  }
+  .spec-val strong {
+    color: var(--emerald-bright);
+    font-weight: 800;
+  }
+
+  .bench-verdict-pill {
+    margin-top: auto;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.3;
+  }
+  .bench-verdict-pill.green {
+    background: rgba(0, 230, 164, 0.14);
+    color: var(--emerald-bright);
+    border: 1px solid rgba(0, 230, 164, 0.35);
+  }
+  .bench-verdict-pill.blue {
+    background: rgba(59, 130, 246, 0.12);
+    color: #93C5FD;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+  .bench-verdict-pill.amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #FDE68A;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  /* SWOT GRID (2x2) */
+  .swot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    flex: 1;
+    min-height: 0;
+  }
+  .swot-box {
+    background: rgba(6, 27, 20, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+  }
+  .swot-box.s-box {
+    border-top: 3.5px solid var(--emerald-bright);
+    background: linear-gradient(180deg, rgba(0, 230, 164, 0.08) 0%, rgba(6, 27, 20, 0.75) 100%);
+  }
+  .swot-box.w-box {
+    border-top: 3.5px solid #EF4444;
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.08) 0%, rgba(6, 27, 20, 0.75) 100%);
+  }
+  .swot-box.o-box {
+    border-top: 3.5px solid #3B82F6;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, rgba(6, 27, 20, 0.75) 100%);
+  }
+  .swot-box.t-box {
+    border-top: 3.5px solid #F59E0B;
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, rgba(6, 27, 20, 0.75) 100%);
+  }
+  
+  .swot-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .swot-title {
+    font-size: 13.5px;
+    font-weight: 900;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    letter-spacing: 0.3px;
+  }
+  .swot-tag {
+    font-size: 8.5px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-s { background: rgba(0, 230, 164, 0.18); color: var(--emerald-bright); border: 1px solid rgba(0, 230, 164, 0.35); }
+  .tag-w { background: rgba(239, 68, 68, 0.18); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.35); }
+  .tag-o { background: rgba(59, 130, 246, 0.18); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.35); }
+  .tag-t { background: rgba(245, 158, 11, 0.18); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.35); }
+  
+  .swot-items-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    gap: 6px;
+  }
+  .swot-item-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    color: #E2E8F0;
+    line-height: 1.35;
+    background: rgba(255, 255, 255, 0.035);
+    padding: 7px 10px;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    flex: 1;
+  }
+  .fw-badge {
+    font-size: 8px;
+    font-weight: 900;
+    padding: 2px 5.5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+  }
+  .fw-badge.bmc { background: rgba(0, 230, 164, 0.2); color: var(--emerald-bright); border: 0.5px solid rgba(0, 230, 164, 0.45); }
+  .fw-badge.data { background: rgba(168, 85, 247, 0.2); color: #C084FC; border: 0.5px solid rgba(168, 85, 247, 0.45); }
+  .fw-badge.porter { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 0.5px solid rgba(245, 158, 11, 0.45); }
+  .fw-badge.pestel { background: rgba(59, 130, 246, 0.2); color: #60A5FA; border: 0.5px solid rgba(59, 130, 246, 0.45); }
+
+  .swot-item-row strong {
+    color: #FFFFFF;
+    font-weight: 800;
+  }
+  .swot-item-row .num-hl {
+    color: var(--emerald-bright);
+    font-weight: 800;
+  }
+
+  /* STRATEGIC TAKEAWAY BOTTOM BAR */
+  .swot-takeaway-bar {
+    background: linear-gradient(90deg, rgba(0, 230, 164, 0.16) 0%, rgba(6, 27, 20, 0.9) 100%);
+    border: 1px solid rgba(0, 230, 164, 0.35);
+    border-radius: 10px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .takeaway-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11.5px;
+    color: #F1F5F9;
+  }
+  .takeaway-icon {
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .takeaway-label {
+    font-weight: 900;
+    color: var(--emerald-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 9.5px;
+    background: rgba(0, 230, 164, 0.2);
+    padding: 3px 8px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+  .takeaway-text {
+    line-height: 1.35;
+  }
+  .takeaway-text strong {
+    color: #FFFFFF;
+  }
+  .takeaway-right-chip {
+    font-size: 10px;
+    font-weight: 900;
+    background: var(--emerald-bright);
+    color: #061B14;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* SLIDE 2 : GOUVERNANCE */
@@ -779,7 +1086,7 @@
     margin-right: 4px;
   }
   .block-card-badge {
-    font-size: 8.5px;
+    font-size: 9.5px;
     font-weight: 800;
     color: var(--emerald-bright);
     background: rgba(0, 230, 164, 0.12);
@@ -828,6 +1135,286 @@
     pointer-events: none;
     backdrop-filter: blur(4px);
   }
+  
+  /* KPI DRILL-DOWN MODAL & HOVER CUES */
+  .block-card {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+  }
+  .block-card:hover {
+    border-color: var(--emerald-bright) !important;
+    background: rgba(0, 179, 136, 0.22) !important;
+    transform: translateX(-4px);
+    box-shadow: 0 4px 18px rgba(0, 230, 164, 0.28);
+  }
+  .drilldown-cue {
+    font-size: 9.5px;
+    font-weight: 800;
+    color: var(--emerald-bright);
+    background: rgba(0, 230, 164, 0.14);
+    border: 1px solid rgba(0, 230, 164, 0.4);
+    padding: 1.5px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .block-card:hover .drilldown-cue {
+    background: var(--emerald-bright);
+    color: #061B14;
+    border-color: var(--emerald-bright);
+  }
+
+  
+  /* GANTT POPUP TRIGGERS & TABS */
+  .gantt-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(0, 230, 164, 0.16);
+    border: 1px solid var(--emerald-bright);
+    color: var(--emerald-bright);
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .gantt-trigger-btn:hover {
+    background: var(--emerald-bright);
+    color: #061B14;
+    box-shadow: 0 0 14px rgba(0, 230, 164, 0.5);
+    transform: translateY(-1px);
+  }
+  .timeline-feasibility-bar {
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .timeline-feasibility-bar:hover {
+    border-color: rgba(0, 230, 164, 0.6);
+    box-shadow: 0 4px 20px rgba(0, 230, 164, 0.18);
+    background: rgba(10, 45, 35, 0.85);
+  }
+  .gantt-tab-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .gantt-tab-btn.active {
+    background: var(--emerald-bright);
+    color: #061B14;
+    border-color: var(--emerald-bright);
+  }
+  .gantt-tab-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.15);
+    color: #FFF;
+  }
+
+  /* MODAL OVERLAY */
+  .kpi-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(4, 16, 12, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 99999999;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .kpi-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+  .kpi-modal-box {
+    background: linear-gradient(150deg, #09261D 0%, #051811 100%);
+    border: 1px solid var(--emerald-bright);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 230, 164, 0.3);
+    width: 100%;
+    max-width: 820px;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: kpiModalPop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes kpiModalPop {
+    from { transform: scale(0.93) translateY(10px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  .kpi-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.28);
+  }
+  .kpi-modal-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .kpi-modal-tag {
+    font-size: 10px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .kpi-modal-title {
+    font-size: 19px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: -0.3px;
+  }
+  .kpi-modal-close {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 800;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+  }
+  .kpi-modal-close:hover {
+    background: #EF4444;
+    border-color: #EF4444;
+    color: #FFFFFF;
+    transform: rotate(90deg);
+  }
+  .kpi-modal-body {
+    padding: 20px 22px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .kpi-modal-kpis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .kpi-modal-mini-card {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+  .kpi-modal-mini-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .kpi-modal-mini-val {
+    font-size: 19px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+    margin-top: 3px;
+    letter-spacing: -0.2px;
+  }
+  .kpi-chart-box {
+    background: rgba(0, 0, 0, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 18px;
+  }
+  .kpi-chart-title {
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .kpi-bars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .kpi-bar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .kpi-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #E2E8F0;
+  }
+  .kpi-bar-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .kpi-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+  }
+  .bar-accent-green { background: var(--emerald-bright); }
+  .bar-accent-blue { background: #3B82F6; }
+  .bar-accent-amber { background: #F59E0B; }
+  .bar-accent-red { background: #EF4444; }
+  .bar-accent-purple { background: #A78BFA; }
+
+  .kpi-insight-card {
+    background: rgba(0, 179, 136, 0.12);
+    border-left: 4px solid var(--emerald-bright);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .kpi-insight-tag {
+    font-size: 9.5px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .kpi-insight-text {
+    font-size: 12px;
+    color: #E2E8F0;
+    line-height: 1.45;
+  }
+
   #zoomModal {
     display: none;
     position: fixed;
@@ -1079,28 +1666,15 @@
     margin-top: 4px;
   }
   .big-roi-banner {
-    background: #EAF8F3;
-    border: 1.5px solid #A3E0CE;
+    background: linear-gradient(135deg, #0A281E 0%, #124D39 100%);
+    border: 2px solid var(--emerald-bright);
     border-radius: 14px;
     padding: 20px clamp(20px, 3vw, 40px);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 16px rgba(0, 189, 130, 0.08);
+    box-shadow: 0 8px 30px var(--emerald-glow);
   }
-  .big-roi-banner .card-badge { color: #00875A !important; }
-  .big-roi-banner .stat-giant { color: #00875A !important; }
-  .big-roi-banner .stat-giant.white { color: #0B241C !important; }
-  .big-roi-banner .stat-label { color: #2C4A3E !important; }
-
-  body.theme-dark .big-roi-banner {
-    background: linear-gradient(135deg, #0A281E 0%, #124D39 100%) !important;
-    border: 2px solid #00BD82 !important;
-  }
-  body.theme-dark .big-roi-banner .card-badge { color: #00BD82 !important; }
-  body.theme-dark .big-roi-banner .stat-giant { color: #00BD82 !important; }
-  body.theme-dark .big-roi-banner .stat-giant.white { color: #FFFFFF !important; }
-  body.theme-dark .big-roi-banner .stat-label { color: #A3B8B0 !important; }
 
   /* SLIDE 8 : TRANSPARENCE TABLE */
   .transparency-table {
@@ -1113,32 +1687,22 @@
     overflow: hidden;
   }
   .transparency-table th {
-    background: #00875A;
+    background: rgba(0, 0, 0, 0.4);
     padding: 12px 16px;
     font-size: 11.5px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: #FFFFFF;
+    color: var(--emerald-bright);
     border-bottom: 1px solid var(--border);
     text-align: left;
   }
   .transparency-table td {
-    background: #FFFFFF;
     padding: 12px 16px;
     font-size: 12.5px;
-    color: #1F2937;
-    border-bottom: 1px solid #E2ECE7;
+    color: var(--text-white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     vertical-align: middle;
-  }
-  body.theme-dark .transparency-table th {
-    background: rgba(0, 0, 0, 0.4) !important;
-    color: #00BD82 !important;
-  }
-  body.theme-dark .transparency-table td {
-    background: transparent !important;
-    color: #E2E8F0 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   }
   .transparency-table tr:last-child td { border-bottom: none; }
   .badge-source {
@@ -1248,30 +1812,7 @@
     font-weight: 900;
   }
 
-  .nav-arrow {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(6, 27, 20, 0.85);
-    border: 1px solid var(--border);
-    color: var(--text-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 9999;
-    transition: all 0.15s ease;
-  }
-  .nav-arrow:hover {
-    background: var(--emerald);
-    color: #061B14;
-    border-color: var(--emerald-bright);
-  }
-  .nav-prev { left: 16px; }
-  .nav-next { right: 16px; }
+  .nav-arrow { display: none !important; }
 
     /* =========================================================
      SLIDE 5 & 6 : VIS-À-VIS ULTRA-CLAIR (PROBLÈME vs SOLUTION)
@@ -1432,591 +1973,813 @@
 
 <style id="human-styles">
   /* =========================================================
-     THÈME HUMAIN EXÉCUTIF (PAR DÉFAUT: RENDU PAPIER / OFFICIEL AIRCALL)
-     Inspiré du design system officiel aircall.io et des présentations CoDir
+     THÈME OFFICIEL AIRCALL — DESIGN HUMAIN, ÉPURÉ & PROFESSIONNEL
+     Inspiré directement de la charte officielle aircall.com
      ========================================================= */
-  
+
   :root {
-    --bg-main: #F5F7F6;
+    --bg-main: #FFFFFF;
     --bg-card: #FFFFFF;
-    --bg-card-hover: #F8FAF9;
+    --bg-card-subtle: #F8FAF9;
+    --bg-card-hover: #F1F5F3;
     --emerald: #00875A;
-    --emerald-bright: #00BD82;
-    --emerald-glow: rgba(0, 189, 130, 0.12);
-    --border: #D8E4DE;
-    --border-active: #00BD82;
-    --text-white: #0B241C;
-    --text-muted: #4B6358;
-    --text-dim: #71887E;
+    --emerald-dark: #006644;
+    --emerald-mint: #E6F7F0;
+    --emerald-mint-border: #A3E0CE;
+    --border: #E5E7EB;
+    --border-subtle: #E2ECE7;
+    --text-main: #111827;
+    --text-white: #111827;
+    --text-muted: #4B5563;
+    --text-dim: #6B7280;
     --red-alert: #DC2626;
+    --red-bg: #FEF2F2;
+    --red-border: #FECACA;
+    --blue-tech: #2563EB;
+    --blue-bg: #EFF6FF;
+    --blue-border: #BFDBFE;
+    --amber-gold: #D97706;
+    --amber-bg: #FFFBEB;
+    --amber-border: #FDE68A;
   }
 
-  body.theme-dark {
-    --bg-main: #0B0F0E;
-    --bg-card: #131A18;
-    --bg-card-hover: #17221F;
-    --emerald: #00BD82;
-    --emerald-bright: #00BD82;
-    --emerald-glow: rgba(0, 189, 130, 0.15);
-    --border: rgba(255, 255, 255, 0.08);
-    --border-active: rgba(0, 189, 130, 0.4);
-    --text-white: #FFFFFF;
-    --text-muted: #94A3B8;
-    --text-dim: #64748B;
-    --red-alert: #EF4444;
+  /* RESET & BASE FONTS */
+  * {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   }
 
   html, body {
-    background: var(--bg-main) !important;
-    color: var(--text-white) !important;
+    background: #FFFFFF !important;
+    color: #111827 !important;
   }
 
   #deck {
-    background: var(--bg-main) !important;
+    background: #FFFFFF !important;
   }
 
   .slide {
-    background: var(--bg-main) !important;
-    color: var(--text-white) !important;
+    background: #FFFFFF !important;
+    color: #111827 !important;
     box-shadow: none !important;
   }
 
-  /* Logos */
-  .brand-logo-img { display: none !important; }
+  /* LOGOS */
   .logo-light { display: block !important; }
-  body.theme-dark .logo-light { display: none !important; }
-  body.theme-dark .logo-dark { display: block !important; }
+  .logo-dark { display: none !important; }
 
+  /* TOP ROW HEADER */
   .top-row {
-    border-bottom: 1px solid var(--border) !important;
+    border-bottom: 1px solid #E5E7EB !important;
+    background: #FFFFFF !important;
+    padding-bottom: 12px !important;
   }
 
-  .brand-logo-text {
-    color: var(--text-white) !important;
+  .divider-v {
+    background: #E5E7EB !important;
+  }
+
+  .step-tag {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border: 1px solid #A3E0CE !important;
+    font-weight: 800 !important;
   }
 
   .meta-pill {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border) !important;
-    color: var(--text-muted) !important;
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    font-weight: 700 !important;
   }
 
   .slide-num {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border) !important;
-    color: var(--emerald) !important;
+    background: #E6F7F0 !important;
+    border: 1px solid #A3E0CE !important;
+    color: #00875A !important;
     font-weight: 800 !important;
   }
 
+  /* HEADINGS & SUBTITLES */
   .header-badge {
-    background: rgba(0, 189, 130, 0.08) !important;
-    border: 1px solid var(--border) !important;
-    color: var(--emerald) !important;
+    background: #E6F7F0 !important;
+    border: 1px solid #A3E0CE !important;
+    color: #00875A !important;
+    font-weight: 800 !important;
   }
 
   .header-block h1, .header-block h2 {
-    color: var(--text-white) !important;
-    letter-spacing: -0.02em !important;
+    color: #111827 !important;
+    letter-spacing: -0.025em !important;
+    font-weight: 900 !important;
   }
 
   .header-block .subtitle {
-    color: var(--text-muted) !important;
+    color: #4B5563 !important;
+    font-weight: 500 !important;
   }
 
-  /* Cards */
-  .card {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: 0 4px 16px -2px rgba(6, 27, 20, 0.05) !important;
-  }
-
-  .card-highlight {
-    background: var(--bg-card) !important;
-    border-color: var(--emerald-bright) !important;
-    box-shadow: 0 6px 20px -2px rgba(0, 189, 130, 0.15) !important;
-  }
-
-  .card-badge {
-    color: var(--emerald) !important;
-  }
-
-  .stat-giant {
-    color: var(--emerald) !important;
-  }
-
-  .stat-label {
-    color: var(--text-white) !important;
-  }
-
-  .stat-desc {
-    color: var(--text-muted) !important;
-  }
-
-  .chip {
-    background: var(--bg-main) !important;
-    border: 1px solid var(--border) !important;
-    color: var(--text-muted) !important;
-  }
-
-  .chip-green {
-    background: rgba(0, 189, 130, 0.12) !important;
-    border-color: var(--border-active) !important;
-    color: var(--emerald) !important;
-    font-weight: 800 !important;
-  }
-
-  /* Slide 2: Directors */
-  .director-card {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: 0 4px 16px -2px rgba(6, 27, 20, 0.05) !important;
-  }
-
-  .director-avatar {
-    background: rgba(0, 189, 130, 0.1) !important;
-    border-color: var(--emerald) !important;
-    color: var(--emerald) !important;
-  }
-
-  .director-role {
-    color: var(--text-white) !important;
-  }
-
-  .director-focus {
-    background: rgba(0, 189, 130, 0.08) !important;
-    color: var(--emerald) !important;
-  }
-
-  .director-duty {
-    color: var(--text-muted) !important;
-  }
-
-  .linear-flow {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: 0 4px 16px -2px rgba(6, 27, 20, 0.05) !important;
-  }
-
-  .flow-step {
-    background: var(--bg-main) !important;
-    border: 1px solid var(--border) !important;
-  }
-
-  .flow-step-title {
-    color: var(--text-white) !important;
-  }
-
-  .flow-step-desc {
-    color: var(--text-muted) !important;
-  }
-
-  .flow-step-tag {
-    background: rgba(0, 189, 130, 0.1) !important;
-    color: var(--emerald) !important;
-  }
-
-  .flow-arrow-col {
-    color: var(--emerald) !important;
-  }
-
-  /* Slide 3: Pyramid & Kings */
-  .funnel-arrow-sidebar {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border) !important;
-    color: var(--text-muted) !important;
-  }
-
-  .king-pill {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: 0 2px 10px rgba(6, 27, 20, 0.04) !important;
-  }
-
-  .king-pill strong {
-    color: var(--emerald) !important;
-  }
-
-  .king-pill span {
-    color: var(--text-muted) !important;
-  }
-
-  .problem-box-tpe {
-    background: #FFF5F5 !important;
-    border-color: #FECACA !important;
-    color: #991B1B !important;
-  }
-
-  body.theme-dark .problem-box-tpe {
-    background: rgba(239, 68, 68, 0.08) !important;
-    border-color: rgba(239, 68, 68, 0.3) !important;
-    color: #FCA5A5 !important;
-  }
-
-  .problem-box-pme {
-    background: #FFF8E6 !important;
-    border-color: #FDE68A !important;
-    color: #92400E !important;
-  }
-
-  body.theme-dark .problem-box-pme {
-    background: rgba(245, 158, 11, 0.08) !important;
-    border-color: rgba(245, 158, 11, 0.3) !important;
-    color: #FCD34D !important;
-  }
-
-  /* Slide 4: Looker & Sidebar */
-  .toggle-btn {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border) !important;
-    color: var(--text-muted) !important;
-  }
-
-  .toggle-btn.active {
-    background: var(--emerald) !important;
-    color: #FFFFFF !important;
-    border-color: var(--emerald) !important;
-  }
-
-  .link-external {
-    color: var(--emerald) !important;
-    border-color: var(--border-active) !important;
-  }
-
-  .block-card {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: 0 2px 10px rgba(6, 27, 20, 0.04) !important;
-  }
-
-  .block-card-title {
-    color: var(--text-white) !important;
-  }
-
-  .ratio-val-giant {
-    color: var(--emerald) !important;
-  }
-
-  .ratio-sub-badge {
-    background: var(--bg-main) !important;
-    color: var(--text-muted) !important;
-    border: 1px solid var(--border) !important;
-  }
-
-  .block-card-desc {
-    color: var(--text-muted) !important;
+  .accent {
+    color: #00875A !important;
   }
 
   /* =========================================================
-     SLIDE 5 & 6: VIS-À-VIS (CORRECTION FOND ET CONTRASTE LIGHT)
+     SLIDE 1 : 4 CARTES MÉTRIQUES
      ========================================================= */
-  .visavis-col.problem-side {
-    background: #FFF5F5 !important;
-    border: 1.5px solid #FECACA !important;
-    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.06) !important;
+  .metric-card {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
   }
 
-  body.theme-dark .visavis-col.problem-side {
-    background: rgba(40, 15, 15, 0.7) !important;
-    border-color: rgba(239, 68, 68, 0.45) !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+  .metric-card.card-highlight {
+    border: 2px solid #00875A !important;
+    background: linear-gradient(145deg, #F0FDF4 0%, #FFFFFF 100%) !important;
+    box-shadow: 0 8px 25px rgba(0, 135, 90, 0.08) !important;
   }
 
-  .visavis-banner.problem-banner {
-    background: #FEE2E2 !important;
-    border-bottom: 1px solid #FECACA !important;
+  .card-badge {
+    color: #00875A !important;
+    font-weight: 800 !important;
   }
 
-  body.theme-dark .visavis-banner.problem-banner {
-    background: linear-gradient(90deg, rgba(239, 68, 68, 0.25) 0%, rgba(239, 68, 68, 0.1) 100%) !important;
-    border-bottom-color: rgba(239, 68, 68, 0.35) !important;
+  .stat-giant {
+    color: #00875A !important;
+    letter-spacing: -0.03em !important;
+    font-weight: 900 !important;
   }
 
-  .visavis-col.problem-side .hero-lbl {
-    color: #4B6358 !important;
-  }
-
-  body.theme-dark .visavis-col.problem-side .hero-lbl {
-    color: #FFFFFF !important;
-  }
-
-  .visavis-col.problem-side .fact-text {
-    color: #1F2937 !important;
-  }
-
-  body.theme-dark .visavis-col.problem-side .fact-text {
-    color: #E2E8F0 !important;
-  }
-
-  .visavis-col.problem-side .fact-text strong {
-    color: #0F172A !important;
-  }
-
-  body.theme-dark .visavis-col.problem-side .fact-text strong {
-    color: #FFFFFF !important;
-  }
-
-  .visavis-col.problem-side .visavis-tag {
-    color: #991B1B !important;
-  }
-
-  body.theme-dark .visavis-col.problem-side .visavis-tag {
-    color: #FFFFFF !important;
-  }
-
-  .visavis-col.solution-side {
-    background: #F0FDF4 !important;
-    border: 1.5px solid #BBF7D0 !important;
-    box-shadow: 0 4px 16px rgba(0, 189, 130, 0.08) !important;
-  }
-
-  body.theme-dark .visavis-col.solution-side {
-    background: rgba(10, 42, 30, 0.75) !important;
-    border-color: rgba(0, 230, 164, 0.5) !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
-  }
-
-  .visavis-banner.solution-banner {
-    background: #DCFCE7 !important;
-    border-bottom: 1px solid #BBF7D0 !important;
-  }
-
-  body.theme-dark .visavis-banner.solution-banner {
-    background: linear-gradient(90deg, rgba(0, 230, 164, 0.22) 0%, rgba(0, 230, 164, 0.08) 100%) !important;
-    border-bottom-color: rgba(0, 230, 164, 0.35) !important;
-  }
-
-  .hero-num-green {
+  .metric-card.card-highlight .stat-giant {
     color: #00875A !important;
   }
 
-  body.theme-dark .hero-num-green {
-    color: #00BD82 !important;
+  .stat-label {
+    color: #111827 !important;
+    font-weight: 800 !important;
   }
 
-  .visavis-col.solution-side .hero-lbl {
-    color: #4B6358 !important;
+  .stat-desc {
+    color: #4B5563 !important;
   }
 
-  body.theme-dark .visavis-col.solution-side .hero-lbl {
-    color: #FFFFFF !important;
+  .chip {
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
   }
 
-  .visavis-col.solution-side .fact-text {
-    color: #1F2937 !important;
+  .chip-green {
+    background: #E6F7F0 !important;
+    border-color: #A3E0CE !important;
+    color: #00875A !important;
+    font-weight: 800 !important;
   }
 
-  body.theme-dark .visavis-col.solution-side .fact-text {
-    color: #E2E8F0 !important;
-  }
-
-  .visavis-col.solution-side .fact-text strong {
-    color: #0F172A !important;
-  }
-
-  body.theme-dark .visavis-col.solution-side .fact-text strong {
-    color: #FFFFFF !important;
-  }
-
-  .visavis-col.solution-side .visavis-tag {
-    color: #166534 !important;
-  }
-
-  body.theme-dark .visavis-col.solution-side .visavis-tag {
-    color: #FFFFFF !important;
-  }
-
-  .fact-bullet-red {
-    background: #FEE2E2 !important;
-    border-color: #F87171 !important;
-    color: #DC2626 !important;
-  }
-
-  .fact-bullet-green {
-    background: #DCFCE7 !important;
-    border-color: #4ADE80 !important;
-    color: #16A34A !important;
-  }
-
-  .v-chip {
+  /* =========================================================
+     SLIDE 2 : GOUVERNANCE CODIR
+     ========================================================= */
+  .director-card {
     background: #FFFFFF !important;
-    border: 1px solid #DDE7E2 !important;
-    color: #4B6358 !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
   }
 
-  body.theme-dark .v-chip {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
-    color: #94A3B8 !important;
-  }
-
-  .timeline-feasibility-bar {
-    background: #FFFFFF !important;
-    border: 1px solid #DDE7E2 !important;
-    box-shadow: 0 4px 16px rgba(6, 27, 20, 0.05) !important;
-  }
-
-  body.theme-dark .timeline-feasibility-bar {
-    background: rgba(0, 0, 0, 0.45) !important;
-    border-color: var(--border) !important;
-    box-shadow: none !important;
-  }
-
-  .timeline-header {
-    border-bottom: 1px solid #E2ECE7 !important;
-  }
-
-  body.theme-dark .timeline-header {
-    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
-  }
-
-  .timeline-badge {
+  .director-avatar {
+    background: #E6F7F0 !important;
+    border: 2px solid #00875A !important;
     color: #00875A !important;
   }
 
-  body.theme-dark .timeline-badge {
-    color: #00BD82 !important;
+  .director-role {
+    color: #111827 !important;
+    font-weight: 800 !important;
   }
 
-  .timeline-ttv {
-    color: #4B6358 !important;
-  }
-
-  body.theme-dark .timeline-ttv {
-    color: #94A3B8 !important;
-  }
-
-  .t-step {
-    background: #F4F7F5 !important;
-    border: 1px solid #DDE7E2 !important;
-  }
-
-  body.theme-dark .t-step {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .t-title {
-    color: #0F231D !important;
-  }
-
-  body.theme-dark .t-title {
-    color: #FFFFFF !important;
-  }
-
-  .t-desc {
-    color: #4B6358 !important;
-  }
-
-  body.theme-dark .t-desc {
-    color: #94A3B8 !important;
-  }
-
-  .t-badge {
-    background: #E8F7F2 !important;
+  .director-focus {
+    background: #E6F7F0 !important;
     color: #00875A !important;
     border: 1px solid #A3E0CE !important;
+    font-weight: 700 !important;
   }
 
-  body.theme-dark .t-badge {
-    background: rgba(0, 189, 130, 0.15) !important;
-    color: #00BD82 !important;
-    border-color: rgba(0, 189, 130, 0.35) !important;
+  .director-duty {
+    color: #4B5563 !important;
   }
 
-  .t-arrow {
+  .linear-flow {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+  }
+
+  .flow-step {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  }
+
+  .flow-step-title {
+    color: #111827 !important;
+    font-weight: 800 !important;
+  }
+
+  .flow-step-desc {
+    color: #4B5563 !important;
+  }
+
+  .flow-step-tag {
+    background: #E6F7F0 !important;
     color: #00875A !important;
   }
 
-  body.theme-dark .t-arrow {
-    color: #00BD82 !important;
+  .flow-arrow-col {
+    color: #00875A !important;
   }
 
-  /* Bottom Nav */
-  .bottom-nav-bar {
+  /* =========================================================
+     SLIDE 3 : BENCHMARK & SWOT (HUMAN AIRCALL LOOK)
+     ========================================================= */
+  .benchmark-col {
     background: #FFFFFF !important;
-    border: 1px solid #DDE7E2 !important;
-    box-shadow: 0 10px 30px rgba(6, 27, 20, 0.12) !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
   }
 
-  body.theme-dark .bottom-nav-bar {
-    background: rgba(19, 27, 24, 0.94) !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  .benchmark-col.highlight-aircall {
+    border: 2px solid #00875A !important;
+    background: linear-gradient(145deg, #F0FDF4 0%, #FFFFFF 100%) !important;
+    box-shadow: 0 8px 25px rgba(0, 135, 90, 0.08) !important;
   }
 
-  .bottom-nav-btn {
-    color: #0F231D !important;
+  .bench-top-bar {
+    border-bottom: 1px solid #F1F5F9 !important;
   }
 
-  body.theme-dark .bottom-nav-btn {
-    color: #FFFFFF !important;
+  .bench-brand-name {
+    color: #111827 !important;
+    font-weight: 800 !important;
   }
 
-  .nav-dot {
-    background: #F4F7F5 !important;
-    border: 1px solid #DDE7E2 !important;
-    color: #4B6358 !important;
+  .bench-sublabel {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
   }
 
-  body.theme-dark .nav-dot {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
-    color: #94A3B8 !important;
+  .icon-aircall { background: #00875A !important; color: #FFFFFF !important; }
+  .icon-ringover { background: #2563EB !important; color: #FFFFFF !important; }
+  .icon-allo { background: #D97706 !important; color: #FFFFFF !important; }
+
+  .bench-badge.green { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
+  .bench-badge.blue { background: #EFF6FF !important; color: #2563EB !important; border: 1px solid #BFDBFE !important; }
+  .bench-badge.amber { background: #FFFBEB !important; color: #D97706 !important; border: 1px solid #FDE68A !important; }
+
+  .spec-label { color: #6B7280 !important; }
+  .spec-val { color: #1F2937 !important; }
+  .spec-val strong { color: #00875A !important; }
+
+  .bench-verdict-pill.green { background: #DCFCE7 !important; color: #166534 !important; border: 1px solid #86EFAC !important; }
+  .bench-verdict-pill.blue { background: #DBEAFE !important; color: #1E40AF !important; border: 1px solid #93C5FD !important; }
+  .bench-verdict-pill.amber { background: #FEF3C7 !important; color: #92400E !important; border: 1px solid #FDE68A !important; }
+
+  /* SWOT BOXES */
+  .swot-box {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
   }
 
-  .nav-dot.active {
+  .swot-box.s-box {
+    border-top: 3.5px solid #00875A !important;
+    background: linear-gradient(180deg, #F0FDF4 0%, #FFFFFF 100%) !important;
+  }
+  .swot-box.w-box {
+    border-top: 3.5px solid #DC2626 !important;
+    background: linear-gradient(180deg, #FFF5F5 0%, #FFFFFF 100%) !important;
+  }
+  .swot-box.o-box {
+    border-top: 3.5px solid #2563EB !important;
+    background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%) !important;
+  }
+  .swot-box.t-box {
+    border-top: 3.5px solid #D97706 !important;
+    background: linear-gradient(180deg, #FFFBEB 0%, #FFFFFF 100%) !important;
+  }
+
+  .swot-head {
+    border-bottom: 1px solid #F1F5F9 !important;
+  }
+
+  .swot-title { color: #111827 !important; }
+  .s-box .swot-title { color: #00875A !important; }
+  .w-box .swot-title { color: #DC2626 !important; }
+  .o-box .swot-title { color: #2563EB !important; }
+  .t-box .swot-title { color: #D97706 !important; }
+
+  .tag-s { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
+  .tag-w { background: #FEF2F2 !important; color: #DC2626 !important; border: 1px solid #FECACA !important; }
+  .tag-o { background: #EFF6FF !important; color: #2563EB !important; border: 1px solid #BFDBFE !important; }
+  .tag-t { background: #FFFBEB !important; color: #D97706 !important; border: 1px solid #FDE68A !important; }
+
+  .swot-item-row {
+    background: #F8FAF9 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #374151 !important;
+  }
+  .swot-item-row strong { color: #111827 !important; }
+  .swot-item-row .num-hl { color: #00875A !important; }
+
+  .fw-badge.bmc { background: #E6F7F0 !important; color: #00875A !important; border: 0.5px solid #A3E0CE !important; }
+  .fw-badge.data { background: #F3E8FF !important; color: #7E22CE !important; border: 0.5px solid #D8B4FE !important; }
+  .fw-badge.porter { background: #FFFBEB !important; color: #D97706 !important; border: 0.5px solid #FDE68A !important; }
+  .fw-badge.pestel { background: #EFF6FF !important; color: #2563EB !important; border: 0.5px solid #BFDBFE !important; }
+
+  .swot-takeaway-bar {
+    background: linear-gradient(90deg, #E6F7F0 0%, #F0FDF4 100%) !important;
+    border: 1.5px solid #A3E0CE !important;
+    border-radius: 12px !important;
+  }
+  .takeaway-left { color: #1F2937 !important; }
+  .takeaway-label { background: #00875A !important; color: #FFFFFF !important; }
+  .takeaway-text strong { color: #111827 !important; }
+  .takeaway-right-chip { background: #00875A !important; color: #FFFFFF !important; }
+
+  /* =========================================================
+     SLIDE 4 : PROBLÉMATIQUE DATA (PYRAMIDE)
+     ========================================================= */
+  .funnel-arrow-sidebar {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    border-radius: 12px !important;
+  }
+  .down-arrow-svg path {
+    stroke: #00875A !important;
+  }
+  .down-arrow-svg polygon {
+    fill: #00875A !important;
+  }
+
+  .pyramid-step {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
+  }
+  .step-label { color: #00875A !important; font-weight: 800 !important; }
+  .step-num { color: #111827 !important; font-weight: 900 !important; }
+  .step-title { color: #111827 !important; font-weight: 800 !important; }
+  .step-desc { color: #4B5563 !important; }
+
+  .king-pill {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    color: #374151 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  }
+  .king-pill strong { color: #00875A !important; font-weight: 800 !important; }
+  .king-pill span { color: #374151 !important; font-weight: 600 !important; }
+
+  .problem-box-tpe {
+    background: #FFF5F5 !important;
+    border: 1.5px solid #FECACA !important;
+    border-radius: 12px !important;
+    color: #991B1B !important;
+  }
+  .problem-box-tpe strong { color: #991B1B !important; }
+
+  .problem-box-pme {
+    background: #FFFBEB !important;
+    border: 1.5px solid #FDE68A !important;
+    border-radius: 12px !important;
+    color: #92400E !important;
+  }
+  .problem-box-pme strong { color: #92400E !important; }
+
+  /* =========================================================
+     SLIDE 5 : LOOKER STUDIO & 6 RATIOS
+     ========================================================= */
+  .dashboard-wrapper {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 14px !important;
+  }
+
+  .toggle-btn {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    border-radius: 8px !important;
+  }
+  .toggle-btn.active {
     background: #00875A !important;
     color: #FFFFFF !important;
     border-color: #00875A !important;
   }
-
-  body.theme-dark .nav-dot.active {
-    background: #00BD82 !important;
-    color: #061B14 !important;
-    border-color: #00BD82 !important;
+  .link-external {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border-color: #A3E0CE !important;
   }
 
-  .btn-fullscreen-deck {
-    background: rgba(0, 189, 130, 0.1) !important;
-    border: 1px solid #00BD82 !important;
+  .block-card {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03) !important;
+  }
+  .block-card:hover {
+    border-color: #00875A !important;
+    box-shadow: 0 6px 18px rgba(0, 135, 90, 0.1) !important;
+  }
+  .block-card-title { color: #111827 !important; }
+  .block-card-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
+  .drilldown-cue { background: #F3F4F6 !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; }
+  .ratio-val-giant { color: #00875A !important; font-weight: 900 !important; }
+  .ratio-sub-badge { background: #F3F4F6 !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; }
+  .block-card-desc { color: #6B7280 !important; }
+
+  /* =========================================================
+     SLIDES 6 & 7 : VIS-À-VIS PROBLÈME vs SOLUTION
+     ========================================================= */
+  .visavis-col.problem-side {
+    background: #FFF5F5 !important;
+    border: 1.5px solid #FECACA !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 18px rgba(220, 38, 38, 0.06) !important;
+  }
+  .visavis-banner.problem-banner {
+    background: #FEE2E2 !important;
+    border-bottom: 1px solid #FECACA !important;
+  }
+  .visavis-col.problem-side .hero-stat-card {
+    background: #FFFFFF !important;
+    border: 1px solid #FECACA !important;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.04) !important;
+  }
+  .visavis-col.problem-side .hero-lbl { color: #4B5563 !important; }
+  .visavis-col.problem-side .fact-text { color: #1F2937 !important; }
+  .visavis-col.problem-side .fact-text strong { color: #111827 !important; }
+  .visavis-col.problem-side .visavis-tag { color: #991B1B !important; }
+
+  .visavis-col.solution-side {
+    background: #F0FDF4 !important;
+    border: 1.5px solid #BBF7D0 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 18px rgba(0, 135, 90, 0.08) !important;
+  }
+  .visavis-banner.solution-banner {
+    background: #DCFCE7 !important;
+    border-bottom: 1px solid #BBF7D0 !important;
+  }
+  .visavis-col.solution-side .hero-stat-card {
+    background: #FFFFFF !important;
+    border: 1px solid #BBF7D0 !important;
+    box-shadow: 0 2px 8px rgba(0, 135, 90, 0.04) !important;
+  }
+  .hero-num-green { color: #00875A !important; font-weight: 900 !important; }
+  .visavis-col.solution-side .hero-lbl { color: #4B5563 !important; }
+  .visavis-col.solution-side .fact-text { color: #1F2937 !important; }
+  .visavis-col.solution-side .fact-text strong { color: #111827 !important; }
+  .visavis-col.solution-side .visavis-tag { color: #166534 !important; }
+
+  .fact-bullet-red { background: #FEE2E2 !important; border: 1px solid #F87171 !important; color: #DC2626 !important; }
+  .fact-bullet-green { background: #DCFCE7 !important; border: 1px solid #4ADE80 !important; color: #16A34A !important; }
+
+  .v-chip {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+  }
+  .v-chip.time { background: #E6F7F0 !important; color: #00875A !important; border-color: #A3E0CE !important; font-weight: 800 !important; }
+
+  .timeline-feasibility-bar {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  }
+  .timeline-header { border-bottom: 1px solid #E5E7EB !important; }
+  .timeline-badge { color: #00875A !important; font-weight: 800 !important; }
+  .timeline-ttv { color: #4B5563 !important; }
+  .gantt-trigger-btn {
+    background: #00875A !important;
+    color: #FFFFFF !important;
+    border-radius: 6px !important;
+  }
+  .t-step {
+    background: #F8FAF9 !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 8px !important;
+  }
+  .t-title { color: #111827 !important; font-weight: 800 !important; }
+  .t-desc { color: #4B5563 !important; }
+  .t-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
+  .t-arrow { color: #00875A !important; }
+
+  /* =========================================================
+     SLIDE 8 : SYNTHÈSE GLOBALE CODIR (ROI GÉANT)
+     ========================================================= */
+  .summary-kpi-card {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+  }
+  .summary-kpi-val { color: #00875A !important; font-weight: 900 !important; }
+  .summary-kpi-lbl { color: #111827 !important; font-weight: 800 !important; }
+  .summary-kpi-sub { color: #6B7280 !important; }
+
+  .big-roi-banner {
+    background: linear-gradient(135deg, #E6F7F0 0%, #D1FAE5 100%) !important;
+    border: 2px solid #00875A !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 30px rgba(0, 135, 90, 0.12) !important;
+  }
+  .big-roi-banner .card-badge { color: #00875A !important; }
+  .big-roi-banner .stat-giant { color: #00875A !important; }
+  .big-roi-banner .stat-giant.white { color: #111827 !important; }
+  .big-roi-banner .stat-label { color: #1F2937 !important; font-weight: 800 !important; }
+  .roi-tag-hero { background: #00875A !important; color: #FFFFFF !important; }
+  .roi-bubble-stat { background: #FFFFFF !important; border: 1px solid #A3E0CE !important; }
+  .bubble-lbl { color: #4B5563 !important; }
+  .bubble-val { color: #00875A !important; font-weight: 900 !important; }
+
+  /* =========================================================
+     SLIDE 9 : MATRICE DE TRANSPARENCE & TRAÇABILITÉ
+     ========================================================= */
+  .transparency-table {
+    border: 1px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+  .transparency-table th {
+    background: #F8FAF9 !important;
+    color: #111827 !important;
+    border-bottom: 2px solid #E5E7EB !important;
+    font-weight: 800 !important;
+  }
+  .transparency-table td {
+    background: #FFFFFF !important;
+    color: #1F2937 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .source-pill.real { background: #DCFCE7 !important; color: #166534 !important; border: 1px solid #86EFAC !important; }
+  .source-pill.public { background: #EFF6FF !important; color: #1E40AF !important; border: 1px solid #BFDBFE !important; }
+  .source-pill.simulated { background: #F3E8FF !important; color: #6B21A8 !important; border: 1px solid #D8B4FE !important; }
+
+  /* =========================================================
+     BOTTOM NAVIGATION BAR (FLOATING WHITE PILL)
+     ========================================================= */
+  .bottom-nav-bar {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 999px !important;
+  }
+  .bottom-nav-btn {
+    color: #111827 !important;
+    font-weight: 700 !important;
+  }
+  .bottom-nav-btn:hover {
+    background: #F3F4F6 !important;
     color: #00875A !important;
   }
-
-  body.theme-dark .btn-fullscreen-deck {
-    background: rgba(0, 189, 130, 0.12) !important;
-    border-color: rgba(0, 189, 130, 0.4) !important;
-    color: #00BD82 !important;
+  .nav-dot {
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
   }
-
-  .btn-theme-switcher {
-    background: #F4F7F5 !important;
-    border: 1px solid #DDE7E2 !important;
-    color: #0F231D !important;
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  body.theme-dark .btn-theme-switcher {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
+  .nav-dot.active {
+    background: #00875A !important;
     color: #FFFFFF !important;
+    border-color: #00875A !important;
+    box-shadow: 0 2px 8px rgba(0, 135, 90, 0.3) !important;
+  }
+  .btn-fullscreen-deck {
+    background: #E6F7F0 !important;
+    border: 1px solid #A3E0CE !important;
+    color: #00875A !important;
+    font-weight: 800 !important;
   }
 
-  .nav-arrow {
+  /* =========================================================
+     MODALS (ZOOM KPI & GANTT DRILLDOWN) — CLEAN HUMAN DIALOGS
+     ========================================================= */
+  .kpi-modal-overlay {
+    background: rgba(17, 24, 39, 0.6) !important;
+    backdrop-filter: blur(6px) !important;
+  }
+  .kpi-modal-content {
     background: #FFFFFF !important;
-    border: 1px solid #DDE7E2 !important;
-    color: #4B6358 !important;
-    box-shadow: 0 4px 14px rgba(6, 27, 20, 0.08) !important;
+    border: 1.5px solid #E5E7EB !important;
+    color: #111827 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15) !important;
+  }
+  .kpi-modal-header {
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .kpi-modal-badge {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border: 1px solid #A3E0CE !important;
+  }
+  .kpi-modal-title {
+    color: #111827 !important;
+  }
+  .kpi-modal-subtitle {
+    color: #4B5563 !important;
+  }
+  .kpi-modal-close {
+    background: #F3F4F6 !important;
+    color: #4B5563 !important;
+    border: 1px solid #E5E7EB !important;
+  }
+  .kpi-modal-close:hover {
+    background: #E5E7EB !important;
+    color: #111827 !important;
+  }
+  .kpi-hero-card {
+    background: #F8FAF9 !important;
+    border: 1px solid #E5E7EB !important;
+  }
+  .kpi-hero-num { color: #00875A !important; font-weight: 900 !important; }
+  .kpi-hero-sub { color: #6B7280 !important; }
+  .chart-box-title { color: #111827 !important; font-weight: 800 !important; }
+  .table-data th {
+    background: #F8FAF9 !important;
+    color: #111827 !important;
+    border-bottom: 1.5px solid #E5E7EB !important;
+  }
+  .table-data td {
+    background: #FFFFFF !important;
+    color: #1F2937 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .kpi-analysis-box {
+    background: #F0FDF4 !important;
+    border: 1px solid #BBF7D0 !important;
+    color: #166534 !important;
+  }
+  .kpi-analysis-title { color: #00875A !important; font-weight: 800 !important; }
+  .kpi-analysis-text { color: #1F2937 !important; }
+  .kpi-action-box {
+    background: #E6F7F0 !important;
+    border: 1.5px solid #A3E0CE !important;
+    color: #00875A !important;
+  }
+  .kpi-action-title { color: #00875A !important; font-weight: 800 !important; }
+  .kpi-action-text { color: #111827 !important; }
+
+  /* GANTT MODAL */
+  .gantt-modal-content {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E5E7EB !important;
+    color: #111827 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15) !important;
+  }
+  .gantt-modal-header {
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .gantt-modal-badge {
+    background: #E6F7F0 !important;
+    color: #00875A !important;
+    border: 1px solid #A3E0CE !important;
+  }
+  .gantt-modal-title { color: #111827 !important; }
+  .gantt-tab-btn {
+    background: #F3F4F6 !important;
+    border: 1px solid #E5E7EB !important;
+    color: #4B5563 !important;
+  }
+  .gantt-tab-btn.active {
+    background: #00875A !important;
+    color: #FFFFFF !important;
+    border-color: #00875A !important;
+  }
+  .gantt-table th {
+    background: #F8FAF9 !important;
+    color: #111827 !important;
+    border-bottom: 1.5px solid #E5E7EB !important;
+  }
+  .gantt-table td {
+    background: #FFFFFF !important;
+    color: #1F2937 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .gantt-grid-header {
+    background: #F8FAF9 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  .gantt-week-header { color: #6B7280 !important; }
+  .gantt-task-row {
+    border-bottom: 1px solid #F1F5F9 !important;
+  }
+  .gantt-task-name { color: #111827 !important; }
+  .gantt-task-resp { color: #6B7280 !important; }
+  .gantt-bar-fill {
+    background: linear-gradient(90deg, #00875A 0%, #00BD82 100%) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 2px 6px rgba(0, 135, 90, 0.25) !important;
+  }
+  .gantt-summary-card {
+    background: #F8FAF9 !important;
+    border: 1px solid #E5E7EB !important;
+  }
+  .gantt-summary-title { color: #00875A !important; }
+  .gantt-summary-val { color: #111827 !important; }
+
+  
+  /* MODAL COMPONENT OVERRIDES */
+  .kpi-modal-mini-card {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    text-align: center !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+  }
+  .kpi-modal-mini-label {
+    color: #4B5563 !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+  }
+  .kpi-modal-mini-val {
+    color: #00875A !important;
+    font-size: 18px !important;
+    font-weight: 900 !important;
   }
 
-  body.theme-dark .nav-arrow {
-    background: rgba(19, 27, 24, 0.9) !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-    color: #FFFFFF !important;
+  .kpi-chart-box {
+    background: #F8FAF9 !important;
+    border: 1.5px solid #E5E7EB !important;
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
+  }
+  .kpi-chart-title {
+    color: #111827 !important;
+    font-weight: 800 !important;
+  }
+
+  .kpi-insight-card {
+    background: #F0FDF4 !important;
+    border: 1.5px solid #BBF7D0 !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+  }
+  .kpi-insight-tag {
+    background: #DCFCE7 !important;
+    color: #166534 !important;
+    border: 1px solid #86EFAC !important;
+    font-weight: 800 !important;
+  }
+  .kpi-insight-text {
+    color: #1F2937 !important;
+  }
+  .kpi-insight-text strong {
+    color: #111827 !important;
+  }
+
+  /* SVG THEMING ON LIGHT BACKGROUND */
+  svg line[stroke="rgba(255,255,255,0.06)"],
+  svg line[stroke="rgba(255,255,255,0.08)"],
+  svg line[stroke="rgba(255,255,255,0.1)"] {
+    stroke: #E5E7EB !important;
+  }
+  svg text[fill="#FFFFFF"] { fill: #111827 !important; }
+  svg text[fill="#E2E8F0"] { fill: #374151 !important; }
+  svg text[fill="#CBD5E1"] { fill: #4B5563 !important; }
+  svg text[fill="#94A3B8"] { fill: #6B7280 !important; }
+
+  /* ZOOM LIGHTBOX */
+  #zoomModal {
+    background: rgba(17, 24, 39, 0.8) !important;
+  }
+
+  /* PRINT MODE (LIGHT & CRISP) */
+  @media print {
+    html, body {
+      background: #FFFFFF !important;
+      color: #111827 !important;
+    }
+    #deck {
+      background: #FFFFFF !important;
+    }
+    .slide {
+      background: #FFFFFF !important;
+      color: #111827 !important;
+    }
+    .bottom-nav-bar, .nav-arrow, .view-toggle-bar, #liveContainer, .kpi-modal-overlay, #zoomModal, #ganttDrilldownModal {
+      display: none !important;
+    }
+    #captureContainer {
+      display: flex !important;
+      height: 520px !important;
+    }
   }
 </style>
 
@@ -2031,14 +2794,15 @@
   <div class="slide active">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">01 · IDENTITÉ OFFICIELLE</span>
       </div>
       <div class="top-right-meta">
         
         <span class="meta-pill">Licorne Téléphonie Cloud</span>
-        <span class="slide-num">01 / 08</span>
+        <span class="slide-num">01 / 09</span>
       </div>
     </div>
 
@@ -2111,14 +2875,15 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">02 · GOUVERNANCE &amp; CADRAGE</span>
       </div>
       <div class="top-right-meta">
         
         <span class="meta-pill">Alignement CoDir</span>
-        <span class="slide-num">02 / 08</span>
+        <span class="slide-num">02 / 09</span>
       </div>
     </div>
 
@@ -2142,7 +2907,7 @@
             <div class="director-avatar" style="border-color: var(--emerald-bright); color: var(--emerald-bright);">DAF</div>
             <div class="director-role">Directeur Financier</div>
             <div class="director-focus" style="background: rgba(0, 230, 164, 0.2);">Validation Business Case &amp; ROI</div>
-            <div class="director-duty">Arbitre le budget d'embauche (58 k€) et garantit la rentabilité nette (+3,00 M$).</div>
+            <div class="director-duty">Arbitre le budget total (59,8 k€) et garantit la rentabilité nette (+3,05 M$).</div>
           </div>
 
           <div class="director-card">
@@ -2190,7 +2955,7 @@
               <div class="flow-step-title">Décision CoDir &amp; ROI</div>
             </div>
             <div class="flow-step-desc">
-              <strong>Ce qu'on décide :</strong> Soumission des 2 arbitrages : Stop Cold Call TPE (45j) + CSM PME (90j). Validation tripartite pour générer +3,00 M$ d'ARR (ROI ×52).
+              <strong>Ce qu'on décide :</strong> Soumission des 2 arbitrages : Stop Cold Call TPE (45j) + CSM PME (90j). Validation tripartite pour générer +3,05 M$ d'ARR (ROI ×51).
             </div>
             <div class="flow-step-footer">
               <span class="flow-step-tag">Jour 3 · Recommandation Finale</span>
@@ -2202,19 +2967,248 @@
   </div>
 
   <!-- =========================================================
+       SLIDE 3 : POSITIONNEMENT & SWOT (AIRCALL VS RINGOVER VS ALLO)
+       ========================================================= -->
+  <div class="slide">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
+        <div class="divider-v"></div>
+        <span class="step-tag">03 · BENCHMARK &amp; SWOT</span>
+      </div>
+      <div class="top-right-meta">
+        <span class="meta-pill">Veille Concurrentielle</span>
+        <span class="slide-num">03 / 09</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block" style="margin-bottom:6px;">
+        <div class="header-badge">VEILLE MARCHÉ &amp; DIAGNOSTIC STRATÉGIQUE</div>
+        <h2>Positionnement Concurrentiel : <span class="accent">Aircall vs Ringover vs Allo</span></h2>
+        <div class="subtitle">Pourquoi Aircall domine le cœur PME, et comment neutraliser l'agressivité tarifaire sur la TPE via le modèle PLG.</div>
+      </div>
+
+      <div class="bench-swot-layout">
+        
+        <!-- SECTION 1 : BENCHMARK 3 ACTEURS CLÉS -->
+        <div class="benchmark-strip">
+          
+          <!-- AIRCALL (NOUS) -->
+          <div class="benchmark-col highlight-aircall">
+            <div class="bench-top-bar">
+              <div class="bench-brand-wrap">
+                <div class="bench-brand-icon icon-aircall">A</div>
+                <div class="bench-brand-name">Aircall <span class="bench-sublabel">(Notre Modèle)</span></div>
+              </div>
+              <span class="bench-badge green">★ Leader CRM</span>
+            </div>
+            <div class="bench-specs-grid">
+              <div class="bench-spec-line">
+                <span class="spec-label">🎯 Cible</span>
+                <span class="spec-val"><strong>PME (20–250 sal.)</strong> &amp; Mid-Market</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">💰 Tarif</span>
+                <span class="spec-val"><strong>30 € à 50 €</strong> / mois / agent (SaaS Premium)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">⚡ Moat</span>
+                <span class="spec-val"><strong>+100 intégrations CRM natives</strong> (HubSpot, Salesforce, Zendesk)</span>
+              </div>
+            </div>
+            <div class="bench-verdict-pill green">
+              <span>🏆</span>
+              <span><strong>Verdict :</strong> Domination absolue dès qu'un CRM métier est en place.</span>
+            </div>
+          </div>
+
+          <!-- RINGOVER -->
+          <div class="benchmark-col">
+            <div class="bench-top-bar">
+              <div class="bench-brand-wrap">
+                <div class="bench-brand-icon icon-ringover">R</div>
+                <div class="bench-brand-name">Ringover</div>
+              </div>
+              <span class="bench-badge blue">Challenger Prix</span>
+            </div>
+            <div class="bench-specs-grid">
+              <div class="bench-spec-line">
+                <span class="spec-label">🎯 Cible</span>
+                <span class="spec-val">TPE &amp; PME Françaises (10–100 sal.)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">💰 Tarif</span>
+                <span class="spec-val">Dès <strong>21 € / mois</strong> (Suite agressive Voix + IA Empower)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">⚡ Moat</span>
+                <span class="spec-val">Catalogue CRM restreint (~25 outils) &amp; connecteurs moins profonds</span>
+              </div>
+            </div>
+            <div class="bench-verdict-pill blue">
+              <span>⚔️</span>
+              <span><strong>Verdict :</strong> Très agressif sur petits parcs, vulnérable sur workflows complexes.</span>
+            </div>
+          </div>
+
+          <!-- ALLO -->
+          <div class="benchmark-col">
+            <div class="bench-top-bar">
+              <div class="bench-brand-wrap">
+                <div class="bench-brand-icon icon-allo">⚡</div>
+                <div class="bench-brand-name">Allo</div>
+              </div>
+              <span class="bench-badge amber">100% PLG Web</span>
+            </div>
+            <div class="bench-specs-grid">
+              <div class="bench-spec-line">
+                <span class="spec-label">🎯 Cible</span>
+                <span class="spec-val">Micro-entreprises &amp; TPE (&lt; 10 salariés)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">💰 Tarif</span>
+                <span class="spec-val">Dès <strong>9 € à 19 € / mois</strong> (Offre plancher sans engagement)</span>
+              </div>
+              <div class="bench-spec-line">
+                <span class="spec-label">⚡ Moat</span>
+                <span class="spec-val">Installation en 3 min web · 0 analytique avancée · Zéro commercial</span>
+              </div>
+            </div>
+            <div class="bench-verdict-pill amber">
+              <span>🚀</span>
+              <span><strong>Verdict :</strong> Rafle les TPE en libre-service web. Modèle à automatiser chez nous via Lemlist + site !</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SECTION 2 : MATRICE SWOT SYNTHÉTIQUE (PESTEL · PORTER · BMC) -->
+        <div class="swot-grid">
+          
+          <!-- FORCES -->
+          <div class="swot-box s-box">
+            <div class="swot-head">
+              <span class="swot-title" style="color:var(--emerald-bright);">🛡️ Forces · Nos Atouts Clés</span>
+              <span class="swot-tag tag-s">Interne +</span>
+            </div>
+            <div class="swot-items-list">
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Catalogue de +100 CRM natifs :</strong> Rétention et barrière à la sortie infranchissables une fois synchronisé.</span>
+              </div>
+              <div class="swot-item-row">
+                <span class="fw-badge data">DATA</span>
+                <span><strong>Closing AE exceptionnel à <span class="num-hl">47,2 %</span> :</strong> 1 démo sur 2 signe (358 signatures sur 759 démos).</span>
+              </div>
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Marque Licorne mondiale :</strong> 250 M$ d'ARR, rentable (EBITDA+) et reconnue dans +100 pays.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAIBLESSES -->
+          <div class="swot-box w-box">
+            <div class="swot-head">
+              <span class="swot-title" style="color:#F87171;">⚠️ Faiblesses · Nos Freins Directs</span>
+              <span class="swot-tag tag-w">Interne —</span>
+            </div>
+            <div class="swot-items-list">
+              <div class="swot-item-row">
+                <span class="fw-badge data">DATA</span>
+                <span><strong>Gaspillage commercial TPE :</strong> <span style="color:#F87171; font-weight:800;">42 % des appels</span> pour seulement 13,8 % de l'ARR (CAC &gt; LTV).</span>
+              </div>
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Zéro CSM dédié sur la PME :</strong> 2,25 M€ d'ARR (61 % du CA) exposés sans accompagnement (churn 20 %).</span>
+              </div>
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Vente 100 % assistée :</strong> Absence de parcours digital autonome même pour les petits forfaits.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- OPPORTUNITÉS -->
+          <div class="swot-box o-box">
+            <div class="swot-head">
+              <span class="swot-title" style="color:#60A5FA;">🚀 Opportunités · Nos Relais</span>
+              <span class="swot-tag tag-o">Externe +</span>
+            </div>
+            <div class="swot-items-list">
+              <div class="swot-item-row">
+                <span class="fw-badge porter">LEMLIST</span>
+                <span><strong>Automatisation TPE via Lemlist :</strong> Séquences Cold Emailing automatisées renvoyant vers l'essai gratuit web (coût SDR = 0 €).</span>
+              </div>
+              <div class="swot-item-row">
+                <span class="fw-badge pestel">PESTEL</span>
+                <span><strong>Boom Hybride &amp; IA Vocale :</strong> Transcription temps réel et résumés d'appels pour doper le panier moyen.</span>
+              </div>
+              <div class="swot-item-row">
+                <span class="fw-badge bmc">BMC</span>
+                <span><strong>Expansion sur base PME installée :</strong> Vente de licences additionnelles et numéros (NRR &gt; 110 %).</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- MENACES -->
+          <div class="swot-box t-box">
+            <div class="swot-head">
+              <span class="swot-title" style="color:#FBBF24;">⚡ Menaces · Risques Marché</span>
+              <span class="swot-tag tag-t">Externe —</span>
+            </div>
+            <div class="swot-items-list">
+              <div class="swot-item-row">
+                <span class="fw-badge porter">PORTER</span>
+                <span><strong>Guerre des prix de Ringover &amp; Allo</strong> sur les petits comptes (&lt; 20 sal.) avec forfaits dès 9–21 €.</span>
+              </div>
+              <div class="swot-item-row">
+                <span class="fw-badge pestel">PESTEL</span>
+                <span><strong>Durcissement des lois anti-démarchage :</strong> Régulation ARCEP / Bloctel et chute du taux de décroché à froid.</span>
+              </div>
+              <div class="swot-item-row">
+                <span class="fw-badge porter">PORTER</span>
+                <span><strong>Substituts Teams / Zoom Phone :</strong> Commoditisation de la téléphonie basique d'appoint.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SECTION 3 : STRATEGIC TAKEAWAY BOTTOM BAR -->
+        <div class="swot-takeaway-bar">
+          <div class="takeaway-left">
+            <span class="takeaway-icon">💡</span>
+            <span class="takeaway-label">Arbitrage CoDir</span>
+            <span class="takeaway-text">
+              <strong>Remplacer les appels TPE par des séquences Lemlist</strong> vers l'essai web existant (1 800 €) ➔ <strong>Concentrer 100% des SDRs sur la PME (+100 CRM)</strong> pour générer <strong>+3,05 M$ d'ARR</strong>.
+            </span>
+          </div>
+          <span class="takeaway-right-chip">IMPACT : +3,05 M$ ARR · ROI ×51</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
        SLIDE 3 : PROBLÉMATIQUE (TROP DE KPI TUE LE KPI)
        ========================================================= -->
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
-        <span class="step-tag">03 · PROBLÉMATIQUE DATA</span>
+        <span class="step-tag">04 · PROBLÉMATIQUE DATA</span>
       </div>
       <div class="top-right-meta">
         
         <span class="meta-pill">Entonnoir Décisionnel</span>
-        <span class="slide-num">03 / 08</span>
+        <span class="slide-num">04 / 09</span>
       </div>
     </div>
 
@@ -2336,14 +3330,15 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
-        <span class="step-tag">04 · PILOTAGE DATA STUDIO</span>
+        <span class="step-tag">05 · PILOTAGE DATA STUDIO</span>
       </div>
       <div class="top-right-meta">
         
         <span class="meta-pill">6 Ratios Clés Décisionnels</span>
-        <span class="slide-num">04 / 08</span>
+        <span class="slide-num">05 / 09</span>
       </div>
     </div>
 
@@ -2377,10 +3372,13 @@
 
         <!-- RIGHT: 6 RATIOS CALCULÉS EN DIRECT SUR LES DONNÉES LOOKER -->
         <div class="nine-blocks-sidebar">
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(1)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">1.</span> Taux de Décroché</span>
-              <span class="block-card-badge">Activité</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Activité</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">16,56 %</span>
@@ -2389,10 +3387,13 @@
             <div class="block-card-desc">11 190 décrochés sur 67 560 appels passés.</div>
           </div>
 
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(2)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">2.</span> Taux de Démo / Connect</span>
-              <span class="block-card-badge">Pitch SDR</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Pitch SDR</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">6,78 %</span>
@@ -2401,10 +3402,13 @@
             <div class="block-card-desc">759 démos calées sur 11 190 appels utiles.</div>
           </div>
 
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(3)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">3.</span> Taux de Closing Démo</span>
-              <span class="block-card-badge">Conversion AE</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Conversion AE</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">47,17 %</span>
@@ -2413,10 +3417,13 @@
             <div class="block-card-desc">358 contrats closés sur 759 démos présentées.</div>
           </div>
 
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(4)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">4.</span> Transformation Globale</span>
-              <span class="block-card-badge">Funnel Entier</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Funnel Entier</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">0,53 %</span>
@@ -2425,10 +3432,13 @@
             <div class="block-card-desc">358 signatures sur les 67 560 appels totaux.</div>
           </div>
 
-          <div class="block-card">
+          <div class="block-card" onclick="openKpiModal(5)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">5.</span> Panier Moyen (ACV)</span>
-              <span class="block-card-badge">Valeur / Deal</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge">Valeur / Deal</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">10 291 €</span>
@@ -2437,10 +3447,13 @@
             <div class="block-card-desc">TPE : 3 725 € vs PME : 9 617 € vs Mid : 18 909 €.</div>
           </div>
 
-          <div class="block-card highlight">
+          <div class="block-card highlight" onclick="openKpiModal(6)" title="Cliquer pour afficher le zoom décisionnel">
             <div class="block-card-title">
               <span><span class="block-card-num">6.</span> Part ARR Cœur PME</span>
-              <span class="block-card-badge" style="background:var(--emerald-bright); color:#061B14;">Cœur de Cible</span>
+              <div style="display:flex; align-items:center; gap:5px;">
+                <span class="block-card-badge" style="background:var(--emerald-bright); color:#061B14;">Cœur de Cible</span>
+                <span class="drilldown-cue">Zoom ↗</span>
+              </div>
             </div>
             <div class="ratio-main-row">
               <span class="ratio-val-giant">61,1 %</span>
@@ -2460,21 +3473,22 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
-        <span class="step-tag">05 · ARBITRAGE STRATÉGIQUE N°1</span>
+        <span class="step-tag">06 · ARBITRAGE STRATÉGIQUE N°1</span>
       </div>
       <div class="top-right-meta">
         <span class="meta-pill">Réallocation Commerciale</span>
-        <span class="slide-num">05 / 08</span>
+        <span class="slide-num">06 / 09</span>
       </div>
     </div>
 
     <div class="content">
       <div class="header-block">
         <div class="header-badge">AUDIT &amp; ARBITRAGE N°1</div>
-        <h2>Arbitrage 1 : <span style="color:#EF4444;">Arrêt du Cold Call TPE</span> ➔ <span class="accent">Basculement 100% Self-Serve</span></h2>
-        <div class="subtitle">Stopper l'hémorragie commerciale sur les micro-comptes pour libérer 100% de la force de frappe sur le cœur PME.</div>
+        <h2>Arbitrage 1 : <span style="color:#EF4444;">Arrêt du Cold Call TPE</span> ➔ <span class="accent">Automatisation Cold Email Lemlist</span></h2>
+        <div class="subtitle">L'inscription web existe déjà : remplaçons 28k appels TPE manuels par des séquences Lemlist pour libérer 100% des SDRs sur la PME.</div>
       </div>
 
       <!-- VIS-À-VIS IMMÉDIAT : LE PROBLÈME (GAUCHE) vs LA SOLUTION (DROITE) -->
@@ -2512,31 +3526,34 @@
         <div class="visavis-col solution-side">
           <div class="visavis-banner solution-banner">
             <span class="visavis-tag">2. LA SOLUTION IMMÉDIATE</span>
-            <span class="visavis-badge-green">Arbitrage Self-Serve (PLG)</span>
+            <span class="visavis-badge-green">Automatisation Lemlist &amp; Focus PME</span>
           </div>
           <div class="visavis-body">
             <div class="visavis-hero-stat">
-              <span class="hero-num-green">+1,55 M$</span>
-              <span class="hero-lbl">Nouvel ARR additionnel annuel récurrent généré</span>
+              <span class="hero-num-green">+1,60 M$</span>
+              <span class="hero-lbl">Nouvel ARR net récurrent généré (+1,60M$ PME &amp; 170k$ TPE web)</span>
             </div>
             <div class="visavis-facts-list">
               <div class="fact-item">
                 <span class="fact-bullet-green">✓</span>
-                <div class="fact-text"><strong>Arrêt immédiat du Cold Calling TPE</strong> : Redirection automatique vers démo vidéo &amp; souscription en ligne 100% autonome.</div>
+                <div class="fact-text">
+                  <strong>Remplacement Cold Call par Séquences Lemlist</strong> : 28 500 emails automatisés renvoyant vers l'essai gratuit existant sur <em>aircall.com</em> (coût SDR = 0 €).
+                  <div style="margin-top:2px; font-size:10.5px; color:#065F46; font-weight:600;">🔗 <em>Preuve aircall.com : Le formulaire « Essai gratuit » est déjà actif en libre-service web.</em></div>
+                </div>
               </div>
               <div class="fact-item">
                 <span class="fact-bullet-green">✓</span>
-                <div class="fact-text"><strong>Réallocation intégrale sur les PME &amp; MidMarket</strong> : 100% des 28k appels et des 10 SDRs concentrés sur les comptes rentables.</div>
+                <div class="fact-text"><strong>100% des 10 SDRs réalloués sur la PME</strong> : 28 545 appels réinjectés sur notre cible à fort panier (9,6 k€ vs 3,7 k€).</div>
               </div>
               <div class="fact-item">
                 <span class="fact-bullet-green">✓</span>
-                <div class="fact-text"><strong>Investissement : 0 €</strong> (simple réalignement interne de process CRM et quotas). <strong>Faisabilité maximale (Quick Win)</strong>.</div>
+                <div class="fact-text"><strong>Budget : 1 800 € / an</strong> (Licences Lemlist Pro). <strong>Retour sur investissement unitaire record : ROI ×888</strong>.</div>
               </div>
             </div>
             <div class="visavis-chips-row">
-              <span class="v-chip time">Déploiement : 45 Jours</span>
+              <span class="v-chip time" onclick="openGanttModal(1)" style="cursor:pointer;" title="Voir le diagramme de Gantt">Déploiement : 45 Jours ↗</span>
               <span class="v-chip ttv">Time-to-Value : J+30 à J+60</span>
-              <span class="v-chip cost">Coût Direct : 0 €</span>
+              <span class="v-chip cost" style="color:#00875A !important; font-weight:800;">Budget : 1 800 € (ROI ×888)</span>
             </div>
           </div>
         </div>
@@ -2544,33 +3561,36 @@
       </div>
 
       <!-- TIMELINE & DÉPLOIEMENT EN BAS (45 JOURS) -->
-      <div class="timeline-feasibility-bar">
+      <div class="timeline-feasibility-bar" onclick="openGanttModal(1)" title="Cliquer pour ouvrir le diagramme de Gantt détaillé">
         <div class="timeline-header">
-          <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (45 JOURS)</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (45 JOURS)</span>
+            <button type="button" class="gantt-trigger-btn" onclick="event.stopPropagation(); openGanttModal(1);">📊 Voir le Gantt Détaillé ↗</button>
+          </div>
           <span class="timeline-ttv">Time-to-Value : <strong>J+30 à J+60</strong> · Horizon : <strong>45 Jours (Quick Win)</strong> · Faisabilité : <strong>Élevée (Coût 0 €)</strong></span>
         </div>
         <div class="timeline-steps">
           <div class="t-step">
             <div class="t-badge">S1 – S2</div>
             <div class="t-content">
-              <span class="t-title">Routing CRM Automatique</span>
-              <span class="t-desc">Redirection automatique des leads &lt; 20 salariés vers démo &amp; pricing self-serve.</span>
+              <span class="t-title">Setup Lemlist &amp; Lemwarm</span>
+              <span class="t-desc">Configuration des domaines, warm-up lemwarm &amp; rédaction des séquences cold email TPE.</span>
             </div>
           </div>
           <div class="t-arrow">➔</div>
           <div class="t-step">
             <div class="t-badge">S3 – S4</div>
             <div class="t-content">
-              <span class="t-title">Réattribution Territoires SDR</span>
-              <span class="t-desc">Nouveaux quotas 100% PME/MidMarket &amp; mise à jour des séquences Cold Call.</span>
+              <span class="t-title">Réattribution Quotas SDR</span>
+              <span class="t-desc">Arrêt des appels TPE, quotas 100% PME/MidMarket &amp; formation à la vente de valeur.</span>
             </div>
           </div>
           <div class="t-arrow">➔</div>
           <div class="t-step t-step-highlight">
             <div class="t-badge highlight">S5 – S6</div>
             <div class="t-content">
-              <span class="t-title">Go-Live &amp; Premiers Gains</span>
-              <span class="t-desc">100% effort SDR sur PME. Premières signatures additionnelles dès J+60 (+1,55 M$).</span>
+              <span class="t-title">Go-Live Lemlist &amp; Gains</span>
+              <span class="t-desc">Lancement des séquences email TPE et 100% effort SDR sur PME. Premiers gains (+1,60 M$).</span>
             </div>
           </div>
         </div>
@@ -2584,13 +3604,14 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
-        <span class="step-tag">06 · ARBITRAGE STRATÉGIQUE N°2</span>
+        <span class="step-tag">07 · ARBITRAGE STRATÉGIQUE N°2</span>
       </div>
       <div class="top-right-meta">
         <span class="meta-pill">Sécurisation ARR PME</span>
-        <span class="slide-num">06 / 08</span>
+        <span class="slide-num">07 / 09</span>
       </div>
     </div>
 
@@ -2658,7 +3679,7 @@
               </div>
             </div>
             <div class="visavis-chips-row">
-              <span class="v-chip time">Déploiement : 90 Jours</span>
+              <span class="v-chip time" onclick="openGanttModal(2)" style="cursor:pointer;" title="Voir le diagramme de Gantt">Déploiement : 90 Jours ↗</span>
               <span class="v-chip ttv">Time-to-Value : J+60 à J+90</span>
               <span class="v-chip cost">Budget : 58 k€ (ROI ×25)</span>
             </div>
@@ -2668,9 +3689,12 @@
       </div>
 
       <!-- TIMELINE & DÉPLOIEMENT EN BAS (90 JOURS) -->
-      <div class="timeline-feasibility-bar">
+      <div class="timeline-feasibility-bar" onclick="openGanttModal(2)" title="Cliquer pour ouvrir le diagramme de Gantt détaillé">
         <div class="timeline-header">
-          <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (90 JOURS / Q1-Q2)</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (90 JOURS / Q1-Q2)</span>
+            <button type="button" class="gantt-trigger-btn" onclick="event.stopPropagation(); openGanttModal(2);">📊 Voir le Gantt Détaillé ↗</button>
+          </div>
           <span class="timeline-ttv">Time-to-Value : <strong>J+60 à J+90</strong> · Horizon : <strong>90 Jours</strong> · Faisabilité : <strong>Moyenne (1 Recrutement)</strong></span>
         </div>
         <div class="timeline-steps">
@@ -2708,21 +3732,22 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
-        <span class="step-tag">07 · SYNTHÈSE GLOBALE &amp; ROI</span>
+        <span class="step-tag">08 · SYNTHÈSE GLOBALE &amp; ROI</span>
       </div>
       <div class="top-right-meta">
         
         <span class="meta-pill">Impact CoDir 2026</span>
-        <span class="slide-num">07 / 08</span>
+        <span class="slide-num">08 / 09</span>
       </div>
     </div>
 
     <div class="content">
       <div class="header-block">
         <div class="header-badge">BILAN DES 2 DÉCISIONS REVOPS</div>
-        <h2>Impact Global Consolidé : <span class="accent">+3,00 M$ d'ARR / ROI ×52</span></h2>
+        <h2>Impact Global Consolidé : <span class="accent">+3,05 M$ d'ARR / ROI ×51</span></h2>
         <div class="subtitle">De l'analyse rigoureuse des 5 indicateurs rois à la création de valeur massive.</div>
       </div>
 
@@ -2754,13 +3779,13 @@
       <div class="big-roi-banner">
         <div>
           <div class="card-badge" style="color:var(--emerald-bright);">BILAN FINANCIER GLOBAL</div>
-          <div class="stat-giant" style="font-size:46px; margin:4px 0;">+3,00 M$ ARR</div>
-          <div class="stat-label">Gain Cumulé des 2 Arbitrages (+1,55M$ + 1,45M$)</div>
+          <div class="stat-giant" style="font-size:46px; margin:4px 0;">+3,05 M$ ARR</div>
+          <div class="stat-label">Gain Net des 2 Arbitrages (+1,60M$ Lemlist/PME + 1,45M$ CSM PME)</div>
         </div>
         <div style="text-align:right;">
-          <div class="card-badge" style="color:var(--text-white);">BUDGET DÉCISIONNEL</div>
-          <div class="stat-giant white" style="font-size:36px; margin:4px 0;">58 000 €</div>
-          <div class="stat-label" style="color:var(--emerald-bright); font-size:18px;">ROI Consolidé : ×52</div>
+          <div class="card-badge" style="color:var(--text-white);">BUDGET DÉCISIONNEL GLOBAL</div>
+          <div class="stat-giant white" style="font-size:36px; margin:4px 0;">59 800 €</div>
+          <div class="stat-label" style="color:var(--emerald-bright); font-size:18px;">ROI Consolidé : ×51 (Lemlist 1,8k€ + CSM 58k€)</div>
         </div>
       </div>
     </div>
@@ -2772,14 +3797,15 @@
   <div class="slide">
     <div class="top-row">
       <div class="brand-lockup">
-        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light"><img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark">
+        <img src="aircall_logo_dark.png" alt="Aircall" class="brand-logo-img logo-light" style="height:32px; width:auto; object-fit:contain;">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img logo-dark" style="height:32px; width:auto; object-fit:contain; display:none;">
         <div class="divider-v"></div>
         <span class="step-tag">08 · TRANSPARENCE &amp; CONFORMITÉ</span>
       </div>
       <div class="top-right-meta">
         
         <span class="meta-pill">Origine Certifiée</span>
-        <span class="slide-num">08 / 08</span>
+        <span class="slide-num">09 / 09</span>
       </div>
     </div>
 
@@ -2842,17 +3868,14 @@
     <button type="button" class="nav-dot" data-slide="5">6</button>
     <button type="button" class="nav-dot" data-slide="6">7</button>
     <button type="button" class="nav-dot" data-slide="7">8</button>
+    <button type="button" class="nav-dot" data-slide="8">9</button>
   </div>
   <button type="button" class="bottom-nav-btn" id="btnNext">Suivant ▶</button>
-  <div class="divider-nav-v"></div>
-  <button type="button" class="btn-theme-switcher" id="btnThemeToggle" title="Basculer entre Mode Clair et Mode Sombre">🌙 Mode Sombre</button>
   <div class="divider-nav-v"></div>
   <button type="button" class="btn-fullscreen-deck" id="btnDeckFullscreen" title="Plein Écran Toute la Présentation (Touche F)">⛶ Plein Écran</button>
 </div>
 
-<!-- FLOATING SIDE ARROWS -->
-<button type="button" class="nav-arrow nav-prev" id="sidePrev" aria-label="Slide Précédente">◀</button>
-<button type="button" class="nav-arrow nav-next" id="sideNext" aria-label="Slide Suivante">▶</button>
+
 
 <script>
   let currentSlide = 0;
@@ -2881,7 +3904,7 @@
       }
     });
 
-    if (currentSlide === 3 && typeof fitLookerIframe === 'function') {
+    if (currentSlide === 4 && typeof fitLookerIframe === 'function') {
       setTimeout(fitLookerIframe, 80);
     }
   }
@@ -2909,7 +3932,7 @@
         btnDeckFs.innerHTML = '⛶ Plein Écran';
         btnDeckFs.classList.remove('active-fs');
       }
-      if (currentSlide === 3 && typeof fitLookerIframe === 'function') {
+      if (currentSlide === 4 && typeof fitLookerIframe === 'function') {
         setTimeout(fitLookerIframe, 150);
       }
     });
@@ -2928,8 +3951,7 @@
 
   document.getElementById('btnPrev').addEventListener('click', () => showSlide(currentSlide - 1));
   document.getElementById('btnNext').addEventListener('click', () => showSlide(currentSlide + 1));
-  document.getElementById('sidePrev').addEventListener('click', () => showSlide(currentSlide - 1));
-  document.getElementById('sideNext').addEventListener('click', () => showSlide(currentSlide + 1));
+
 
   dots.forEach(dot => {
     dot.addEventListener('click', (e) => {
@@ -2939,24 +3961,61 @@
   });
 
   window.addEventListener('keydown', (e) => {
+    const kpiModal = document.getElementById('kpiDrilldownModal');
+    if (kpiModal && kpiModal.classList.contains('active')) {
+      if (e.key === 'Escape') closeKpiModal();
+      return;
+    }
+    const ganttModal = document.getElementById('ganttDrilldownModal');
+    if (ganttModal && ganttModal.classList.contains('active')) {
+      if (e.key === 'Escape') closeGanttModal();
+      return;
+    }
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
       showSlide(currentSlide + 1);
     } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
       showSlide(currentSlide - 1);
     }
   });
-
-  const btnTheme = document.getElementById('btnThemeToggle');
-  if (btnTheme) {
-    btnTheme.addEventListener('click', () => {
-      document.body.classList.toggle('theme-dark');
-      const isDark = document.body.classList.contains('theme-dark');
-      btnTheme.innerHTML = isDark ? '☀ Mode Clair' : '🌙 Mode Sombre';
-    });
-  }
-
 </script>
 
+
+<!-- KPI DRILL-DOWN MODAL -->
+<!-- GANTT DRILL-DOWN MODAL -->
+<div id="ganttDrilldownModal" class="kpi-modal-overlay" onclick="closeGanttModalOnBackdrop(event)">
+  <div class="kpi-modal-box" style="max-width:880px;" onclick="event.stopPropagation()">
+    <div class="kpi-modal-header">
+      <div class="kpi-modal-header-left">
+        <span class="kpi-modal-tag" id="ganttModalTag">PLANIFICATION OPÉRATIONNELLE • GANTT REVOPS</span>
+        <h3 class="kpi-modal-title" id="ganttModalTitle">Diagramme de Gantt Détaillé</h3>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button type="button" class="gantt-tab-btn" id="ganttTab1" onclick="switchGanttTab(1)">Solution 1 (45j)</button>
+        <button type="button" class="gantt-tab-btn" id="ganttTab2" onclick="switchGanttTab(2)">Solution 2 (90j)</button>
+        <button type="button" class="gantt-tab-btn" id="ganttTabMaster" onclick="switchGanttTab(3)">Master Roadmap</button>
+        <button type="button" class="kpi-modal-close" onclick="closeGanttModal()" title="Fermer [Échap]">✕</button>
+      </div>
+    </div>
+    <div class="kpi-modal-body" id="ganttModalBody">
+      <!-- Injected dynamically by renderGanttModal() -->
+    </div>
+  </div>
+</div>
+
+<div id="kpiDrilldownModal" class="kpi-modal-overlay" onclick="closeKpiModalOnBackdrop(event)">
+  <div class="kpi-modal-box" onclick="event.stopPropagation()">
+    <div class="kpi-modal-header">
+      <div class="kpi-modal-header-left">
+        <span class="kpi-modal-tag" id="kpiModalTag">DRILL-DOWN DÉCISIONNEL REVOPS</span>
+        <h3 class="kpi-modal-title" id="kpiModalTitle">Taux de Décroché</h3>
+      </div>
+      <button type="button" class="kpi-modal-close" onclick="closeKpiModal()" title="Fermer [Échap]">✕</button>
+    </div>
+    <div class="kpi-modal-body" id="kpiModalBody">
+      <!-- Rendu dynamique par openKpiModal() -->
+    </div>
+  </div>
+</div>
 
 <!-- ZOOM MODAL LIGHTBOX -->
 <div id="zoomModal">
@@ -3053,13 +4112,585 @@
     }
   }
 
-  const btnTheme = document.getElementById('btnThemeToggle');
-  if (btnTheme) {
-    btnTheme.addEventListener('click', () => {
-      document.body.classList.toggle('theme-dark');
-      const isDark = document.body.classList.contains('theme-dark');
-      btnTheme.innerHTML = isDark ? '☀ Mode Clair' : '🌙 Mode Sombre';
-    });
+  
+  
+  /* KPI DRILL-DOWN MODAL LOGIC & DATASET WITH VARIED RELEVANT CHARTS */
+  const kpiModalData = {
+  "1": {
+    "badge": "DRILL-DOWN REVOPS • KPI N°1",
+    "title": "Taux de Décroché : 16,56 % (Saisonnalité 12 Mois)",
+    "kpis": [
+      {
+        "label": "Appels Totaux Passés",
+        "val": "67 560"
+      },
+      {
+        "label": "Conversations Utiles",
+        "val": "11 190"
+      },
+      {
+        "label": "Benchmark Marché SaaS",
+        "val": "14,0 % (+2,6 pts)"
+      }
+    ],
+    "chartTitle": "Courbe Temporelle de Saisonnalité (Janvier à Décembre)",
+    "chartTag": "Courbe d'Évolution 12 Mois",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <defs>\n        <linearGradient id=\"gradKpi1\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n          <stop offset=\"0%\" stop-color=\"#00E6A4\" stop-opacity=\"0.38\"/>\n          <stop offset=\"100%\" stop-color=\"#00E6A4\" stop-opacity=\"0.02\"/>\n        </linearGradient>\n      </defs>\n      <!-- Grid -->\n      <line x1=\"45\" y1=\"50.83333333333333\" x2=\"635\" y2=\"50.83333333333333\" stroke=\"rgba(255,255,255,0.06)\" stroke-dasharray=\"3,3\"/>\n      <text x=\"38\" y=\"53.83333333333333\" fill=\"#64748B\" font-size=\"9\" text-anchor=\"end\" font-weight=\"600\">20%</text>\n      <line x1=\"45\" y1=\"102.91666666666666\" x2=\"635\" y2=\"102.91666666666666\" stroke=\"rgba(255,255,255,0.06)\" stroke-dasharray=\"3,3\"/>\n      <text x=\"38\" y=\"105.91666666666666\" fill=\"#64748B\" font-size=\"9\" text-anchor=\"end\" font-weight=\"600\">15%</text>\n      \n      <!-- Benchmark Line 14% -->\n      <line x1=\"45\" y1=\"113.3\" x2=\"635\" y2=\"113.3\" stroke=\"#F59E0B\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <text x=\"635\" y=\"108.3\" fill=\"#F59E0B\" font-size=\"9\" text-anchor=\"end\" font-weight=\"800\">Benchmark SaaS (14%)</text>\n      \n      <!-- Average Line 16.56% -->\n      <line x1=\"45\" y1=\"86.7\" x2=\"635\" y2=\"86.7\" stroke=\"rgba(0,230,164,0.4)\" stroke-width=\"1\" stroke-dasharray=\"2,2\"/>\n      <text x=\"48\" y=\"82.7\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"700\">Moyenne (16,56%)</text>\n      \n      <path d=\"M 50.0 94.6 C 76.4 94.6, 76.4 90.4, 102.7 90.4 C 129.1 90.4, 129.1 81.0, 155.5 81.0 C 181.8 81.0, 181.8 83.1, 208.2 83.1 C 234.5 83.1, 234.5 76.9, 260.9 76.9 C 287.3 76.9, 287.3 88.3, 313.6 88.3 C 340.0 88.3, 340.0 115.4, 366.4 115.4 C 392.7 115.4, 392.7 142.5, 419.1 142.5 C 445.5 142.5, 445.5 69.6, 471.8 69.6 C 498.2 69.6, 498.2 57.1, 524.5 57.1 C 550.9 57.1, 550.9 65.4, 577.3 65.4 C 603.6 65.4, 603.6 75.8, 630.0 75.8 L 630.0 165 L 50.0 165 Z\" fill=\"url(#gradKpi1)\"/>\n      <path d=\"M 50.0 94.6 C 76.4 94.6, 76.4 90.4, 102.7 90.4 C 129.1 90.4, 129.1 81.0, 155.5 81.0 C 181.8 81.0, 181.8 83.1, 208.2 83.1 C 234.5 83.1, 234.5 76.9, 260.9 76.9 C 287.3 76.9, 287.3 88.3, 313.6 88.3 C 340.0 88.3, 340.0 115.4, 366.4 115.4 C 392.7 115.4, 392.7 142.5, 419.1 142.5 C 445.5 142.5, 445.5 69.6, 471.8 69.6 C 498.2 69.6, 498.2 57.1, 524.5 57.1 C 550.9 57.1, 550.9 65.4, 577.3 65.4 C 603.6 65.4, 603.6 75.8, 630.0 75.8\" fill=\"none\" stroke=\"#00E6A4\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n    \n        <circle cx=\"50.0\" cy=\"94.6\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"50.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Jan</text><text x=\"50.0\" y=\"87.6\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"600\" text-anchor=\"middle\">15.8%</text>\n        <circle cx=\"102.7\" cy=\"90.4\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"102.7\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Fév</text>\n        <circle cx=\"155.5\" cy=\"81.0\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"155.5\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Mar</text><text x=\"155.5\" y=\"74.0\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"600\" text-anchor=\"middle\">17.1%</text>\n        <circle cx=\"208.2\" cy=\"83.1\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"208.2\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Avr</text>\n        <circle cx=\"260.9\" cy=\"76.9\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"260.9\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Mai</text><text x=\"260.9\" y=\"69.9\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"600\" text-anchor=\"middle\">17.5%</text>\n        <circle cx=\"313.6\" cy=\"88.3\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"313.6\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Juin</text>\n        <circle cx=\"366.4\" cy=\"115.4\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"366.4\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Juil</text><text x=\"366.4\" y=\"108.4\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"600\" text-anchor=\"middle\">13.8%</text>\n        <circle cx=\"419.1\" cy=\"142.5\" r=\"5\" fill=\"#F43F5E\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"419.1\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Août</text><text x=\"419.1\" y=\"134.5\" fill=\"#F43F5E\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">Août: 11,2% (Creux)</text>\n        <circle cx=\"471.8\" cy=\"69.6\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"471.8\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Sep</text><text x=\"471.8\" y=\"62.6\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"600\" text-anchor=\"middle\">18.2%</text>\n        <circle cx=\"524.5\" cy=\"57.1\" r=\"5\" fill=\"#10B981\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"524.5\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Oct</text><text x=\"524.5\" y=\"48.1\" fill=\"#34D399\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">Oct: 19,4% (Pic)</text>\n        <circle cx=\"577.3\" cy=\"65.4\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"577.3\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Nov</text><text x=\"577.3\" y=\"58.4\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"600\" text-anchor=\"middle\">18.6%</text>\n        <circle cx=\"630.0\" cy=\"75.8\" r=\"3.5\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"630.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"9\" text-anchor=\"middle\" font-weight=\"600\">Déc</text></svg>",
+    "detailTitle": "Répartition de l'Efficacité par Canal d'Acquisition :",
+    "details": [
+      {
+        "label": "Inbound Leads (Demandes entrantes site & démos)",
+        "val": "24,18 %",
+        "desc": "2 150 décrochés / 8 890 appels · Canal le plus chaud"
+      },
+      {
+        "label": "Partenaires CRM (Écosystème HubSpot & Salesforce)",
+        "val": "19,82 %",
+        "desc": "2 860 décrochés / 14 430 appels · Forte légitimité"
+      },
+      {
+        "label": "Outbound Cold Call (Démarchage téléphonique à froid)",
+        "val": "14,02 %",
+        "desc": "6 180 décrochés / 44 240 appels · 65% de l'effort pour le décroché le plus bas"
+      }
+    ],
+    "insightTag": "Arbitrage RevOps CoDir",
+    "insightText": "La courbe montre une forte saisonnalité : creux critique en Août (11,2%) et pic post-rentrée en Octobre (19,4%). <strong>Décision RevOps :</strong> Arrêter les campagnes Outbound massives en été, et réallouer 20% du temps SDR sur les canaux Partenaires et Inbound qui délivrent +41% à +72% d'appels utiles en plus par heure."
+  },
+  "2": {
+    "badge": "DRILL-DOWN REVOPS • KPI N°2",
+    "title": "Taux de Démo / Connect : 6,78 % (Leaderboard des 10 SDRs)",
+    "kpis": [
+      {
+        "label": "Connects Utiles",
+        "val": "11 190"
+      },
+      {
+        "label": "Démos R1 Obtenues",
+        "val": "759"
+      },
+      {
+        "label": "Écart Top vs Flop",
+        "val": "x 2,38"
+      }
+    ],
+    "chartTitle": "Classement Comparatif des 10 SDRs vs Objectif RevOps",
+    "chartTag": "Leaderboard Commercial",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <!-- Vertical target line at 8% -->\n      <line x1=\"447.7\" y1=\"12\" x2=\"447.7\" y2=\"182\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\"/>\n      <text x=\"447.7\" y=\"9\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">Objectif RevOps (8,0 %)</text>\n      \n      <!-- Vertical team average line at 6.78% -->\n      <line x1=\"393.9\" y1=\"12\" x2=\"393.9\" y2=\"182\" stroke=\"#A78BFA\" stroke-width=\"1\" stroke-dasharray=\"2,2\"/>\n      <text x=\"389.9\" y=\"9\" fill=\"#A78BFA\" font-size=\"8\" font-weight=\"800\" text-anchor=\"end\">Moyenne (6,78 %)</text>\n    \n        <text x=\"85\" y=\"28.0\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"900\" text-anchor=\"end\">Camille</text>\n        <rect x=\"95\" y=\"19.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"19.0\" width=\"432.5\" height=\"11\" fill=\"#00E6A4\" rx=\"3\"/>\n        <text x=\"533.5\" y=\"27.5\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"800\">9.81% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(178 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"44.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Lucas</text>\n        <rect x=\"95\" y=\"35.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"35.5\" width=\"370.8\" height=\"11\" fill=\"#00E6A4\" rx=\"3\"/>\n        <text x=\"471.8\" y=\"44.0\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"800\">8.41% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(122 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"61.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Sarah</text>\n        <rect x=\"95\" y=\"52.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"52.0\" width=\"312.6\" height=\"11\" fill=\"#3B82F6\" rx=\"3\"/>\n        <text x=\"413.6\" y=\"60.5\" fill=\"#3B82F6\" font-size=\"8.5\" font-weight=\"800\">7.09% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(95 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"77.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Alexandre</text>\n        <rect x=\"95\" y=\"68.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"68.5\" width=\"302.0\" height=\"11\" fill=\"#3B82F6\" rx=\"3\"/>\n        <text x=\"403.0\" y=\"77.0\" fill=\"#3B82F6\" font-size=\"8.5\" font-weight=\"800\">6.85% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(89 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"94.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Hugo</text>\n        <rect x=\"95\" y=\"85.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"85.0\" width=\"283.1\" height=\"11\" fill=\"#3B82F6\" rx=\"3\"/>\n        <text x=\"384.1\" y=\"93.5\" fill=\"#3B82F6\" font-size=\"8.5\" font-weight=\"800\">6.42% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(72 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"110.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Antoine</text>\n        <rect x=\"95\" y=\"101.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"101.5\" width=\"255.7\" height=\"11\" fill=\"#60A5FA\" rx=\"3\"/>\n        <text x=\"356.7\" y=\"110.0\" fill=\"#60A5FA\" font-size=\"8.5\" font-weight=\"800\">5.8% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(65 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"127.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Léa</text>\n        <rect x=\"95\" y=\"118.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"118.0\" width=\"240.3\" height=\"11\" fill=\"#60A5FA\" rx=\"3\"/>\n        <text x=\"341.3\" y=\"126.5\" fill=\"#60A5FA\" font-size=\"8.5\" font-weight=\"800\">5.45% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(61 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"143.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Thomas</text>\n        <rect x=\"95\" y=\"134.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"134.5\" width=\"229.3\" height=\"11\" fill=\"#F59E0B\" rx=\"3\"/>\n        <text x=\"330.3\" y=\"143.0\" fill=\"#F59E0B\" font-size=\"8.5\" font-weight=\"800\">5.2% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(58 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"160.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Julien</text>\n        <rect x=\"95\" y=\"151.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"151.0\" width=\"202.8\" height=\"11\" fill=\"#F59E0B\" rx=\"3\"/>\n        <text x=\"303.8\" y=\"159.5\" fill=\"#F59E0B\" font-size=\"8.5\" font-weight=\"800\">4.6% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(49 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"176.5\" fill=\"#EF4444\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Maxime</text>\n        <rect x=\"95\" y=\"167.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"167.5\" width=\"181.7\" height=\"11\" fill=\"#EF4444\" rx=\"3\"/>\n        <text x=\"282.7\" y=\"176.0\" fill=\"#EF4444\" font-size=\"8.5\" font-weight=\"800\">4.12% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(42 démos)</tspan></text>\n        </svg>",
+    "detailTitle": "Performance Individuelle des Commerciaux :",
+    "details": [
+      {
+        "label": "Top 1 : Camille",
+        "val": "9,81 %",
+        "desc": "178 démos sur 1 815 connects · Pitch orienté valeur business"
+      },
+      {
+        "label": "Top 2 : Lucas",
+        "val": "8,41 %",
+        "desc": "122 démos sur 1 450 connects · Très bonne accroche téléphonique"
+      },
+      {
+        "label": "Flop 1 : Maxime",
+        "val": "4,12 %",
+        "desc": "42 démos sur 1 020 connects · Blocage sur le traitement des objections"
+      },
+      {
+        "label": "Potentiel si alignement à 8%",
+        "val": "+185 Démos",
+        "desc": "Gagnées chaque année à effectif commercial constant"
+      }
+    ],
+    "insightTag": "Plan d'Action Commercial",
+    "insightText": "Le graphique en barres montre que 6 SDRs sur 10 sont sous la cible des 8%. L'écart de 1 à 2,4 entre Camille (9,8%) et Maxime (4,1%) démontre un défaut de méthode plutôt qu'un problème de marché. <strong>Recommandation :</strong> Enregistrer les appels de Camille sur la VoIP Aircall, construire un Playbook d'objections partagé sur Notion, et instaurer 1h de coaching d'écoute collective chaque semaine."
+  },
+  "3": {
+    "badge": "DRILL-DOWN REVOPS • KPI N°3",
+    "title": "Taux de Closing Démo : 47,17 % (Vélocité du Cycle de Vente)",
+    "kpis": [
+      {
+        "label": "Démos Présentées",
+        "val": "759"
+      },
+      {
+        "label": "Contrats Closés Signés",
+        "val": "358"
+      },
+      {
+        "label": "Cycle Moyen de Vente",
+        "val": "34,5 jours"
+      }
+    ],
+    "chartTitle": "Courbe de Closing Cumulé selon l'Âge du Deal (Cohortes J+5 à J+90)",
+    "chartTag": "Courbe de Vélocité",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <defs>\n        <linearGradient id=\"gradKpi3\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n          <stop offset=\"0%\" stop-color=\"#10B981\" stop-opacity=\"0.38\"/>\n          <stop offset=\"100%\" stop-color=\"#10B981\" stop-opacity=\"0.02\"/>\n        </linearGradient>\n      </defs>\n      <!-- Zone saturation rouge après 45 jours -->\n      <rect x=\"455.0\" y=\"25\" width=\"170.0\" height=\"135\" fill=\"rgba(239, 68, 68, 0.08)\" rx=\"4\"/>\n      <text x=\"540.0\" y=\"42\" fill=\"#F87171\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">SATURATION (+45j : 0 deal closé)</text>\n      <line x1=\"455.0\" y1=\"25\" x2=\"455.0\" y2=\"160\" stroke=\"#EF4444\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\"/>\n      \n      <path d=\"M 55.0 135.7 C 95.0 135.7, 95.0 107.3, 135.0 107.3 C 175.0 107.3, 175.0 81.1, 215.0 81.1 C 255.0 81.1, 255.0 65.2, 295.0 65.2 C 335.0 65.2, 335.0 54.5, 375.0 54.5 C 415.0 54.5, 415.0 47.8, 455.0 47.8 C 495.0 47.8, 495.0 47.6, 535.0 47.6 C 575.0 47.6, 575.0 47.5, 615.0 47.5 L 615.0 165 L 55.0 165 Z\" fill=\"url(#gradKpi3)\"/>\n      <path d=\"M 55.0 135.7 C 95.0 135.7, 95.0 107.3, 135.0 107.3 C 175.0 107.3, 175.0 81.1, 215.0 81.1 C 255.0 81.1, 255.0 65.2, 295.0 65.2 C 335.0 65.2, 335.0 54.5, 375.0 54.5 C 415.0 54.5, 415.0 47.8, 455.0 47.8 C 495.0 47.8, 495.0 47.6, 535.0 47.6 C 575.0 47.6, 575.0 47.5, 615.0 47.5\" fill=\"none\" stroke=\"#10B981\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n    \n        <circle cx=\"55.0\" cy=\"135.7\" r=\"4\" fill=\"#10B981\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"55.0\" y=\"128.7\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">8.5%</text>\n        <text x=\"55.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"8.5\" text-anchor=\"middle\" font-weight=\"600\">J+5</text>\n        \n        <circle cx=\"135.0\" cy=\"107.3\" r=\"4\" fill=\"#10B981\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"135.0\" y=\"100.3\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">21.0%</text>\n        <text x=\"135.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"8.5\" text-anchor=\"middle\" font-weight=\"600\">J+10</text>\n        \n        <circle cx=\"215.0\" cy=\"81.1\" r=\"4\" fill=\"#10B981\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"215.0\" y=\"74.1\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">32.5%</text>\n        <text x=\"215.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"8.5\" text-anchor=\"middle\" font-weight=\"600\">J+15</text>\n        \n        <circle cx=\"295.0\" cy=\"65.2\" r=\"4\" fill=\"#10B981\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"295.0\" y=\"58.2\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">39.5%</text>\n        <text x=\"295.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"8.5\" text-anchor=\"middle\" font-weight=\"600\">J+20</text>\n        \n        <circle cx=\"375.0\" cy=\"54.5\" r=\"4\" fill=\"#10B981\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"375.0\" y=\"47.5\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">44.2%</text>\n        <text x=\"375.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"8.5\" text-anchor=\"middle\" font-weight=\"600\">J+30</text>\n        \n        <circle cx=\"455.0\" cy=\"47.8\" r=\"4\" fill=\"#EF4444\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"455.0\" y=\"40.8\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">47.2%</text>\n        <text x=\"455.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"8.5\" text-anchor=\"middle\" font-weight=\"600\">J+45</text>\n        \n        <circle cx=\"535.0\" cy=\"47.6\" r=\"4\" fill=\"#EF4444\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"535.0\" y=\"40.6\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">47.2%</text>\n        <text x=\"535.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"8.5\" text-anchor=\"middle\" font-weight=\"600\">J+60</text>\n        \n        <circle cx=\"615.0\" cy=\"47.5\" r=\"4\" fill=\"#EF4444\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <text x=\"615.0\" y=\"40.5\" fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">47.3%</text>\n        <text x=\"615.0\" y=\"178\" fill=\"#94A3B8\" font-size=\"8.5\" text-anchor=\"middle\" font-weight=\"600\">J+90</text>\n        </svg>",
+    "detailTitle": "Taux de Closing Réel par Typologie de Client :",
+    "details": [
+      {
+        "label": "TPE (< 20 salariés)",
+        "val": "55,28 %",
+        "desc": "136 contrats closés sur 246 démos · Vente d'impulsion rapide"
+      },
+      {
+        "label": "PME (20 à 250 salariés)",
+        "val": "47,76 %",
+        "desc": "234 contrats closés sur 490 démos · Cœur de rentabilité SaaS"
+      },
+      {
+        "label": "Mid-Market (> 250 salariés)",
+        "val": "38,28 %",
+        "desc": "49 contrats closés sur 128 démos · Cycle long multi-décideurs"
+      },
+      {
+        "label": "Benchmark SaaS B2B",
+        "val": "30,00 %",
+        "desc": "Les Account Executives Aircall surperforment de +17 points !"
+      }
+    ],
+    "insightTag": "Constat Majeur CoDir",
+    "insightText": "La courbe s'aplatit totalement à 45 jours : au-delà de J+45, <strong>zéro deal n'a été signé</strong>. Les commerciaux perdent un temps précieux à relancer des 'deals fantômes'. <strong>Action RevOps :</strong> Automatiser la clôture 'Closed Lost' de tout deal sans activité après 45 jours pour concentrer les AEs sur les opportunités fraîches."
+  },
+  "4": {
+    "badge": "DRILL-DOWN REVOPS • KPI N°4",
+    "title": "Transformation Globale : 0,53 % (Entonnoir Commercial à 4 Étages)",
+    "kpis": [
+      {
+        "label": "Appels Totaux",
+        "val": "67 560"
+      },
+      {
+        "label": "Signatures Finales",
+        "val": "358"
+      },
+      {
+        "label": "Effort Commercial",
+        "val": "1 Deal / 189 Appels"
+      }
+    ],
+    "chartTitle": "Entonnoir Visuel Complet de Déperdition du Funnel (4 Niveaux)",
+    "chartTag": "Véritable Funnel Trapézoïdal",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n        <rect x=\"230\" y=\"40\" width=\"200\" height=\"15\" fill=\"rgba(239,68,68,0.22)\" rx=\"3\"/>\n        <text x=\"330\" y=\"51\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">-83,4 % Barrages & Répondeurs</text>\n        \n        <rect x=\"230\" y=\"84\" width=\"200\" height=\"15\" fill=\"rgba(239,68,68,0.22)\" rx=\"3\"/>\n        <text x=\"330\" y=\"95\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">-93,2 % Non-Qualifiés / Pas de besoin</text>\n        \n        <rect x=\"230\" y=\"127\" width=\"200\" height=\"15\" fill=\"rgba(239,68,68,0.22)\" rx=\"3\"/>\n        <text x=\"330\" y=\"138\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">-52,8 % Négociation AE (47,2% Signent)</text>\n        \n        <rect x=\"40.0\" y=\"24\" width=\"580\" height=\"24\" fill=\"rgba(59,130,246,0.3)\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"52.0\" y=\"40\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">1. Appels Émis</text>\n        <text x=\"608.0\" y=\"40\" fill=\"#3B82F6\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">67 560 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(100 %)</tspan></text>\n        \n        <rect x=\"125.0\" y=\"68\" width=\"410\" height=\"24\" fill=\"rgba(245,158,11,0.3)\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"137.0\" y=\"84\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">2. Connects Utiles</text>\n        <text x=\"523.0\" y=\"84\" fill=\"#F59E0B\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">11 190 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(16,56 %)</tspan></text>\n        \n        <rect x=\"205.0\" y=\"112\" width=\"250\" height=\"24\" fill=\"rgba(139,92,246,0.3)\" stroke=\"#8B5CF6\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"217.0\" y=\"128\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">3. Démos R1 Qualifiées</text>\n        <text x=\"443.0\" y=\"128\" fill=\"#8B5CF6\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">759 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(1,12 %)</tspan></text>\n        \n        <rect x=\"260.0\" y=\"154\" width=\"140\" height=\"24\" fill=\"rgba(0,230,164,0.35)\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"272.0\" y=\"170\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">4. Contrats Closés</text>\n        <text x=\"388.0\" y=\"170\" fill=\"#00E6A4\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">358 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(0,53 %)</tspan></text>\n        </svg>",
+    "detailTitle": "Les Ratios de Déperdition Inter-Étapes :",
+    "details": [
+      {
+        "label": "Étape 1 ➔ 2 : Barrage téléphonique",
+        "val": "16,56 % Décroché",
+        "desc": "11 190 prospects joints sur 67 560 appels (-83,4% de perte)"
+      },
+      {
+        "label": "Étape 2 ➔ 3 : Qualification R1",
+        "val": "6,78 % Démo",
+        "desc": "759 démos calées sur 11 190 conversations utiles (-93,2% de perte)"
+      },
+      {
+        "label": "Étape 3 ➔ 4 : Conversion Closing",
+        "val": "47,17 % Closing",
+        "desc": "358 signatures sur 759 démos présentées (très forte efficacité AE)"
+      }
+    ],
+    "insightTag": "Loi des Grands Nombres",
+    "insightText": "L'entonnoir montre visuellement le goulot d'étranglement : sur 67 560 appels, 99,47% se soldent par un non ou un répondeur. Il faut <strong>189 coups de fil pour faire 1 signature</strong>. Gaspiller 42% de ces appels manuels sur des TPE à 3 700 € d'ARR dilue dramatiquement le ROI de l'équipe. L'enjeu est de réserver les appels manuels exclusivement aux cibles PME/Mid à forte valeur."
+  },
+  "5": {
+    "badge": "DRILL-DOWN REVOPS • KPI N°5",
+    "title": "Panier Moyen ACV : 10 291 € (Comparatif de Valeur Financière)",
+    "kpis": [
+      {
+        "label": "ARR Total Signé",
+        "val": "3,68 M€"
+      },
+      {
+        "label": "Nombre de Signatures",
+        "val": "358"
+      },
+      {
+        "label": "Multiplicateur PME / TPE",
+        "val": "2,58x"
+      }
+    ],
+    "chartTitle": "Comparaison de l'ACV et du Rendement Horaire par Segment",
+    "chartTag": "Colonnes de Valeur Verticales",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <!-- Baseline -->\n      <line x1=\"45\" y1=\"155\" x2=\"625\" y2=\"155\" stroke=\"rgba(255,255,255,0.12)\" stroke-width=\"1\"/>\n    \n        <rect x=\"75\" y=\"133.58125\" width=\"95\" height=\"21.41875\" fill=\"rgba(239,68,68,0.25)\" stroke=\"#EF4444\" stroke-width=\"1.5\" stroke-dasharray=\"none\" rx=\"6\"/>\n        <text x=\"122.5\" y=\"115.58125000000001\" fill=\"#EF4444\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">3,725 €</text>\n        <text x=\"122.5\" y=\"127.58125000000001\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">48 €/h · 136 deals</text>\n        <text x=\"122.5\" y=\"170\" fill=\"#94A3B8\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">TPE (< 20 sal.)</text>\n        <text x=\"122.5\" y=\"182\" fill=\"#EF4444\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">Base 1,0x</text>\n        \n        <rect x=\"220\" y=\"99.70224999999999\" width=\"95\" height=\"55.29775\" fill=\"rgba(0,230,164,0.3)\" stroke=\"#00E6A4\" stroke-width=\"2\" stroke-dasharray=\"none\" rx=\"6\"/>\n        <text x=\"267.5\" y=\"81.70224999999999\" fill=\"#00E6A4\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">9,617 €</text>\n        <text x=\"267.5\" y=\"93.70224999999999\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">218 €/h · 234 deals</text>\n        <text x=\"267.5\" y=\"170\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">PME (20-250 sal.)</text>\n        <text x=\"267.5\" y=\"182\" fill=\"#00E6A4\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">x 2,58 d'ARR (x4,5 /h)</text>\n        \n            <rect x=\"216\" y=\"65.70224999999999\" width=\"103\" height=\"15\" fill=\"rgba(0,230,164,0.25)\" rx=\"3\"/>\n            <text x=\"267.5\" y=\"76.70224999999999\" fill=\"#00E6A4\" font-size=\"8\" font-weight=\"900\" text-anchor=\"middle\">★ CŒUR DE RENTABILITÉ</text>\n            \n        <rect x=\"365\" y=\"46.273250000000004\" width=\"95\" height=\"108.72675\" fill=\"rgba(59,130,246,0.3)\" stroke=\"#3B82F6\" stroke-width=\"1.5\" stroke-dasharray=\"none\" rx=\"6\"/>\n        <text x=\"412.5\" y=\"28.273250000000004\" fill=\"#3B82F6\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">18,909 €</text>\n        <text x=\"412.5\" y=\"40.273250000000004\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">390 €/h · 49 deals</text>\n        <text x=\"412.5\" y=\"170\" fill=\"#94A3B8\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">Mid-Market (> 250)</text>\n        <text x=\"412.5\" y=\"182\" fill=\"#3B82F6\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">x 5,07 d'ARR (x8,1 /h)</text>\n        \n        <rect x=\"510\" y=\"95.82675\" width=\"95\" height=\"59.173249999999996\" fill=\"rgba(167,139,250,0.25)\" stroke=\"#A78BFA\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\" rx=\"6\"/>\n        <text x=\"557.5\" y=\"77.82675\" fill=\"#A78BFA\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">10,291 €</text>\n        <text x=\"557.5\" y=\"89.82675\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">195 €/h · 358 deals</text>\n        <text x=\"557.5\" y=\"170\" fill=\"#94A3B8\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">Moyenne Globale</text>\n        <text x=\"557.5\" y=\"182\" fill=\"#A78BFA\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">Moyenne : 10 291 €</text>\n        </svg>",
+    "detailTitle": "Détail de la Valeur et du Rendement par Compte :",
+    "details": [
+      {
+        "label": "TPE (< 20 salariés)",
+        "val": "3 725 € ACV",
+        "desc": "Rendement de ~48 € par heure SDR · Marge nette quasi nulle"
+      },
+      {
+        "label": "PME (20 à 250 salariés)",
+        "val": "9 617 € ACV",
+        "desc": "Rendement de ~218 € par heure SDR · <strong>Multiplié par 4,5 !</strong>"
+      },
+      {
+        "label": "Mid-Market (> 250 salariés)",
+        "val": "18 909 € ACV",
+        "desc": "Rendement de ~390 € par heure SDR · Vente stratégique"
+      }
+    ],
+    "insightTag": "Arbitrage Économique DAF",
+    "insightText": "Les colonnes mettent en lumière le gouffre de rentabilité : le rendement horaire fait un bond de <strong>+350% dès qu'on passe le seuil des 20 salariés</strong>. Closer une TPE prend le même temps que closer une PME mais génère 2,6 fois moins d'ARR. Se focaliser sur la PME propulse immédiatement la rentabilité de l'entreprise."
+  },
+  "6": {
+    "badge": "DRILL-DOWN REVOPS • KPI N°6",
+    "title": "Part ARR Cœur PME : 61,1 % (Le Paradoxe Fondateur)",
+    "kpis": [
+      {
+        "label": "ARR Cœur PME",
+        "val": "2,25 M€"
+      },
+      {
+        "label": "Part dans l'ARR Global",
+        "val": "61,09 %"
+      },
+      {
+        "label": "Heures SDR Libérées",
+        "val": "4 200 h/an"
+      }
+    ],
+    "chartTitle": "Ventilation de l'ARR Total (Donut) & Jauges d'Effort Croisées",
+    "chartTag": "Donut Chart & Jauges de Paradoxe",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <!-- DONUT CHART (LEFT) -->\n      <g>\n        <!-- PME 61.1% -->\n        <path d=\"M 135.0 27.0 A 68 68 0 1 1 91.4 147.2 L 108.1 127.2 A 42 42 0 1 0 135.0 53.0 Z\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <!-- Mid-Market 25.2% -->\n        <path d=\"M 90.8 146.7 A 68 68 0 0 1 83.3 50.8 L 103.1 67.7 A 42 42 0 0 0 107.7 126.9 Z\" fill=\"#3B82F6\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <!-- TPE 13.8% -->\n        <path d=\"M 83.7 50.4 A 68 68 0 0 1 134.4 27.0 L 134.6 53.0 A 42 42 0 0 0 103.3 67.4 Z\" fill=\"#EF4444\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        \n        <!-- Center text hole -->\n        <circle cx=\"135\" cy=\"95\" r=\"40\" fill=\"#072218\"/>\n        <text x=\"135\" y=\"91\" fill=\"#CBD5E1\" font-size=\"8\" font-weight=\"700\" text-anchor=\"middle\">ARR TOTAL</text>\n        <text x=\"135\" y=\"107\" fill=\"#00E6A4\" font-size=\"13\" font-weight=\"900\" text-anchor=\"middle\">3,68 M€</text>\n        \n        <!-- Callout badge -->\n        <text x=\"135\" y=\"178\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Répartition de l'ARR</text>\n      </g>\n      \n      <!-- CONTRAST BARS FOR THE PARADOX (RIGHT) -->\n      <g transform=\"translate(250, 20)\">\n        <text x=\"0\" y=\"5\" fill=\"#FFFFFF\" font-size=\"11\" font-weight=\"900\">Le Paradoxe RevOps : Effort vs ARR Généré</text>\n        \n        <!-- ROW 1: TPE -->\n        <g transform=\"translate(0, 20)\">\n          <text x=\"0\" y=\"10\" fill=\"#EF4444\" font-size=\"9.5\" font-weight=\"800\">TPE (< 20 sal.)</text>\n          <text x=\"370\" y=\"10\" fill=\"#EF4444\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"end\">42% Effort ➔ 13,8% ARR (-28 pts)</text>\n          <!-- Bar Effort -->\n          <rect x=\"0\" y=\"15\" width=\"370\" height=\"7\" fill=\"rgba(255,255,255,0.06)\" rx=\"2\"/>\n          <rect x=\"0\" y=\"15\" width=\"155.4\" height=\"7\" fill=\"#F43F5E\" rx=\"2\"/>\n          <!-- Bar ARR -->\n          <rect x=\"0\" y=\"24\" width=\"50.87500000000001\" height=\"7\" fill=\"#EF4444\" rx=\"2\"/>\n        </g>\n        \n        <!-- ROW 2: PME -->\n        <g transform=\"translate(0, 64)\">\n          <text x=\"0\" y=\"10\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"900\">PME (20-250 sal.) — Cœur de Rentabilité</text>\n          <text x=\"370\" y=\"10\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"end\">46% Effort ➔ 61,1% ARR (+15 pts)</text>\n          <!-- Bar Effort -->\n          <rect x=\"0\" y=\"15\" width=\"370\" height=\"7\" fill=\"rgba(255,255,255,0.06)\" rx=\"2\"/>\n          <rect x=\"0\" y=\"15\" width=\"170.20000000000002\" height=\"7\" fill=\"#F43F5E\" rx=\"2\"/>\n          <!-- Bar ARR -->\n          <rect x=\"0\" y=\"24\" width=\"226.033\" height=\"7\" fill=\"#00E6A4\" rx=\"2\"/>\n        </g>\n\n        <!-- ROW 3: Mid-Market -->\n        <g transform=\"translate(0, 108)\">\n          <text x=\"0\" y=\"10\" fill=\"#60A5FA\" font-size=\"9.5\" font-weight=\"800\">Mid-Market (> 250 sal.)</text>\n          <text x=\"370\" y=\"10\" fill=\"#60A5FA\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"end\">12% Effort ➔ 25,1% ARR (+13 pts)</text>\n          <!-- Bar Effort -->\n          <rect x=\"0\" y=\"15\" width=\"370\" height=\"7\" fill=\"rgba(255,255,255,0.06)\" rx=\"2\"/>\n          <rect x=\"0\" y=\"15\" width=\"44.4\" height=\"7\" fill=\"#F43F5E\" rx=\"2\"/>\n          <!-- Bar ARR -->\n          <rect x=\"0\" y=\"24\" width=\"93.055\" height=\"7\" fill=\"#3B82F6\" rx=\"2\"/>\n        </g>\n        \n        <!-- Legend below -->\n        <g transform=\"translate(0, 148)\">\n          <rect x=\"0\" y=\"0\" width=\"12\" height=\"6\" fill=\"#F43F5E\" rx=\"1\"/>\n          <text x=\"16\" y=\"6\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"700\">Part d'Effort d'Appels SDR (%)</text>\n          <rect x=\"160\" y=\"0\" width=\"12\" height=\"6\" fill=\"#00E6A4\" rx=\"1\"/>\n          <text x=\"176\" y=\"6\" fill=\"#6EE7B7\" font-size=\"8\" font-weight=\"700\">Part de l'ARR Réel Généré (%)</text>\n        </g>\n      </g>\n    </svg>",
+    "detailTitle": "L'Asymétrie Flagrante d'Allocation :",
+    "details": [
+      {
+        "label": "Segment TPE (< 20 sal.)",
+        "val": "42% Effort ➔ 13,8% ARR",
+        "desc": "Vampirisation disproportionnée des ressources commerciales"
+      },
+      {
+        "label": "Segment PME (20-250 sal.)",
+        "val": "46% Effort ➔ 61,1% ARR",
+        "desc": "Cœur de rentabilité absolu de l'entreprise (2,25 M€)"
+      },
+      {
+        "label": "Segment Mid-Market (> 250)",
+        "val": "12% Effort ➔ 25,1% ARR",
+        "desc": "Très forte efficacité sur les grands comptes (927 k€)"
+      }
+    ],
+    "insightTag": "La Décision Clé de la Soutenance",
+    "insightText": "Le Donut et les barres de contraste illustrent parfaitement le problème : <strong>la TPE consomme 42% des appels pour seulement 13,8% du chiffre d'affaires</strong>. En basculant la TPE en souscription 100% self-serve sur le site web, nous libérons 4 200 heures SDR réinvesties sur la PME pour générer <strong>+2,16 M$ d'ARR additionnel</strong>."
+  }
+};
+
+  function openKpiModal(id) {
+    const data = kpiModalData[id];
+    if (!data) return;
+    
+    document.getElementById('kpiModalTag').innerHTML = data.badge;
+    document.getElementById('kpiModalTitle').innerHTML = data.title;
+    
+    const body = document.getElementById('kpiModalBody');
+    body.innerHTML = `
+      <div class="kpi-modal-kpis-grid">
+        ${data.kpis.map(k => `
+          <div class="kpi-modal-mini-card">
+            <div class="kpi-modal-mini-label">${k.label}</div>
+            <div class="kpi-modal-mini-val">${k.val}</div>
+          </div>
+        `).join('')}
+      </div>
+      
+      <!-- TAILORED RELEVANT CHART CONTAINER -->
+      <div class="kpi-chart-box">
+        <div class="kpi-chart-title">
+          <span>${data.chartTitle}</span>
+          <span style="font-size:9px; color:var(--emerald-bright); font-weight:800; text-transform:uppercase; letter-spacing:0.8px; background:rgba(0,230,164,0.12); padding:2px 8px; border-radius:4px; border:1px solid rgba(0,230,164,0.3);">${data.chartTag}</span>
+        </div>
+        <div style="width:100%; margin:4px 0 8px 0;">
+          ${data.svg}
+        </div>
+      </div>
+
+      <!-- DETAILED BREAKDOWN LIST -->
+      <div style="background:#F8FAF9; border:1px solid #E5E7EB; border-radius:10px; padding:12px 16px;">
+        <div style="font-size:11px; font-weight:800; color:#111827; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">${data.detailTitle}</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          ${data.details.map(d => `
+            <div style="background:#FFFFFF; border:1px solid #E5E7EB; border-radius:8px; padding:8px 12px; display:flex; flex-direction:column; gap:2px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+              <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                <span style="font-size:11px; font-weight:700; color:#374151;">${d.label}</span>
+                <strong style="font-size:12px; font-weight:900; color:#00875A;">${d.val}</strong>
+              </div>
+              <span style="font-size:9.5px; color:#6B7280;">${d.desc}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      
+      <!-- REVOPS INSIGHT BOX -->
+      <div class="kpi-insight-card">
+        <div class="kpi-insight-tag">${data.insightTag}</div>
+        <div class="kpi-insight-text">${data.insightText}</div>
+      </div>
+    `;
+    
+    const modal = document.getElementById('kpiDrilldownModal');
+    modal.classList.add('active');
+  }
+
+  function closeKpiModal() {
+    const modal = document.getElementById('kpiDrilldownModal');
+    if (modal) modal.classList.remove('active');
+  }
+
+  function closeKpiModalOnBackdrop(e) {
+    if (e.target && e.target.id === 'kpiDrilldownModal') {
+      closeKpiModal();
+    }
+  }
+
+
+  /* GANTT POPUP MODAL LOGIC & DATASET */
+  const masterGanttData = {
+  "1": {
+    "tag": "PLANIFICATION OPÉRATIONNELLE • ARBITRAGE N°1",
+    "title": "Diagramme de Gantt Détaillé : Solution 1 (45 Jours / S1 à S6)",
+    "subtitle": "Automatisation Cold Email Lemlist TPE & Réallocation 100% des SDRs sur PME",
+    "kpis": [
+      {
+        "label": "Horizon Temps",
+        "val": "45 Jours (S1-S6)"
+      },
+      {
+        "label": "Coût Direct",
+        "val": "1 800 € (Lemlist Pro)"
+      },
+      {
+        "label": "Impact ARR",
+        "val": "+1,60 M$ (ROI ×888)"
+      }
+    ],
+    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (45J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <line x1=\"210.0\" y1=\"0\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"250.83333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S1</text>\n        \n        <line x1=\"291.6666666666667\" y1=\"0\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"332.5\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S2</text>\n        \n        <line x1=\"373.33333333333337\" y1=\"0\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"414.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S3</text>\n        \n        <line x1=\"455.0\" y1=\"0\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"495.8333333333333\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S4</text>\n        \n        <line x1=\"536.6666666666667\" y1=\"0\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"577.5000000000001\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S5</text>\n        \n        <line x1=\"618.3333333333334\" y1=\"0\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"659.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        <line x1=\"700.0\" y1=\"0\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Audit & Filtrage CRM HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"212.0\" y=\"37\" width=\"159.33333333333334\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.3\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Parcours Self-Serve & Vidéo PLG</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Product / Web</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"293.6666666666667\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#10B981\" fill-opacity=\"0.3\" stroke=\"#10B981\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"373.33333333333337\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Quotas & Territoires 100% PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Head of Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#8B5CF6\" fill-opacity=\"0.3\" stroke=\"#8B5CF6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Playbook Script & Coaching SDR</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead SDR</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.3\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Go-Live & Suivi Conversion PME</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RevOps / Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.3\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n      <!-- Milestones bar -->\n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+15 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#10B981\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#10B981\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+15 : Self-Serve</text>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#8B5CF6\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#8B5CF6\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Quotas 100% PME</text>\n      \n      <!-- Milestone J+45 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+45 : GO-LIVE (+1,60M$)</text>\n    </svg>",
+    "tasks": [
+      {
+        "num": "1.1",
+        "name": "Audit & Filtrage CRM HubSpot",
+        "resp": "Lead RevOps",
+        "timing": "Semaines 1 – 2",
+        "output": "Règles de qualification automatique des leads < 20 salariés créées dans le CRM."
+      },
+      {
+        "num": "1.2",
+        "name": "Setup Lemlist, Lemwarm & Inscription Web",
+        "resp": "Product / Web",
+        "timing": "Semaines 2 – 3",
+        "output": "L'inscription web existe déjà sur aircall.com : configuration de Lemlist pour router les TPE vers l'Essai Gratuit."
+      },
+      {
+        "num": "1.3",
+        "name": "Réattribution Territoires & Quotas 100% PME",
+        "resp": "Head of Sales",
+        "timing": "Semaines 3 – 4",
+        "output": "Nouveaux quotas SDR orientés PME/MidMarket et injection des listes de comptes qualifiés."
+      },
+      {
+        "num": "1.4",
+        "name": "Playbook Script Camille & Entraînement SDR",
+        "resp": "Lead SDR",
+        "timing": "Semaines 4 – 5",
+        "output": "Diffusion du script d'accroche business + 2 sessions de double écoute VoIP Aircall."
+      },
+      {
+        "num": "1.5",
+        "name": "Go-Live Opérationnel & Mesure ROI",
+        "resp": "RevOps / Sales",
+        "timing": "Semaines 5 – 6",
+        "output": "Zéro appel SDR sur TPE. Séquences Lemlist actives (170k$ TPE) + plein impact PME (+1,60M$ ARR)."
+      }
+    ],
+    "insightTag": "Faisabilité & Livrables Clés",
+    "insightText": "<strong>Faisabilité maximale :</strong> Le site aircall.com dispose déjà de l'inscription libre-service (Essai gratuit). Les séquences Lemlist Pro (1 800 €/an) absorbent 100% du flux TPE sans intervention SDR. Cela libère <strong>4 200 heures SDR par an</strong> réinjectées sur la PME pour générer <strong>+1,60 M$ d'ARR</strong> (ROI unitaire record ×888)."
+  },
+  "2": {
+    "tag": "PLANIFICATION OPÉRATIONNELLE • ARBITRAGE N°2",
+    "title": "Diagramme de Gantt Détaillé : Solution 2 (90 Jours / Mois 1 à 3)",
+    "subtitle": "Recrutement CSM Dédié PME & Déploiement Triggers Inactivité HubSpot",
+    "kpis": [
+      {
+        "label": "Horizon Temps",
+        "val": "90 Jours (Q1-Q2)"
+      },
+      {
+        "label": "Budget Engagé",
+        "val": "58 000 € chargés"
+      },
+      {
+        "label": "Impact ARR",
+        "val": "+1,45 M$ (ROI ×25)"
+      }
+    ],
+    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (90J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <rect x=\"210\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"291.6666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n        \n        <rect x=\"373.33333333333337\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"455.00000000000006\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n        \n        <rect x=\"536.6666666666667\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"618.3333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n        <line x1=\"210.0\" y1=\"26\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"250.83333333333334\" y1=\"26\" x2=\"250.83333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"291.6666666666667\" y1=\"26\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"332.5\" y1=\"26\" x2=\"332.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"373.33333333333337\" y1=\"26\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"414.1666666666667\" y1=\"26\" x2=\"414.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"455.0\" y1=\"26\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"495.83333333333337\" y1=\"26\" x2=\"495.83333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"536.6666666666667\" y1=\"26\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"618.3333333333334\" y1=\"26\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"659.1666666666667\" y1=\"26\" x2=\"659.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"700.0\" y1=\"26\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Alertes Tech Inactivité HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"37\" width=\"118.5\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.32\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"271.25\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S3</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Chasse & Recrutement CSM PME</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RH / VP Sales</text>\n        \n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.32\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S4</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Onboarding & Sauvetage 20 PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / RevOps</text>\n        \n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#EF4444\" fill-opacity=\"0.32\" stroke=\"#EF4444\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S5 - S8</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Industrialisation QBRs & CSAT</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM Dédié</text>\n        \n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#8B5CF6\" fill-opacity=\"0.32\" stroke=\"#8B5CF6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S7 - S10</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Campagnes Expansion NRR > 110%</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / Sales</text>\n        \n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.32\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S9 - S12</text>\n        \n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#F59E0B\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#F59E0B\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Recrutement CSM</text>\n      \n      <!-- Milestone J+60 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#EF4444\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#EF4444\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+60 : 400 k€ Churn Sauvé</text>\n      \n      <!-- Milestone J+90 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+90 : NRR &gt; 110% (+1,45M$)</text>\n    </svg>",
+    "tasks": [
+      {
+        "num": "2.1",
+        "name": "Alertes Tech Inactivité HubSpot",
+        "resp": "Lead RevOps",
+        "timing": "Mois 1 (S1 – S3)",
+        "output": "Webhooks Aircall ➔ HubSpot : alerte automatique dès qu'une PME passe sous 50 appels/sem."
+      },
+      {
+        "num": "2.2",
+        "name": "Chasse & Recrutement CSM PME",
+        "resp": "RH / VP Sales",
+        "timing": "Mois 1 (S1 – S4)",
+        "output": "Sourcing, entretiens de sélection et signature du contrat CSM (58 k€ chargés)."
+      },
+      {
+        "num": "2.3",
+        "name": "Onboarding & Sauvetage 20 PME",
+        "resp": "CSM / RevOps",
+        "timing": "Mois 2 (S5 – S8)",
+        "output": "Prise de contact prioritaire sur les 20 comptes en alerte churn : 400 k€ d'ARR sauvés."
+      },
+      {
+        "num": "2.4",
+        "name": "Industrialisation QBRs & CSAT",
+        "resp": "CSM Dédié",
+        "timing": "Mois 2 – 3 (S7 – S10)",
+        "output": "Mise en place des revues trimestrielles stratégiques et questionnaires de satisfaction."
+      },
+      {
+        "num": "2.5",
+        "name": "Campagnes Expansion NRR > 110%",
+        "resp": "CSM / Head of Sales",
+        "timing": "Mois 3 (S9 – S12)",
+        "output": "Ajout de licences agents et numéros internationaux : sécurisation de +1,45 M$ d'ARR."
+      }
+    ],
+    "insightTag": "Faisabilité & Livrables Clés",
+    "insightText": "<strong>Faisabilité maîtrisée :</strong> Le seuil de rentabilité est franchi dès le 2e mois avec le sauvetage direct de 400 k€ d'ARR à risque. Avec un budget de 58 k€, le <strong>ROI unitaire atteint ×25</strong> et permet de ramener le taux d'attrition PME sous les 5%."
+  },
+  "3": {
+    "tag": "MASTER ROADMAP REVOPS • SYNTHÈSE CODIR",
+    "title": "Master Gantt Consolidé : Arbitrages 1 & 2 Synchronisés (90 Jours)",
+    "subtitle": "Planning Directeur d'Exécution & Atteinte des +3,05 M$ d'ARR",
+    "kpis": [
+      {
+        "label": "Durée Totale",
+        "val": "90 Jours (Q1-Q2)"
+      },
+      {
+        "label": "Budget Consolidé",
+        "val": "58 000 € (1 CSM)"
+      },
+      {
+        "label": "ROI Consolidé",
+        "val": "ROI ×51 (Payback 4,2 m)"
+      }
+    ],
+    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">MASTER ROADMAP REVOPS</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">IMPACT ARR</text>\n    \n        <rect x=\"210\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"291.6666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n        \n        <rect x=\"373.33333333333337\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"455.00000000000006\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n        \n        <rect x=\"536.6666666666667\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"618.3333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n        <line x1=\"210.0\" y1=\"26\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"250.83333333333334\" y1=\"26\" x2=\"250.83333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"291.6666666666667\" y1=\"26\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"332.5\" y1=\"26\" x2=\"332.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"373.33333333333337\" y1=\"26\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"414.1666666666667\" y1=\"26\" x2=\"414.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"455.0\" y1=\"26\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"495.83333333333337\" y1=\"26\" x2=\"495.83333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"536.6666666666667\" y1=\"26\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"618.3333333333334\" y1=\"26\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"659.1666666666667\" y1=\"26\" x2=\"659.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"700.0\" y1=\"26\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/>\n      <text x=\"15\" y=\"56\" fill=\"#00E6A4\" font-size=\"10\" font-weight=\"900\">SOLUTION 1 : Lemlist TPE &amp; Quotas PME</text>\n      <text x=\"150\" y=\"56\" fill=\"#34D399\" font-size=\"9\" font-weight=\"800\">+1,60 M$ (1,8 k€)</text>\n      <rect x=\"210\" y=\"42\" width=\"490\" height=\"24\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n      <rect x=\"212\" y=\"44\" width=\"241.0\" height=\"20\" fill=\"#10B981\" fill-opacity=\"0.35\" stroke=\"#10B981\" stroke-width=\"2\" rx=\"4\"/>\n      <text x=\"332.5\" y=\"58\" fill=\"#FFFFFF\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">HORIZON 45 JOURS (S1 à S6) • QUICK WIN</text>\n      <polygon points=\"455.0,44 461.0,54 455.0,64 449.0,54\" fill=\"#00E6A4\"/>\n    \n      <text x=\"15\" y=\"101\" fill=\"#60A5FA\" font-size=\"10\" font-weight=\"900\">SOLUTION 2 : Pôle CSM PME &amp; Triggers Tech</text>\n      <text x=\"150\" y=\"101\" fill=\"#93C5FD\" font-size=\"9\" font-weight=\"800\">+1,45 M$ (58k€)</text>\n      <rect x=\"210\" y=\"87\" width=\"490\" height=\"24\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n      <rect x=\"212\" y=\"89\" width=\"486.0\" height=\"20\" fill=\"#3B82F6\" fill-opacity=\"0.35\" stroke=\"#3B82F6\" stroke-width=\"2\" rx=\"4\"/>\n      <text x=\"455.0\" y=\"103\" fill=\"#FFFFFF\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">HORIZON 90 JOURS (S1 à S12) • RETENTION &amp; UPSELL</text>\n      <polygon points=\"700.0,89 706.0,99 700.0,109 694.0,99\" fill=\"#3B82F6\"/>\n    \n      <rect x=\"15\" y=\"130\" width=\"690\" height=\"40\" fill=\"rgba(0,230,164,0.12)\" stroke=\"rgba(0,230,164,0.35)\" stroke-width=\"1.5\" rx=\"8\"/>\n      <text x=\"30\" y=\"155\" fill=\"#FFFFFF\" font-size=\"12\" font-weight=\"900\">SYNCHRONISATION GLOBALE CODIR :</text>\n      <text x=\"270\" y=\"155\" fill=\"#00E6A4\" font-size=\"12.5\" font-weight=\"900\">+3,05 M$ ARR GÉNÉRÉS</text>\n      <text x=\"520\" y=\"155\" fill=\"#FBBF24\" font-size=\"11\" font-weight=\"800\">ROI GLOBAL : ×51 (Payback 4,2 mois)</text>\n    </svg>",
+    "tasks": [
+      {
+        "num": "SOL 1",
+        "name": "Solution 1 : Automatisation Lemlist TPE & Focus PME",
+        "resp": "Sales & RevOps",
+        "timing": "J+1 à J+45 (S1-S6)",
+        "output": "Libération immédiate de 4 200 h SDR et réallocation 100% PME ➔ +1,60 M$ d'ARR."
+      },
+      {
+        "num": "SOL 2",
+        "name": "Solution 2 : Rétention & Expansion CSM PME",
+        "resp": "CSM & Tech",
+        "timing": "J+1 à J+90 (S1-S12)",
+        "output": "Recrutement CSM + Triggers inactivité HubSpot ➔ +1,45 M$ d'ARR sécurisé."
+      },
+      {
+        "num": "CODIR",
+        "name": "Jalon CoDir J+90 : Bilan Consolidé",
+        "resp": "Direction Générale",
+        "timing": "J+90",
+        "output": "+3,05 M$ ARR total, rentabilité Rule of 40 renforcée et EBITDA préservé."
+      }
+    ],
+    "insightTag": "Arbitrage Stratégique Consolidé",
+    "insightText": "<strong>Effet de levier maximal :</strong> L'Arbitrage 1 (Lemlist TPE à 1,8 k€) libère les SDRs et finance l'Arbitrage 2 (CSM PME à 58 k€). Pour un investissement maîtrisé de 59 800 €, l'entreprise génère <strong>+3,05 M$ d'ARR</strong> avec un <strong>ROI exceptionnel de ×51</strong>."
+  }
+};
+  let currentGanttTab = 1;
+
+  function openGanttModal(tabId) {
+    currentGanttTab = tabId || 1;
+    switchGanttTab(currentGanttTab);
+    const modal = document.getElementById('ganttDrilldownModal');
+    if (modal) modal.classList.add('active');
+  }
+
+  function closeGanttModal() {
+    const modal = document.getElementById('ganttDrilldownModal');
+    if (modal) modal.classList.remove('active');
+  }
+
+  function closeGanttModalOnBackdrop(e) {
+    if (e.target && e.target.id === 'ganttDrilldownModal') {
+      closeGanttModal();
+    }
+  }
+
+  function switchGanttTab(tabId) {
+    currentGanttTab = tabId;
+    const data = masterGanttData[tabId];
+    if (!data) return;
+
+    // Update Tab Buttons
+    document.getElementById('ganttTab1').classList.toggle('active', tabId === 1);
+    document.getElementById('ganttTab2').classList.toggle('active', tabId === 2);
+    document.getElementById('ganttTabMaster').classList.toggle('active', tabId === 3);
+
+    // Update Header
+    document.getElementById('ganttModalTag').innerHTML = data.tag;
+    document.getElementById('ganttModalTitle').innerHTML = data.title;
+
+    // Render Body
+    const body = document.getElementById('ganttModalBody');
+    body.innerHTML = `
+      <div class="kpi-modal-kpis-grid">
+        ${data.kpis.map(k => `
+          <div class="kpi-modal-mini-card">
+            <div class="kpi-modal-mini-label">${k.label}</div>
+            <div class="kpi-modal-mini-val">${k.val}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- VISUAL SVG GANTT CHART -->
+      <div class="kpi-chart-box" style="padding:14px 16px;">
+        <div class="kpi-chart-title">
+          <span>${data.subtitle}</span>
+          <span style="font-size:9px; color:var(--emerald-bright); font-weight:800; text-transform:uppercase; letter-spacing:0.8px; background:rgba(0,230,164,0.12); padding:2px 8px; border-radius:4px; border:1px solid rgba(0,230,164,0.3);">JALONS &amp; DÉPENDANCES</span>
+        </div>
+        <div style="width:100%; margin:4px 0 6px 0;">
+          ${data.svg}
+        </div>
+      </div>
+
+      <!-- DETAILED TASK TABLE -->
+      <div style="background:#F8FAF9; border:1px solid #E5E7EB; border-radius:10px; padding:10px 14px;">
+        <div style="font-size:10.5px; font-weight:800; color:#111827; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">Détail des Chantiers &amp; Livrables Opérationnels :</div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          ${data.tasks.map(t => `
+            <div style="background:#FFFFFF; border:1px solid #E5E7EB; border-radius:6px; padding:6px 12px; display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:0 1px 3px rgba(0,0,0,0.02);">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:9.5px; font-weight:900; color:#00875A; background:#E6F7F0; padding:2px 6px; border-radius:4px; border:1px solid #A3E0CE;">${t.num}</span>
+                <strong style="font-size:11px; color:#111827;">${t.name}</strong>
+                <span style="font-size:9px; color:#6B7280;">(${t.resp})</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <span style="font-size:9.5px; color:#374151; max-width:340px; text-align:right;">${t.output}</span>
+                <span style="font-size:9.5px; font-weight:800; color:#00875A; white-space:nowrap;">${t.timing}</span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <!-- INSIGHT CALLOUT -->
+      <div class="kpi-insight-card">
+        <div class="kpi-insight-tag">${data.insightTag}</div>
+        <div class="kpi-insight-text">${data.insightText}</div>
+      </div>
+    `;
   }
 
 </script>

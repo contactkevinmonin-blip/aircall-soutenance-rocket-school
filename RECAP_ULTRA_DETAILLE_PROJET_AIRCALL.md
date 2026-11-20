@@ -16,7 +16,7 @@
    - [Jour 2 Après-midi — Dashboard Interactif Looker Studio](#jour-2-après-midi--livrable-4--dashboard-interactif-looker-studio)
    - [Jour 3 Matin — Analyse Approfondie & 2 Arbitrages Stratégiques](#jour-3-matin--livrable-5--analyse-approfondie--2-arbitrages-stratégiques)
    - [Jour 3 Après-midi — Synthèse Exécutive & Plan de Soutenance](#jour-3-après-midi--livrable-6--synthèse-exécutive--plan-de-soutenance)
-4. [Les 2 Arbitrages Stratégiques Majeurs (+3,00 M$ ARR / ROI ×52)](#4-les-2-arbitrages-stratégiques-majeurs-300-m-arr--roi-52)
+4. [Les 2 Arbitrages Stratégiques Majeurs (+3,05 M$ ARR / ROI ×51)](#4-les-2-arbitrages-stratégiques-majeurs-300-m-arr--roi-52)
 5. [Chantier Technique Looker Studio (Résolution Native & Persistance Cloud)](#5-chantier-technique-looker-studio-résolution-native--persistance-cloud)
 6. [Purge & Conformité (Élimination Intégrale des Noms Tiers)](#6-purge--conformité-élimination-intégrale-des-noms-tiers)
 7. [Arborescence & Cartographie des Fichiers (Liens Directs)](#7-arborescence--cartographie-des-fichiers-liens-directs)
@@ -178,7 +178,7 @@ flowchart TD
   1. **Décision 1 : Abandon du Cold Call sur les TPE au profit d'une focalisation 100 % PME / MidMarket.**
   2. **Décision 2 : Recrutement d'un CSM dédié PME pour endiguer le churn et booster l'expansion (Up-sell / Cross-sell).**
 * **Impact Budgétaire & Financier :**
-  * Gain ARR direct : **+3,00 M$ ARR**
+  * Gain ARR direct : **+3,05 M$ ARR**
   * Coût opérationnel : **58 000 €**
   * **ROI Global : ×52**
 
@@ -195,7 +195,7 @@ flowchart TD
 
 ---
 
-## 4. LES 2 ARBITRAGES STRATÉGIQUES MAJEURS (+3,00 M$ ARR / ROI ×52)
+## 4. LES 2 ARBITRAGES STRATÉGIQUES MAJEURS (+3,05 M$ ARR / ROI ×51)
 
 Le jury de Rocket School sanctionne lourdement les listes de "10 recommandations vagues". La consigne d'excellence impose **strictement 2 arbitrages stratégiques documentés, chiffrés et immédiatement finançables**.
 
@@ -203,13 +203,13 @@ Le jury de Rocket School sanctionne lourdement les listes de "10 recommandations
 graph LR
     subgraph S1["Décision 1 : Réallocation Outbound PME / MidMarket"]
         A["Abandon Cold Call TPE<br/>(-28 545 appels à faible valeur)"] --> B["Transfert 100% des SDRs sur PME & MidMarket"]
-        B --> C["<b>+1,55 M$ ARR</b><br/>Coût : 0 € (Redéploiement interne)"]
+        B --> C["<b>+1,60 M$ ARR</b><br/>Coût : 0 € (Redéploiement interne)"]
     end
     subgraph S2["Décision 2 : Recrutement 1 CSM Dédié PME"]
         D["Base installée PME : 2,25 M€<br/>Risque churn sans CSM"] --> E["Embauche 1 CSM Spécialiste PME<br/>Salaire chargé : 58 000 €"]
         E --> F["<b>+1,45 M$ ARR</b><br/>(Churn évité + Expansion NRR 115%)"]
     end
-    C --> G["<b>IMPACT TOTAL CODIR :</b><br/><b>+3,00 M$ ARR NET</b><br/>Budget : 58 000 € | <b>ROI : ×52</b>"]
+    C --> G["<b>IMPACT TOTAL CODIR :</b><br/><b>+3,05 M$ ARR NET</b><br/>Budget : 59 800 € | <b>ROI : ×51</b>"]
     F --> G
 ```
 
@@ -364,7 +364,7 @@ Conformément à la transcription officielle des échanges avec Gemini (fichier 
   * *Accroche :* Gouvernance & Cadrage CoDir
   * *3 Décideurs :*
     1. **Directeur Commercial :** Priorisation Pipe (Focus comptes à haute valeur).
-    2. **Directeur Financier :** Business Case & Validation ROI (+3,00 M$ ARR).
+    2. **Directeur Financier :** Business Case & Validation ROI (+3,05 M$ ARR).
     3. **Directeur IT :** Faisabilité Technique (Intégrations CRM & connecteurs).
   * *Cheminement en 3 étapes :* 1. Cadrage Périmètre $	o$ 2. Cartographie Flux $	o$ 3. Validation CoDir.
 
@@ -385,18 +385,18 @@ Conformément à la transcription officielle des échanges avec Gemini (fichier 
   * *Titre :* Dispersion TPE — Cible Prioritaire Non Rentable
   * *Constat :* 42% des appels passés (28 375 appels) pour seulement 6% de l'ARR (238 400 €) · Panier moyen dérisoire de 3 725 €.
   * *Solution :* Arrêt immédiat du Cold Call TPE · Bascule en libre-service 100% en ligne (Product-Led Growth).
-  * *Bilan :* Coût 0 € · Réallocation du temps commercial sur les PME · Gain : **+1,55 M$ ARR**.
+  * *Bilan :* Coût 0 € · Réallocation du temps commercial sur les PME · Gain : **+1,60 M$ ARR**.
 
 * **Slide 6 : Problème 2 : Risque Churn PME (06 / 08)**
   * *Titre :* Risque Churn PME — Fuite de Valeur Majeure
   * *Constat :* 2,25 M€ d'ARR concentrés sur les PME (61,1% du total) · Taux de churn annuel estimé à 20% · Perte potentielle de ~400 k€.
   * *Solution :* Recrutement d'1 CSM dédié PME · Onboarding structuré 30 jours · Alertes d'usage prédictives.
-  * *Bilan :* Coût annuel : 58 k€ · Gain : **+1,45 M$ ARR** · ROI de l'action : ×25.
+  * *Bilan :* Coût annuel : 59,8 k€ · Gain : **+1,45 M$ ARR** · ROI de l'action : ×25.
 
 * **Slide 7 : Impact Global — Rétroaction Data (07 / 08)**
   * *Titre :* Impact Global — Rétroaction Data
   * *Alignement :* Rappel des 5 KPI Rois alignés $	o$ 2 Solutions activées.
-  * *Bilan Consolidé :* **+3,00 M$ ARR** débloqués · Coût opérationnel global : **58 k€** · Verdict rentabilité : **ROI ×52**.
+  * *Bilan Consolidé :* **+3,05 M$ ARR** débloqués · Coût opérationnel global : **59,8 k€** · Verdict rentabilité : **ROI ×51**.
 
 * **Slide 8 : Transparence — Origine des Données (08 / 08)**
   * *Titre :* Transparence — Origine des Données
@@ -416,9 +416,9 @@ Pour viser le 20/20 lors de l'épreuve orale, voici la stratégie rhétorique et
 * **02:00 - 05:00 (3 min) | Le Diagnostic & Le Funnel :** Présentation des 4 macro-KPI (67k appels $\to$ 358 deals $\to$ 3,68 M€ ARR). Révélation du gouffre de rentabilité sur la TPE.
 * **05:00 - 08:00 (3 min) | Démonstration Live Looker Studio :** Manipulation des filtres `Segment_client ▼` et `Commercial ▼`. Mise en valeur de la synergie Outbound PME vs Partenaires CRM.
 * **08:00 - 12:00 (4 min) | Les 2 Arbitrages Stratégiques :**
-  * *Arbitrage 1 :* 0 € de coût, réallocation PME/MidMarket = +1,55 M$ ARR.
-  * *Arbitrage 2 :* Embauche 1 CSM PME (58 k€) = +1,45 M$ ARR.
-  * *Bilan :* +3,00 M$ ARR / ROI ×52.
+  * *Arbitrage 1 :* 0 € de coût, réallocation PME/MidMarket = +1,60 M$ ARR.
+  * *Arbitrage 2 :* Embauche 1 CSM PME (59,8 k€) = +1,45 M$ ARR.
+  * *Bilan :* +3,05 M$ ARR / ROI ×51.
 * **12:00 - 14:00 (2 min) | Roadmap & Gestion du Changement :** Plan 30-60-90 jours, formation des SDRs, révision des plans de primes.
 * **14:00 - 15:00 (1 min) | Conclusion percutante :** Synthèse ROI et ouverture vers les questions du jury.
 
@@ -430,9 +430,9 @@ Pour viser le 20/20 lors de l'épreuve orale, voici la stratégie rhétorique et
 > **Réponse de Kevin :**
 > *"Nous n'abandonnons pas le client TPE, nous abandonnons la prospection sortante humaine non rentable sur la TPE. Passer 28 500 appels de Cold Call pour closer 60 clients à 3 725 € génère une perte sèche en coût d'acquisition client (CAC). Les TPE continuent d'être accueillies via un modèle Product-Led Growth (PLG) : un essai gratuit 14 jours en self-serve sur aircall.io avec paiement par carte bancaire. Les SDRs, eux, sont réorientés là où leur talent commercial crée de la valeur : sur les PME où le panier moyen est de 9 617 € et le closing 3 fois supérieur."*
 
-#### ❓ Question 2 : *"Le recrutement d'un CSM à 58 k€ est-il indispensable alors que les SDRs pourraient assurer le suivi ?"*
+#### ❓ Question 2 : *"Le recrutement d'un CSM à 59,8 k€ est-il indispensable alors que les SDRs pourraient assurer le suivi ?"*
 > **Réponse de Kevin :**
-> *"Demander à des SDRs chasseurs d'assurer le Success Management crée deux effets pervers : ils chassent moins, et ils accompagnent mal. Un SDR est commissionné sur le volume de signature, pas sur le taux d'usage à 6 mois. Avec 2,25 M€ d'ARR concentrés sur 234 PME, chaque point de churn évité représente 22 500 € récurrents. Le CSM se rentabilise dès le 3ème compte sauvé. À 58 k€ de budget, générer 1,45 M$ d'ARR par la rétention et l'expansion représente un ROI net de ×25 sur cette seule action."*
+> *"Demander à des SDRs chasseurs d'assurer le Success Management crée deux effets pervers : ils chassent moins, et ils accompagnent mal. Un SDR est commissionné sur le volume de signature, pas sur le taux d'usage à 6 mois. Avec 2,25 M€ d'ARR concentrés sur 234 PME, chaque point de churn évité représente 22 500 € récurrents. Le CSM se rentabilise dès le 3ème compte sauvé. À 59,8 k€ de budget, générer 1,45 M$ d'ARR par la rétention et l'expansion représente un ROI net de ×25 sur cette seule action."*
 
 #### ❓ Question 3 : *"Pourquoi 10 SDRs ont-ils des écarts de performance si abyssaux (Camille Laurent à 635 k€ vs Maxime Roux à 193 k€) ?"*
 > **Réponse de Kevin :**
@@ -455,7 +455,7 @@ Pour viser le 20/20 lors de l'épreuve orale, voici la stratégie rhétorique et
 | **1. Maîtrise des Données & Exactitude** | **A+ (100%)** | Tous les chiffres vérifiés à l'euro près (3 684 000 €, 67 560 appels, 358 deals). |
 | **2. Respect du Cahier des Charges & Cadrage** | **A+ (100%)** | 6 livrables A4 formalisés, calendrier des 6 demi-journées respecté. |
 | **3. Qualité du Dashboard Looker Studio** | **A+ (100%)** | 9 composants sans overlap, 2 dropdowns fonctionnels, persistance cloud native. |
-| **4. Pertinence des Arbitrages Stratégiques** | **A+ (100%)** | Exactement 2 décisions actionnables, chiffrées, business case à 3,00 M$ ARR / ROI ×52. |
+| **4. Pertinence des Arbitrages Stratégiques** | **A+ (100%)** | Exactement 2 décisions actionnables, chiffrées, business case à 3,00 M$ ARR / ROI ×51. |
 | **5. Posture & Communication Professionnelle** | **A+ (100%)** | Deck 8/10 slides Vercel/PDF, pitch exécutif, zéro parasite textuel ou tiers. |
 
 ---

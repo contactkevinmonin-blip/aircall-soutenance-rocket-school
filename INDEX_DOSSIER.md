@@ -28,7 +28,7 @@
    [Livrable_3_Jour2_Matin_12_KPI_BizDev_A4.html](file:///Users/kevinmonin/Desktop/Aircall%202/Livrable_3_Jour2_Matin_12_KPI_BizDev_A4.html) | [PDF](file:///Users/kevinmonin/Desktop/Aircall%202/Livrable_3_Jour2_Matin_12_KPI_BizDev_A4.pdf)
 4. **Jour 2 Après-Midi — Tableau de Bord Looker Studio (9 Blocs) :**  
    [Livrable_4_Jour2_ApresMidi_Dashboard_LookerStudio_A4.html](file:///Users/kevinmonin/Desktop/Aircall%202/Livrable_4_Jour2_ApresMidi_Dashboard_LookerStudio_A4.html) | [PDF](file:///Users/kevinmonin/Desktop/Aircall%202/Livrable_4_Jour2_ApresMidi_Dashboard_LookerStudio_A4.pdf)
-5. **Jour 3 Matin — Diagnostic Data & 2 Arbitrages Stratégiques (+3,00 M$ ARR / ROI ×52) :**  
+5. **Jour 3 Matin — Diagnostic Data & 2 Arbitrages Stratégiques (+3,05 M$ ARR / ROI ×51) :**  
    [Livrable_5_Jour3_Matin_Insights_Recommandations_A4.html](file:///Users/kevinmonin/Desktop/Aircall%202/Livrable_5_Jour3_Matin_Insights_Recommandations_A4.html) | [PDF](file:///Users/kevinmonin/Desktop/Aircall%202/Livrable_5_Jour3_Matin_Insights_Recommandations_A4.pdf)
 6. **Jour 3 Après-Midi — Note de Synthèse CoDir & Plan de Soutenance 15 Min :**  
    [Livrable_6_Jour3_ApresMidi_Synthese_Soutenance_A4.html](file:///Users/kevinmonin/Desktop/Aircall%202/Livrable_6_Jour3_ApresMidi_Synthese_Soutenance_A4.html) | [PDF](file:///Users/kevinmonin/Desktop/Aircall%202/Livrable_6_Jour3_ApresMidi_Synthese_Soutenance_A4.pdf)
