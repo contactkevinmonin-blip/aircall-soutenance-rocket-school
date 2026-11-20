@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aircall — Soutenance RevOps & Performance Commerciale (9 Slides)</title>
+<title>Aircall - Soutenance RevOps & Performance Commerciale (9 Slides)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -553,7 +553,7 @@
     flex-shrink: 0;
   }
   .fw-badge.bmc { background: rgba(0, 230, 164, 0.2); color: var(--emerald-bright); border: 0.5px solid rgba(0, 230, 164, 0.45); }
-  .fw-badge.data { background: rgba(168, 85, 247, 0.2); color: #C084FC; border: 0.5px solid rgba(168, 85, 247, 0.45); }
+  .fw-badge.data { background: rgba(168, 85, 247, 0.2); color: #38BDF8; border: 0.5px solid rgba(168, 85, 247, 0.45); }
   .fw-badge.porter { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 0.5px solid rgba(245, 158, 11, 0.45); }
   .fw-badge.pestel { background: rgba(59, 130, 246, 0.2); color: #60A5FA; border: 0.5px solid rgba(59, 130, 246, 0.45); }
 
@@ -1391,7 +1391,7 @@
   .bar-accent-blue { background: #3B82F6; }
   .bar-accent-amber { background: #F59E0B; }
   .bar-accent-red { background: #EF4444; }
-  .bar-accent-purple { background: #A78BFA; }
+  .bar-accent-purple { background: #38BDF8; }
 
   .kpi-insight-card {
     background: rgba(0, 179, 136, 0.12);
@@ -1974,30 +1974,30 @@
 <style id="human-styles">
   /* =========================================================
      THÈME OFFICIEL AIRCALL — DESIGN HUMAIN, ÉPURÉ & PROFESSIONNEL
-     Inspiré directement de la charte officielle aircall.com
+     CONFORME AUX 34 RÈGLES DE DESIGN HUMAIN (ANTI-SIGNES IA)
      ========================================================= */
 
   :root {
-    --bg-main: #FFFFFF;
+    --bg-main: #F8F9FA; /* Règle 02 : Blanc cassé / gris chaud doux (pas de blanc pur froid) */
     --bg-card: #FFFFFF;
-    --bg-card-subtle: #F8FAF9;
+    --bg-card-subtle: #F8F9FA;
     --bg-card-hover: #F1F5F3;
-    --emerald: #00875A;
+    --emerald: #00875A; /* Règle 03 : Vert officiel Aircall corporate */
     --emerald-dark: #006644;
     --emerald-mint: #E6F7F0;
     --emerald-mint-border: #A3E0CE;
-    --border: #E5E7EB;
-    --border-subtle: #E2ECE7;
-    --text-main: #111827;
+    --border: #E5E7EB; /* Règle 07 : Bordures fines nettes au lieu d'ombres */
+    --border-subtle: #E5E7EB;
+    --text-main: #111827; /* Noir graphite profond */
     --text-white: #111827;
     --text-muted: #4B5563;
     --text-dim: #6B7280;
     --red-alert: #DC2626;
     --red-bg: #FEF2F2;
     --red-border: #FECACA;
-    --blue-tech: #2563EB;
-    --blue-bg: #EFF6FF;
-    --blue-border: #BFDBFE;
+    --blue-tech: #0284C7; /* Règle 04 : Bleu océan sobre au lieu de violet */
+    --blue-bg: #F0F9FF;
+    --blue-border: #BAE6FD;
     --amber-gold: #D97706;
     --amber-bg: #FFFBEB;
     --amber-border: #FDE68A;
@@ -2006,19 +2006,21 @@
   /* RESET & BASE FONTS */
   * {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    text-align: left; /* Règle 32 : Aligner à gauche, pas de centrage sur paragraphes */
   }
 
+  /* Règle 02 : Fond blanc cassé / gris chaud pro */
   html, body {
-    background: #FFFFFF !important;
+    background: #F8F9FA !important;
     color: #111827 !important;
   }
 
   #deck {
-    background: #FFFFFF !important;
+    background: #F8F9FA !important;
   }
 
   .slide {
-    background: #FFFFFF !important;
+    background: #F8F9FA !important;
     color: #111827 !important;
     box-shadow: none !important;
   }
@@ -2030,7 +2032,7 @@
   /* TOP ROW HEADER */
   .top-row {
     border-bottom: 1px solid #E5E7EB !important;
-    background: #FFFFFF !important;
+    background: #F8F9FA !important;
     padding-bottom: 12px !important;
   }
 
@@ -2038,18 +2040,21 @@
     background: #E5E7EB !important;
   }
 
+  /* Règle 09 : Badges avec coins droits adoucis (4px, pas de pilules géantes) */
   .step-tag {
     background: #E6F7F0 !important;
     color: #00875A !important;
     border: 1px solid #A3E0CE !important;
     font-weight: 800 !important;
+    border-radius: 4px !important;
   }
 
   .meta-pill {
-    background: #F3F4F6 !important;
+    background: #FFFFFF !important;
     border: 1px solid #E5E7EB !important;
     color: #4B5563 !important;
     font-weight: 700 !important;
+    border-radius: 4px !important;
   }
 
   .slide-num {
@@ -2057,14 +2062,15 @@
     border: 1px solid #A3E0CE !important;
     color: #00875A !important;
     font-weight: 800 !important;
+    border-radius: 4px !important;
   }
 
-  /* HEADINGS & SUBTITLES */
   .header-badge {
     background: #E6F7F0 !important;
     border: 1px solid #A3E0CE !important;
     color: #00875A !important;
     font-weight: 800 !important;
+    border-radius: 4px !important;
   }
 
   .header-block h1, .header-block h2 {
@@ -2083,343 +2089,167 @@
   }
 
   /* =========================================================
-     SLIDE 1 : 4 CARTES MÉTRIQUES
+     CARTES & CONTENEURS : RÈGLES 07 (SANS OMBRE FLOTTANTE) & 09 (COINS 8PX)
      ========================================================= */
+  .metric-card, .director-card, .linear-flow, .flow-step, 
+  .benchmark-col, .swot-box, .pyramid-step, .funnel-arrow-sidebar, 
+  .king-pill, .problem-box-tpe, .problem-box-pme, .dashboard-wrapper, 
+  .block-card, .visavis-col, .timeline-feasibility-bar, 
+  .summary-kpi-card, .big-roi-banner, .transparency-table {
+    border-radius: 8px !important;
+    box-shadow: none !important; /* Règle 07 : Plus d'ombres partout */
+    transition: border-color 0.15s ease !important;
+  }
+
+  /* Règle 12 : Pas de survol partout (saut gadget) */
+  .metric-card:hover, .director-card:hover, .flow-step:hover, 
+  .benchmark-col:hover, .swot-box:hover, .block-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* SLIDE 1 */
   .metric-card {
     background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 14px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
-  }
-
-  .metric-card.card-highlight {
-    border: 2px solid #00875A !important;
-    background: linear-gradient(145deg, #F0FDF4 0%, #FFFFFF 100%) !important;
-    box-shadow: 0 8px 25px rgba(0, 135, 90, 0.08) !important;
-  }
-
-  .card-badge {
-    color: #00875A !important;
-    font-weight: 800 !important;
-  }
-
-  .stat-giant {
-    color: #00875A !important;
-    letter-spacing: -0.03em !important;
-    font-weight: 900 !important;
-  }
-
-  .metric-card.card-highlight .stat-giant {
-    color: #00875A !important;
-  }
-
-  .stat-label {
-    color: #111827 !important;
-    font-weight: 800 !important;
-  }
-
-  .stat-desc {
-    color: #4B5563 !important;
-  }
-
-  .chip {
-    background: #F3F4F6 !important;
     border: 1px solid #E5E7EB !important;
-    color: #4B5563 !important;
   }
-
-  .chip-green {
-    background: #E6F7F0 !important;
-    border-color: #A3E0CE !important;
-    color: #00875A !important;
-    font-weight: 800 !important;
+  .metric-card.card-highlight {
+    border: 1.5px solid #00875A !important;
+    background: #FFFFFF !important;
   }
+  .card-badge { color: #00875A !important; font-weight: 800 !important; }
+  .stat-giant { color: #00875A !important; font-weight: 900 !important; }
+  .stat-label { color: #111827 !important; font-weight: 800 !important; }
+  .stat-desc { color: #4B5563 !important; }
+  .chip { background: #F8F9FA !important; border: 1px solid #E5E7EB !important; color: #4B5563 !important; border-radius: 4px !important; }
+  .chip-green { background: #E6F7F0 !important; border-color: #A3E0CE !important; color: #00875A !important; font-weight: 800 !important; border-radius: 4px !important; }
 
-  /* =========================================================
-     SLIDE 2 : GOUVERNANCE CODIR
-     ========================================================= */
+  /* SLIDE 2 : CODIR */
   .director-card {
     background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 14px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
-  }
-
-  .director-avatar {
-    background: #E6F7F0 !important;
-    border: 2px solid #00875A !important;
-    color: #00875A !important;
-  }
-
-  .director-role {
-    color: #111827 !important;
-    font-weight: 800 !important;
-  }
-
-  .director-focus {
-    background: #E6F7F0 !important;
-    color: #00875A !important;
-    border: 1px solid #A3E0CE !important;
-    font-weight: 700 !important;
-  }
-
-  .director-duty {
-    color: #4B5563 !important;
-  }
-
-  .linear-flow {
-    background: #F8FAF9 !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 14px !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
-  }
-
-  .flow-step {
-    background: #FFFFFF !important;
     border: 1px solid #E5E7EB !important;
-    border-radius: 10px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
   }
-
-  .flow-step-title {
-    color: #111827 !important;
-    font-weight: 800 !important;
-  }
-
-  .flow-step-desc {
-    color: #4B5563 !important;
-  }
-
-  .flow-step-tag {
-    background: #E6F7F0 !important;
+  .director-avatar {
+    background: #F8F9FA !important;
+    border: 1px solid #00875A !important;
     color: #00875A !important;
+    border-radius: 6px !important; /* Règle 31 : pas de rond mou */
   }
+  .director-role { color: #111827 !important; font-weight: 800 !important; }
+  .director-focus { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; font-weight: 700 !important; border-radius: 4px !important; }
+  .director-duty { color: #4B5563 !important; }
+  .linear-flow { background: #FFFFFF !important; border: 1px solid #E5E7EB !important; }
+  .flow-step { background: #F8F9FA !important; border: 1px solid #E5E7EB !important; border-radius: 6px !important; }
+  .flow-step-title { color: #111827 !important; font-weight: 800 !important; }
+  .flow-step-desc { color: #4B5563 !important; }
+  .flow-step-tag { background: #E6F7F0 !important; color: #00875A !important; border-radius: 4px !important; }
+  .flow-arrow-col { color: #00875A !important; }
 
-  .flow-arrow-col {
-    color: #00875A !important;
-  }
-
-  /* =========================================================
-     SLIDE 3 : BENCHMARK & SWOT (HUMAN AIRCALL LOOK)
-     ========================================================= */
+  /* SLIDE 3 : BENCHMARK & SWOT */
   .benchmark-col {
     background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 14px !important;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid #E5E7EB !important;
   }
-
   .benchmark-col.highlight-aircall {
-    border: 2px solid #00875A !important;
-    background: linear-gradient(145deg, #F0FDF4 0%, #FFFFFF 100%) !important;
-    box-shadow: 0 8px 25px rgba(0, 135, 90, 0.08) !important;
+    border: 1.5px solid #00875A !important;
+    background: #FFFFFF !important;
   }
-
-  .bench-top-bar {
-    border-bottom: 1px solid #F1F5F9 !important;
-  }
-
-  .bench-brand-name {
-    color: #111827 !important;
-    font-weight: 800 !important;
-  }
-
-  .bench-sublabel {
-    background: #E6F7F0 !important;
-    color: #00875A !important;
-  }
-
-  .icon-aircall { background: #00875A !important; color: #FFFFFF !important; }
-  .icon-ringover { background: #2563EB !important; color: #FFFFFF !important; }
-  .icon-allo { background: #D97706 !important; color: #FFFFFF !important; }
-
-  .bench-badge.green { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
-  .bench-badge.blue { background: #EFF6FF !important; color: #2563EB !important; border: 1px solid #BFDBFE !important; }
-  .bench-badge.amber { background: #FFFBEB !important; color: #D97706 !important; border: 1px solid #FDE68A !important; }
-
-  .spec-label { color: #6B7280 !important; }
+  .bench-top-bar { border-bottom: 1px solid #E5E7EB !important; }
+  .bench-brand-name { color: #111827 !important; font-weight: 800 !important; }
+  .bench-sublabel { background: #E6F7F0 !important; color: #00875A !important; border-radius: 4px !important; }
+  .icon-aircall { background: #00875A !important; color: #FFFFFF !important; border-radius: 6px !important; }
+  .icon-ringover { background: #1E293B !important; color: #FFFFFF !important; border-radius: 6px !important; }
+  .icon-allo { background: #475569 !important; color: #FFFFFF !important; border-radius: 6px !important; font-weight: 800 !important; }
+  .bench-badge.green { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; border-radius: 4px !important; }
+  .bench-badge.blue { background: #F0F9FF !important; color: #0284C7 !important; border: 1px solid #BAE6FD !important; border-radius: 4px !important; }
+  .bench-badge.amber { background: #FFFBEB !important; color: #D97706 !important; border: 1px solid #FDE68A !important; border-radius: 4px !important; }
+  .spec-label { color: #6B7280 !important; font-weight: 700 !important; }
   .spec-val { color: #1F2937 !important; }
   .spec-val strong { color: #00875A !important; }
+  .bench-verdict-pill.green { background: #E6F7F0 !important; color: #006644 !important; border: 1px solid #A3E0CE !important; border-radius: 4px !important; }
+  .bench-verdict-pill.blue { background: #F0F9FF !important; color: #0369A1 !important; border: 1px solid #BAE6FD !important; border-radius: 4px !important; }
+  .bench-verdict-pill.amber { background: #FFFBEB !important; color: #B45309 !important; border: 1px solid #FDE68A !important; border-radius: 4px !important; }
 
-  .bench-verdict-pill.green { background: #DCFCE7 !important; color: #166534 !important; border: 1px solid #86EFAC !important; }
-  .bench-verdict-pill.blue { background: #DBEAFE !important; color: #1E40AF !important; border: 1px solid #93C5FD !important; }
-  .bench-verdict-pill.amber { background: #FEF3C7 !important; color: #92400E !important; border: 1px solid #FDE68A !important; }
-
-  /* SWOT BOXES */
+  /* Règle 20 : Pas de liseré coloré artificiel, bordure sobre 1px */
   .swot-box {
     background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 14px !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid #E5E7EB !important;
   }
-
-  .swot-box.s-box {
-    border-top: 3.5px solid #00875A !important;
-    background: linear-gradient(180deg, #F0FDF4 0%, #FFFFFF 100%) !important;
+  .swot-box.s-box, .swot-box.w-box, .swot-box.o-box, .swot-box.t-box {
+    border-top: 1px solid #E5E7EB !important;
+    border-left: 1px solid #E5E7EB !important;
+    background: #FFFFFF !important;
   }
-  .swot-box.w-box {
-    border-top: 3.5px solid #DC2626 !important;
-    background: linear-gradient(180deg, #FFF5F5 0%, #FFFFFF 100%) !important;
-  }
-  .swot-box.o-box {
-    border-top: 3.5px solid #2563EB !important;
-    background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%) !important;
-  }
-  .swot-box.t-box {
-    border-top: 3.5px solid #D97706 !important;
-    background: linear-gradient(180deg, #FFFBEB 0%, #FFFFFF 100%) !important;
-  }
-
-  .swot-head {
-    border-bottom: 1px solid #F1F5F9 !important;
-  }
-
-  .swot-title { color: #111827 !important; }
+  .swot-head { border-bottom: 1px solid #E5E7EB !important; }
+  .swot-title { color: #111827 !important; font-weight: 800 !important; }
   .s-box .swot-title { color: #00875A !important; }
   .w-box .swot-title { color: #DC2626 !important; }
-  .o-box .swot-title { color: #2563EB !important; }
+  .o-box .swot-title { color: #0284C7 !important; }
   .t-box .swot-title { color: #D97706 !important; }
-
-  .tag-s { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
-  .tag-w { background: #FEF2F2 !important; color: #DC2626 !important; border: 1px solid #FECACA !important; }
-  .tag-o { background: #EFF6FF !important; color: #2563EB !important; border: 1px solid #BFDBFE !important; }
-  .tag-t { background: #FFFBEB !important; color: #D97706 !important; border: 1px solid #FDE68A !important; }
-
-  .swot-item-row {
-    background: #F8FAF9 !important;
-    border: 1px solid #E5E7EB !important;
-    color: #374151 !important;
-  }
+  .tag-s { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; border-radius: 4px !important; }
+  .tag-w { background: #FEF2F2 !important; color: #DC2626 !important; border: 1px solid #FECACA !important; border-radius: 4px !important; }
+  .tag-o { background: #F0F9FF !important; color: #0284C7 !important; border: 1px solid #BAE6FD !important; border-radius: 4px !important; }
+  .tag-t { background: #FFFBEB !important; color: #D97706 !important; border: 1px solid #FDE68A !important; border-radius: 4px !important; }
+  .swot-item-row { background: #F8F9FA !important; border: 1px solid #E5E7EB !important; border-radius: 4px !important; color: #374151 !important; }
   .swot-item-row strong { color: #111827 !important; }
   .swot-item-row .num-hl { color: #00875A !important; }
+  .fw-badge.bmc { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; border-radius: 4px !important; }
+  .fw-badge.data { background: #F1F5F9 !important; color: #1E293B !important; border: 1px solid #CBD5E1 !important; border-radius: 4px !important; }
+  .fw-badge.porter { background: #FFFBEB !important; color: #D97706 !important; border: 1px solid #FDE68A !important; border-radius: 4px !important; }
+  .fw-badge.pestel { background: #F0F9FF !important; color: #0284C7 !important; border: 1px solid #BAE6FD !important; border-radius: 4px !important; }
 
-  .fw-badge.bmc { background: #E6F7F0 !important; color: #00875A !important; border: 0.5px solid #A3E0CE !important; }
-  .fw-badge.data { background: #F3E8FF !important; color: #7E22CE !important; border: 0.5px solid #D8B4FE !important; }
-  .fw-badge.porter { background: #FFFBEB !important; color: #D97706 !important; border: 0.5px solid #FDE68A !important; }
-  .fw-badge.pestel { background: #EFF6FF !important; color: #2563EB !important; border: 0.5px solid #BFDBFE !important; }
-
+  /* Règle 01 : Aplat vert clair pour le takeaway */
   .swot-takeaway-bar {
-    background: linear-gradient(90deg, #E6F7F0 0%, #F0FDF4 100%) !important;
-    border: 1.5px solid #A3E0CE !important;
-    border-radius: 12px !important;
+    background: #E6F7F0 !important;
+    border: 1.5px solid #00875A !important;
+    border-radius: 8px !important;
   }
-  .takeaway-left { color: #1F2937 !important; }
-  .takeaway-label { background: #00875A !important; color: #FFFFFF !important; }
+  .takeaway-left { color: #111827 !important; }
+  .takeaway-label { background: #00875A !important; color: #FFFFFF !important; border-radius: 4px !important; }
   .takeaway-text strong { color: #111827 !important; }
-  .takeaway-right-chip { background: #00875A !important; color: #FFFFFF !important; }
+  .takeaway-right-chip { background: #00875A !important; color: #FFFFFF !important; border-radius: 4px !important; }
 
-  /* =========================================================
-     SLIDE 4 : PROBLÉMATIQUE DATA (PYRAMIDE)
-     ========================================================= */
-  .funnel-arrow-sidebar {
-    background: #F8FAF9 !important;
-    border: 1.5px solid #E5E7EB !important;
-    color: #4B5563 !important;
-    border-radius: 12px !important;
-  }
-  .down-arrow-svg path {
-    stroke: #00875A !important;
-  }
-  .down-arrow-svg polygon {
-    fill: #00875A !important;
-  }
-
-  .pyramid-step {
-    background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
-  }
+  /* SLIDE 4 */
+  .funnel-arrow-sidebar { background: #FFFFFF !important; border: 1px solid #E5E7EB !important; }
+  .down-arrow-svg path { stroke: #00875A !important; }
+  .down-arrow-svg polygon { fill: #00875A !important; }
+  .pyramid-step { background: #FFFFFF !important; border: 1px solid #E5E7EB !important; border-radius: 6px !important; }
   .step-label { color: #00875A !important; font-weight: 800 !important; }
   .step-num { color: #111827 !important; font-weight: 900 !important; }
   .step-title { color: #111827 !important; font-weight: 800 !important; }
   .step-desc { color: #4B5563 !important; }
-
-  .king-pill {
-    background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    color: #374151 !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
-  }
+  .king-pill { background: #FFFFFF !important; border: 1px solid #E5E7EB !important; border-radius: 6px !important; }
   .king-pill strong { color: #00875A !important; font-weight: 800 !important; }
   .king-pill span { color: #374151 !important; font-weight: 600 !important; }
+  .problem-box-tpe { background: #FEF2F2 !important; border: 1px solid #FECACA !important; border-radius: 6px !important; color: #991B1B !important; }
+  .problem-box-pme { background: #FFFBEB !important; border: 1px solid #FDE68A !important; border-radius: 6px !important; color: #92400E !important; }
 
-  .problem-box-tpe {
-    background: #FFF5F5 !important;
-    border: 1.5px solid #FECACA !important;
-    border-radius: 12px !important;
-    color: #991B1B !important;
-  }
-  .problem-box-tpe strong { color: #991B1B !important; }
-
-  .problem-box-pme {
-    background: #FFFBEB !important;
-    border: 1.5px solid #FDE68A !important;
-    border-radius: 12px !important;
-    color: #92400E !important;
-  }
-  .problem-box-pme strong { color: #92400E !important; }
-
-  /* =========================================================
-     SLIDE 5 : LOOKER STUDIO & 6 RATIOS
-     ========================================================= */
-  .dashboard-wrapper {
-    background: #F8FAF9 !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 14px !important;
-  }
-
-  .toggle-btn {
-    background: #FFFFFF !important;
-    border: 1px solid #E5E7EB !important;
-    color: #4B5563 !important;
-    border-radius: 8px !important;
-  }
-  .toggle-btn.active {
-    background: #00875A !important;
-    color: #FFFFFF !important;
-    border-color: #00875A !important;
-  }
-  .link-external {
-    background: #E6F7F0 !important;
-    color: #00875A !important;
-    border-color: #A3E0CE !important;
-  }
-
-  .block-card {
-    background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 12px !important;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03) !important;
-  }
-  .block-card:hover {
-    border-color: #00875A !important;
-    box-shadow: 0 6px 18px rgba(0, 135, 90, 0.1) !important;
-  }
+  /* SLIDE 5 : LOOKER STUDIO */
+  .dashboard-wrapper { background: #FFFFFF !important; border: 1px solid #E5E7EB !important; }
+  .toggle-btn { background: #FFFFFF !important; border: 1px solid #E5E7EB !important; color: #4B5563 !important; border-radius: 6px !important; }
+  .toggle-btn.active { background: #00875A !important; color: #FFFFFF !important; border-color: #00875A !important; }
+  .link-external { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; border-radius: 6px !important; }
+  .block-card { background: #FFFFFF !important; border: 1px solid #E5E7EB !important; }
+  .block-card:hover { border-color: #00875A !important; }
   .block-card-title { color: #111827 !important; }
-  .block-card-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
-  .drilldown-cue { background: #F3F4F6 !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; }
+  .block-card-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; border-radius: 4px !important; }
+  .drilldown-cue { background: #F8F9FA !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; border-radius: 4px !important; }
   .ratio-val-giant { color: #00875A !important; font-weight: 900 !important; }
-  .ratio-sub-badge { background: #F3F4F6 !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; }
+  .ratio-sub-badge { background: #F8F9FA !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; border-radius: 4px !important; }
   .block-card-desc { color: #6B7280 !important; }
 
-  /* =========================================================
-     SLIDES 6 & 7 : VIS-À-VIS PROBLÈME vs SOLUTION
-     ========================================================= */
+  /* SLIDES 6 & 7 : VIS-A-VIS */
   .visavis-col.problem-side {
-    background: #FFF5F5 !important;
-    border: 1.5px solid #FECACA !important;
-    border-radius: 14px !important;
-    box-shadow: 0 4px 18px rgba(220, 38, 38, 0.06) !important;
+    background: #FFFBFB !important;
+    border: 1px solid #FCA5A5 !important;
   }
   .visavis-banner.problem-banner {
-    background: #FEE2E2 !important;
-    border-bottom: 1px solid #FECACA !important;
+    background: #FEF2F2 !important;
+    border-bottom: 1px solid #FCA5A5 !important;
   }
   .visavis-col.problem-side .hero-stat-card {
     background: #FFFFFF !important;
     border: 1px solid #FECACA !important;
-    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.04) !important;
   }
   .visavis-col.problem-side .hero-lbl { color: #4B5563 !important; }
   .visavis-col.problem-side .fact-text { color: #1F2937 !important; }
@@ -2427,41 +2257,45 @@
   .visavis-col.problem-side .visavis-tag { color: #991B1B !important; }
 
   .visavis-col.solution-side {
-    background: #F0FDF4 !important;
-    border: 1.5px solid #BBF7D0 !important;
-    border-radius: 14px !important;
-    box-shadow: 0 4px 18px rgba(0, 135, 90, 0.08) !important;
+    background: #F9FDFB !important;
+    border: 1.5px solid #00875A !important;
   }
   .visavis-banner.solution-banner {
-    background: #DCFCE7 !important;
-    border-bottom: 1px solid #BBF7D0 !important;
+    background: #E6F7F0 !important;
+    border-bottom: 1px solid #A3E0CE !important;
   }
   .visavis-col.solution-side .hero-stat-card {
     background: #FFFFFF !important;
-    border: 1px solid #BBF7D0 !important;
-    box-shadow: 0 2px 8px rgba(0, 135, 90, 0.04) !important;
+    border: 1px solid #A3E0CE !important;
   }
   .hero-num-green { color: #00875A !important; font-weight: 900 !important; }
   .visavis-col.solution-side .hero-lbl { color: #4B5563 !important; }
   .visavis-col.solution-side .fact-text { color: #1F2937 !important; }
   .visavis-col.solution-side .fact-text strong { color: #111827 !important; }
-  .visavis-col.solution-side .visavis-tag { color: #166534 !important; }
+  .visavis-col.solution-side .visavis-tag { color: #006644 !important; }
 
-  .fact-bullet-red { background: #FEE2E2 !important; border: 1px solid #F87171 !important; color: #DC2626 !important; }
-  .fact-bullet-green { background: #DCFCE7 !important; border: 1px solid #4ADE80 !important; color: #16A34A !important; }
-
-  .v-chip {
-    background: #FFFFFF !important;
-    border: 1px solid #E5E7EB !important;
-    color: #4B5563 !important;
+  /* Règle 18 : Puces sobres + et - au lieu de coche emoji */
+  .fact-bullet-red {
+    background: #FEF2F2 !important;
+    border: 1px solid #F87171 !important;
+    color: #DC2626 !important;
+    border-radius: 4px !important;
+    font-weight: 800 !important;
   }
+  .fact-bullet-green {
+    background: #E6F7F0 !important;
+    border: 1px solid #A3E0CE !important;
+    color: #00875A !important;
+    border-radius: 4px !important;
+    font-weight: 800 !important;
+  }
+
+  .v-chip { background: #FFFFFF !important; border: 1px solid #E5E7EB !important; color: #4B5563 !important; border-radius: 4px !important; }
   .v-chip.time { background: #E6F7F0 !important; color: #00875A !important; border-color: #A3E0CE !important; font-weight: 800 !important; }
 
   .timeline-feasibility-bar {
     background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid #E5E7EB !important;
   }
   .timeline-header { border-bottom: 1px solid #E5E7EB !important; }
   .timeline-badge { color: #00875A !important; font-weight: 800 !important; }
@@ -2470,55 +2304,47 @@
     background: #00875A !important;
     color: #FFFFFF !important;
     border-radius: 6px !important;
+    font-weight: 700 !important;
   }
   .t-step {
-    background: #F8FAF9 !important;
+    background: #F8F9FA !important;
     border: 1px solid #E5E7EB !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
   }
   .t-title { color: #111827 !important; font-weight: 800 !important; }
   .t-desc { color: #4B5563 !important; }
-  .t-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; }
-  .t-arrow { color: #00875A !important; }
+  .t-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; border-radius: 4px !important; }
+  .t-arrow { color: #00875A !important; font-weight: 800 !important; }
 
-  /* =========================================================
-     SLIDE 8 : SYNTHÈSE GLOBALE CODIR (ROI GÉANT)
-     ========================================================= */
+  /* SLIDE 8 : BILAN */
   .summary-kpi-card {
     background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid #E5E7EB !important;
   }
   .summary-kpi-val { color: #00875A !important; font-weight: 900 !important; }
   .summary-kpi-lbl { color: #111827 !important; font-weight: 800 !important; }
   .summary-kpi-sub { color: #6B7280 !important; }
 
+  /* Règle 01 : Aplat vert corporate net */
   .big-roi-banner {
-    background: linear-gradient(135deg, #E6F7F0 0%, #D1FAE5 100%) !important;
-    border: 2px solid #00875A !important;
-    border-radius: 16px !important;
-    box-shadow: 0 8px 30px rgba(0, 135, 90, 0.12) !important;
+    background: #F0FDF4 !important;
+    border: 1.5px solid #00875A !important;
   }
   .big-roi-banner .card-badge { color: #00875A !important; }
   .big-roi-banner .stat-giant { color: #00875A !important; }
   .big-roi-banner .stat-giant.white { color: #111827 !important; }
   .big-roi-banner .stat-label { color: #1F2937 !important; font-weight: 800 !important; }
-  .roi-tag-hero { background: #00875A !important; color: #FFFFFF !important; }
-  .roi-bubble-stat { background: #FFFFFF !important; border: 1px solid #A3E0CE !important; }
+  .roi-tag-hero { background: #00875A !important; color: #FFFFFF !important; border-radius: 4px !important; }
+  .roi-bubble-stat { background: #FFFFFF !important; border: 1px solid #A3E0CE !important; border-radius: 6px !important; }
   .bubble-lbl { color: #4B5563 !important; }
   .bubble-val { color: #00875A !important; font-weight: 900 !important; }
 
-  /* =========================================================
-     SLIDE 9 : MATRICE DE TRANSPARENCE & TRAÇABILITÉ
-     ========================================================= */
+  /* SLIDE 9 : MATRICE */
   .transparency-table {
     border: 1px solid #E5E7EB !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
   }
   .transparency-table th {
-    background: #F8FAF9 !important;
+    background: #F8F9FA !important;
     color: #111827 !important;
     border-bottom: 2px solid #E5E7EB !important;
     font-weight: 800 !important;
@@ -2528,248 +2354,82 @@
     color: #1F2937 !important;
     border-bottom: 1px solid #E5E7EB !important;
   }
-  .source-pill.real { background: #DCFCE7 !important; color: #166534 !important; border: 1px solid #86EFAC !important; }
-  .source-pill.public { background: #EFF6FF !important; color: #1E40AF !important; border: 1px solid #BFDBFE !important; }
-  .source-pill.simulated { background: #F3E8FF !important; color: #6B21A8 !important; border: 1px solid #D8B4FE !important; }
+  .source-pill.real { background: #E6F7F0 !important; color: #006644 !important; border: 1px solid #A3E0CE !important; border-radius: 4px !important; }
+  .source-pill.public { background: #F0F9FF !important; color: #0369A1 !important; border: 1px solid #BAE6FD !important; border-radius: 4px !important; }
+  .source-pill.simulated { background: #F1F5F9 !important; color: #334155 !important; border: 1px solid #CBD5E1 !important; border-radius: 4px !important; }
 
-  /* =========================================================
-     BOTTOM NAVIGATION BAR (FLOATING WHITE PILL)
-     ========================================================= */
+  /* NAVIGATION */
   .bottom-nav-bar {
     background: #FFFFFF !important;
     border: 1px solid #E5E7EB !important;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1) !important;
-    border-radius: 999px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 8px !important;
   }
   .bottom-nav-btn {
     color: #111827 !important;
     font-weight: 700 !important;
+    border-radius: 6px !important;
   }
   .bottom-nav-btn:hover {
-    background: #F3F4F6 !important;
+    background: #F8F9FA !important;
     color: #00875A !important;
   }
   .nav-dot {
-    background: #F3F4F6 !important;
+    background: #F8F9FA !important;
     border: 1px solid #E5E7EB !important;
     color: #4B5563 !important;
+    border-radius: 4px !important;
   }
   .nav-dot.active {
     background: #00875A !important;
     color: #FFFFFF !important;
     border-color: #00875A !important;
-    box-shadow: 0 2px 8px rgba(0, 135, 90, 0.3) !important;
   }
   .btn-fullscreen-deck {
     background: #E6F7F0 !important;
     border: 1px solid #A3E0CE !important;
     color: #00875A !important;
     font-weight: 800 !important;
+    border-radius: 6px !important;
   }
 
-  /* =========================================================
-     MODALS (ZOOM KPI & GANTT DRILLDOWN) — CLEAN HUMAN DIALOGS
-     ========================================================= */
+  /* Règle 08 : MODALES SANS VERRE DÉPOLI (Fonds opaques et nets) */
   .kpi-modal-overlay {
-    background: rgba(17, 24, 39, 0.6) !important;
-    backdrop-filter: blur(6px) !important;
+    background: rgba(15, 23, 42, 0.75) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
   .kpi-modal-content {
     background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    color: #111827 !important;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15) !important;
-  }
-  .kpi-modal-header {
-    border-bottom: 1px solid #E5E7EB !important;
-  }
-  .kpi-modal-badge {
-    background: #E6F7F0 !important;
-    color: #00875A !important;
-    border: 1px solid #A3E0CE !important;
-  }
-  .kpi-modal-title {
-    color: #111827 !important;
-  }
-  .kpi-modal-subtitle {
-    color: #4B5563 !important;
-  }
-  .kpi-modal-close {
-    background: #F3F4F6 !important;
-    color: #4B5563 !important;
     border: 1px solid #E5E7EB !important;
-  }
-  .kpi-modal-close:hover {
-    background: #E5E7EB !important;
     color: #111827 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 8px !important;
   }
-  .kpi-hero-card {
-    background: #F8FAF9 !important;
-    border: 1px solid #E5E7EB !important;
-  }
-  .kpi-hero-num { color: #00875A !important; font-weight: 900 !important; }
-  .kpi-hero-sub { color: #6B7280 !important; }
-  .chart-box-title { color: #111827 !important; font-weight: 800 !important; }
-  .table-data th {
-    background: #F8FAF9 !important;
-    color: #111827 !important;
-    border-bottom: 1.5px solid #E5E7EB !important;
-  }
-  .table-data td {
-    background: #FFFFFF !important;
-    color: #1F2937 !important;
-    border-bottom: 1px solid #E5E7EB !important;
-  }
-  .kpi-analysis-box {
-    background: #F0FDF4 !important;
-    border: 1px solid #BBF7D0 !important;
-    color: #166534 !important;
-  }
-  .kpi-analysis-title { color: #00875A !important; font-weight: 800 !important; }
-  .kpi-analysis-text { color: #1F2937 !important; }
-  .kpi-action-box {
-    background: #E6F7F0 !important;
-    border: 1.5px solid #A3E0CE !important;
-    color: #00875A !important;
-  }
-  .kpi-action-title { color: #00875A !important; font-weight: 800 !important; }
-  .kpi-action-text { color: #111827 !important; }
+  .kpi-modal-header { border-bottom: 1px solid #E5E7EB !important; }
+  .kpi-modal-badge { background: #E6F7F0 !important; color: #00875A !important; border: 1px solid #A3E0CE !important; border-radius: 4px !important; }
+  .kpi-modal-title { color: #111827 !important; }
+  .kpi-modal-subtitle { color: #4B5563 !important; }
+  .kpi-modal-close { background: #F8F9FA !important; color: #4B5563 !important; border: 1px solid #E5E7EB !important; border-radius: 6px !important; }
+  .kpi-modal-close:hover { background: #E5E7EB !important; color: #111827 !important; }
+  .gantt-nav-tab { background: #F8F9FA !important; border: 1px solid #E5E7EB !important; color: #4B5563 !important; border-radius: 6px !important; }
+  .gantt-nav-tab.active { background: #00875A !important; color: #FFFFFF !important; border-color: #00875A !important; }
+  .gantt-kpi-pill { background: #F8F9FA !important; border: 1px solid #E5E7EB !important; border-radius: 6px !important; }
+  .gantt-kpi-val { color: #00875A !important; font-weight: 900 !important; }
+  .gantt-kpi-lbl { color: #6B7280 !important; }
+  .gantt-tasks-table { border: 1px solid #E5E7EB !important; border-radius: 6px !important; }
+  .gantt-tasks-table th { background: #F8F9FA !important; color: #111827 !important; }
+  .gantt-tasks-table td { background: #FFFFFF !important; color: #1F2937 !important; }
+  .gantt-insight-box { background: #F0FDF4 !important; border: 1px solid #A3E0CE !important; border-radius: 6px !important; color: #006644 !important; }
+  .gantt-insight-tag { color: #00875A !important; font-weight: 800 !important; }
 
-  /* GANTT MODAL */
-  .gantt-modal-content {
-    background: #FFFFFF !important;
-    border: 1.5px solid #E5E7EB !important;
-    color: #111827 !important;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15) !important;
-  }
-  .gantt-modal-header {
-    border-bottom: 1px solid #E5E7EB !important;
-  }
-  .gantt-modal-badge {
-    background: #E6F7F0 !important;
-    color: #00875A !important;
-    border: 1px solid #A3E0CE !important;
-  }
-  .gantt-modal-title { color: #111827 !important; }
-  .gantt-tab-btn {
-    background: #F3F4F6 !important;
-    border: 1px solid #E5E7EB !important;
-    color: #4B5563 !important;
-  }
-  .gantt-tab-btn.active {
-    background: #00875A !important;
-    color: #FFFFFF !important;
-    border-color: #00875A !important;
-  }
-  .gantt-table th {
-    background: #F8FAF9 !important;
-    color: #111827 !important;
-    border-bottom: 1.5px solid #E5E7EB !important;
-  }
-  .gantt-table td {
-    background: #FFFFFF !important;
-    color: #1F2937 !important;
-    border-bottom: 1px solid #E5E7EB !important;
-  }
-  .gantt-grid-header {
-    background: #F8FAF9 !important;
-    border-bottom: 1px solid #E5E7EB !important;
-  }
-  .gantt-week-header { color: #6B7280 !important; }
-  .gantt-task-row {
-    border-bottom: 1px solid #F1F5F9 !important;
-  }
-  .gantt-task-name { color: #111827 !important; }
-  .gantt-task-resp { color: #6B7280 !important; }
-  .gantt-bar-fill {
-    background: linear-gradient(90deg, #00875A 0%, #00BD82 100%) !important;
-    color: #FFFFFF !important;
-    box-shadow: 0 2px 6px rgba(0, 135, 90, 0.25) !important;
-  }
-  .gantt-summary-card {
-    background: #F8FAF9 !important;
-    border: 1px solid #E5E7EB !important;
-  }
-  .gantt-summary-title { color: #00875A !important; }
-  .gantt-summary-val { color: #111827 !important; }
-
-  
-  /* MODAL COMPONENT OVERRIDES */
-  .kpi-modal-mini-card {
-    background: #F8FAF9 !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 10px !important;
-    padding: 10px 14px !important;
-    text-align: center !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) !important;
-  }
-  .kpi-modal-mini-label {
-    color: #4B5563 !important;
-    font-size: 10.5px !important;
-    font-weight: 700 !important;
-  }
-  .kpi-modal-mini-val {
-    color: #00875A !important;
-    font-size: 18px !important;
-    font-weight: 900 !important;
-  }
-
-  .kpi-chart-box {
-    background: #F8FAF9 !important;
-    border: 1.5px solid #E5E7EB !important;
-    border-radius: 12px !important;
-    padding: 14px 18px !important;
-  }
-  .kpi-chart-title {
-    color: #111827 !important;
-    font-weight: 800 !important;
-  }
-
-  .kpi-insight-card {
-    background: #F0FDF4 !important;
-    border: 1.5px solid #BBF7D0 !important;
-    border-radius: 10px !important;
-    padding: 10px 14px !important;
-  }
-  .kpi-insight-tag {
-    background: #DCFCE7 !important;
-    color: #166534 !important;
-    border: 1px solid #86EFAC !important;
-    font-weight: 800 !important;
-  }
-  .kpi-insight-text {
-    color: #1F2937 !important;
-  }
-  .kpi-insight-text strong {
-    color: #111827 !important;
-  }
-
-  /* SVG THEMING ON LIGHT BACKGROUND */
-  svg line[stroke="rgba(255,255,255,0.06)"],
-  svg line[stroke="rgba(255,255,255,0.08)"],
-  svg line[stroke="rgba(255,255,255,0.1)"] {
-    stroke: #E5E7EB !important;
-  }
-  svg text[fill="#FFFFFF"] { fill: #111827 !important; }
-  svg text[fill="#E2E8F0"] { fill: #374151 !important; }
-  svg text[fill="#CBD5E1"] { fill: #4B5563 !important; }
-  svg text[fill="#94A3B8"] { fill: #6B7280 !important; }
-
-  /* ZOOM LIGHTBOX */
-  #zoomModal {
-    background: rgba(17, 24, 39, 0.8) !important;
-  }
-
-  /* PRINT MODE (LIGHT & CRISP) */
+  /* PRINT MODE CORRECTIONS */
   @media print {
     html, body {
       background: #FFFFFF !important;
       color: #111827 !important;
     }
-    #deck {
-      background: #FFFFFF !important;
-    }
-    .slide {
+    #deck, .slide {
       background: #FFFFFF !important;
       color: #111827 !important;
     }
@@ -2781,6 +2441,7 @@
       height: 520px !important;
     }
   }
+
 </style>
 
 </head>
@@ -2810,7 +2471,7 @@
       <div class="header-block">
         <div class="header-badge">AUDIT REVOPS &amp; PERFORMANCE COMMERCIALE</div>
         <h1>Aircall en <span class="accent">4 Chiffres Clés</span></h1>
-        <div class="subtitle">Standard téléphonique cloud connecté nativement aux CRM — Modèle SaaS B2B mondial.</div>
+        <div class="subtitle">Standard téléphonique cloud connecté nativement aux CRM - Modèle SaaS B2B mondial.</div>
       </div>
 
       <div class="grid-4">
@@ -2932,7 +2593,7 @@
             </div>
           </div>
 
-          <div class="flow-arrow-col">➔</div>
+          <div class="flow-arrow-col">&rarr;</div>
 
           <div class="flow-step">
             <div class="flow-step-header">
@@ -2940,14 +2601,14 @@
               <div class="flow-step-title">Cartographie &amp; Funnel</div>
             </div>
             <div class="flow-step-desc">
-              <strong>Comment la donnée voyage :</strong> Chaîne VoIP Aircall ➔ CRM HubSpot ➔ Looker Studio. Modélisation du funnel pour repérer les fuites de conversion.
+              <strong>Comment la donnée voyage :</strong> Chaîne VoIP Aircall &rarr; CRM HubSpot &rarr; Looker Studio. Modélisation du funnel pour repérer les fuites de conversion.
             </div>
             <div class="flow-step-footer">
               <span class="flow-step-tag">J1 Après-Midi / J2 · Pipeline Data</span>
             </div>
           </div>
 
-          <div class="flow-arrow-col">➔</div>
+          <div class="flow-arrow-col">&rarr;</div>
 
           <div class="flow-step">
             <div class="flow-step-header">
@@ -3002,24 +2663,24 @@
                 <div class="bench-brand-icon icon-aircall">A</div>
                 <div class="bench-brand-name">Aircall <span class="bench-sublabel">(Notre Modèle)</span></div>
               </div>
-              <span class="bench-badge green">★ Leader CRM</span>
+              <span class="bench-badge green">Leader CRM</span>
             </div>
             <div class="bench-specs-grid">
               <div class="bench-spec-line">
-                <span class="spec-label">🎯 Cible</span>
-                <span class="spec-val"><strong>PME (20–250 sal.)</strong> &amp; Mid-Market</span>
+                <span class="spec-label">Cible</span>
+                <span class="spec-val"><strong>PME (20-250 sal.)</strong> &amp; Mid-Market</span>
               </div>
               <div class="bench-spec-line">
-                <span class="spec-label">💰 Tarif</span>
+                <span class="spec-label">Tarif</span>
                 <span class="spec-val"><strong>30 € à 50 €</strong> / mois / agent (SaaS Premium)</span>
               </div>
               <div class="bench-spec-line">
-                <span class="spec-label">⚡ Moat</span>
+                <span class="spec-label">Avantage</span>
                 <span class="spec-val"><strong>+100 intégrations CRM natives</strong> (HubSpot, Salesforce, Zendesk)</span>
               </div>
             </div>
             <div class="bench-verdict-pill green">
-              <span>🏆</span>
+              
               <span><strong>Verdict :</strong> Domination absolue dès qu'un CRM métier est en place.</span>
             </div>
           </div>
@@ -3035,20 +2696,20 @@
             </div>
             <div class="bench-specs-grid">
               <div class="bench-spec-line">
-                <span class="spec-label">🎯 Cible</span>
-                <span class="spec-val">TPE &amp; PME Françaises (10–100 sal.)</span>
+                <span class="spec-label">Cible</span>
+                <span class="spec-val">TPE &amp; PME Françaises (10-100 sal.)</span>
               </div>
               <div class="bench-spec-line">
-                <span class="spec-label">💰 Tarif</span>
+                <span class="spec-label">Tarif</span>
                 <span class="spec-val">Dès <strong>21 € / mois</strong> (Suite agressive Voix + IA Empower)</span>
               </div>
               <div class="bench-spec-line">
-                <span class="spec-label">⚡ Moat</span>
+                <span class="spec-label">Avantage</span>
                 <span class="spec-val">Catalogue CRM restreint (~25 outils) &amp; connecteurs moins profonds</span>
               </div>
             </div>
             <div class="bench-verdict-pill blue">
-              <span>⚔️</span>
+              
               <span><strong>Verdict :</strong> Très agressif sur petits parcs, vulnérable sur workflows complexes.</span>
             </div>
           </div>
@@ -3057,27 +2718,27 @@
           <div class="benchmark-col">
             <div class="bench-top-bar">
               <div class="bench-brand-wrap">
-                <div class="bench-brand-icon icon-allo">⚡</div>
+                <div class="bench-brand-icon icon-allo">AL</div>
                 <div class="bench-brand-name">Allo</div>
               </div>
               <span class="bench-badge amber">100% PLG Web</span>
             </div>
             <div class="bench-specs-grid">
               <div class="bench-spec-line">
-                <span class="spec-label">🎯 Cible</span>
+                <span class="spec-label">Cible</span>
                 <span class="spec-val">Micro-entreprises &amp; TPE (&lt; 10 salariés)</span>
               </div>
               <div class="bench-spec-line">
-                <span class="spec-label">💰 Tarif</span>
+                <span class="spec-label">Tarif</span>
                 <span class="spec-val">Dès <strong>9 € à 19 € / mois</strong> (Offre plancher sans engagement)</span>
               </div>
               <div class="bench-spec-line">
-                <span class="spec-label">⚡ Moat</span>
+                <span class="spec-label">Avantage</span>
                 <span class="spec-val">Installation en 3 min web · 0 analytique avancée · Zéro commercial</span>
               </div>
             </div>
             <div class="bench-verdict-pill amber">
-              <span>🚀</span>
+              
               <span><strong>Verdict :</strong> Rafle les TPE en libre-service web. Modèle à automatiser chez nous via Lemlist + site !</span>
             </div>
           </div>
@@ -3090,7 +2751,7 @@
           <!-- FORCES -->
           <div class="swot-box s-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:var(--emerald-bright);">🛡️ Forces · Nos Atouts Clés</span>
+              <span class="swot-title" style="color:var(--emerald-bright);">Forces · Nos Atouts Clés</span>
               <span class="swot-tag tag-s">Interne +</span>
             </div>
             <div class="swot-items-list">
@@ -3112,8 +2773,8 @@
           <!-- FAIBLESSES -->
           <div class="swot-box w-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:#F87171;">⚠️ Faiblesses · Nos Freins Directs</span>
-              <span class="swot-tag tag-w">Interne —</span>
+              <span class="swot-title" style="color:#F87171;">Faiblesses · Nos Freins Directs</span>
+              <span class="swot-tag tag-w">Interne -</span>
             </div>
             <div class="swot-items-list">
               <div class="swot-item-row">
@@ -3134,7 +2795,7 @@
           <!-- OPPORTUNITÉS -->
           <div class="swot-box o-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:#60A5FA;">🚀 Opportunités · Nos Relais</span>
+              <span class="swot-title" style="color:#60A5FA;">Opportunités · Nos Relais</span>
               <span class="swot-tag tag-o">Externe +</span>
             </div>
             <div class="swot-items-list">
@@ -3156,13 +2817,13 @@
           <!-- MENACES -->
           <div class="swot-box t-box">
             <div class="swot-head">
-              <span class="swot-title" style="color:#FBBF24;">⚡ Menaces · Risques Marché</span>
-              <span class="swot-tag tag-t">Externe —</span>
+              <span class="swot-title" style="color:#FBBF24;">Menaces · Risques Marché</span>
+              <span class="swot-tag tag-t">Externe -</span>
             </div>
             <div class="swot-items-list">
               <div class="swot-item-row">
                 <span class="fw-badge porter">PORTER</span>
-                <span><strong>Guerre des prix de Ringover &amp; Allo</strong> sur les petits comptes (&lt; 20 sal.) avec forfaits dès 9–21 €.</span>
+                <span><strong>Guerre des prix de Ringover &amp; Allo</strong> sur les petits comptes (&lt; 20 sal.) avec forfaits dès 9-21 €.</span>
               </div>
               <div class="swot-item-row">
                 <span class="fw-badge pestel">PESTEL</span>
@@ -3180,10 +2841,10 @@
         <!-- SECTION 3 : STRATEGIC TAKEAWAY BOTTOM BAR -->
         <div class="swot-takeaway-bar">
           <div class="takeaway-left">
-            <span class="takeaway-icon">💡</span>
+            
             <span class="takeaway-label">Arbitrage CoDir</span>
             <span class="takeaway-text">
-              <strong>Remplacer les appels TPE par des séquences Lemlist</strong> vers l'essai web existant (1 800 €) ➔ <strong>Concentrer 100% des SDRs sur la PME (+100 CRM)</strong> pour générer <strong>+3,05 M$ d'ARR</strong>.
+              <strong>Remplacer les appels TPE par des séquences Lemlist</strong> vers l'essai web existant (1 800 €) &rarr; <strong>Concentrer 100% des SDRs sur la PME (+100 CRM)</strong> pour générer <strong>+3,05 M$ d'ARR</strong>.
             </span>
           </div>
           <span class="takeaway-right-chip">IMPACT : +3,05 M$ ARR · ROI ×51</span>
@@ -3310,7 +2971,7 @@
             <div class="problem-tag">PROBLÈME MAJEUR N°1 · ENTONNOIR TPE</div>
             <div class="problem-title">Dispersion d'Énergie sur les Petits Comptes</div>
           </div>
-          <span class="chip-red">42% Effort ➔ 6% ARR</span>
+          <span class="chip-red">42% Effort &rarr; 6% ARR</span>
         </div>
 
         <div class="problem-box">
@@ -3325,7 +2986,7 @@
   </div>
 
   <!-- =========================================================
-       SLIDE 4 : VISION AIRCALL — PILOTAGE DATA (LOOKER STUDIO)
+       SLIDE 4 : VISION AIRCALL - PILOTAGE DATA (LOOKER STUDIO)
        ========================================================= -->
   <div class="slide">
     <div class="top-row">
@@ -3357,7 +3018,7 @@
           <div class="view-toggle-bar">
             <button type="button" class="toggle-btn active" id="tabLive">Mode Live Interactif (iframe)</button>
             <button type="button" class="toggle-btn" id="tabCapture">Capture HD Sécurisée</button>
-            <button type="button" class="toggle-btn" id="btnFullscreen">⛶ Plein Écran</button>
+            <button type="button" class="toggle-btn" id="btnFullscreen">Plein Écran</button>
             <a href="https://datastudio.google.com/reporting/c201c591-05f7-40ca-adcf-a6a2e9f77384/page/AqxDG?pli=1" target="_blank" class="toggle-btn link-external">↗ Ouvrir Looker Studio</a>
           </div>
 
@@ -3468,7 +3129,7 @@
   </div>
 
     <!-- =========================================================
-       SLIDE 5 : PROBLÈME 1 — DISPERSION TPE (ARBITRAGE 1)
+       SLIDE 5 : PROBLÈME 1 - DISPERSION TPE (ARBITRAGE 1)
        ========================================================= -->
   <div class="slide">
     <div class="top-row">
@@ -3487,7 +3148,7 @@
     <div class="content">
       <div class="header-block">
         <div class="header-badge">AUDIT &amp; ARBITRAGE N°1</div>
-        <h2>Arbitrage 1 : <span style="color:#EF4444;">Arrêt du Cold Call TPE</span> ➔ <span class="accent">Automatisation Cold Email Lemlist</span></h2>
+        <h2>Arbitrage 1 : <span style="color:#EF4444;">Arrêt du Cold Call TPE</span> &rarr; <span class="accent">Automatisation Cold Email Lemlist</span></h2>
         <div class="subtitle">L'inscription web existe déjà : remplaçons 28k appels TPE manuels par des séquences Lemlist pour libérer 100% des SDRs sur la PME.</div>
       </div>
 
@@ -3507,15 +3168,15 @@
             </div>
             <div class="visavis-facts-list">
               <div class="fact-item">
-                <span class="fact-bullet-red">—</span>
+                <span class="fact-bullet-red">-</span>
                 <div class="fact-text"><strong>28 545 appels passés pour seulement 6% de l'ARR</strong> (223 500 € récoltés sur 3,68 M€).</div>
               </div>
               <div class="fact-item">
-                <span class="fact-bullet-red">—</span>
+                <span class="fact-bullet-red">-</span>
                 <div class="fact-text"><strong>Panier moyen 2,5× plus faible</strong> : 3 725 € en TPE contre 9 617 € sur les PME.</div>
               </div>
               <div class="fact-item">
-                <span class="fact-bullet-red">—</span>
+                <span class="fact-bullet-red">-</span>
                 <div class="fact-text"><strong>Taux de conversion 4× inférieur</strong> (2,58% vs 9,73%). Coût d'acquisition commercial supérieur à la valeur client (CAC &gt; LTV).</div>
               </div>
             </div>
@@ -3535,18 +3196,18 @@
             </div>
             <div class="visavis-facts-list">
               <div class="fact-item">
-                <span class="fact-bullet-green">✓</span>
+                <span class="fact-bullet-green">+</span>
                 <div class="fact-text">
                   <strong>Remplacement Cold Call par Séquences Lemlist</strong> : 28 500 emails automatisés renvoyant vers l'essai gratuit existant sur <em>aircall.com</em> (coût SDR = 0 €).
-                  <div style="margin-top:2px; font-size:10.5px; color:#065F46; font-weight:600;">🔗 <em>Preuve aircall.com : Le formulaire « Essai gratuit » est déjà actif en libre-service web.</em></div>
+                  <div style="margin-top:2px; font-size:10.5px; color:#065F46; font-weight:600;"><em>Preuve aircall.com : Le formulaire « Essai gratuit » est déjà actif en libre-service web.</em></div>
                 </div>
               </div>
               <div class="fact-item">
-                <span class="fact-bullet-green">✓</span>
+                <span class="fact-bullet-green">+</span>
                 <div class="fact-text"><strong>100% des 10 SDRs réalloués sur la PME</strong> : 28 545 appels réinjectés sur notre cible à fort panier (9,6 k€ vs 3,7 k€).</div>
               </div>
               <div class="fact-item">
-                <span class="fact-bullet-green">✓</span>
+                <span class="fact-bullet-green">+</span>
                 <div class="fact-text"><strong>Budget : 1 800 € / an</strong> (Licences Lemlist Pro). <strong>Retour sur investissement unitaire record : ROI ×888</strong>.</div>
               </div>
             </div>
@@ -3565,29 +3226,29 @@
         <div class="timeline-header">
           <div style="display:flex; align-items:center; gap:8px;">
             <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (45 JOURS)</span>
-            <button type="button" class="gantt-trigger-btn" onclick="event.stopPropagation(); openGanttModal(1);">📊 Voir le Gantt Détaillé ↗</button>
+            <button type="button" class="gantt-trigger-btn" onclick="event.stopPropagation(); openGanttModal(1);">Voir le Gantt Détaillé</button>
           </div>
           <span class="timeline-ttv">Time-to-Value : <strong>J+30 à J+60</strong> · Horizon : <strong>45 Jours (Quick Win)</strong> · Faisabilité : <strong>Élevée (Coût 0 €)</strong></span>
         </div>
         <div class="timeline-steps">
           <div class="t-step">
-            <div class="t-badge">S1 – S2</div>
+            <div class="t-badge">S1 - S2</div>
             <div class="t-content">
               <span class="t-title">Setup Lemlist &amp; Lemwarm</span>
               <span class="t-desc">Configuration des domaines, warm-up lemwarm &amp; rédaction des séquences cold email TPE.</span>
             </div>
           </div>
-          <div class="t-arrow">➔</div>
+          <div class="t-arrow">&rarr;</div>
           <div class="t-step">
-            <div class="t-badge">S3 – S4</div>
+            <div class="t-badge">S3 - S4</div>
             <div class="t-content">
               <span class="t-title">Réattribution Quotas SDR</span>
               <span class="t-desc">Arrêt des appels TPE, quotas 100% PME/MidMarket &amp; formation à la vente de valeur.</span>
             </div>
           </div>
-          <div class="t-arrow">➔</div>
+          <div class="t-arrow">&rarr;</div>
           <div class="t-step t-step-highlight">
-            <div class="t-badge highlight">S5 – S6</div>
+            <div class="t-badge highlight">S5 - S6</div>
             <div class="t-content">
               <span class="t-title">Go-Live Lemlist &amp; Gains</span>
               <span class="t-desc">Lancement des séquences email TPE et 100% effort SDR sur PME. Premiers gains (+1,60 M$).</span>
@@ -3599,7 +3260,7 @@
   </div>
 
   <!-- =========================================================
-       SLIDE 6 : PROBLÈME 2 — RISQUE CHURN PME (ARBITRAGE 2)
+       SLIDE 6 : PROBLÈME 2 - RISQUE CHURN PME (ARBITRAGE 2)
        ========================================================= -->
   <div class="slide">
     <div class="top-row">
@@ -3618,7 +3279,7 @@
     <div class="content">
       <div class="header-block">
         <div class="header-badge">AUDIT &amp; ARBITRAGE N°2</div>
-        <h2>Arbitrage 2 : <span style="color:#EF4444;">Risque de Churn Massif PME</span> ➔ <span class="accent">1 CSM Dédié &amp; Alertes</span></h2>
+        <h2>Arbitrage 2 : <span style="color:#EF4444;">Risque de Churn Massif PME</span> &rarr; <span class="accent">1 CSM Dédié &amp; Alertes</span></h2>
         <div class="subtitle">Sécuriser les 61% du chiffre d'affaires mondial contre le désengagement et générer une expansion continue.</div>
       </div>
 
@@ -3638,15 +3299,15 @@
             </div>
             <div class="visavis-facts-list">
               <div class="fact-item">
-                <span class="fact-bullet-red">—</span>
+                <span class="fact-bullet-red">-</span>
                 <div class="fact-text"><strong>Le segment PME est le cœur d'Aircall</strong> : 61,1% de l'ARR mondial (234 contrats signés), mais <strong>zéro CSM dédié</strong> !</div>
               </div>
               <div class="fact-item">
-                <span class="fact-bullet-red">—</span>
+                <span class="fact-bullet-red">-</span>
                 <div class="fact-text"><strong>Risque de churn annuel de 20%</strong> : Hémorragie directe estimée à <strong>400 000 €/an</strong> sans accompagnement post-vente.</div>
               </div>
               <div class="fact-item">
-                <span class="fact-bullet-red">—</span>
+                <span class="fact-bullet-red">-</span>
                 <div class="fact-text"><strong>Angle mort technologique</strong> : Aucune alerte automatisée en cas de baisse d'usage VoIP ou désengagement des équipes clientes.</div>
               </div>
             </div>
@@ -3666,16 +3327,16 @@
             </div>
             <div class="visavis-facts-list">
               <div class="fact-item">
-                <span class="fact-bullet-green">✓</span>
+                <span class="fact-bullet-green">+</span>
                 <div class="fact-text"><strong>Recrutement d'1 CSM dédié PME</strong> : Onboarding personnalisé, formation des admins et revues trimestrielles de performance (QBR).</div>
               </div>
               <div class="fact-item">
-                <span class="fact-bullet-green">✓</span>
+                <span class="fact-bullet-green">+</span>
                 <div class="fact-text"><strong>Alertes d'inactivité HubSpot</strong> : Déclenchement automatique dès qu'une PME passe sous 50 appels/semaine pour intervention proactive.</div>
               </div>
               <div class="fact-item">
-                <span class="fact-bullet-green">✓</span>
-                <div class="fact-text"><strong>Budget : 58 000 € chargés</strong> ➔ <strong>Retour sur investissement : ROI ×25</strong> avec churn réduit sous 5%.</div>
+                <span class="fact-bullet-green">+</span>
+                <div class="fact-text"><strong>Budget : 58 000 € chargés</strong> &rarr; <strong>Retour sur investissement : ROI ×25</strong> avec churn réduit sous 5%.</div>
               </div>
             </div>
             <div class="visavis-chips-row">
@@ -3693,7 +3354,7 @@
         <div class="timeline-header">
           <div style="display:flex; align-items:center; gap:8px;">
             <span class="timeline-badge">PLAN DE DÉPLOIEMENT EN TEMPS (90 JOURS / Q1-Q2)</span>
-            <button type="button" class="gantt-trigger-btn" onclick="event.stopPropagation(); openGanttModal(2);">📊 Voir le Gantt Détaillé ↗</button>
+            <button type="button" class="gantt-trigger-btn" onclick="event.stopPropagation(); openGanttModal(2);">Voir le Gantt Détaillé</button>
           </div>
           <span class="timeline-ttv">Time-to-Value : <strong>J+60 à J+90</strong> · Horizon : <strong>90 Jours</strong> · Faisabilité : <strong>Moyenne (1 Recrutement)</strong></span>
         </div>
@@ -3705,7 +3366,7 @@
               <span class="t-desc">Lancement recrutement CSM + triggers HubSpot (inactivité &lt; 50 appels/semaine).</span>
             </div>
           </div>
-          <div class="t-arrow">➔</div>
+          <div class="t-arrow">&rarr;</div>
           <div class="t-step">
             <div class="t-badge">Mois 2 (J+31 à J+60)</div>
             <div class="t-content">
@@ -3713,7 +3374,7 @@
               <span class="t-desc">Arrivée du CSM, intervention prioritaire sur les 20 comptes PME à risque de churn.</span>
             </div>
           </div>
-          <div class="t-arrow">➔</div>
+          <div class="t-arrow">&rarr;</div>
           <div class="t-step t-step-highlight">
             <div class="t-badge highlight">Mois 3 (J+61 à J+90)</div>
             <div class="t-content">
@@ -3727,7 +3388,7 @@
   </div>
 
   <!-- =========================================================
-       SLIDE 7 : IMPACT GLOBAL — RÉTROACTION DATA (ROI X52)
+       SLIDE 7 : IMPACT GLOBAL - RÉTROACTION DATA (ROI X52)
        ========================================================= -->
   <div class="slide">
     <div class="top-row">
@@ -3872,7 +3533,7 @@
   </div>
   <button type="button" class="bottom-nav-btn" id="btnNext">Suivant ▶</button>
   <div class="divider-nav-v"></div>
-  <button type="button" class="btn-fullscreen-deck" id="btnDeckFullscreen" title="Plein Écran Toute la Présentation (Touche F)">⛶ Plein Écran</button>
+  <button type="button" class="btn-fullscreen-deck" id="btnDeckFullscreen" title="Plein Écran Toute la Présentation (Touche F)">Plein Écran</button>
 </div>
 
 
@@ -3926,10 +3587,10 @@
 
     document.addEventListener('fullscreenchange', () => {
       if (document.fullscreenElement) {
-        btnDeckFs.innerHTML = '✕ Quitter';
+        btnDeckFs.innerHTML = 'Fermer';
         btnDeckFs.classList.add('active-fs');
       } else {
-        btnDeckFs.innerHTML = '⛶ Plein Écran';
+        btnDeckFs.innerHTML = 'Plein Écran';
         btnDeckFs.classList.remove('active-fs');
       }
       if (currentSlide === 4 && typeof fitLookerIframe === 'function') {
@@ -3993,7 +3654,7 @@
         <button type="button" class="gantt-tab-btn" id="ganttTab1" onclick="switchGanttTab(1)">Solution 1 (45j)</button>
         <button type="button" class="gantt-tab-btn" id="ganttTab2" onclick="switchGanttTab(2)">Solution 2 (90j)</button>
         <button type="button" class="gantt-tab-btn" id="ganttTabMaster" onclick="switchGanttTab(3)">Master Roadmap</button>
-        <button type="button" class="kpi-modal-close" onclick="closeGanttModal()" title="Fermer [Échap]">✕</button>
+        <button type="button" class="kpi-modal-close" onclick="closeGanttModal()" title="Fermer [Échap]">&times;</button>
       </div>
     </div>
     <div class="kpi-modal-body" id="ganttModalBody">
@@ -4009,7 +3670,7 @@
         <span class="kpi-modal-tag" id="kpiModalTag">DRILL-DOWN DÉCISIONNEL REVOPS</span>
         <h3 class="kpi-modal-title" id="kpiModalTitle">Taux de Décroché</h3>
       </div>
-      <button type="button" class="kpi-modal-close" onclick="closeKpiModal()" title="Fermer [Échap]">✕</button>
+      <button type="button" class="kpi-modal-close" onclick="closeKpiModal()" title="Fermer [Échap]">&times;</button>
     </div>
     <div class="kpi-modal-body" id="kpiModalBody">
       <!-- Rendu dynamique par openKpiModal() -->
@@ -4081,9 +3742,9 @@
     btnFullscreen.addEventListener('click', () => {
       liveContainer.classList.toggle('fullscreen');
       if (liveContainer.classList.contains('fullscreen')) {
-        btnFullscreen.innerHTML = '✕ Quitter Plein Écran';
+        btnFullscreen.innerHTML = 'Fermer Plein Écran';
       } else {
-        btnFullscreen.innerHTML = '⛶ Plein Écran';
+        btnFullscreen.innerHTML = 'Plein Écran';
       }
       setTimeout(fitLookerIframe, 80);
     });
@@ -4092,7 +3753,7 @@
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && liveContainer && liveContainer.classList.contains('fullscreen')) {
       liveContainer.classList.remove('fullscreen');
-      if (btnFullscreen) btnFullscreen.innerHTML = '⛶ Plein Écran';
+      if (btnFullscreen) btnFullscreen.innerHTML = 'Plein Écran';
       setTimeout(fitLookerIframe, 80);
     }
   });
@@ -4176,7 +3837,7 @@
     ],
     "chartTitle": "Classement Comparatif des 10 SDRs vs Objectif RevOps",
     "chartTag": "Leaderboard Commercial",
-    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <!-- Vertical target line at 8% -->\n      <line x1=\"447.7\" y1=\"12\" x2=\"447.7\" y2=\"182\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\"/>\n      <text x=\"447.7\" y=\"9\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">Objectif RevOps (8,0 %)</text>\n      \n      <!-- Vertical team average line at 6.78% -->\n      <line x1=\"393.9\" y1=\"12\" x2=\"393.9\" y2=\"182\" stroke=\"#A78BFA\" stroke-width=\"1\" stroke-dasharray=\"2,2\"/>\n      <text x=\"389.9\" y=\"9\" fill=\"#A78BFA\" font-size=\"8\" font-weight=\"800\" text-anchor=\"end\">Moyenne (6,78 %)</text>\n    \n        <text x=\"85\" y=\"28.0\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"900\" text-anchor=\"end\">Camille</text>\n        <rect x=\"95\" y=\"19.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"19.0\" width=\"432.5\" height=\"11\" fill=\"#00E6A4\" rx=\"3\"/>\n        <text x=\"533.5\" y=\"27.5\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"800\">9.81% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(178 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"44.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Lucas</text>\n        <rect x=\"95\" y=\"35.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"35.5\" width=\"370.8\" height=\"11\" fill=\"#00E6A4\" rx=\"3\"/>\n        <text x=\"471.8\" y=\"44.0\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"800\">8.41% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(122 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"61.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Sarah</text>\n        <rect x=\"95\" y=\"52.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"52.0\" width=\"312.6\" height=\"11\" fill=\"#3B82F6\" rx=\"3\"/>\n        <text x=\"413.6\" y=\"60.5\" fill=\"#3B82F6\" font-size=\"8.5\" font-weight=\"800\">7.09% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(95 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"77.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Alexandre</text>\n        <rect x=\"95\" y=\"68.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"68.5\" width=\"302.0\" height=\"11\" fill=\"#3B82F6\" rx=\"3\"/>\n        <text x=\"403.0\" y=\"77.0\" fill=\"#3B82F6\" font-size=\"8.5\" font-weight=\"800\">6.85% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(89 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"94.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Hugo</text>\n        <rect x=\"95\" y=\"85.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"85.0\" width=\"283.1\" height=\"11\" fill=\"#3B82F6\" rx=\"3\"/>\n        <text x=\"384.1\" y=\"93.5\" fill=\"#3B82F6\" font-size=\"8.5\" font-weight=\"800\">6.42% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(72 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"110.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Antoine</text>\n        <rect x=\"95\" y=\"101.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"101.5\" width=\"255.7\" height=\"11\" fill=\"#60A5FA\" rx=\"3\"/>\n        <text x=\"356.7\" y=\"110.0\" fill=\"#60A5FA\" font-size=\"8.5\" font-weight=\"800\">5.8% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(65 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"127.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Léa</text>\n        <rect x=\"95\" y=\"118.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"118.0\" width=\"240.3\" height=\"11\" fill=\"#60A5FA\" rx=\"3\"/>\n        <text x=\"341.3\" y=\"126.5\" fill=\"#60A5FA\" font-size=\"8.5\" font-weight=\"800\">5.45% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(61 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"143.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Thomas</text>\n        <rect x=\"95\" y=\"134.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"134.5\" width=\"229.3\" height=\"11\" fill=\"#F59E0B\" rx=\"3\"/>\n        <text x=\"330.3\" y=\"143.0\" fill=\"#F59E0B\" font-size=\"8.5\" font-weight=\"800\">5.2% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(58 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"160.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Julien</text>\n        <rect x=\"95\" y=\"151.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"151.0\" width=\"202.8\" height=\"11\" fill=\"#F59E0B\" rx=\"3\"/>\n        <text x=\"303.8\" y=\"159.5\" fill=\"#F59E0B\" font-size=\"8.5\" font-weight=\"800\">4.6% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(49 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"176.5\" fill=\"#EF4444\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Maxime</text>\n        <rect x=\"95\" y=\"167.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"167.5\" width=\"181.7\" height=\"11\" fill=\"#EF4444\" rx=\"3\"/>\n        <text x=\"282.7\" y=\"176.0\" fill=\"#EF4444\" font-size=\"8.5\" font-weight=\"800\">4.12% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(42 démos)</tspan></text>\n        </svg>",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <!-- Vertical target line at 8% -->\n      <line x1=\"447.7\" y1=\"12\" x2=\"447.7\" y2=\"182\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\"/>\n      <text x=\"447.7\" y=\"9\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">Objectif RevOps (8,0 %)</text>\n      \n      <!-- Vertical team average line at 6.78% -->\n      <line x1=\"393.9\" y1=\"12\" x2=\"393.9\" y2=\"182\" stroke=\"#38BDF8\" stroke-width=\"1\" stroke-dasharray=\"2,2\"/>\n      <text x=\"389.9\" y=\"9\" fill=\"#38BDF8\" font-size=\"8\" font-weight=\"800\" text-anchor=\"end\">Moyenne (6,78 %)</text>\n    \n        <text x=\"85\" y=\"28.0\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"900\" text-anchor=\"end\">Camille</text>\n        <rect x=\"95\" y=\"19.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"19.0\" width=\"432.5\" height=\"11\" fill=\"#00E6A4\" rx=\"3\"/>\n        <text x=\"533.5\" y=\"27.5\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"800\">9.81% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(178 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"44.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Lucas</text>\n        <rect x=\"95\" y=\"35.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"35.5\" width=\"370.8\" height=\"11\" fill=\"#00E6A4\" rx=\"3\"/>\n        <text x=\"471.8\" y=\"44.0\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"800\">8.41% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(122 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"61.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Sarah</text>\n        <rect x=\"95\" y=\"52.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"52.0\" width=\"312.6\" height=\"11\" fill=\"#3B82F6\" rx=\"3\"/>\n        <text x=\"413.6\" y=\"60.5\" fill=\"#3B82F6\" font-size=\"8.5\" font-weight=\"800\">7.09% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(95 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"77.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Alexandre</text>\n        <rect x=\"95\" y=\"68.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"68.5\" width=\"302.0\" height=\"11\" fill=\"#3B82F6\" rx=\"3\"/>\n        <text x=\"403.0\" y=\"77.0\" fill=\"#3B82F6\" font-size=\"8.5\" font-weight=\"800\">6.85% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(89 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"94.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Hugo</text>\n        <rect x=\"95\" y=\"85.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"85.0\" width=\"283.1\" height=\"11\" fill=\"#3B82F6\" rx=\"3\"/>\n        <text x=\"384.1\" y=\"93.5\" fill=\"#3B82F6\" font-size=\"8.5\" font-weight=\"800\">6.42% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(72 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"110.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Antoine</text>\n        <rect x=\"95\" y=\"101.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"101.5\" width=\"255.7\" height=\"11\" fill=\"#60A5FA\" rx=\"3\"/>\n        <text x=\"356.7\" y=\"110.0\" fill=\"#60A5FA\" font-size=\"8.5\" font-weight=\"800\">5.8% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(65 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"127.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Léa</text>\n        <rect x=\"95\" y=\"118.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"118.0\" width=\"240.3\" height=\"11\" fill=\"#60A5FA\" rx=\"3\"/>\n        <text x=\"341.3\" y=\"126.5\" fill=\"#60A5FA\" font-size=\"8.5\" font-weight=\"800\">5.45% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(61 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"143.5\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Thomas</text>\n        <rect x=\"95\" y=\"134.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"134.5\" width=\"229.3\" height=\"11\" fill=\"#F59E0B\" rx=\"3\"/>\n        <text x=\"330.3\" y=\"143.0\" fill=\"#F59E0B\" font-size=\"8.5\" font-weight=\"800\">5.2% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(58 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"160.0\" fill=\"#CBD5E1\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Julien</text>\n        <rect x=\"95\" y=\"151.0\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"151.0\" width=\"202.8\" height=\"11\" fill=\"#F59E0B\" rx=\"3\"/>\n        <text x=\"303.8\" y=\"159.5\" fill=\"#F59E0B\" font-size=\"8.5\" font-weight=\"800\">4.6% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(49 démos)</tspan></text>\n        \n        <text x=\"85\" y=\"176.5\" fill=\"#EF4444\" font-size=\"9\" font-weight=\"700\" text-anchor=\"end\">Maxime</text>\n        <rect x=\"95\" y=\"167.5\" width=\"485\" height=\"11\" fill=\"rgba(255,255,255,0.04)\" rx=\"3\"/>\n        <rect x=\"95\" y=\"167.5\" width=\"181.7\" height=\"11\" fill=\"#EF4444\" rx=\"3\"/>\n        <text x=\"282.7\" y=\"176.0\" fill=\"#EF4444\" font-size=\"8.5\" font-weight=\"800\">4.12% <tspan fill=\"#64748B\" font-size=\"7.5\" font-weight=\"600\">(42 démos)</tspan></text>\n        </svg>",
     "detailTitle": "Performance Individuelle des Commerciaux :",
     "details": [
       {
@@ -4268,21 +3929,21 @@
     ],
     "chartTitle": "Entonnoir Visuel Complet de Déperdition du Funnel (4 Niveaux)",
     "chartTag": "Véritable Funnel Trapézoïdal",
-    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n        <rect x=\"230\" y=\"40\" width=\"200\" height=\"15\" fill=\"rgba(239,68,68,0.22)\" rx=\"3\"/>\n        <text x=\"330\" y=\"51\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">-83,4 % Barrages & Répondeurs</text>\n        \n        <rect x=\"230\" y=\"84\" width=\"200\" height=\"15\" fill=\"rgba(239,68,68,0.22)\" rx=\"3\"/>\n        <text x=\"330\" y=\"95\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">-93,2 % Non-Qualifiés / Pas de besoin</text>\n        \n        <rect x=\"230\" y=\"127\" width=\"200\" height=\"15\" fill=\"rgba(239,68,68,0.22)\" rx=\"3\"/>\n        <text x=\"330\" y=\"138\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">-52,8 % Négociation AE (47,2% Signent)</text>\n        \n        <rect x=\"40.0\" y=\"24\" width=\"580\" height=\"24\" fill=\"rgba(59,130,246,0.3)\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"52.0\" y=\"40\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">1. Appels Émis</text>\n        <text x=\"608.0\" y=\"40\" fill=\"#3B82F6\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">67 560 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(100 %)</tspan></text>\n        \n        <rect x=\"125.0\" y=\"68\" width=\"410\" height=\"24\" fill=\"rgba(245,158,11,0.3)\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"137.0\" y=\"84\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">2. Connects Utiles</text>\n        <text x=\"523.0\" y=\"84\" fill=\"#F59E0B\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">11 190 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(16,56 %)</tspan></text>\n        \n        <rect x=\"205.0\" y=\"112\" width=\"250\" height=\"24\" fill=\"rgba(139,92,246,0.3)\" stroke=\"#8B5CF6\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"217.0\" y=\"128\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">3. Démos R1 Qualifiées</text>\n        <text x=\"443.0\" y=\"128\" fill=\"#8B5CF6\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">759 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(1,12 %)</tspan></text>\n        \n        <rect x=\"260.0\" y=\"154\" width=\"140\" height=\"24\" fill=\"rgba(0,230,164,0.35)\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"272.0\" y=\"170\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">4. Contrats Closés</text>\n        <text x=\"388.0\" y=\"170\" fill=\"#00E6A4\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">358 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(0,53 %)</tspan></text>\n        </svg>",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n        <rect x=\"230\" y=\"40\" width=\"200\" height=\"15\" fill=\"rgba(239,68,68,0.22)\" rx=\"3\"/>\n        <text x=\"330\" y=\"51\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">-83,4 % Barrages & Répondeurs</text>\n        \n        <rect x=\"230\" y=\"84\" width=\"200\" height=\"15\" fill=\"rgba(239,68,68,0.22)\" rx=\"3\"/>\n        <text x=\"330\" y=\"95\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">-93,2 % Non-Qualifiés / Pas de besoin</text>\n        \n        <rect x=\"230\" y=\"127\" width=\"200\" height=\"15\" fill=\"rgba(239,68,68,0.22)\" rx=\"3\"/>\n        <text x=\"330\" y=\"138\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">-52,8 % Négociation AE (47,2% Signent)</text>\n        \n        <rect x=\"40.0\" y=\"24\" width=\"580\" height=\"24\" fill=\"rgba(59,130,246,0.3)\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"52.0\" y=\"40\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">1. Appels Émis</text>\n        <text x=\"608.0\" y=\"40\" fill=\"#3B82F6\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">67 560 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(100 %)</tspan></text>\n        \n        <rect x=\"125.0\" y=\"68\" width=\"410\" height=\"24\" fill=\"rgba(245,158,11,0.3)\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"137.0\" y=\"84\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">2. Connects Utiles</text>\n        <text x=\"523.0\" y=\"84\" fill=\"#F59E0B\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">11 190 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(16,56 %)</tspan></text>\n        \n        <rect x=\"205.0\" y=\"112\" width=\"250\" height=\"24\" fill=\"rgba(139,92,246,0.3)\" stroke=\"#0284C7\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"217.0\" y=\"128\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">3. Démos R1 Qualifiées</text>\n        <text x=\"443.0\" y=\"128\" fill=\"#0284C7\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">759 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(1,12 %)</tspan></text>\n        \n        <rect x=\"260.0\" y=\"154\" width=\"140\" height=\"24\" fill=\"rgba(0,230,164,0.35)\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"5\"/>\n        <text x=\"272.0\" y=\"170\" fill=\"#FFFFFF\" font-size=\"9.5\" font-weight=\"900\">4. Contrats Closés</text>\n        <text x=\"388.0\" y=\"170\" fill=\"#00E6A4\" font-size=\"11\" font-weight=\"900\" text-anchor=\"end\">358 <tspan fill=\"#E2E8F0\" font-size=\"8.5\" font-weight=\"700\">(0,53 %)</tspan></text>\n        </svg>",
     "detailTitle": "Les Ratios de Déperdition Inter-Étapes :",
     "details": [
       {
-        "label": "Étape 1 ➔ 2 : Barrage téléphonique",
+        "label": "Étape 1 &rarr; 2 : Barrage téléphonique",
         "val": "16,56 % Décroché",
         "desc": "11 190 prospects joints sur 67 560 appels (-83,4% de perte)"
       },
       {
-        "label": "Étape 2 ➔ 3 : Qualification R1",
+        "label": "Étape 2 &rarr; 3 : Qualification R1",
         "val": "6,78 % Démo",
         "desc": "759 démos calées sur 11 190 conversations utiles (-93,2% de perte)"
       },
       {
-        "label": "Étape 3 ➔ 4 : Conversion Closing",
+        "label": "Étape 3 &rarr; 4 : Conversion Closing",
         "val": "47,17 % Closing",
         "desc": "358 signatures sur 759 démos présentées (très forte efficacité AE)"
       }
@@ -4309,7 +3970,7 @@
     ],
     "chartTitle": "Comparaison de l'ACV et du Rendement Horaire par Segment",
     "chartTag": "Colonnes de Valeur Verticales",
-    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <!-- Baseline -->\n      <line x1=\"45\" y1=\"155\" x2=\"625\" y2=\"155\" stroke=\"rgba(255,255,255,0.12)\" stroke-width=\"1\"/>\n    \n        <rect x=\"75\" y=\"133.58125\" width=\"95\" height=\"21.41875\" fill=\"rgba(239,68,68,0.25)\" stroke=\"#EF4444\" stroke-width=\"1.5\" stroke-dasharray=\"none\" rx=\"6\"/>\n        <text x=\"122.5\" y=\"115.58125000000001\" fill=\"#EF4444\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">3,725 €</text>\n        <text x=\"122.5\" y=\"127.58125000000001\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">48 €/h · 136 deals</text>\n        <text x=\"122.5\" y=\"170\" fill=\"#94A3B8\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">TPE (< 20 sal.)</text>\n        <text x=\"122.5\" y=\"182\" fill=\"#EF4444\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">Base 1,0x</text>\n        \n        <rect x=\"220\" y=\"99.70224999999999\" width=\"95\" height=\"55.29775\" fill=\"rgba(0,230,164,0.3)\" stroke=\"#00E6A4\" stroke-width=\"2\" stroke-dasharray=\"none\" rx=\"6\"/>\n        <text x=\"267.5\" y=\"81.70224999999999\" fill=\"#00E6A4\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">9,617 €</text>\n        <text x=\"267.5\" y=\"93.70224999999999\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">218 €/h · 234 deals</text>\n        <text x=\"267.5\" y=\"170\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">PME (20-250 sal.)</text>\n        <text x=\"267.5\" y=\"182\" fill=\"#00E6A4\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">x 2,58 d'ARR (x4,5 /h)</text>\n        \n            <rect x=\"216\" y=\"65.70224999999999\" width=\"103\" height=\"15\" fill=\"rgba(0,230,164,0.25)\" rx=\"3\"/>\n            <text x=\"267.5\" y=\"76.70224999999999\" fill=\"#00E6A4\" font-size=\"8\" font-weight=\"900\" text-anchor=\"middle\">★ CŒUR DE RENTABILITÉ</text>\n            \n        <rect x=\"365\" y=\"46.273250000000004\" width=\"95\" height=\"108.72675\" fill=\"rgba(59,130,246,0.3)\" stroke=\"#3B82F6\" stroke-width=\"1.5\" stroke-dasharray=\"none\" rx=\"6\"/>\n        <text x=\"412.5\" y=\"28.273250000000004\" fill=\"#3B82F6\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">18,909 €</text>\n        <text x=\"412.5\" y=\"40.273250000000004\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">390 €/h · 49 deals</text>\n        <text x=\"412.5\" y=\"170\" fill=\"#94A3B8\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">Mid-Market (> 250)</text>\n        <text x=\"412.5\" y=\"182\" fill=\"#3B82F6\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">x 5,07 d'ARR (x8,1 /h)</text>\n        \n        <rect x=\"510\" y=\"95.82675\" width=\"95\" height=\"59.173249999999996\" fill=\"rgba(167,139,250,0.25)\" stroke=\"#A78BFA\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\" rx=\"6\"/>\n        <text x=\"557.5\" y=\"77.82675\" fill=\"#A78BFA\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">10,291 €</text>\n        <text x=\"557.5\" y=\"89.82675\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">195 €/h · 358 deals</text>\n        <text x=\"557.5\" y=\"170\" fill=\"#94A3B8\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">Moyenne Globale</text>\n        <text x=\"557.5\" y=\"182\" fill=\"#A78BFA\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">Moyenne : 10 291 €</text>\n        </svg>",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <!-- Baseline -->\n      <line x1=\"45\" y1=\"155\" x2=\"625\" y2=\"155\" stroke=\"rgba(255,255,255,0.12)\" stroke-width=\"1\"/>\n    \n        <rect x=\"75\" y=\"133.58125\" width=\"95\" height=\"21.41875\" fill=\"rgba(239,68,68,0.25)\" stroke=\"#EF4444\" stroke-width=\"1.5\" stroke-dasharray=\"none\" rx=\"6\"/>\n        <text x=\"122.5\" y=\"115.58125000000001\" fill=\"#EF4444\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">3,725 €</text>\n        <text x=\"122.5\" y=\"127.58125000000001\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">48 €/h · 136 deals</text>\n        <text x=\"122.5\" y=\"170\" fill=\"#94A3B8\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">TPE (< 20 sal.)</text>\n        <text x=\"122.5\" y=\"182\" fill=\"#EF4444\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">Base 1,0x</text>\n        \n        <rect x=\"220\" y=\"99.70224999999999\" width=\"95\" height=\"55.29775\" fill=\"rgba(0,230,164,0.3)\" stroke=\"#00E6A4\" stroke-width=\"2\" stroke-dasharray=\"none\" rx=\"6\"/>\n        <text x=\"267.5\" y=\"81.70224999999999\" fill=\"#00E6A4\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">9,617 €</text>\n        <text x=\"267.5\" y=\"93.70224999999999\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">218 €/h · 234 deals</text>\n        <text x=\"267.5\" y=\"170\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"900\" text-anchor=\"middle\">PME (20-250 sal.)</text>\n        <text x=\"267.5\" y=\"182\" fill=\"#00E6A4\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">x 2,58 d'ARR (x4,5 /h)</text>\n        \n            <rect x=\"216\" y=\"65.70224999999999\" width=\"103\" height=\"15\" fill=\"rgba(0,230,164,0.25)\" rx=\"3\"/>\n            <text x=\"267.5\" y=\"76.70224999999999\" fill=\"#00E6A4\" font-size=\"8\" font-weight=\"900\" text-anchor=\"middle\">CŒUR DE RENTABILITÉ</text>\n            \n        <rect x=\"365\" y=\"46.273250000000004\" width=\"95\" height=\"108.72675\" fill=\"rgba(59,130,246,0.3)\" stroke=\"#3B82F6\" stroke-width=\"1.5\" stroke-dasharray=\"none\" rx=\"6\"/>\n        <text x=\"412.5\" y=\"28.273250000000004\" fill=\"#3B82F6\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">18,909 €</text>\n        <text x=\"412.5\" y=\"40.273250000000004\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">390 €/h · 49 deals</text>\n        <text x=\"412.5\" y=\"170\" fill=\"#94A3B8\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">Mid-Market (> 250)</text>\n        <text x=\"412.5\" y=\"182\" fill=\"#3B82F6\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">x 5,07 d'ARR (x8,1 /h)</text>\n        \n        <rect x=\"510\" y=\"95.82675\" width=\"95\" height=\"59.173249999999996\" fill=\"rgba(167,139,250,0.25)\" stroke=\"#38BDF8\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\" rx=\"6\"/>\n        <text x=\"557.5\" y=\"77.82675\" fill=\"#38BDF8\" font-size=\"12.5\" font-weight=\"900\" text-anchor=\"middle\">10,291 €</text>\n        <text x=\"557.5\" y=\"89.82675\" fill=\"#CBD5E1\" font-size=\"8.5\" font-weight=\"700\" text-anchor=\"middle\">195 €/h · 358 deals</text>\n        <text x=\"557.5\" y=\"170\" fill=\"#94A3B8\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">Moyenne Globale</text>\n        <text x=\"557.5\" y=\"182\" fill=\"#38BDF8\" font-size=\"7.5\" font-weight=\"800\" text-anchor=\"middle\">Moyenne : 10 291 €</text>\n        </svg>",
     "detailTitle": "Détail de la Valeur et du Rendement par Compte :",
     "details": [
       {
@@ -4350,22 +4011,22 @@
     ],
     "chartTitle": "Ventilation de l'ARR Total (Donut) & Jauges d'Effort Croisées",
     "chartTag": "Donut Chart & Jauges de Paradoxe",
-    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <!-- DONUT CHART (LEFT) -->\n      <g>\n        <!-- PME 61.1% -->\n        <path d=\"M 135.0 27.0 A 68 68 0 1 1 91.4 147.2 L 108.1 127.2 A 42 42 0 1 0 135.0 53.0 Z\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <!-- Mid-Market 25.2% -->\n        <path d=\"M 90.8 146.7 A 68 68 0 0 1 83.3 50.8 L 103.1 67.7 A 42 42 0 0 0 107.7 126.9 Z\" fill=\"#3B82F6\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <!-- TPE 13.8% -->\n        <path d=\"M 83.7 50.4 A 68 68 0 0 1 134.4 27.0 L 134.6 53.0 A 42 42 0 0 0 103.3 67.4 Z\" fill=\"#EF4444\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        \n        <!-- Center text hole -->\n        <circle cx=\"135\" cy=\"95\" r=\"40\" fill=\"#072218\"/>\n        <text x=\"135\" y=\"91\" fill=\"#CBD5E1\" font-size=\"8\" font-weight=\"700\" text-anchor=\"middle\">ARR TOTAL</text>\n        <text x=\"135\" y=\"107\" fill=\"#00E6A4\" font-size=\"13\" font-weight=\"900\" text-anchor=\"middle\">3,68 M€</text>\n        \n        <!-- Callout badge -->\n        <text x=\"135\" y=\"178\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Répartition de l'ARR</text>\n      </g>\n      \n      <!-- CONTRAST BARS FOR THE PARADOX (RIGHT) -->\n      <g transform=\"translate(250, 20)\">\n        <text x=\"0\" y=\"5\" fill=\"#FFFFFF\" font-size=\"11\" font-weight=\"900\">Le Paradoxe RevOps : Effort vs ARR Généré</text>\n        \n        <!-- ROW 1: TPE -->\n        <g transform=\"translate(0, 20)\">\n          <text x=\"0\" y=\"10\" fill=\"#EF4444\" font-size=\"9.5\" font-weight=\"800\">TPE (< 20 sal.)</text>\n          <text x=\"370\" y=\"10\" fill=\"#EF4444\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"end\">42% Effort ➔ 13,8% ARR (-28 pts)</text>\n          <!-- Bar Effort -->\n          <rect x=\"0\" y=\"15\" width=\"370\" height=\"7\" fill=\"rgba(255,255,255,0.06)\" rx=\"2\"/>\n          <rect x=\"0\" y=\"15\" width=\"155.4\" height=\"7\" fill=\"#F43F5E\" rx=\"2\"/>\n          <!-- Bar ARR -->\n          <rect x=\"0\" y=\"24\" width=\"50.87500000000001\" height=\"7\" fill=\"#EF4444\" rx=\"2\"/>\n        </g>\n        \n        <!-- ROW 2: PME -->\n        <g transform=\"translate(0, 64)\">\n          <text x=\"0\" y=\"10\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"900\">PME (20-250 sal.) — Cœur de Rentabilité</text>\n          <text x=\"370\" y=\"10\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"end\">46% Effort ➔ 61,1% ARR (+15 pts)</text>\n          <!-- Bar Effort -->\n          <rect x=\"0\" y=\"15\" width=\"370\" height=\"7\" fill=\"rgba(255,255,255,0.06)\" rx=\"2\"/>\n          <rect x=\"0\" y=\"15\" width=\"170.20000000000002\" height=\"7\" fill=\"#F43F5E\" rx=\"2\"/>\n          <!-- Bar ARR -->\n          <rect x=\"0\" y=\"24\" width=\"226.033\" height=\"7\" fill=\"#00E6A4\" rx=\"2\"/>\n        </g>\n\n        <!-- ROW 3: Mid-Market -->\n        <g transform=\"translate(0, 108)\">\n          <text x=\"0\" y=\"10\" fill=\"#60A5FA\" font-size=\"9.5\" font-weight=\"800\">Mid-Market (> 250 sal.)</text>\n          <text x=\"370\" y=\"10\" fill=\"#60A5FA\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"end\">12% Effort ➔ 25,1% ARR (+13 pts)</text>\n          <!-- Bar Effort -->\n          <rect x=\"0\" y=\"15\" width=\"370\" height=\"7\" fill=\"rgba(255,255,255,0.06)\" rx=\"2\"/>\n          <rect x=\"0\" y=\"15\" width=\"44.4\" height=\"7\" fill=\"#F43F5E\" rx=\"2\"/>\n          <!-- Bar ARR -->\n          <rect x=\"0\" y=\"24\" width=\"93.055\" height=\"7\" fill=\"#3B82F6\" rx=\"2\"/>\n        </g>\n        \n        <!-- Legend below -->\n        <g transform=\"translate(0, 148)\">\n          <rect x=\"0\" y=\"0\" width=\"12\" height=\"6\" fill=\"#F43F5E\" rx=\"1\"/>\n          <text x=\"16\" y=\"6\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"700\">Part d'Effort d'Appels SDR (%)</text>\n          <rect x=\"160\" y=\"0\" width=\"12\" height=\"6\" fill=\"#00E6A4\" rx=\"1\"/>\n          <text x=\"176\" y=\"6\" fill=\"#6EE7B7\" font-size=\"8\" font-weight=\"700\">Part de l'ARR Réel Généré (%)</text>\n        </g>\n      </g>\n    </svg>",
+    "svg": "<svg viewBox=\"0 0 660 190\" width=\"100%\" height=\"190\" style=\"display:block; overflow:visible;\">\n      <!-- DONUT CHART (LEFT) -->\n      <g>\n        <!-- PME 61.1% -->\n        <path d=\"M 135.0 27.0 A 68 68 0 1 1 91.4 147.2 L 108.1 127.2 A 42 42 0 1 0 135.0 53.0 Z\" fill=\"#00E6A4\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <!-- Mid-Market 25.2% -->\n        <path d=\"M 90.8 146.7 A 68 68 0 0 1 83.3 50.8 L 103.1 67.7 A 42 42 0 0 0 107.7 126.9 Z\" fill=\"#3B82F6\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        <!-- TPE 13.8% -->\n        <path d=\"M 83.7 50.4 A 68 68 0 0 1 134.4 27.0 L 134.6 53.0 A 42 42 0 0 0 103.3 67.4 Z\" fill=\"#EF4444\" stroke=\"#061B14\" stroke-width=\"2\"/>\n        \n        <!-- Center text hole -->\n        <circle cx=\"135\" cy=\"95\" r=\"40\" fill=\"#072218\"/>\n        <text x=\"135\" y=\"91\" fill=\"#CBD5E1\" font-size=\"8\" font-weight=\"700\" text-anchor=\"middle\">ARR TOTAL</text>\n        <text x=\"135\" y=\"107\" fill=\"#00E6A4\" font-size=\"13\" font-weight=\"900\" text-anchor=\"middle\">3,68 M€</text>\n        \n        <!-- Callout badge -->\n        <text x=\"135\" y=\"178\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Répartition de l'ARR</text>\n      </g>\n      \n      <!-- CONTRAST BARS FOR THE PARADOX (RIGHT) -->\n      <g transform=\"translate(250, 20)\">\n        <text x=\"0\" y=\"5\" fill=\"#FFFFFF\" font-size=\"11\" font-weight=\"900\">Le Paradoxe RevOps : Effort vs ARR Généré</text>\n        \n        <!-- ROW 1: TPE -->\n        <g transform=\"translate(0, 20)\">\n          <text x=\"0\" y=\"10\" fill=\"#EF4444\" font-size=\"9.5\" font-weight=\"800\">TPE (< 20 sal.)</text>\n          <text x=\"370\" y=\"10\" fill=\"#EF4444\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"end\">42% Effort &rarr; 13,8% ARR (-28 pts)</text>\n          <!-- Bar Effort -->\n          <rect x=\"0\" y=\"15\" width=\"370\" height=\"7\" fill=\"rgba(255,255,255,0.06)\" rx=\"2\"/>\n          <rect x=\"0\" y=\"15\" width=\"155.4\" height=\"7\" fill=\"#F43F5E\" rx=\"2\"/>\n          <!-- Bar ARR -->\n          <rect x=\"0\" y=\"24\" width=\"50.87500000000001\" height=\"7\" fill=\"#EF4444\" rx=\"2\"/>\n        </g>\n        \n        <!-- ROW 2: PME -->\n        <g transform=\"translate(0, 64)\">\n          <text x=\"0\" y=\"10\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"900\">PME (20-250 sal.) - Cœur de Rentabilité</text>\n          <text x=\"370\" y=\"10\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"end\">46% Effort &rarr; 61,1% ARR (+15 pts)</text>\n          <!-- Bar Effort -->\n          <rect x=\"0\" y=\"15\" width=\"370\" height=\"7\" fill=\"rgba(255,255,255,0.06)\" rx=\"2\"/>\n          <rect x=\"0\" y=\"15\" width=\"170.20000000000002\" height=\"7\" fill=\"#F43F5E\" rx=\"2\"/>\n          <!-- Bar ARR -->\n          <rect x=\"0\" y=\"24\" width=\"226.033\" height=\"7\" fill=\"#00E6A4\" rx=\"2\"/>\n        </g>\n\n        <!-- ROW 3: Mid-Market -->\n        <g transform=\"translate(0, 108)\">\n          <text x=\"0\" y=\"10\" fill=\"#60A5FA\" font-size=\"9.5\" font-weight=\"800\">Mid-Market (> 250 sal.)</text>\n          <text x=\"370\" y=\"10\" fill=\"#60A5FA\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"end\">12% Effort &rarr; 25,1% ARR (+13 pts)</text>\n          <!-- Bar Effort -->\n          <rect x=\"0\" y=\"15\" width=\"370\" height=\"7\" fill=\"rgba(255,255,255,0.06)\" rx=\"2\"/>\n          <rect x=\"0\" y=\"15\" width=\"44.4\" height=\"7\" fill=\"#F43F5E\" rx=\"2\"/>\n          <!-- Bar ARR -->\n          <rect x=\"0\" y=\"24\" width=\"93.055\" height=\"7\" fill=\"#3B82F6\" rx=\"2\"/>\n        </g>\n        \n        <!-- Legend below -->\n        <g transform=\"translate(0, 148)\">\n          <rect x=\"0\" y=\"0\" width=\"12\" height=\"6\" fill=\"#F43F5E\" rx=\"1\"/>\n          <text x=\"16\" y=\"6\" fill=\"#FCA5A5\" font-size=\"8\" font-weight=\"700\">Part d'Effort d'Appels SDR (%)</text>\n          <rect x=\"160\" y=\"0\" width=\"12\" height=\"6\" fill=\"#00E6A4\" rx=\"1\"/>\n          <text x=\"176\" y=\"6\" fill=\"#6EE7B7\" font-size=\"8\" font-weight=\"700\">Part de l'ARR Réel Généré (%)</text>\n        </g>\n      </g>\n    </svg>",
     "detailTitle": "L'Asymétrie Flagrante d'Allocation :",
     "details": [
       {
         "label": "Segment TPE (< 20 sal.)",
-        "val": "42% Effort ➔ 13,8% ARR",
+        "val": "42% Effort &rarr; 13,8% ARR",
         "desc": "Vampirisation disproportionnée des ressources commerciales"
       },
       {
         "label": "Segment PME (20-250 sal.)",
-        "val": "46% Effort ➔ 61,1% ARR",
+        "val": "46% Effort &rarr; 61,1% ARR",
         "desc": "Cœur de rentabilité absolu de l'entreprise (2,25 M€)"
       },
       {
         "label": "Segment Mid-Market (> 250)",
-        "val": "12% Effort ➔ 25,1% ARR",
+        "val": "12% Effort &rarr; 25,1% ARR",
         "desc": "Très forte efficacité sur les grands comptes (927 k€)"
       }
     ],
@@ -4462,41 +4123,41 @@
         "val": "+1,60 M$ (ROI ×888)"
       }
     ],
-    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (45J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <line x1=\"210.0\" y1=\"0\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"250.83333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S1</text>\n        \n        <line x1=\"291.6666666666667\" y1=\"0\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"332.5\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S2</text>\n        \n        <line x1=\"373.33333333333337\" y1=\"0\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"414.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S3</text>\n        \n        <line x1=\"455.0\" y1=\"0\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"495.8333333333333\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S4</text>\n        \n        <line x1=\"536.6666666666667\" y1=\"0\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"577.5000000000001\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S5</text>\n        \n        <line x1=\"618.3333333333334\" y1=\"0\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"659.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        <line x1=\"700.0\" y1=\"0\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Audit & Filtrage CRM HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"212.0\" y=\"37\" width=\"159.33333333333334\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.3\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Parcours Self-Serve & Vidéo PLG</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Product / Web</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"293.6666666666667\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#10B981\" fill-opacity=\"0.3\" stroke=\"#10B981\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"373.33333333333337\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Quotas & Territoires 100% PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Head of Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#8B5CF6\" fill-opacity=\"0.3\" stroke=\"#8B5CF6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Playbook Script & Coaching SDR</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead SDR</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.3\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Go-Live & Suivi Conversion PME</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RevOps / Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.3\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n      <!-- Milestones bar -->\n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+15 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#10B981\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#10B981\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+15 : Self-Serve</text>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#8B5CF6\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#8B5CF6\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Quotas 100% PME</text>\n      \n      <!-- Milestone J+45 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+45 : GO-LIVE (+1,60M$)</text>\n    </svg>",
+    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (45J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <line x1=\"210.0\" y1=\"0\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"250.83333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S1</text>\n        \n        <line x1=\"291.6666666666667\" y1=\"0\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"332.5\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S2</text>\n        \n        <line x1=\"373.33333333333337\" y1=\"0\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"414.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S3</text>\n        \n        <line x1=\"455.0\" y1=\"0\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"495.8333333333333\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S4</text>\n        \n        <line x1=\"536.6666666666667\" y1=\"0\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"577.5000000000001\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S5</text>\n        \n        <line x1=\"618.3333333333334\" y1=\"0\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"659.1666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        <line x1=\"700.0\" y1=\"0\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.06)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Audit & Filtrage CRM HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"212.0\" y=\"37\" width=\"159.33333333333334\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.3\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Parcours Self-Serve & Vidéo PLG</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Product / Web</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"293.6666666666667\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#10B981\" fill-opacity=\"0.3\" stroke=\"#10B981\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"373.33333333333337\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Quotas & Territoires 100% PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Head of Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#0284C7\" fill-opacity=\"0.3\" stroke=\"#0284C7\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Playbook Script & Coaching SDR</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead SDR</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.3\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Go-Live & Suivi Conversion PME</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RevOps / Sales</text>\n        \n        <!-- Bar track -->\n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <!-- Task Bar -->\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.3\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8.5\" font-weight=\"800\" text-anchor=\"middle\">S6</text>\n        \n      <!-- Milestones bar -->\n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+15 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#10B981\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#10B981\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+15 : Self-Serve</text>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#0284C7\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#0284C7\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Quotas 100% PME</text>\n      \n      <!-- Milestone J+45 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+45 : GO-LIVE (+1,60M$)</text>\n    </svg>",
     "tasks": [
       {
         "num": "1.1",
         "name": "Audit & Filtrage CRM HubSpot",
         "resp": "Lead RevOps",
-        "timing": "Semaines 1 – 2",
+        "timing": "Semaines 1 - 2",
         "output": "Règles de qualification automatique des leads < 20 salariés créées dans le CRM."
       },
       {
         "num": "1.2",
         "name": "Setup Lemlist, Lemwarm & Inscription Web",
         "resp": "Product / Web",
-        "timing": "Semaines 2 – 3",
+        "timing": "Semaines 2 - 3",
         "output": "L'inscription web existe déjà sur aircall.com : configuration de Lemlist pour router les TPE vers l'Essai Gratuit."
       },
       {
         "num": "1.3",
         "name": "Réattribution Territoires & Quotas 100% PME",
         "resp": "Head of Sales",
-        "timing": "Semaines 3 – 4",
+        "timing": "Semaines 3 - 4",
         "output": "Nouveaux quotas SDR orientés PME/MidMarket et injection des listes de comptes qualifiés."
       },
       {
         "num": "1.4",
         "name": "Playbook Script Camille & Entraînement SDR",
         "resp": "Lead SDR",
-        "timing": "Semaines 4 – 5",
+        "timing": "Semaines 4 - 5",
         "output": "Diffusion du script d'accroche business + 2 sessions de double écoute VoIP Aircall."
       },
       {
         "num": "1.5",
         "name": "Go-Live Opérationnel & Mesure ROI",
         "resp": "RevOps / Sales",
-        "timing": "Semaines 5 – 6",
+        "timing": "Semaines 5 - 6",
         "output": "Zéro appel SDR sur TPE. Séquences Lemlist actives (170k$ TPE) + plein impact PME (+1,60M$ ARR)."
       }
     ],
@@ -4521,41 +4182,41 @@
         "val": "+1,45 M$ (ROI ×25)"
       }
     ],
-    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (90J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <rect x=\"210\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"291.6666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n        \n        <rect x=\"373.33333333333337\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"455.00000000000006\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n        \n        <rect x=\"536.6666666666667\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"618.3333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n        <line x1=\"210.0\" y1=\"26\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"250.83333333333334\" y1=\"26\" x2=\"250.83333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"291.6666666666667\" y1=\"26\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"332.5\" y1=\"26\" x2=\"332.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"373.33333333333337\" y1=\"26\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"414.1666666666667\" y1=\"26\" x2=\"414.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"455.0\" y1=\"26\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"495.83333333333337\" y1=\"26\" x2=\"495.83333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"536.6666666666667\" y1=\"26\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"618.3333333333334\" y1=\"26\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"659.1666666666667\" y1=\"26\" x2=\"659.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"700.0\" y1=\"26\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Alertes Tech Inactivité HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"37\" width=\"118.5\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.32\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"271.25\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S3</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Chasse & Recrutement CSM PME</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RH / VP Sales</text>\n        \n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.32\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S4</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Onboarding & Sauvetage 20 PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / RevOps</text>\n        \n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#EF4444\" fill-opacity=\"0.32\" stroke=\"#EF4444\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S5 - S8</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Industrialisation QBRs & CSAT</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM Dédié</text>\n        \n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#8B5CF6\" fill-opacity=\"0.32\" stroke=\"#8B5CF6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S7 - S10</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Campagnes Expansion NRR > 110%</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / Sales</text>\n        \n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.32\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S9 - S12</text>\n        \n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#F59E0B\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#F59E0B\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Recrutement CSM</text>\n      \n      <!-- Milestone J+60 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#EF4444\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#EF4444\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+60 : 400 k€ Churn Sauvé</text>\n      \n      <!-- Milestone J+90 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+90 : NRR &gt; 110% (+1,45M$)</text>\n    </svg>",
+    "svg": "<svg viewBox=\"0 0 720 220\" width=\"100%\" height=\"220\" style=\"display:block; overflow:visible;\">\n      <!-- Grid header -->\n      <rect x=\"0\" y=\"0\" width=\"720\" height=\"26\" fill=\"rgba(0,0,0,0.35)\" rx=\"4\"/>\n      <text x=\"15\" y=\"17\" fill=\"#94A3B8\" font-size=\"9.5\" font-weight=\"800\">CHANTIER OPÉRATIONNEL (90J)</text>\n      <text x=\"150\" y=\"17\" fill=\"#64748B\" font-size=\"8.5\" font-weight=\"700\">RESPONSABLE</text>\n    \n        <rect x=\"210\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"291.6666666666667\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 1 (S1-S4)</text>\n        \n        <rect x=\"373.33333333333337\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"455.00000000000006\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 2 (S5-S8)</text>\n        \n        <rect x=\"536.6666666666667\" y=\"2\" width=\"163.33333333333334\" height=\"22\" fill=\"rgba(255,255,255,0.03)\" stroke=\"rgba(255,255,255,0.08)\" stroke-width=\"1\"/>\n        <text x=\"618.3333333333334\" y=\"17\" fill=\"#00E6A4\" font-size=\"9\" font-weight=\"800\" text-anchor=\"middle\">Mois 3 (S9-S12)</text>\n        <line x1=\"210.0\" y1=\"26\" x2=\"210.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"250.83333333333334\" y1=\"26\" x2=\"250.83333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"291.6666666666667\" y1=\"26\" x2=\"291.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"332.5\" y1=\"26\" x2=\"332.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"373.33333333333337\" y1=\"26\" x2=\"373.33333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"414.1666666666667\" y1=\"26\" x2=\"414.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"455.0\" y1=\"26\" x2=\"455.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"495.83333333333337\" y1=\"26\" x2=\"495.83333333333337\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"536.6666666666667\" y1=\"26\" x2=\"536.6666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"577.5\" y1=\"26\" x2=\"577.5\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"618.3333333333334\" y1=\"26\" x2=\"618.3333333333334\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"659.1666666666667\" y1=\"26\" x2=\"659.1666666666667\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/><line x1=\"700.0\" y1=\"26\" x2=\"700.0\" y2=\"185\" stroke=\"rgba(255,255,255,0.05)\" stroke-width=\"1\"/>\n        <text x=\"15\" y=\"48\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">1. Alertes Tech Inactivité HubSpot</text>\n        <text x=\"150\" y=\"48\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">Lead RevOps</text>\n        \n        <rect x=\"210\" y=\"36\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"37\" width=\"118.5\" height=\"16\" fill=\"#3B82F6\" fill-opacity=\"0.32\" stroke=\"#3B82F6\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"271.25\" y=\"48\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S3</text>\n        \n        <text x=\"15\" y=\"76\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">2. Chasse & Recrutement CSM PME</text>\n        <text x=\"150\" y=\"76\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">RH / VP Sales</text>\n        \n        <rect x=\"210\" y=\"64\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"212.0\" y=\"65\" width=\"159.33333333333334\" height=\"16\" fill=\"#F59E0B\" fill-opacity=\"0.32\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"291.6666666666667\" y=\"76\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S1 - S4</text>\n        \n        <text x=\"15\" y=\"104\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">3. Onboarding & Sauvetage 20 PME</text>\n        <text x=\"150\" y=\"104\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / RevOps</text>\n        \n        <rect x=\"210\" y=\"92\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"375.33333333333337\" y=\"93\" width=\"159.33333333333334\" height=\"16\" fill=\"#EF4444\" fill-opacity=\"0.32\" stroke=\"#EF4444\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"455.00000000000006\" y=\"104\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S5 - S8</text>\n        \n        <text x=\"15\" y=\"132\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">4. Industrialisation QBRs & CSAT</text>\n        <text x=\"150\" y=\"132\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM Dédié</text>\n        \n        <rect x=\"210\" y=\"120\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"457.0\" y=\"121\" width=\"159.33333333333334\" height=\"16\" fill=\"#0284C7\" fill-opacity=\"0.32\" stroke=\"#0284C7\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"536.6666666666666\" y=\"132\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S7 - S10</text>\n        \n        <text x=\"15\" y=\"160\" fill=\"#E2E8F0\" font-size=\"9\" font-weight=\"700\">5. Campagnes Expansion NRR > 110%</text>\n        <text x=\"150\" y=\"160\" fill=\"#94A3B8\" font-size=\"8\" font-weight=\"600\">CSM / Sales</text>\n        \n        <rect x=\"210\" y=\"148\" width=\"490\" height=\"18\" fill=\"rgba(255,255,255,0.02)\" rx=\"4\"/>\n        <rect x=\"538.6666666666667\" y=\"149\" width=\"159.33333333333334\" height=\"16\" fill=\"#00E6A4\" fill-opacity=\"0.32\" stroke=\"#00E6A4\" stroke-width=\"1.5\" rx=\"4\"/>\n        <text x=\"618.3333333333334\" y=\"160\" fill=\"#FFFFFF\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">S9 - S12</text>\n        \n      <line x1=\"210\" y1=\"188\" x2=\"700\" y2=\"188\" stroke=\"#00E6A4\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      \n      <!-- Milestone J+30 -->\n      <polygon points=\"373.33333333333337,183 378.33333333333337,188 373.33333333333337,193 368.33333333333337,188\" fill=\"#F59E0B\"/>\n      <text x=\"373.33333333333337\" y=\"205\" fill=\"#F59E0B\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+30 : Recrutement CSM</text>\n      \n      <!-- Milestone J+60 -->\n      <polygon points=\"536.6666666666667,183 541.6666666666667,188 536.6666666666667,193 531.6666666666667,188\" fill=\"#EF4444\"/>\n      <text x=\"536.6666666666667\" y=\"205\" fill=\"#EF4444\" font-size=\"8\" font-weight=\"800\" text-anchor=\"middle\">J+60 : 400 k€ Churn Sauvé</text>\n      \n      <!-- Milestone J+90 -->\n      <polygon points=\"700.0,183 705.0,188 700.0,193 695.0,188\" fill=\"#00E6A4\"/>\n      <text x=\"700.0\" y=\"205\" fill=\"#00E6A4\" font-size=\"8.5\" font-weight=\"900\" text-anchor=\"middle\">J+90 : NRR &gt; 110% (+1,45M$)</text>\n    </svg>",
     "tasks": [
       {
         "num": "2.1",
         "name": "Alertes Tech Inactivité HubSpot",
         "resp": "Lead RevOps",
-        "timing": "Mois 1 (S1 – S3)",
-        "output": "Webhooks Aircall ➔ HubSpot : alerte automatique dès qu'une PME passe sous 50 appels/sem."
+        "timing": "Mois 1 (S1 - S3)",
+        "output": "Webhooks Aircall &rarr; HubSpot : alerte automatique dès qu'une PME passe sous 50 appels/sem."
       },
       {
         "num": "2.2",
         "name": "Chasse & Recrutement CSM PME",
         "resp": "RH / VP Sales",
-        "timing": "Mois 1 (S1 – S4)",
+        "timing": "Mois 1 (S1 - S4)",
         "output": "Sourcing, entretiens de sélection et signature du contrat CSM (58 k€ chargés)."
       },
       {
         "num": "2.3",
         "name": "Onboarding & Sauvetage 20 PME",
         "resp": "CSM / RevOps",
-        "timing": "Mois 2 (S5 – S8)",
+        "timing": "Mois 2 (S5 - S8)",
         "output": "Prise de contact prioritaire sur les 20 comptes en alerte churn : 400 k€ d'ARR sauvés."
       },
       {
         "num": "2.4",
         "name": "Industrialisation QBRs & CSAT",
         "resp": "CSM Dédié",
-        "timing": "Mois 2 – 3 (S7 – S10)",
+        "timing": "Mois 2 - 3 (S7 - S10)",
         "output": "Mise en place des revues trimestrielles stratégiques et questionnaires de satisfaction."
       },
       {
         "num": "2.5",
         "name": "Campagnes Expansion NRR > 110%",
         "resp": "CSM / Head of Sales",
-        "timing": "Mois 3 (S9 – S12)",
+        "timing": "Mois 3 (S9 - S12)",
         "output": "Ajout de licences agents et numéros internationaux : sécurisation de +1,45 M$ d'ARR."
       }
     ],
@@ -4587,14 +4248,14 @@
         "name": "Solution 1 : Automatisation Lemlist TPE & Focus PME",
         "resp": "Sales & RevOps",
         "timing": "J+1 à J+45 (S1-S6)",
-        "output": "Libération immédiate de 4 200 h SDR et réallocation 100% PME ➔ +1,60 M$ d'ARR."
+        "output": "Libération immédiate de 4 200 h SDR et réallocation 100% PME &rarr; +1,60 M$ d'ARR."
       },
       {
         "num": "SOL 2",
         "name": "Solution 2 : Rétention & Expansion CSM PME",
         "resp": "CSM & Tech",
         "timing": "J+1 à J+90 (S1-S12)",
-        "output": "Recrutement CSM + Triggers inactivité HubSpot ➔ +1,45 M$ d'ARR sécurisé."
+        "output": "Recrutement CSM + Triggers inactivité HubSpot &rarr; +1,45 M$ d'ARR sécurisé."
       },
       {
         "num": "CODIR",
