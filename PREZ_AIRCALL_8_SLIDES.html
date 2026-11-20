@@ -701,32 +701,36 @@
     top: 0;
   }
 
-  /* RIGHT SIDEBAR: 6 BLOCS ARCHITECTURE */
+  /* RIGHT SIDEBAR: 6 RATIOS CALCULÉS EN DIRECT SUR LES DONNÉES LOOKER */
   .nine-blocks-sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 8px;
+    gap: 7px;
     height: 100%;
     padding-top: 36px;
-    min-width: 320px;
+    min-width: 330px;
   }
   .block-card {
     background: rgba(10, 40, 30, 0.75);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 14px;
+    border-radius: 9px;
+    padding: 7px 12px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     transition: all 0.2s ease;
+  }
+  .block-card:hover {
+    border-color: rgba(0, 230, 164, 0.4);
+    background: rgba(10, 45, 35, 0.9);
   }
   .block-card.highlight {
     border-color: var(--emerald-bright);
     background: rgba(0, 179, 136, 0.16);
   }
   .block-card-title {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 800;
     color: #FFF;
     display: flex;
@@ -739,17 +743,39 @@
     margin-right: 4px;
   }
   .block-card-badge {
-    font-size: 9.5px;
+    font-size: 8.5px;
     font-weight: 800;
     color: var(--emerald-bright);
     background: rgba(0, 230, 164, 0.12);
-    padding: 2px 6px;
+    padding: 1.5px 5px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+  }
+  .ratio-main-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 1px 0;
+  }
+  .ratio-val-giant {
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--emerald-bright);
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+  .ratio-sub-badge {
+    font-size: 8.5px;
+    font-weight: 700;
+    color: #A3B8B0;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 1.5px 6px;
     border-radius: 4px;
   }
   .block-card-desc {
-    font-size: 10.5px;
+    font-size: 9.5px;
     color: var(--text-muted);
-    line-height: 1.3;
+    line-height: 1.25;
   }
   .dashboard-img-box::after {
     content: "Cliquer pour Agrandir en Plein Écran";
@@ -1638,7 +1664,7 @@
       </div>
       <div class="top-right-meta">
         
-        <span class="meta-pill">9 Composants Sans Chevauchement</span>
+        <span class="meta-pill">6 Ratios Clés Décisionnels</span>
         <span class="slide-num">04 / 08</span>
       </div>
     </div>
@@ -1646,11 +1672,11 @@
     <div class="content">
       <div class="header-block">
         <div class="header-badge">COCKPIT DÉCISIONNEL INTERACTIF</div>
-        <h2>Tableau de Bord Looker Studio : <span class="accent">Architecture 9 Blocs</span></h2>
-        <div class="subtitle">Zéro chevauchement, double filtrage dynamique et persistance Cloud intégrale.</div>
+        <h2>Tableau de Bord Looker Studio : <span class="accent">Données &amp; 6 Ratios Clés</span></h2>
+        <div class="subtitle">Cockpit interactif des 67k appels et calcul en temps réel des 6 ratios de conversion du funnel commercial.</div>
       </div>
 
-      <!-- 2 COLUMNS LAYOUT: HERO DASHBOARD (75%) + 6 BLOCKS SIDEBAR (25%) -->
+      <!-- 2 COLUMNS LAYOUT: HERO DASHBOARD (75%) + 6 RATIOS SIDEBAR (25%) -->
       <div class="dashboard-main-layout">
         
         <!-- LEFT: HERO DASHBOARD ZONE (WITHOUT BLACK BORDERS) -->
@@ -1671,54 +1697,78 @@
           </div>
         </div>
 
-        <!-- RIGHT: 6 BLOCS MOTS CLÉS EN COLONNE (UTILISE L'ESPACE DES ANCIENNES BORDURES NOIRES) -->
+        <!-- RIGHT: 6 RATIOS CALCULÉS EN DIRECT SUR LES DONNÉES LOOKER -->
         <div class="nine-blocks-sidebar">
           <div class="block-card">
             <div class="block-card-title">
-              <span><span class="block-card-num">1.</span> 4 Scorecards Macro</span>
-              <span class="block-card-badge">Haut</span>
+              <span><span class="block-card-num">1.</span> Taux de Décroché</span>
+              <span class="block-card-badge">Activité</span>
             </div>
-            <div class="block-card-desc">67k Appels · 11k Connects · 358 Deals · 3,68M€ ARR</div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">16,56 %</span>
+              <span class="ratio-sub-badge">Benchmark : 14%</span>
+            </div>
+            <div class="block-card-desc">11 190 décrochés sur 67 560 appels passés.</div>
           </div>
 
           <div class="block-card">
             <div class="block-card-title">
-              <span><span class="block-card-num">2.</span> 2 Listes Déroulantes</span>
-              <span class="block-card-badge">Milieu</span>
+              <span><span class="block-card-num">2.</span> Taux de Démo / Connect</span>
+              <span class="block-card-badge">Pitch SDR</span>
             </div>
-            <div class="block-card-desc">Filtres dynamiques par Segment Client &amp; Commercial.</div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">6,78 %</span>
+              <span class="ratio-sub-badge">759 Démos</span>
+            </div>
+            <div class="block-card-desc">759 démos calées sur 11 190 appels utiles.</div>
           </div>
 
           <div class="block-card">
             <div class="block-card-title">
-              <span><span class="block-card-num">3.</span> Segmentation Client</span>
-              <span class="block-card-badge">Centre G.</span>
+              <span><span class="block-card-num">3.</span> Taux de Closing Démo</span>
+              <span class="block-card-badge">Conversion AE</span>
             </div>
-            <div class="block-card-desc">Ventilation TPE vs PME vs MidMarket (Démos, RDV, ARR).</div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">47,17 %</span>
+              <span class="ratio-sub-badge">358 Signatures</span>
+            </div>
+            <div class="block-card-desc">358 contrats closés sur 759 démos présentées.</div>
           </div>
 
           <div class="block-card">
             <div class="block-card-title">
-              <span><span class="block-card-num">4.</span> Graphique ARR Canaux</span>
-              <span class="block-card-badge">Centre D.</span>
+              <span><span class="block-card-num">4.</span> Transformation Globale</span>
+              <span class="block-card-badge">Funnel Entier</span>
             </div>
-            <div class="block-card-desc">Comparatif Outbound ColdCall vs Partenaire CRM vs Inbound.</div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">0,53 %</span>
+              <span class="ratio-sub-badge">1 Deal / 189 Appels</span>
+            </div>
+            <div class="block-card-desc">358 signatures sur les 67 560 appels totaux.</div>
           </div>
 
           <div class="block-card">
             <div class="block-card-title">
-              <span><span class="block-card-num">5.</span> Grille 10 Commerciaux</span>
-              <span class="block-card-badge">Bas</span>
+              <span><span class="block-card-num">5.</span> Panier Moyen (ACV)</span>
+              <span class="block-card-badge">Valeur / Deal</span>
             </div>
-            <div class="block-card-desc">Performances individuelles de Camille (178 démos) à Maxime.</div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">10 291 €</span>
+              <span class="ratio-sub-badge">ARR Total : 3,68 M€</span>
+            </div>
+            <div class="block-card-desc">TPE : 3 725 € vs PME : 9 617 € vs Mid : 18 909 €.</div>
           </div>
 
           <div class="block-card highlight">
             <div class="block-card-title">
-              <span><span class="block-card-num">6.</span> Persistance Cloud</span>
-              <span class="block-card-badge" style="background:var(--emerald-bright); color:#061B14;">100% Stable</span>
+              <span><span class="block-card-num">6.</span> Part ARR Cœur PME</span>
+              <span class="block-card-badge" style="background:var(--emerald-bright); color:#061B14;">Cœur de Cible</span>
             </div>
-            <div class="block-card-desc">Zéro perte de données au rechargement de page.</div>
+            <div class="ratio-main-row">
+              <span class="ratio-val-giant">61,1 %</span>
+              <span class="ratio-sub-badge" style="color:var(--emerald-bright);">2 250 300 €</span>
+            </div>
+            <div class="block-card-desc">234 deals PME génèrent l'essentiel de l'ARR.</div>
           </div>
         </div>
 
