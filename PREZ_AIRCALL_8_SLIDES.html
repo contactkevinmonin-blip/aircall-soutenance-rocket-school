@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aircall — Soutenance RevOps & Performance Commerciale (8 Slides)</title>
+<title>Aircall — Soutenance RevOps & Performance Commerciale (9 Slides)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -309,6 +309,151 @@
     color: #F87171;
     border-color: rgba(239, 68, 68, 0.3);
   }
+
+  
+  /* SLIDE 3 (NOUVELLE) : BENCHMARK CONCURRENTIEL & SWOT */
+  .bench-swot-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+  }
+  
+  /* BENCHMARK GRID (3 CARDS) */
+  .benchmark-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .benchmark-col {
+    background: rgba(10, 40, 30, 0.65);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: all 0.2s ease;
+  }
+  .benchmark-col.highlight-aircall {
+    border-color: var(--emerald-bright);
+    background: rgba(0, 179, 136, 0.14);
+    box-shadow: 0 4px 20px rgba(0, 230, 164, 0.15);
+  }
+  .bench-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .bench-brand {
+    font-size: 13px;
+    font-weight: 900;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .bench-badge {
+    font-size: 8px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .bench-badge.green { background: rgba(0, 230, 164, 0.15); color: var(--emerald-bright); border: 1px solid rgba(0, 230, 164, 0.35); }
+  .bench-badge.blue { background: rgba(59, 130, 246, 0.15); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.35); }
+  .bench-badge.amber { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.35); }
+  .bench-row {
+    font-size: 9.5px;
+    color: #CBD5E1;
+    line-height: 1.35;
+  }
+  .bench-row strong { color: #FFFFFF; }
+  .bench-verdict {
+    margin-top: auto;
+    font-size: 9px;
+    font-weight: 700;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .bench-verdict.green { color: var(--emerald-bright); }
+  .bench-verdict.blue { color: #93C5FD; }
+  .bench-verdict.amber { color: #FDE68A; }
+
+  /* SWOT GRID (2x2) */
+  .swot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    flex: 1;
+    min-height: 0;
+  }
+  .swot-box {
+    background: rgba(10, 36, 28, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .swot-box.s-box { border-left: 3.5px solid var(--emerald-bright); }
+  .swot-box.w-box { border-left: 3.5px solid #EF4444; }
+  .swot-box.o-box { border-left: 3.5px solid #3B82F6; }
+  .swot-box.t-box { border-left: 3.5px solid #F59E0B; }
+  
+  .swot-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .swot-title {
+    font-size: 11px;
+    font-weight: 900;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .swot-tag {
+    font-size: 8px;
+    font-weight: 800;
+    padding: 1.5px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .tag-s { background: rgba(0, 230, 164, 0.15); color: var(--emerald-bright); }
+  .tag-w { background: rgba(239, 68, 68, 0.15); color: #F87171; }
+  .tag-o { background: rgba(59, 130, 246, 0.15); color: #60A5FA; }
+  .tag-t { background: rgba(245, 158, 11, 0.15); color: #FBBF24; }
+  
+  .swot-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+  }
+  .swot-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 9.5px;
+    color: #CBD5E1;
+    line-height: 1.35;
+  }
+  .swot-bullet-icon {
+    font-size: 10px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 900;
+  }
+  .swot-item strong { color: #FFFFFF; font-weight: 800; }
 
   /* SLIDE 2 : GOUVERNANCE */
   .gov-flow-container {
@@ -1681,7 +1826,7 @@
       <div class="top-right-meta">
         
         <span class="meta-pill">Licorne Téléphonie Cloud</span>
-        <span class="slide-num">01 / 08</span>
+        <span class="slide-num">01 / 09</span>
       </div>
     </div>
 
@@ -1761,7 +1906,7 @@
       <div class="top-right-meta">
         
         <span class="meta-pill">Alignement CoDir</span>
-        <span class="slide-num">02 / 08</span>
+        <span class="slide-num">02 / 09</span>
       </div>
     </div>
 
@@ -1845,6 +1990,171 @@
   </div>
 
   <!-- =========================================================
+       SLIDE 3 : POSITIONNEMENT & SWOT (AIRCALL VS RINGOVER VS ALLO)
+       ========================================================= -->
+  <div class="slide">
+    <div class="top-row">
+      <div class="brand-lockup">
+        <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
+        <div class="divider-v"></div>
+        <span class="step-tag">03 · BENCHMARK &amp; SWOT</span>
+      </div>
+      <div class="top-right-meta">
+        <span class="meta-pill">Veille Concurrentielle</span>
+        <span class="slide-num">03 / 09</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header-block" style="margin-bottom:8px;">
+        <div class="header-badge">BENCHMARK CONCURRENTIEL &amp; ANALYSE SWOT</div>
+        <h2>Positionnement Marché : <span class="accent">Aircall vs Ringover vs Allo</span></h2>
+        <div class="subtitle">Pourquoi Aircall gagne sur les PME connectées, et comment contrer l'agressivité tarifaire sur la TPE.</div>
+      </div>
+
+      <div class="bench-swot-layout">
+        
+        <!-- SECTION 1 : BENCHMARK 3 ACTEURS CLÉS -->
+        <div class="benchmark-strip">
+          
+          <!-- AIRCALL (NOUS) -->
+          <div class="benchmark-col highlight-aircall">
+            <div class="bench-header">
+              <span class="bench-brand">Aircall <span style="font-size:9.5px; font-weight:800; color:var(--emerald-bright);">(Notre Modèle)</span></span>
+              <span class="bench-badge green">Leader Intégrations</span>
+            </div>
+            <div class="bench-row"><strong>Cible :</strong> PME (20-250 sal.) &amp; International</div>
+            <div class="bench-row"><strong>Force :</strong> <strong>+100 intégrations natives</strong> (HubSpot, Salesforce, Zendesk)</div>
+            <div class="bench-row"><strong>Modèle :</strong> SaaS Premium (30 € à 50 € / mois / agent)</div>
+            <div class="bench-verdict green">✓ Intouchable sur les équipes équipées d'un CRM.</div>
+          </div>
+
+          <!-- RINGOVER -->
+          <div class="benchmark-col">
+            <div class="bench-header">
+              <span class="bench-brand">Ringover</span>
+              <span class="bench-badge blue">Suite Tout-en-Un</span>
+            </div>
+            <div class="bench-row"><strong>Cible :</strong> TPE &amp; PME Françaises</div>
+            <div class="bench-row"><strong>Force :</strong> Tarif agressif dès 21 €/m (Voix + SMS + Visio + IA)</div>
+            <div class="bench-row"><strong>Faiblesse :</strong> Catalogue d'intégrations beaucoup plus restreint</div>
+            <div class="bench-verdict blue">— Challenger prix très actif sur les petits parcs.</div>
+          </div>
+
+          <!-- ALLO -->
+          <div class="benchmark-col">
+            <div class="bench-header">
+              <span class="bench-brand">Allo</span>
+              <span class="bench-badge amber">Low-Cost &amp; PLG</span>
+            </div>
+            <div class="bench-row"><strong>Cible :</strong> Micro-entreprises &amp; TPE (&lt; 10 salariés)</div>
+            <div class="bench-row"><strong>Force :</strong> Installation en 3 minutes, souscription 100% web</div>
+            <div class="bench-row"><strong>Faiblesse :</strong> Zéro profondeur analytique, pas de routage complexe</div>
+            <div class="bench-verdict amber">— Rafle les TPE sans aucun commercial humain.</div>
+          </div>
+
+        </div>
+
+        <!-- SECTION 2 : MATRICE SWOT SYNTHÉTIQUE (PESTEL / PORTER / BMC) -->
+        <div class="swot-grid">
+          
+          <!-- FORCES -->
+          <div class="swot-box s-box">
+            <div class="swot-head">
+              <span class="swot-title" style="color:var(--emerald-bright);">1. Forces (Nos Super-Pouvoirs)</span>
+              <span class="swot-tag tag-s">Interne +</span>
+            </div>
+            <div class="swot-bullets">
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:var(--emerald-bright);">✓</span>
+                <span><strong>Catalogue de +100 intégrations CRM natives</strong> : rétention client maximale une fois branché dans HubSpot/Salesforce.</span>
+              </div>
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:var(--emerald-bright);">✓</span>
+                <span><strong>Taux de closing AE exceptionnel (47,2%)</strong> : 1 démo sur 2 signe, efficacité commerciale bien supérieure au marché.</span>
+              </div>
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:var(--emerald-bright);">✓</span>
+                <span><strong>Marque licorne mondiale de confiance</strong> : 250 M$ d'ARR, 85 000+ utilisateurs quotidiens dans plus de 100 pays.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAIBLESSES -->
+          <div class="swot-box w-box">
+            <div class="swot-head">
+              <span class="swot-title" style="color:#F87171;">2. Faiblesses (Nos Freins Directs)</span>
+              <span class="swot-tag tag-w">Interne —</span>
+            </div>
+            <div class="swot-bullets">
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:#EF4444;">—</span>
+                <span><strong>Gaspillage d'effort sur la TPE</strong> : 42% des appels passés pour seulement 13,8% du revenu global généré.</span>
+              </div>
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:#EF4444;">—</span>
+                <span><strong>Zéro CSM dédié sur la PME</strong> : 2,25 M€ d'ARR (61% du CA) exposés au risque de churn sans accompagnement proactif.</span>
+              </div>
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:#EF4444;">—</span>
+                <span><strong>Absence de canal 100% digital</strong> : vente assistée lourde même pour les petits forfaits de démarrage.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- OPPORTUNITÉS -->
+          <div class="swot-box o-box">
+            <div class="swot-head">
+              <span class="swot-title" style="color:#60A5FA;">3. Opportunités (À Saisir Vite)</span>
+              <span class="swot-tag tag-o">Externe +</span>
+            </div>
+            <div class="swot-bullets">
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:#3B82F6;">➔</span>
+                <span><strong>Bascule de la TPE en Self-Serve (PLG)</strong> : vente en ligne en 3 clics pour contrer directement Allo sans coût SDR.</span>
+              </div>
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:#3B82F6;">➔</span>
+                <span><strong>Boom du travail hybride &amp; IA vocale</strong> : résumé automatique des appels, coaching IA et transcription temps réel.</span>
+              </div>
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:#3B82F6;">➔</span>
+                <span><strong>Expansion sur la base PME installée</strong> : ajout continu de licences agents et numéros internationaux (NRR &gt; 110%).</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- MENACES -->
+          <div class="swot-box t-box">
+            <div class="swot-head">
+              <span class="swot-title" style="color:#FBBF24;">4. Menaces (Ce Qui Nous Guette)</span>
+              <span class="swot-tag tag-t">Externe —</span>
+            </div>
+            <div class="swot-bullets">
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:#F59E0B;">!</span>
+                <span><strong>Guerre des prix de Ringover et Allo</strong> sur les petits comptes (&lt; 20 salariés) avec des forfaits à bas coût.</span>
+              </div>
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:#F59E0B;">!</span>
+                <span><strong>Durcissement des lois anti-démarchage</strong> : régulation ARCEP / Bloctel et blocage des appels sortants à froid.</span>
+              </div>
+              <div class="swot-item">
+                <span class="swot-bullet-icon" style="color:#F59E0B;">!</span>
+                <span><strong>Menace de substitution</strong> : intégration native de téléphonie basique dans Microsoft Teams et Zoom Phone.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- =========================================================
        SLIDE 3 : PROBLÉMATIQUE (TROP DE KPI TUE LE KPI)
        ========================================================= -->
   <div class="slide">
@@ -1852,12 +2162,12 @@
       <div class="brand-lockup">
         <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
         <div class="divider-v"></div>
-        <span class="step-tag">03 · PROBLÉMATIQUE DATA</span>
+        <span class="step-tag">04 · PROBLÉMATIQUE DATA</span>
       </div>
       <div class="top-right-meta">
         
         <span class="meta-pill">Entonnoir Décisionnel</span>
-        <span class="slide-num">03 / 08</span>
+        <span class="slide-num">04 / 09</span>
       </div>
     </div>
 
@@ -1981,12 +2291,12 @@
       <div class="brand-lockup">
         <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
         <div class="divider-v"></div>
-        <span class="step-tag">04 · PILOTAGE DATA STUDIO</span>
+        <span class="step-tag">05 · PILOTAGE DATA STUDIO</span>
       </div>
       <div class="top-right-meta">
         
         <span class="meta-pill">6 Ratios Clés Décisionnels</span>
-        <span class="slide-num">04 / 08</span>
+        <span class="slide-num">05 / 09</span>
       </div>
     </div>
 
@@ -2123,11 +2433,11 @@
       <div class="brand-lockup">
         <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
         <div class="divider-v"></div>
-        <span class="step-tag">05 · ARBITRAGE STRATÉGIQUE N°1</span>
+        <span class="step-tag">06 · ARBITRAGE STRATÉGIQUE N°1</span>
       </div>
       <div class="top-right-meta">
         <span class="meta-pill">Réallocation Commerciale</span>
-        <span class="slide-num">05 / 08</span>
+        <span class="slide-num">06 / 09</span>
       </div>
     </div>
 
@@ -2250,11 +2560,11 @@
       <div class="brand-lockup">
         <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
         <div class="divider-v"></div>
-        <span class="step-tag">06 · ARBITRAGE STRATÉGIQUE N°2</span>
+        <span class="step-tag">07 · ARBITRAGE STRATÉGIQUE N°2</span>
       </div>
       <div class="top-right-meta">
         <span class="meta-pill">Sécurisation ARR PME</span>
-        <span class="slide-num">06 / 08</span>
+        <span class="slide-num">07 / 09</span>
       </div>
     </div>
 
@@ -2377,12 +2687,12 @@
       <div class="brand-lockup">
         <img src="aircall_logo_official_trimmed.png" alt="Aircall" class="brand-logo-img">
         <div class="divider-v"></div>
-        <span class="step-tag">07 · SYNTHÈSE GLOBALE &amp; ROI</span>
+        <span class="step-tag">08 · SYNTHÈSE GLOBALE &amp; ROI</span>
       </div>
       <div class="top-right-meta">
         
         <span class="meta-pill">Impact CoDir 2026</span>
-        <span class="slide-num">07 / 08</span>
+        <span class="slide-num">08 / 09</span>
       </div>
     </div>
 
@@ -2446,7 +2756,7 @@
       <div class="top-right-meta">
         
         <span class="meta-pill">Origine Certifiée</span>
-        <span class="slide-num">08 / 08</span>
+        <span class="slide-num">09 / 09</span>
       </div>
     </div>
 
@@ -2509,6 +2819,7 @@
     <button type="button" class="nav-dot" data-slide="5">6</button>
     <button type="button" class="nav-dot" data-slide="6">7</button>
     <button type="button" class="nav-dot" data-slide="7">8</button>
+    <button type="button" class="nav-dot" data-slide="8">9</button>
   </div>
   <button type="button" class="bottom-nav-btn" id="btnNext">Suivant ▶</button>
   <div class="divider-nav-v"></div>
@@ -2544,7 +2855,7 @@
       }
     });
 
-    if (currentSlide === 3 && typeof fitLookerIframe === 'function') {
+    if (currentSlide === 4 && typeof fitLookerIframe === 'function') {
       setTimeout(fitLookerIframe, 80);
     }
   }
@@ -2572,7 +2883,7 @@
         btnDeckFs.innerHTML = '⛶ Plein Écran';
         btnDeckFs.classList.remove('active-fs');
       }
-      if (currentSlide === 3 && typeof fitLookerIframe === 'function') {
+      if (currentSlide === 4 && typeof fitLookerIframe === 'function') {
         setTimeout(fitLookerIframe, 150);
       }
     });

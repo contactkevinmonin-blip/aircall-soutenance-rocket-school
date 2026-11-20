@@ -15,7 +15,7 @@
 6. [Les 2 Arbitrages Stratégiques Chiffrés (Vision Purement ROIste)](#6-les-2-arbitrages-stratégiques-chiffrés-vision-purement-roiste)
 7. [Architecture Technique Looker Studio : Les 9 Composants Sans Chevauchement](#7-architecture-technique-looker-studio--les-9-composants-sans-chevauchement)
 8. [Les 6 Livrables A4 Officiels Demi-Journée par Demi-Journée](#8-les-6-livrables-a4-officiels-demi-journée-par-demi-journée)
-9. [Déroulé Exhaustif de la Présentation en 8 Slides Ultra-Épurées](#9-déroulé-exhaustif-de-la-présentation-en-8-slides-ultra-épurées)
+9. [Déroulé Exhaustif de la Présentation en 9 Slides Ultra-Épurées](#9-déroulé-exhaustif-de-la-présentation-en-9-slides-ultra-épurées)
 10. [Matrice de Transparence & Traçabilité des Données (3 Sources)](#10-matrice-de-transparence--traçabilité-des-données-3-sources)
 11. [Script Oral Chronométré de Soutenance (15 Minutes) & FAQ Jury](#11-script-oral-chronométré-de-soutenance-15-minutes--faq-jury)
 
@@ -36,6 +36,61 @@
 * **ARR Total signé :** 3 684 000,00 €
 * **Panier moyen global (ACV) :** 10 290,50 €
 * **Durée moyenne du cycle de vente :** 34,5 jours
+
+### ⚔️ Diagnostic Stratégique Approfondi : Benchmark Concurrentiel, PESTEL, Porter, BMC & SWOT
+
+#### 1. Benchmark Concurrentiel Multi-Critères : Aircall vs Ringover vs Allo
+| Critère d'Analyse | Aircall (Notre Positionnement) | Ringover (Challenger Français) | Allo (Outsider Low-Cost & PLG) |
+| :--- | :--- | :--- | :--- |
+| **Segment Cible** | **PME (20–250 sal.) & Mid-Market** | TPE & PME France (10–100 sal.) | Micro-entreprises & TPE (<10 sal.) |
+| **Tarification** | **30 € à 50 € / mois / siège** (SaaS Premium) | Dès **21 € / mois** (Forfait tout-en-un agressif) | Dès **9 € à 19 € / mois** (Forfait plancher) |
+| **Catalogue Intégrations** | **+100 intégrations natives** (HubSpot, Salesforce, Zendesk, Slack) | ~25 intégrations · Connecteurs moins profonds | Moins de 5 intégrations basiques · Zéro profondeur |
+| **Modèle d'Acquisition** | Sales-Led Outbound (SDR ➔ Démo AE) | Mix Inbound & Outbound agressif | **100% Product-Led Growth (Self-Serve web)** |
+| **Envergure & ARR** | **+100 pays**, Licorne mondiale, ~250 M$ ARR | France, Espagne, UK, ~40 M€ ARR | France uniquement, phase d'amorçage |
+| **Arbitrage RevOps** | **Abandonner la guerre des prix sur la TPE** pour sanctuariser la PME à forte valeur | Contrer leur agressivité en ancrant la voix dans les workflows métiers du client | **Adopter leur playbook PLG** (souscription 100% web) pour absorber la TPE sans coût SDR |
+
+#### 2. Analyse Macro-Environnementale PESTEL
+* **Politique & Légal (P / L) :** Encadrement sévère du démarchage téléphonique en France et en Europe (Loi Naegelen, Bloctel, régulation ARCEP restreignant les préfixes d'appels automatisés 0162/0163). Le cold calling massif à froid devient de plus en plus risqué juridiquement et de moins en moins efficace.
+* **Économique (E) :** Climat macroéconomique post-2023 marqué par la fin de l'argent gratuit, l'exigence de rentabilité EBITDA+ et la rationalisation des budgets SaaS dans les PME. Chaque dépense doit afficher un ROI net mesurable.
+* **Socioculturel (S) :** Adoption irréversible du travail hybride et des équipes distribuées. Le téléphone fixe de bureau a disparu au profit des applications softphone cloud utilisables partout.
+* **Technologique (T) :** Arrivée fulgurante de l'IA vocale générative (transcription automatique, résumés d'appels, détection de sentiments, scoring qualité).
+* **Écologique (E) :** Exigence de sobriété numérique : dématérialisation totale du matériel téléphonique, réduction de l'empreinte carbone via les infrastructures cloud optimisées.
+
+#### 3. Analyse de l'Intensité Concurrentielle (5 Forces de Porter)
+* **1. Rivalité Intra-Sectorielle (Forte) :** Présence agressive de Ringover sur le marché francophone et de Dialpad/Zoom Phone à l'international, exerçant une pression baissière sur les prix des petits parcs.
+* **2. Menace des Nouveaux Entrants (Moyenne) :** Barrières à l'entrée techniques et réglementaires élevées (licences télécoms, accords d'interconnexion mondiaux, conformité RGPD/SOC2, qualité de service VoIP sans latence).
+* **3. Menace des Produits de Substitution (Élevée) :** Offres collaboratives généralistes (Microsoft Teams Phone, Zoom Phone, Google Meet) cherchant à cannibaliser la téléphonie basique des entreprises.
+* **4. Pouvoir de Négociation des Clients (Moyen à Fort) :** Faible sur la TPE qui se contente de comparer les prix, mais très fort sur la PME qui exige un service irréprochable et un accompagnement post-vente sous peine de churn.
+* **5. Pouvoir de Négociation des Fournisseurs (Moyen) :** Dépendance technologique vis-à-vis des opérateurs d'infrastructure télécoms sous-jacents (Twilio, carriers tier-1) et des clouds hôtes (AWS).
+
+#### 4. Business Model Canvas (BMC) Aircall en 9 Blocs
+1. **Partenaires Clés :** Écosystèmes CRM majeurs (HubSpot, Salesforce, Zendesk), opérateurs de routage télécoms (Twilio), intégrateurs et consultants RevOps.
+2. **Activités Clés :** Développement logiciel VoIP et APIs connecteurs, maintenance de l'infrastructure voix haute disponibilité, Customer Success proactif.
+3. **Ressources Clés :** Plateforme applicative propriétaire, algorithmes de routage, marque licorne globale, données d'appels propriétaires.
+4. **Proposition de Valeur :** *« Le système téléphonique 100% cloud intégré nativement au CRM »* : élimination de la saisie manuelle, journalisation automatique, visibilité totale sur le funnel commercial en temps réel.
+5. **Relations Clients :** Vente assistée & High-Touch CSM sur le segment PME (sécurisation ARR), parcours automatisé Self-Serve (PLG) sur la TPE.
+6. **Canaux :** AppExchange Salesforce, HubSpot Marketplace, prospection ciblée outbound SDR, site web aircall.io.
+7. **Segments de Clientèle :** Cœur de cible PME 20–250 salariés (61,1 % de l'ARR), Relais de croissance Mid-Market (25,1 % de l'ARR), Segment résiduel TPE <20 salariés (13,8 % de l'ARR).
+8. **Structure de Coûts :** Masse salariale commerciale (SDRs, AEs, CSM), équipe R&D produit, coûts d'interconnexion télécoms et hébergement cloud.
+9. **Flux de Revenus :** Abonnements récurrents annuels/mensuels (ARR) par utilisateur (30–50 €/mois) + forfaits d'appels internationaux et numéros additionnels + modules d'intelligence conversationnelle.
+
+#### 5. Matrice SWOT Stratégique Consolidée
+* **Forces (Strengths) :**
+  * +100 intégrations CRM natives (véritable "moat" technologique créant une rétention maximale).
+  * Taux de closing AE d'exception (47,17 %) : près d'1 démo sur 2 se traduit par un contrat signé.
+  * Marque licorne de premier plan mondial (250 M$ ARR, rentable et reconnue).
+* **Faiblesses (Weaknesses) :**
+  * Gaspillage d'énergie commercial sur la TPE (42,3 % des appels passés pour seulement 13,8 % de l'ARR).
+  * Absence critique de Customer Success sur la PME : 2,25 M€ d'ARR laissés sans aucun suivi proactif (20 % de churn potentiel).
+  * Absence de parcours de vente en ligne autonome (chaque client mobilise un SDR et un AE).
+* **Opportunités (Opportunities) :**
+  * Basculement de la TPE en Product-Led Growth (Self-Serve web) pour capter le volume à coût SDR nul face à Allo.
+  * Déploiement de modules d'IA vocale (transcription automatique, scoring de pitch, détection d'objections).
+  * Expansion du compte moyen PME (upsell de licences et numéros pour un Net Retention Rate > 110 %).
+* **Menaces (Threats) :**
+  * Pression tarifaire agressive de Ringover (21 €) et Allo (forfaits planchers) sur les petits parcs.
+  * Régulation anti-démarchage croissante (effondrement programmé du taux de décroché cold call).
+  * Substituts bureautiques intégrés (Microsoft Teams / Zoom) captant la téléphonie d'appoint.
 
 ---
 
@@ -292,14 +347,14 @@ Chaque demi-journée d'examen correspond à un livrable A4 normalisé, accessibl
 
 ---
 
-## 9. DÉROULÉ EXHAUSTIF DE LA PRÉSENTATION EN 8 SLIDES ULTRA-ÉPURÉES
+## 9. DÉROULÉ EXHAUSTIF DE LA PRÉSENTATION EN 9 SLIDES ULTRA-ÉPURÉES
 
-Fichier généré : [PREZ_AIRCALL_8_SLIDES.html](file:///Users/kevinmonin/aircall-soutenance-prez/PREZ_AIRCALL_8_SLIDES.html)  
+Fichier généré : [PREZ_AIRCALL_8_SLIDES.html](file:///Users/kevinmonin/Desktop/Aircall%202/PREZ_AIRCALL_8_SLIDES.html)  
 Charte graphique : **Fond sombre (#061B14 / #0A281E), typographie blanche (#FFFFFF), accent vert Aircall (#00B388 / #00E6A4)**.  
 Règle éditoriale absolue : **Zéro phrase longue, aucun paragraphe dense, mots simples et chiffres clés percutants.**
 
 ### 🟢 Slide 1 : Identité Aircall (4 Chiffres Clés)
-* **En-tête :** `aircall.` | 01 · IDENTITÉ OFFICIELLE | Licorne Téléphonie Cloud
+* **En-tête :** `aircall.` | 01 · IDENTITÉ OFFICIELLE | Licorne Téléphonie Cloud | 01 / 09
 * **Titre :** Aircall en **4 Chiffres Clés**
 * **Sous-titre :** Standard téléphonique cloud connecté nativement aux CRM — Modèle SaaS B2B mondial.
 * **Grille 4 cartes métriques :**
@@ -309,7 +364,7 @@ Règle éditoriale absolue : **Zéro phrase longue, aucun paragraphe dense, mots
   4. `EBITDA +` | Modèle Rentable (Cash-flow opérationnel positif validé dès 2024, Rule of 40)
 
 ### 🟢 Slide 2 : Gouvernance & Cadrage (3 Décideurs + Cheminement)
-* **En-tête :** `aircall.` | 02 · GOUVERNANCE & CADRAGE | Alignement CoDir
+* **En-tête :** `aircall.` | 02 · GOUVERNANCE & CADRAGE | Alignement CoDir | 02 / 09
 * **Titre :** Les 3 Décideurs CoDir & **Cheminement Cadré**
 * **Sous-titre :** Validation tripartite indispensable pour engager les arbitrages de croissance.
 * **Bloc Haut (3 Silhouettes directeurs) :**
@@ -319,8 +374,22 @@ Règle éditoriale absolue : **Zéro phrase longue, aucun paragraphe dense, mots
 * **Bloc Bas (Cheminement linéaire) :**
   `1. Cadrage Périmètre (10 SDRs / 12 Mois)` ➔ `2. Cartographie des Flux Data & Funnel` ➔ `3. Validation CoDir & Arbitrages ROIstes`
 
-### 🟢 Slide 3 : Problématique (« Trop de KPI tue les KPI »)
-* **En-tête :** `aircall.` | 03 · PROBLÉMATIQUE DATA | Entonnoir Décisionnel
+### 🟢 Slide 3 : Benchmark Concurrentiel Express & Matrice SWOT
+* **En-tête :** `aircall.` | 03 · BENCHMARK & SWOT | Veille Concurrentielle | 03 / 09
+* **Titre :** Veille Concurrentielle : **Benchmark Express & Analyse SWOT**
+* **Sous-titre :** Positionnement face à Ringover et Allo — Synthèse visuelle PESTEL, Porter & BMC.
+* **Zone Haute (Benchmark Express 3 Acteurs Clés) :**
+  * *Aircall (Notre Modèle)* : PME (20-250 sal.) & International · Force : +100 intégrations CRM natives · Tarif : 30-50 €/mois/agent · **Verdict : Intouchable sur équipes avec CRM.**
+  * *Ringover (Challenger Français)* : TPE & PME France · Forfait agressif dès 21 €/m (Voix + SMS + Visio + IA Empower) · Faiblesse : Catalogue d'intégrations restreint · **Verdict : Challenger prix très actif sur petits parcs.**
+  * *Allo (Outsider Low-Cost & PLG)* : Micro & TPE (<10 sal.) · Installation en 3 min, 100% web (PLG) · Faiblesse : Zéro profondeur analytique · **Verdict : Rafle les TPE sans aucun commercial humain.**
+* **Zone Basse (SWOT Ludique & Percutant) :**
+  * 🟢 **Forces (Interne +)** : +100 intégrations CRM natives (BMC Partenariats), Closing AE à 47,2%, Marque Licorne mondiale (250 M$ ARR).
+  * 🔴 **Faiblesses (Interne —)** : Vampirisation TPE (42% d'appels pour 13,8% d'ARR), 0 CSM dédié sur la PME (2,25 M€ exposés), Vente humaine systématique (0 PLG).
+  * 🟡 **Opportunités (Externe +)** : Vente TPE 100% en ligne (Self-Serve PLG pour contrer Allo), Boom travail hybride & IA vocale (PESTEL), Expansion PME (NRR > 110%).
+  * 🟠 **Menaces (Externe —)** : Guerre des prix Ringover/Allo sur la TPE (Porter Rivalité), Durcissement lois anti-démarchage ARCEP/Bloctel (PESTEL Légal), Téléphonie basique Teams/Zoom (Porter Substituts).
+
+### 🟢 Slide 4 : Problématique (« Trop de KPI tue les KPI »)
+* **En-tête :** `aircall.` | 04 · PROBLÉMATIQUE DATA | Entonnoir Décisionnel | 04 / 09
 * **Titre :** « Trop de KPI tue les KPI » : **L'Entonnoir Décisionnel**
 * **Sous-titre :** Comment extraire la clarté stratégique d'une masse de métriques brutes.
 * **Visuel Pyramide Inversée :**
@@ -331,57 +400,47 @@ Règle éditoriale absolue : **Zéro phrase longue, aucun paragraphe dense, mots
   * `🚨 Problème 1 : Dispersion d'Énergie sur la TPE` ➔ 42% Effort pour 6% ARR.
   * `🚨 Problème 2 : Risque de Churn Massif sur la PME` ➔ 20% Churn = 400 k€ Fuite.
 
-### 🟢 Slide 4 : Vision Aircall — Pilotage Data (Looker Studio)
-* **En-tête :** `aircall.` | 04 · PILOTAGE DATA STUDIO | 9 Composants Sans Chevauchement
-* **Titre :** Tableau de Bord Looker Studio : **Architecture 9 Blocs**
-* **Sous-titre :** Zéro chevauchement, double filtrage dynamique et persistance Cloud intégrale.
-* **Ruban Horizontal Supérieur (6 Composants) :**
-  `1. 4 Scorecards (67k, 11k, 358, 3,68M€)` · `2. 2 Filtres Déroulants (Segment, SDR)` · `3. Segmentation TPE/PME/Mid` · `4. Canaux ARR` · `5. Grille 10 Commerciaux` · `6. Persistance Cloud 100%`
+### 🟢 Slide 5 : Vision Aircall — Pilotage Data (Looker Studio + Zoom KPI)
+* **En-tête :** `aircall.` | 05 · PILOTAGE DATA STUDIO | 9 Composants Sans Chevauchement | 05 / 09
+* **Titre :** Tableau de Bord Looker Studio : **Architecture 9 Blocs & Zooms KPI**
+* **Sous-titre :** Zéro chevauchement, double filtrage dynamique, persistance Cloud intégrale et fenêtres pop-up interactives par KPI.
+* **Ruban Horizontal Supérieur & Panneau Droit (6 Ratios Interactifs) :**
+  * Clic sur chaque carte KPI ouvrant une fenêtre pop-up dédiée : graphique d'évolution en courbes/barres, benchmark sectoriel, décryptage RevOps et décision CoDir immédiate.
 * **Zone Hero Grand Format (Looker Studio Auto-Scalé) :**
-  * Cockpit Looker Studio interactif direct en pleine largeur, auto-scalé dynamiquement (zéro scrollbar, 100% des éléments visibles dont le tableau des 10 commerciaux jusqu'à la pagination).
+  * Cockpit Looker Studio interactif direct en pleine largeur, auto-scalé dynamiquement (zéro scrollbar, 100% des éléments visibles).
   * Bouton `⛶ Plein Écran` pour immersion totale lors de la présentation CoDir.
   * Bouton bascule `🖼️ Capture HD Sécurisée` avec zoom lightbox pour sécuriser l'oral en cas de coupure réseau.
-    1. 4 Cartes de Score (Appels, Connects, Deals, ARR)
-    2. 2 Listes Déroulantes de filtres (Segment_client, Commercial)
-    3. Tableau de Segmentation Client (TPE vs PME vs MidMarket)
-    4. Graphique à Barres ARR (ColdCall vs CRM vs Web)
-    5. Grand Tableau des 10 Commerciaux (Camille ➔ Maxime)
-    6. Persistance Cloud Validée (100% stable au rechargement)
 
-### 🟢 Slide 5 : Problème 1 : Dispersion TPE (Arbitrage 1)
-* **En-tête :** `aircall.` | 05 · ARBITRAGE STRATÉGIQUE N°1 | Réallocation Commerciale
+### 🟢 Slide 6 : Problème 1 : Dispersion TPE ➔ Arbitrage Self-Serve (Gantt 45 Jours)
+* **En-tête :** `aircall.` | 06 · ARBITRAGE STRATÉGIQUE N°1 | Réallocation Commerciale | 06 / 09
 * **Titre :** Problème 1 : Dispersion TPE ➔ **Arbitrage Self-Serve**
-* **Sous-titre :** Stopper le démarchage sortant à perte pour concentrer 100% des SDRs sur les PME.
-* **Grille 2 Colonnes :**
+* **Sous-titre :** Stopper le démarchage sortant à perte pour concentrer 100% des SDRs sur les PME (Quick Win 45 Jours).
+* **Grille 2 Colonnes Vis-à-Vis :**
   * *Colonne Alerte (Constat) :*
     * `42 %` des appels absorbés par la TPE (28 545 appels pour 6 % d'ARR).
     * `3 725 €` Panier Moyen TPE (Conversion 4× inférieure, CAC > LTV).
   * *Colonne Succès (Solution & Gain) :*
     * `Stop Cold Call` ➔ Basculement 100 % Self-Serve (PLG en ligne).
     * `+1,55 M$` Nouvel ARR Additionnel (Coût d'implémentation : **0 €** | **TTV : J+30 à J+60**).
-* **Barre de Faisabilité & Déploiement en Temps (Quick Win 45 Jours) :**
-  * `S1 – S2` : **Routing CRM Automatique** ➔ Redirection automatique des leads < 20 salariés vers démo & pricing self-serve.
-  * `S3 – S4` : **Réattribution Territoires SDR** ➔ Nouveaux quotas 100% PME/MidMarket & mise à jour des séquences Cold Call.
-  * `S5 – S6` : **Go-Live & Premiers Gains** ➔ 100% effort SDR sur PME. Premières signatures additionnelles dès J+60 (+1,55 M$).
+* **Barre Gantt & Bouton Pop-up Visuel :**
+  * Bouton interactif `📅 Voir le Gantt Détaillé (Pop-up)` affichant le planning visuel semaine par semaine (S1-S2 Routing, S3-S4 Quotas, S5-S6 Go-Live).
 
-### 🟢 Slide 6 : Problème 2 : Risque Churn PME (Arbitrage 2)
-* **En-tête :** `aircall.` | 06 · ARBITRAGE STRATÉGIQUE N°2 | Sécurisation ARR PME
+### 🟢 Slide 7 : Problème 2 : Risque Churn PME ➔ Sécurisation CSM Dédié (Gantt 90 Jours)
+* **En-tête :** `aircall.` | 07 · ARBITRAGE STRATÉGIQUE N°2 | Sécurisation ARR PME | 07 / 09
 * **Titre :** Problème 2 : Risque Churn PME ➔ **1 CSM Dédié & Alertes**
-* **Sous-titre :** Sécuriser le cœur du chiffre d'affaires (61% de l'ARR) menacé par le désengagement.
-* **Grille 2 Colonnes :**
+* **Sous-titre :** Sécuriser le cœur du chiffre d'affaires (61% de l'ARR) menacé par le désengagement (Plan 90 Jours).
+* **Grille 2 Colonnes Vis-à-Vis :**
   * *Colonne Alerte (Constat) :*
     * `2,25 M€` ARR PME exposé sans accompagnement dédié (61,1 % de l'ARR global).
     * `400 000 €` Perte sèche annuelle liée à un churn historique de 20 %.
   * *Colonne Succès (Solution & Gain) :*
     * `1 CSM Dédié PME` + Onboarding automatisé petits comptes + Alertes d'usage prédictives.
     * `+1,45 M$` ARR Protégé & Expansion (Coût : 58 000 € chargés | **ROI ×25** | **TTV : J+60 à J+90**).
-* **Barre de Faisabilité & Déploiement en Temps (Moyen Terme 90 Jours) :**
-  * `Mois 1 (J+1 à J+30)` : **Chasse CSM & Alertes Tech** ➔ Lancement recrutement CSM + triggers HubSpot (inactivité < 50 appels/semaine).
-  * `Mois 2 (J+31 à J+60)` : **Onboarding & Sauvetage** ➔ Arrivée du CSM, intervention prioritaire sur les 20 comptes PME à risque de churn.
-  * `Mois 3 (J+61 à J+90)` : **Régime de Croisière & Upsell** ➔ Revues trimestrielles (QBR), churn réduit sous 5% et expansion NRR > 110%.
+* **Barre Gantt & Bouton Pop-up Visuel :**
+  * Bouton interactif `📅 Voir le Gantt Détaillé (Pop-up)` affichant le planning visuel mois par mois (Mois 1 Chasse CSM & Alertes, Mois 2 Onboarding & Sauvetage, Mois 3 Croisière & Expansion).
 
-### 🟢 Slide 7 : Impact Global — Rétroaction Data (Bilan ROI ×52)
-* **En-tête :** `aircall.` | 07 · SYNTHÈSE GLOBALE & ROI | Impact CoDir 2026
+### 🟢 Slide 8 : Impact Global — Rétroaction Data (Bilan ROI ×52)
+* **En-tête :** `aircall.` | 08 · SYNTHÈSE GLOBALE & ROI | Impact CoDir 2026 | 08 / 09
 * **Titre :** Impact Global Consolidé : **+3,00 M$ d'ARR / ROI ×52**
 * **Sous-titre :** De l'analyse rigoureuse des 5 indicateurs rois à la création de valeur massive.
 * **Ligne des 5 KPI Rois :**
@@ -391,8 +450,8 @@ Règle éditoriale absolue : **Zéro phrase longue, aucun paragraphe dense, mots
   * Budget Décisionnel Engagé : **58 000 €**
   * Résultat Final CoDir : **Retour sur Investissement Global ROI ×52**
 
-### 🟢 Slide 8 : Transparence & Traçabilité des Données (Matrice 3 Sources)
-* **En-tête :** `aircall.` | 08 · TRANSPARENCE & CONFORMITÉ | Origine Certifiée
+### 🟢 Slide 9 : Transparence & Traçabilité des Données (Matrice 3 Sources & FAQ)
+* **En-tête :** `aircall.` | 09 · TRANSPARENCE & CONFORMITÉ | Origine Certifiée | 09 / 09
 * **Titre :** Matrice de Transparence : **L'Origine de Chaque Donnée**
 * **Sous-titre :** Distinction formelle entre le cas d'étude réel, les données publiques et la simulation.
 * **Tableau Exhaustif des 3 Sources :**
@@ -418,28 +477,32 @@ Pour garantir une posture d'intégrité absolue devant le jury de la Rocket Scho
 
 ### ⏱️ Découpage Précis des 15 Minutes d'Oral
 
-#### Bloc 1 : Introduction, Identité Aircall & Cadrage CoDir (3 min — Slides 1 & 2)
-* **00:00 – 01:30 (Slide 1) :**
-  * *Script oral :* « Bonjour Mesdames et Messieurs les membres du CoDir. Aircall est aujourd'hui une référence mondiale : licorne rentable avec un EBITDA positif atteint dès 2024, 250 M$ d'ARR, 24 000 clients dans plus de 100 pays et un Net Retention Rate supérieur à 110 %. Mais pour maintenir une croissance à deux chiffres dans un contexte de discipline financière, notre machine commerciale ne peut plus se contenter d'un volume d'appels brut non optimisé. »
-* **01:30 – 03:00 (Slide 2) :**
+#### Bloc 1 : Introduction, Identité Aircall & Cadrage CoDir (2 min 30 s — Slides 1 & 2)
+* **00:00 – 01:15 (Slide 1) :**
+  * *Script oral :* « Bonjour Mesdames et Messieurs les membres du CoDir. Aircall est aujourd'hui une référence mondiale de la téléphonie cloud B2B : licorne rentable avec un EBITDA positif atteint dès 2024, 250 M$ d'ARR, 24 000 clients dans plus de 100 pays et un Net Retention Rate supérieur à 110 %. Mais pour maintenir une croissance à deux chiffres dans un contexte de discipline financière, notre machine commerciale ne peut plus se contenter d'un volume d'appels brut non optimisé. »
+* **01:15 – 02:30 (Slide 2) :**
   * *Script oral :* « Pour cette mission RevOps, mon cadrage réunit trois sponsors clés : le Directeur Commercial sur la priorisation des SDRs, le Directeur Financier sur la validation du ROI et l'IT sur les flux Looker Studio. Notre méthode en 3 étapes — cadrage, cartographie des flux et arbitrage financier — garantit qu'aucune décision n'est prise sans validation data. »
 
-#### Bloc 2 : Diagnostic Entonnoir & Démonstration Looker Studio (3 min 30 s — Slides 3 & 4)
-* **03:00 – 04:30 (Slide 3) :**
+#### Bloc 2 : Veille Concurrentielle & Analyse SWOT Ludique (2 min — Slide 3)
+* **02:30 – 04:30 (Slide 3) :**
+  * *Script oral :* « Avant de plonger dans nos chiffres internes, posons le diagnostic de notre environnement concurrentiel face à Ringover et Allo. Ringover attaque violemment sur les prix dès 21 € par mois mais avec un catalogue d'intégrations CRM limité. Allo, de son côté, rafle les micro-entreprises avec un parcours 100 % web sans aucun commercial humain. Notre SWOT est sans appel : notre force absolue, c'est notre écosystème de +100 intégrations CRM et un taux de closing AE exceptionnel de 47,2 %. En revanche, notre faiblesse majeure est de mobiliser des SDRs humains sur des TPE à faible panier, alors que le cadre PESTEL et Porter nous montre que le cold call à froid s'essouffle face aux réglementations ARCEP. Notre opportunité stratégique est claire : adopter le modèle Product-Led Growth d'Allo pour la TPE afin de libérer 100 % de nos forces vives sur notre forteresse PME. »
+
+#### Bloc 3 : Diagnostic Entonnoir & Démonstration Looker Studio (3 min — Slides 4 & 5)
+* **04:30 – 05:45 (Slide 4) :**
   * *Script oral :* « Trop de KPI tue les KPI. Nous avons audité 20 métriques brutes pour n'en retenir que 5 indicateurs rois : 0,53 % de transformation globale, 54,53 € d'ARR par appel, 61,1 % du CA concentré sur la PME, 8 344 € de panier en Cold Call, et un écart de 441 500 € entre top performers et juniors. Cet entonnoir fait émerger deux problèmes majeurs : l'hémorragie d'appels sur la TPE et le risque de churn sur la PME. »
-* **04:30 – 06:30 (Slide 4) :**
-  * *Script oral :* « Voici notre cockpit Looker Studio. Il respecte une architecture stricte de 9 composants sans chevauchement avec persistance Cloud. Grâce aux deux filtres déroulants, nous pouvons croiser instantanément la performance d'un commercial avec un segment client. Regardez la segmentation : elle rend visuellement flagrant le déséquilibre d'effort entre TPE et PME. »
+* **05:45 – 07:30 (Slide 5) :**
+  * *Script oral :* « Voici notre cockpit Looker Studio. Il respecte une architecture stricte de 9 composants sans chevauchement avec persistance Cloud. Grâce aux deux filtres déroulants, nous pouvons croiser instantanément la performance d'un commercial avec un segment client. Sur le volet droit, chaque KPI dispose d'un zoom pop-up décisionnel interactif affichant le graphique d'évolution et l'arbitrage CoDir associé. Regardez la segmentation : elle rend visuellement flagrant le gouffre d'effort entre TPE et PME. »
 
-#### Bloc 3 : Les 2 Arbitrages Stratégiques & Business Case (5 min — Slides 5 & 6)
-* **06:30 – 09:00 (Slide 5) :**
-  * *Script oral :* « Premier arbitrage : stopper le Cold Call sur la TPE. Pourquoi ? La TPE consomme 42 % des appels de nos 10 SDRs pour seulement 6 % de l'ARR. Le panier de 3 725 € détruit de la valeur. Notre décision : basculer les TPE en Product-Led Growth, 100 % libre-service sur notre site, et réallouer les 28 545 appels vers les PME. C'est un **Quick Win déployé en 45 jours chrono** (routing CRM en S1-S2, réattribution des quotas en S3-S4, Go-Live en S5-S6). **Time-to-Value dès J+30 à J+60**, pour un gain de **+1,55 M$ d'ARR pour un coût de 0 €**. »
-* **09:00 – 11:30 (Slide 6) :**
-  * *Script oral :* « Second arbitrage : sécuriser notre trésor de guerre, les 2,25 M€ d'ARR du cœur PME. Aujourd'hui, un churn moyen de 20 % nous coûte 400 000 € par an faute de suivi. Nous recrutons un CSM dédié PME, automatisons l'onboarding des petits comptes et déployons des alertes HubSpot d'inactivité téléphonique. Faisabilité cadrée sur **90 jours (Q1-Q2)** : Mois 1 pour le recrutement et les triggers d'inactivité, Mois 2 pour l'onboarding et le sauvetage des 20 comptes PME à risque, Mois 3 pour les revues trimestrielles. **Time-to-Value plein à J+60-J+90**, pour **+1,45 M$ d'ARR protégé et étendu. Coût : 58 k€, ROI unitaire de ×25**. »
+#### Bloc 4 : Les 2 Arbitrages Stratégiques & Gantt de Faisabilité (4 min 30 s — Slides 6 & 7)
+* **07:30 – 09:45 (Slide 6) :**
+  * *Script oral :* « Premier arbitrage : stopper le Cold Call sur la TPE. Pourquoi ? La TPE consomme 42 % des appels de nos 10 SDRs pour seulement 6 % de l'ARR. Le panier de 3 725 € détruit de la valeur face aux offres low-cost. Notre décision : basculer les TPE en Product-Led Growth, 100 % libre-service sur notre site, et réallouer les 28 545 appels vers les PME. Comme le montre notre planning Gantt visuel (accessible en un clic), c'est un **Quick Win déployé en 45 jours chrono** (routing CRM en S1-S2, réattribution des quotas en S3-S4, Go-Live en S5-S6). **Time-to-Value dès J+30 à J+60**, pour un gain de **+1,55 M$ d'ARR pour un coût de 0 €**. »
+* **09:45 – 12:00 (Slide 7) :**
+  * *Script oral :* « Second arbitrage : sécuriser notre trésor de guerre, les 2,25 M€ d'ARR du cœur PME. Aujourd'hui, un churn moyen de 20 % nous coûte 400 000 € par an faute de suivi. Nous recrutons un CSM dédié PME, automatisons l'onboarding des petits comptes et déployons des alertes HubSpot d'inactivité téléphonique. Faisabilité cadrée sur **90 jours (Q1-Q2)** visible dans le Gantt : Mois 1 recrutement et alertes tech, Mois 2 onboarding et sauvetage des 20 comptes PME à risque, Mois 3 revues trimestrielles et rétention pérenne. **Time-to-Value plein à J+60-J+90**, pour **+1,45 M$ d'ARR protégé et étendu. Coût : 58 k€, ROI unitaire de ×25**. »
 
-#### Bloc 4 : Synthèse ROIste, Transparence & Q&A CoDir (3 min 30 s — Slides 7 & 8)
-* **11:30 – 13:00 (Slide 7) :**
-  * *Script oral :* « En synthèse, nos deux arbitrages combinés débloquent **+3,00 M$ d'ARR net pour seulement 58 000 € d'investissement**, soit un **retour sur investissement consolidé de ROI ×52**. C'est le passage d'une prospection subie à une machine de revenus prévisible. »
-* **13:00 – 15:00 (Slide 8 & Échanges) :**
+#### Bloc 5 : Synthèse ROIste, Transparence & Q&A CoDir (3 min — Slides 8 & 9)
+* **12:00 – 13:30 (Slide 8) :**
+  * *Script oral :* « En synthèse, nos deux arbitrages combinés débloquent **+3,00 M$ d'ARR net pour seulement 58 000 € d'investissement**, soit un **retour sur investissement consolidé de ROI ×52**. C'est le passage d'une prospection subie à une machine de revenus prévisible et pérenne. »
+* **13:30 – 15:00 (Slide 9 & Échanges) :**
   * *Script oral :* « Toutes nos conclusions reposent sur une intégrité totale des données, traçables entre le cas d'étude Rocket School, les données réelles publiques d'Aircall et notre jeu de simulation. Je suis désormais à votre disposition pour vos questions. »
 
 ---
